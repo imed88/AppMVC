@@ -11,10 +11,10 @@
 </head>
 <body>
     <!-- NavBar -->
-    <div class="navbar navbar-default navbar-fixed-top shadow">
+    <nav class="navbar navbar-default navbar-fixed-top shadow  " >
         <div class="container">
-            <div class="navbar-header">
-                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+            <div class="navbar-header ">
+                <button class="navbar-toggle collapsed shadow" data-toggle="collapse" data-target="#navbar"  >
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -36,13 +36,17 @@
 
             </div>
         </div>
-    </div>
+    </nav>
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer class="myFooter textChange shadow" id="TextFooter">
-            <p>&copy; @DateTime.Now.Year - La Régie Nationale des Tabacs et des Allumettes</p>
-        </footer>
+            <div class="container">
+                <div class="row">
+                    <p>&copy; @DateTime.Now.Year - La Régie Nationale des Tabacs et des Allumettes</p>
+                </div>
+                </div>
+                </footer>
     </div>
     <script src="~/Scripts/jquery-3.3.1.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
