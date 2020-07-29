@@ -8,9 +8,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using WebApplication2.Models;
+using WebApplication1.Models;
 
-namespace WebApplication2.Controllers
+namespace WebApplication1.Controllers
 {
     [Authorize]
     public class AccountController : Controller
@@ -139,7 +139,6 @@ namespace WebApplication2.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.UserType = new SelectList(new[] { "Medecin/Administrateur", "Infirmier" });
             return View();
         }
 
@@ -152,9 +151,7 @@ namespace WebApplication2.Controllers
         {
             if (ModelState.IsValid)
             {
-
-                ViewBag.UserType = new SelectList(new[] { "Medecin/Administrateur", "Infirmier" });
-                var user = new ApplicationUser { UserName = model.Username, Email = model.Email, UserType=model.UserType};
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

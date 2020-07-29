@@ -14,34 +14,24 @@
     background-color: #ffffff;
 }
 
-
 .textChange {
     font-family: myFont;
-    text-align:center
 }
 
     #TextColor {
     color: #660000;
 }
-
-
 .myFooter {
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #ffffff;
-    border-color: #e7e7e7;
-    height: 70px;
-    
+
 }
-
-
 #TextFooter {
     color: #660000;
     padding:10px;
-    background:white;
-    
+    background:white
 }
 
         #TextColor:hover {
@@ -55,18 +45,7 @@
     box-shadow: 3px 3px 5px 6px #ccc; /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 }
 
-
-
-.img {
-    background: #fff;
-    padding: 0px;
-    margin: 0px;
+img {
+   
+    width:20%;
 }
-
-.RenderBody
-{
-    color:white;
-    margin-bottom:50px;
-        
-}
-

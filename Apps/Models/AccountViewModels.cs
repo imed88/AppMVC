@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace WebApplication2.Models
+namespace WebApplication1.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
-
         [Required]
         [Display(Name = "Courrier électronique")]
         public string Email { get; set; }
@@ -65,14 +64,6 @@ namespace WebApplication2.Models
 
     public class RegisterViewModel
     {
-        [Required]
-        [Display(Name = "Nom d'utilisateur")]
-        public string Username { get; set; }
-
-        [Required]
-        [Display(Name = "Type d'utilisateur")]
-        public string UserType{ get; set; }
-
         [Required]
         [EmailAddress]
         [Display(Name = "Courrier électronique")]

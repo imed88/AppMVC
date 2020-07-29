@@ -1,0 +1,27 @@
+﻿@model WebApplication2.Models.Tables.Specialite
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Specialite</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SpecialiteName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpecialiteName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdSpecialite }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
