@@ -1,6 +1,7 @@
 ﻿@model WebApplication2.Models.VerifyCodeViewModel
 @{
     ViewBag.Title = "Vérifier";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
 }
 
 <h2>@ViewBag.Title.</h2>
@@ -33,6 +34,3 @@
     </div>
 }
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

@@ -8,20 +8,24 @@
 
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/StyleStyleSheet.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body>
     <!-- NavBar -->
-    <nav class="navbar navbar-default navbar-fixed-top shadow  " >
+    <nav class="navbar navbar-default navbar-fixed-top shadow  ">
         <div class="container">
             <div class="navbar-header ">
-                <button class="navbar-toggle collapsed shadow" data-toggle="collapse" data-target="#navbar"  >
+                <a href="#" class="navbar-brand img">
+                    <!-- Logo Image -->
+                    <img src="~/Content/logo.png" width="140" alt="" class="d-inline-block align-middle mr-2 ">
+
+                </a>
+                <button class="navbar-toggle collapsed shadow" data-toggle="collapse" data-target="#navbar">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="#" class="navbar-brand">
-                    <img src="" />
-                </a>
+
             </div>
             <div id="navbar" class="navbar-collapse collapse textChange ">
                 <ul class="nav navbar-nav" id="TextColor:hover">
@@ -29,26 +33,33 @@
                     <li><a href="#" id="TextColor"><i class="glyphicon glyphicon-bed"></i>Patients</a></li>
                     <li><a href="#" id="TextColor"><i class="glyphicon glyphicon-briefcase"></i>Medecins Conventionnés</a></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" id="TextColor"><i class="glyphicon glyphicon-lock"></i>Connexion</a></li>
-                    <li><a href="#" id="TextColor"><i class="glyphicon glyphicon-user"></i>Inscription</a></li>
-                </ul>
+                <!--  Partial View login-->
+                @Html.Partial("_LoginPartial")
 
             </div>
         </div>
     </nav>
     <div class="container body-content">
-        @RenderBody()
-        <hr />
+        <div class="row RenderBody" >
+            @RenderBody()
+            <hr />
+        </div>
+
+    </div>
+    <div>
         <footer class="myFooter textChange shadow" id="TextFooter">
             <div class="container">
                 <div class="row">
                     <p>&copy; @DateTime.Now.Year - La Régie Nationale des Tabacs et des Allumettes</p>
                 </div>
-                </div>
-                </footer>
+            </div>
+        </footer>
     </div>
     <script src="~/Scripts/jquery-3.3.1.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
 </body>
 </html>
