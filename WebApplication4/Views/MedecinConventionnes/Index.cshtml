@@ -1,0 +1,58 @@
+﻿@model IEnumerable<WebApplication4.Models.Tables.MedecinConventionne>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.specialite.SpecialiteName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nameDoctors)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.emailDoctors)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phoneDoctors)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.picDoctor)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.specialite.SpecialiteName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nameDoctors)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.emailDoctors)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phoneDoctors)
+        </td>
+        <td>
+            <img src="~/Uploads/@Html.DisplayFor(modelItem=> item.picDoctor)" class="thumbnail" style="width:100px; height:100px"/>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idDoctors }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idDoctors }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idDoctors })
+        </td>
+    </tr>
+}
+
+</table>
