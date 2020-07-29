@@ -1,0 +1,8 @@
+﻿@font-face {
+    font-family: MyFont;
+    src:url(Lato-Black.ttf);
+}
+
+div {
+    font-family: MyFont;
+}

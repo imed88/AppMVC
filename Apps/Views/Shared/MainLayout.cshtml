@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mon application ASP.NET</title>
+    @*Styles.Render("~/Content/css")*@
+    @*Scripts.Render("~/bundles/modernizr")*@
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/StyleStyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top shadow ">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">
+
+                    <img src="" />
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="textChange">
+                        <a href="#" id="TextColor">
+                            <i class="glyphicon glyphicon-home"></i>
+                            Accueil
+                        </a>
+                    </li>
+                    <li class="textChange">
+                        <a href="#" id="TextColor">
+                            <i class="glyphicon glyphicon-bed"></i>
+                            Patients
+                        </a>
+                    </li>
+                    <li class="textChange">
+                        <a href="#" id="TextColor">
+                            <i class="glyphicon glyphicon-briefcase"></i>
+                            Medecins Conventionnes
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="textChange">
+                        <a href="#" id="TextColor">
+                            <i class="glyphicon glyphicon-lock"></i>
+                            Connexion
+                        </a>
+                    </li>
+                    <li class="textChange">
+                        <a href="#" id="TextColor">
+                            <i class="glyphicon glyphicon-user"></i>
+                            S'inscrire
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <!-- footer -->
+        <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+    </div>
+
+    <footer class="myFooter shadow">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 textChange" id="TextFooter">
+                    <p>&copy; @DateTime.Now.Year - La Régie Nationale des Tabacs et des Allumettes</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

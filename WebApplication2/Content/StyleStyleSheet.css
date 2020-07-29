@@ -1,0 +1,54 @@
+﻿@font-face {
+    font-family: myFont;
+    src: url(../fonts/Lato-Black.ttf)
+}
+
+.navbar-default {
+    background-color: #ffffff;
+    border-color: #e7e7e7;
+    height: 70px;
+    padding-top: 10px;
+}
+
+#navbar {
+    background-color: #ffffff;
+}
+
+.textChange {
+    font-family: myFont;
+}
+
+    #TextColor {
+    color: #660000;
+}
+.myFooter {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffffff;
+    border-color: #e7e7e7;
+    height: 70px;
+    
+}
+
+
+
+#TextFooter {
+    color: #660000;
+    padding:10px;
+    background:white;
+    
+}
+
+        #TextColor:hover {
+            color: #ffffff;
+            background-color: #660000;
+        }
+
+.shadow {
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow: 3px 3px 5px 6px #ccc; /* Firefox 3.5 - 3.6 */
+    box-shadow: 3px 3px 5px 6px #ccc; /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
