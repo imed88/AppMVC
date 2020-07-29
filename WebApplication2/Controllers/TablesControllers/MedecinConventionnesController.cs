@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -49,10 +50,13 @@ namespace WebApplication2.Controllers.TablesControllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idDoctors,nameDoctors,emailDoctors,phoneDoctors,picDoctor,IdSpecialite")] MedecinConventionne medecinConventionne)
+        public ActionResult Create(MedecinConventionne medecinConventionne, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
+                string path = Path.Combine(Server.MapPath("~/Uploads"), upload.FileName);
+                upload.SaveAs(path);
+                medecinConventionne.picDoctor = upload.FileName;
                 db.MedecinConventionnes.Add(medecinConventionne);
                 db.SaveChanges();
                 return RedirectToAction("Index");
