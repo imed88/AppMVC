@@ -17,9 +17,11 @@ namespace WebApplication4.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext db;
 
         public AccountController()
         {
+            db = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -75,7 +77,7 @@ namespace WebApplication4.Controllers
 
             // Ceci ne comptabilise pas les échecs de connexion pour le verrouillage du compte
             // Pour que les échecs de mot de passe déclenchent le verrouillage du compte, utilisez shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -139,7 +141,7 @@ namespace WebApplication4.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.UserType = new SelectList(new[] { "Medecin/Administrateur", "Infirmier" });
+            ViewBag.UserType = new SelectList(db.Roles.Where(a=>!a.Name.Contains("Administrateur/Medecins")).ToList(), "Name","Name");
             return View();
         }
 
@@ -153,19 +155,19 @@ namespace WebApplication4.Controllers
             if (ModelState.IsValid)
             {
 
-                ViewBag.UserType = new SelectList(new[] { "Medecin/Administrateur", "Infirmier" });
+                ViewBag.UserType = new SelectList(db.Roles.Where(a => !a.Name.Contains("Administrateur/Medecins")).ToList(), "Name", "Name");
                 var user = new ApplicationUser { UserName = model.Username, Email = model.Email, UserType=model.UserType};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // Pour plus d'informations sur l'activation de la confirmation de compte et de la réinitialisation de mot de passe, visitez https://go.microsoft.com/fwlink/?LinkID=320771
                     // Envoyer un message électronique avec ce lien
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirmez votre compte", "Confirmez votre compte en cliquant <a href=\"" + callbackUrl + "\">ici</a>");
-
+                    await UserManager.AddToRoleAsync(user.Id, model.UserType);
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
@@ -406,7 +408,7 @@ namespace WebApplication4.Controllers
             return View();
         }
 
-        protected override void Dispose(bool disposing)
+        /*protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
@@ -425,7 +427,7 @@ namespace WebApplication4.Controllers
 
             base.Dispose(disposing);
         }
-
+        */
         #region Applications auxiliaires
         // Utilisé(e) pour la protection XSRF lors de l'ajout de connexions externes
         private const string XsrfKey = "XsrfId";

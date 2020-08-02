@@ -11,6 +11,7 @@ namespace WebApplication4.Models
     public class ApplicationUser : IdentityUser
     {
         public string UserType { get; set; }
+      
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Notez qu'authenticationType doit correspondre à l'élément défini dans CookieAuthenticationOptions.AuthenticationType
@@ -36,5 +37,9 @@ namespace WebApplication4.Models
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Specialite> Specialites { get; set; }
 
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.MedecinConventionne> MedecinConventionnes { get; set; }
+        public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Events> Events { get; set; }
+
+
+
     }
 }

@@ -16,7 +16,7 @@
 @foreach (var item in Model)
 {
 <div class="panel panel-default" style="padding:15px">
-    <h1 class="panel-heading">@Html.DisplayFor(modelItem => item.SpecialiteName)</h1>
+    <h4 class="panel-heading">@Html.DisplayFor(modelItem => item.SpecialiteName)</h4>
     <div class="row">
         @foreach (var subItem in item.medConv)
         {
@@ -25,7 +25,9 @@
                 <img src="~/Uploads/@subItem.picDoctor" />
                 <h4 style="color:black">@Html.DisplayFor(modelItem => subItem.nameDoctors)</h4>
                 <h3 style="color:black">@Html.DisplayFor(modelItem => subItem.phoneDoctors)</h3>
-                <button class="btn btn-default btn-primary">Plus d'informations</button>
+                @Html.ActionLink("Plus d'informations", "Details",
+                        new { idDoctors=subItem.idDoctors},
+                        new { @class="btn btn-primary"})
             </div>
 
         }

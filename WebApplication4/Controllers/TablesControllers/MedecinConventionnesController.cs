@@ -12,6 +12,7 @@ using WebApplication4.Models.Tables;
 
 namespace WebApplication2.Controllers.TablesControllers
 {
+    [Authorize]
     public class MedecinConventionnesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -91,9 +92,16 @@ namespace WebApplication2.Controllers.TablesControllers
         {
             if (ModelState.IsValid)
             {
-                string path = Path.Combine(Server.MapPath("~/Uploads/"), upload.FileName);
-                upload.SaveAs(path);
-                medecinConventionne.picDoctor = upload.FileName;
+                string oldPath = Path.Combine(Server.MapPath("~/Uploads/"), medecinConventionne.picDoctor);
+                if (upload != null)
+                {
+                    System.IO.File.Delete(oldPath);
+                    string path = Path.Combine(Server.MapPath("~/Uploads/"), upload.FileName);
+                    upload.SaveAs(path);
+                    medecinConventionne.picDoctor = upload.FileName;
+                }
+
+                
                 db.Entry(medecinConventionne).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

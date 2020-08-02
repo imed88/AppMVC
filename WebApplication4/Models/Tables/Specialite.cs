@@ -18,5 +18,8 @@ namespace WebApplication4.Models.Tables
         public  virtual ICollection<MedecinConventionne> medConv { get; set; }
 
 
+
+
+
     }
 }

@@ -16,6 +16,16 @@ namespace WebApplication4.Controllers
             return View(db.Specialites.ToList());
         }
 
+        public ActionResult Details(int idDoctors)
+        {
+            var medElem = db.MedecinConventionnes.Find(idDoctors);
+            if(medElem==null)
+            {
+                return HttpNotFound();
+            }
+            return View(medElem); 
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

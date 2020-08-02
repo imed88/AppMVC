@@ -49,10 +49,10 @@ namespace WebApplication4.Models
 
     public class LoginViewModel
     {
-        [Required]
+        /*[Required]
         [Display(Name = "Courrier électronique")]
         [EmailAddress]
-        public string Email { get; set; }
+        public string Email { get; set; }*/
 
         [Required]
         [DataType(DataType.Password)]
@@ -61,6 +61,10 @@ namespace WebApplication4.Models
 
         [Display(Name = "Mémoriser le mot de passe ?")]
         public bool RememberMe { get; set; }
+
+        [Required]
+        [Display(Name = "Nom d'utilisateur")]
+        public string UserName { get; set; }
     }
 
     public class RegisterViewModel
