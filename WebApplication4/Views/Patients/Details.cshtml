@@ -1,0 +1,67 @@
+﻿@model WebApplication4.Models.Tables.Patients
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Patients</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Usines.UsineName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usines.UsineName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MatriculePatients)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatriculePatients)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomPatient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomPatient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrenomPatient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrenomPatient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhonePatients)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhonePatients)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdPatients }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

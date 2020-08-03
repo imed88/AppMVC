@@ -38,6 +38,9 @@ namespace WebApplication4.Models
 
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.MedecinConventionne> MedecinConventionnes { get; set; }
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Events> Events { get; set; }
+        public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Usine> Usines { get; set; }
+        public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Patients> Patients { get; set; }
+
 
 
 

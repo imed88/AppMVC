@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication4.Models;
+using WebApplication4.Models.ViewModels;
 
 namespace WebApplication4.Controllers
 {
@@ -39,5 +40,19 @@ namespace WebApplication4.Controllers
 
             return View();
         }
+
+        public ActionResult HomePage()
+        {
+            var tables = new MultipleData
+            {
+                medConv = db.MedecinConventionnes.ToList(),
+                specialites = db.Specialites.ToList(),
+                patient = db.Patients.ToList(),
+                usines = db.Usines.ToList()
+            };
+            return View(tables);
+        }
+
+
     }
 }
