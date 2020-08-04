@@ -18,64 +18,13 @@ namespace WebApplication4.Controllers.TablesControllers
         // GET: Evenst
         public ActionResult Index()
         {
-            var scheduler = new DHXScheduler(this);
-            scheduler.Skin = DHXScheduler.Skins.Flat;
-
-            scheduler.Config.first_hour = 6;
-            scheduler.Config.last_hour = 20;
-
-            scheduler.EnableDynamicLoading(SchedulerDataLoader.DynamicalLoadingMode.Month);
-            scheduler.Localization.Set(SchedulerLocalization.Localizations.French);
-
-            scheduler.LoadData = true;
-            scheduler.EnableDataprocessor = true;
-
-            return View(scheduler);
+            return View();
         }
-        [Authorize(Roles ="Administrateur, Infirmier")]
-        public ContentResult Data()
+        
+        public JsonResult GetEvents()
         {
-            var apps = db.Events.ToList();
-            return new SchedulerAjaxData(apps);
-        }
-        [Authorize(Roles = "Administrateur, Infirmier")]
-        public ActionResult Save(int? id, FormCollection actionValues)
-        {
-            var action = new DataAction(actionValues);
-
-            try
-            {
-                var changedEvent = DHXEventsHelper.Bind<Events>(actionValues);
-                switch (action.Type)
-                {
-                    case DataActionTypes.Insert:
-                        db.Events.Add(changedEvent);
-                        break;
-                    case DataActionTypes.Delete:
-                        db.Entry(changedEvent).State = EntityState.Deleted;
-                        break;
-                    default:// "update"  
-                        db.Entry(changedEvent).State = EntityState.Modified;
-                        break;
-                }
-                db.SaveChanges();
-                action.TargetId = changedEvent.IdEvent;
-            }
-            catch (Exception a)
-            {
-                action.Type = DataActionTypes.Error;
-            }
-
-            return (new AjaxSaveResponse(action));
-        }
-        [Authorize(Roles = "Administrateur")]
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
+            var events = db.Events.ToList();
+            return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
     }
 }

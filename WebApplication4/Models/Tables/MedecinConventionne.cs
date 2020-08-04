@@ -31,5 +31,7 @@ namespace WebApplication4.Models.Tables
         public int IdSpecialite { get; set; }
 
         public virtual Specialite specialite { get; set; }
+
+        public virtual ICollection<Events> events { get; set; }
     }
 }
