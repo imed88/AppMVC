@@ -241,7 +241,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\TablesControllers\EvenstController.cs" />
+    <Compile Include="Controllers\TablesControllers\AppointementModelsController.cs" />
     <Compile Include="Controllers\TablesControllers\MedecinConventionnesController.cs" />
     <Compile Include="Controllers\TablesControllers\PatientsController.cs" />
     <Compile Include="Controllers\TablesControllers\RolesController.cs" />
@@ -266,27 +266,19 @@
     <Compile Include="Migrations\202007291233576_AddTableMedecinConventionne.Designer.cs">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202008031009311_createDb.cs" />
-    <Compile Include="Migrations\202008031009311_createDb.Designer.cs">
-      <DependentUpon>202008031009311_createDb.cs</DependentUpon>
+    <Compile Include="Migrations\202008060853210_CreateDb.cs" />
+    <Compile Include="Migrations\202008060853210_CreateDb.Designer.cs">
+      <DependentUpon>202008060853210_CreateDb.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202008031010098_createPatients.cs" />
-    <Compile Include="Migrations\202008031010098_createPatients.Designer.cs">
-      <DependentUpon>202008031010098_createPatients.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202008040927161_addMedConvEvent.cs" />
-    <Compile Include="Migrations\202008040927161_addMedConvEvent.Designer.cs">
-      <DependentUpon>202008040927161_addMedConvEvent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202008041009589_addMedConvEvent2.cs" />
-    <Compile Include="Migrations\202008041009589_addMedConvEvent2.Designer.cs">
-      <DependentUpon>202008041009589_addMedConvEvent2.cs</DependentUpon>
+    <Compile Include="Migrations\202008060947140_Appointment.cs" />
+    <Compile Include="Migrations\202008060947140_Appointment.Designer.cs">
+      <DependentUpon>202008060947140_Appointment.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Tables\Events.cs" />
+    <Compile Include="Models\Tables\Appointement.cs" />
     <Compile Include="Models\Tables\MedecinConventionne.cs" />
     <Compile Include="Models\Tables\Patients.cs" />
     <Compile Include="Models\Tables\RoleViewModel.cs" />
@@ -295,6 +287,7 @@
     <Compile Include="Models\ViewModels\MultipleData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Validations\MyAppointmentDateValidation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -302,6 +295,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CalendarSite.css" />
+    <Content Include="Content\Chosen\chosen-sprite.png" />
+    <Content Include="Content\Chosen\chosen.min.css" />
     <Content Include="Content\fullcalendar.css" />
     <Content Include="Content\fullcalendar.min.css" />
     <Content Include="Content\fullcalendar.print.css" />
@@ -341,6 +336,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Scripts\chosen.jquery.min.js" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.css" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.js" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler_contrast_black.css" />
@@ -803,7 +799,6 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Evenst\Index.cshtml" />
     <Content Include="Views\Usines\Create.cshtml" />
     <Content Include="Views\Usines\Delete.cshtml" />
     <Content Include="Views\Usines\Details.cshtml" />
@@ -815,6 +810,11 @@
     <Content Include="Views\Patients\Edit.cshtml" />
     <Content Include="Views\Patients\Index.cshtml" />
     <Content Include="Views\Home\HomePage.cshtml" />
+    <Content Include="Views\AppointementModels\Create.cshtml" />
+    <Content Include="Views\AppointementModels\Delete.cshtml" />
+    <Content Include="Views\AppointementModels\Details.cshtml" />
+    <Content Include="Views\AppointementModels\Edit.cshtml" />
+    <Content Include="Views\AppointementModels\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -838,17 +838,11 @@
     <EmbeddedResource Include="Migrations\202007291233576_AddTableMedecinConventionne.resx">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008031009311_createDb.resx">
-      <DependentUpon>202008031009311_createDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008060853210_CreateDb.resx">
+      <DependentUpon>202008060853210_CreateDb.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008031010098_createPatients.resx">
-      <DependentUpon>202008031010098_createPatients.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008040927161_addMedConvEvent.resx">
-      <DependentUpon>202008040927161_addMedConvEvent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008041009589_addMedConvEvent2.resx">
-      <DependentUpon>202008041009589_addMedConvEvent2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008060947140_Appointment.resx">
+      <DependentUpon>202008060947140_Appointment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

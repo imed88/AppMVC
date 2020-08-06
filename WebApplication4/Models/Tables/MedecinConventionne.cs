@@ -32,6 +32,6 @@ namespace WebApplication4.Models.Tables
 
         public virtual Specialite specialite { get; set; }
 
-        public virtual ICollection<Events> events { get; set; }
+        public virtual ICollection<AppointementModel> Appointments { get; set; }
     }
 }

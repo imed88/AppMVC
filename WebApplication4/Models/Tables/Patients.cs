@@ -22,5 +22,7 @@ namespace WebApplication4.Models.Tables
         public int IdUsine { get; set; }
 
         public virtual Usine Usines { get; set; }
+
+        public virtual ICollection<AppointementModel> Appointments { get; set; }
     }
 }
