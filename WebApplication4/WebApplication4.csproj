@@ -243,6 +243,8 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TablesControllers\AppointementModelsController.cs" />
     <Compile Include="Controllers\TablesControllers\MedecinConventionnesController.cs" />
+    <Compile Include="Controllers\TablesControllers\MedicamentsController.cs" />
+    <Compile Include="Controllers\TablesControllers\MedicSelectController.cs" />
     <Compile Include="Controllers\TablesControllers\PatientsController.cs" />
     <Compile Include="Controllers\TablesControllers\RolesController.cs" />
     <Compile Include="Controllers\TablesControllers\SpecialitesController.cs" />
@@ -274,16 +276,38 @@
     <Compile Include="Migrations\202008060947140_Appointment.Designer.cs">
       <DependentUpon>202008060947140_Appointment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008070638540_addTableMedicament.cs" />
+    <Compile Include="Migrations\202008070638540_addTableMedicament.Designer.cs">
+      <DependentUpon>202008070638540_addTableMedicament.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008070652356_addTableMedicamentModif.cs" />
+    <Compile Include="Migrations\202008070652356_addTableMedicamentModif.Designer.cs">
+      <DependentUpon>202008070652356_addTableMedicamentModif.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008070715588_addTableMedicamentModif2.cs" />
+    <Compile Include="Migrations\202008070715588_addTableMedicamentModif2.Designer.cs">
+      <DependentUpon>202008070715588_addTableMedicamentModif2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008070838534_addTableHistMedicmament.cs" />
+    <Compile Include="Migrations\202008070838534_addTableHistMedicmament.Designer.cs">
+      <DependentUpon>202008070838534_addTableHistMedicmament.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008070943291_addTableHistMedicmament1.cs" />
+    <Compile Include="Migrations\202008070943291_addTableHistMedicmament1.Designer.cs">
+      <DependentUpon>202008070943291_addTableHistMedicmament1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Tables\Appointement.cs" />
     <Compile Include="Models\Tables\MedecinConventionne.cs" />
+    <Compile Include="Models\Tables\Medicament.cs" />
     <Compile Include="Models\Tables\Patients.cs" />
     <Compile Include="Models\Tables\RoleViewModel.cs" />
     <Compile Include="Models\Tables\Specialite.cs" />
     <Compile Include="Models\Tables\Usine.cs" />
+    <Compile Include="Models\ViewModels\MedicamentListBox.cs" />
     <Compile Include="Models\ViewModels\MultipleData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -815,6 +839,12 @@
     <Content Include="Views\AppointementModels\Details.cshtml" />
     <Content Include="Views\AppointementModels\Edit.cshtml" />
     <Content Include="Views\AppointementModels\Index.cshtml" />
+    <Content Include="Views\Medicaments\Create.cshtml" />
+    <Content Include="Views\Medicaments\Delete.cshtml" />
+    <Content Include="Views\Medicaments\Details.cshtml" />
+    <Content Include="Views\Medicaments\Edit.cshtml" />
+    <Content Include="Views\Medicaments\Index.cshtml" />
+    <Content Include="Views\MedicSelect\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -843,6 +873,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008060947140_Appointment.resx">
       <DependentUpon>202008060947140_Appointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008070638540_addTableMedicament.resx">
+      <DependentUpon>202008070638540_addTableMedicament.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008070652356_addTableMedicamentModif.resx">
+      <DependentUpon>202008070652356_addTableMedicamentModif.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008070715588_addTableMedicamentModif2.resx">
+      <DependentUpon>202008070715588_addTableMedicamentModif2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008070838534_addTableHistMedicmament.resx">
+      <DependentUpon>202008070838534_addTableHistMedicmament.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008070943291_addTableHistMedicmament1.resx">
+      <DependentUpon>202008070943291_addTableHistMedicmament1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
