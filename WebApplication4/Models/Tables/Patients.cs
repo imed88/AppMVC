@@ -20,6 +20,7 @@ namespace WebApplication4.Models.Tables
         public string PhonePatients { get; set; }
              
         public int IdUsine { get; set; }
+        public virtual ICollection<FileDetail> FileDetails { get; set; }
 
         public virtual Usine Usines { get; set; }
 

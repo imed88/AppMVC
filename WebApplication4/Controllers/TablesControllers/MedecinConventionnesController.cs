@@ -63,7 +63,7 @@ namespace WebApplication2.Controllers.TablesControllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.IdSpecialite = new SelectList(db.Specialites, "IdSpecialite", "SpecialiteName", medecinConventionne.IdSpecialite);
+            ViewBag.IdSpecialite = new SelectList(db.Specialites, "IdSpecialite", "SpecialiteName", medecinConventionne.IdSpecialite,  "--Select Process--");
             return View(medecinConventionne);
         }
 

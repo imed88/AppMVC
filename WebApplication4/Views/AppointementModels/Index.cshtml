@@ -6,6 +6,11 @@
 }
 
 <h2>Index</h2>
+@using (Html.BeginForm("Index", "AppointementModels", FormMethod.Get))
+{
+    @Html.TextBox("searching")
+    <input type="submit" value="submit" />
+}
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -83,4 +88,3 @@
     }
 
 </table>
-<script src="~/Scripts/chosen.jquery.min.js"></script>

@@ -11,6 +11,13 @@ namespace WebApplication4.Models.Tables
 {
     public class AppointementModel : IComparable<AppointementModel>
     {
+        public AppointementModel()
+        {
+        }
+        public AppointementModel(AppointementModel appoint)
+        {
+        }
+
         [Key]
         public int AppointmentID { get; set; }
 

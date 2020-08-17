@@ -16,16 +16,37 @@ namespace WebApplication4.Controllers.TablesControllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: AppointementModels
-        public ActionResult Index()
+        /*public ActionResult Index()
         {
             var appointementModels = db.AppointementModels.Include(a => a.ApplicationUser);
             var appointementModel = db.AppointementModels.Include(a => a.Doctor);
             var appoints = db.AppointementModels.Include(a => a.Patient);
             return View(appointementModels.ToList());
-        }
+        }*/
 
-        // GET: AppointementModels/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Index(string searching, int? id)
+        {
+            var appointementModels = db.AppointementModels.Include(a => a.ApplicationUser);
+            Patients patients = db.Patients.Find(id);
+
+            if (patients == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            if (!String.IsNullOrEmpty(searching))
+            {
+                appointementModels = appointementModels.Where(s => s.Patient.NomPatient.Contains(searching) && s.Patient.IdPatients==id );
+            }
+            else
+            {
+
+                return View(appointementModels.ToList());
+            }
+            return View(appointementModels.ToList());
+        }
+            // GET: AppointementModels/Details/5
+            public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -53,13 +74,19 @@ namespace WebApplication4.Controllers.TablesControllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(AppointementModel appointementModel)
+        public ActionResult Create(AppointementModel appointementModel, int? id)
         {
             if (ModelState.IsValid)
             {
+                Patients patients = db.Patients.Find(id);
+
+                if (patients == null)
+                {
+                    return HttpNotFound();
+                }
                 db.AppointementModels.Add(appointementModel);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index/"+id);
             }
 
             ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", appointementModel.UserID);

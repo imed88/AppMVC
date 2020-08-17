@@ -54,9 +54,19 @@
             @Html.DisplayFor(modelItem => item.PhonePatients)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdPatients }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdPatients }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdPatients })
+            @if (item.FileDetails.Count() == 0)
+            {
+                <span>No File</span>
+            }
+            else
+            {
+                <span>@item.FileDetails.Count() File(s)</span>
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.IdPatients }) |
+            @Html.ActionLink("Details", "Details", new { id = item.IdPatients }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.IdPatients })
         </td>
     </tr>
 }

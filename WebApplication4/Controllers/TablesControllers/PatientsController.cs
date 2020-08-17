@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -53,6 +54,42 @@ namespace WebApplication4.Controllers.TablesControllers
         {
             if (ModelState.IsValid)
             {
+                List<FileDetail> fileDetails = new List<FileDetail>();
+                for (int i = 0; i < Request.Files.Count; i++)
+                {
+                    var file = Request.Files[i];
+
+                    if (file != null && file.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(file.FileName);
+                        FileDetail fileDetail = new FileDetail()
+                        {
+                            FileName = fileName,
+                            Extension = Path.GetExtension(fileName),
+                            Id = Guid.NewGuid()
+                        };
+                        fileDetails.Add(fileDetail);
+                        string foldername = "Uploads";
+                        string createfolder = Server.MapPath(string.Format("~/{0}/" , foldername));
+                        if (!Directory.Exists(createfolder))
+                        {
+                            Directory.CreateDirectory(createfolder);
+                            
+                        }
+
+                        string subfoldername = foldername+"/"+ patients.NomPatient + patients.PrenomPatient;
+                        string subcreatefolder = Server.MapPath(string.Format("~/{0}/", subfoldername));
+                        if (!Directory.Exists(subcreatefolder))
+                        {
+                            Directory.CreateDirectory(subcreatefolder);
+                        }
+
+                        var path = Path.Combine(subcreatefolder, fileDetail.Id + fileDetail.Extension);
+                        file.SaveAs(path);
+                    }
+                }
+
+                patients.FileDetails = fileDetails;
                 db.Patients.Add(patients);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -129,5 +166,22 @@ namespace WebApplication4.Controllers.TablesControllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult Appointements(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Patients patients = db.Patients.Find(id);
+          
+            if (patients == null)
+            {
+                return HttpNotFound();
+            }
+          
+            return RedirectToAction("Index/"+id, "AppointementModels");
+        }
+
     }
 }

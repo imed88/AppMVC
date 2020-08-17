@@ -1,0 +1,46 @@
+﻿@model WebApplication4.Models.Tables.Patients
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+
+@using (Html.BeginForm("Create", "PatientFile", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Create Support Request</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NomPatient)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NomPatient)
+            @Html.ValidationMessageFor(model => model.NomPatient)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PrenomPatient)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.PrenomPatient)
+            @Html.ValidationMessageFor(model => model.PrenomPatient)
+        </div>
+        <div class="editor-label">
+            <label>Files:</label>
+        </div>
+        <div class="editor-field">
+            <input type="file" name="file" multiple="multiple" />
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
