@@ -24,19 +24,21 @@ namespace WebApplication4.Controllers.TablesControllers
             return View(appointementModels.ToList());
         }*/
 
-        public ActionResult Index(string searching, int? id)
+        public ActionResult Index(string searching, string nom, string prenom)
         {
             var appointementModels = db.AppointementModels.Include(a => a.ApplicationUser);
-            Patients patients = db.Patients.Find(id);
-
-            if (patients == null)
-            {
-                return HttpNotFound();
-            }
-            else
+           
             if (!String.IsNullOrEmpty(searching))
             {
-                appointementModels = appointementModels.Where(s => s.Patient.NomPatient.Contains(searching) && s.Patient.IdPatients==id );
+                appointementModels = appointementModels.Where(s => s.Patient.NomPatient.Contains(searching));
+            }
+            else if (!String.IsNullOrEmpty(nom))
+            {
+                appointementModels = appointementModels.Where(s => s.Patient.NomPatient.Contains(nom));
+            }
+            else if (!String.IsNullOrEmpty(prenom))
+            {
+                appointementModels = appointementModels.Where(s => s.Patient.NomPatient.Contains(prenom));
             }
             else
             {
@@ -74,19 +76,14 @@ namespace WebApplication4.Controllers.TablesControllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(AppointementModel appointementModel, int? id)
+        public ActionResult Create(AppointementModel appointementModel)
         {
             if (ModelState.IsValid)
             {
-                Patients patients = db.Patients.Find(id);
-
-                if (patients == null)
-                {
-                    return HttpNotFound();
-                }
+               
                 db.AppointementModels.Add(appointementModel);
                 db.SaveChanges();
-                return RedirectToAction("Index/"+id);
+                return RedirectToAction("Index");
             }
 
             ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", appointementModel.UserID);

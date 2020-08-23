@@ -256,6 +256,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PatientFileController.cs" />
     <Compile Include="Controllers\TablesControllers\AppointementModelsController.cs" />
+    <Compile Include="Controllers\TablesControllers\ConsultationsController.cs" />
     <Compile Include="Controllers\TablesControllers\MedecinConventionnesController.cs" />
     <Compile Include="Controllers\TablesControllers\MedicamentsController.cs" />
     <Compile Include="Controllers\TablesControllers\MedicSelectController.cs" />
@@ -282,15 +283,24 @@
     <Compile Include="Migrations\202007291233576_AddTableMedecinConventionne.Designer.cs">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202008161432206_CreateDb.cs" />
-    <Compile Include="Migrations\202008161432206_CreateDb.Designer.cs">
-      <DependentUpon>202008161432206_CreateDb.cs</DependentUpon>
+    <Compile Include="Migrations\202008231449191_CreateDb.cs" />
+    <Compile Include="Migrations\202008231449191_CreateDb.Designer.cs">
+      <DependentUpon>202008231449191_CreateDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008231536454_addConsultation.cs" />
+    <Compile Include="Migrations\202008231536454_addConsultation.Designer.cs">
+      <DependentUpon>202008231536454_addConsultation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008231610543_consultationModif.cs" />
+    <Compile Include="Migrations\202008231610543_consultationModif.Designer.cs">
+      <DependentUpon>202008231610543_consultationModif.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Tables\Appointement.cs" />
+    <Compile Include="Models\Tables\Consultation.cs" />
     <Compile Include="Models\Tables\FileDetail.cs" />
     <Compile Include="Models\Tables\MedecinConventionne.cs" />
     <Compile Include="Models\Tables\Medicament.cs" />
@@ -839,6 +849,11 @@
     <Content Include="Views\MedicSelect\Index.cshtml" />
     <Content Include="Scripts\moment.min.js.map" />
     <Content Include="Scripts\moment-with-locales.min.js.map" />
+    <Content Include="Views\Consultations\Create.cshtml" />
+    <Content Include="Views\Consultations\Delete.cshtml" />
+    <Content Include="Views\Consultations\Details.cshtml" />
+    <Content Include="Views\Consultations\Edit.cshtml" />
+    <Content Include="Views\Consultations\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -861,8 +876,14 @@
     <EmbeddedResource Include="Migrations\202007291233576_AddTableMedecinConventionne.resx">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008161432206_CreateDb.resx">
-      <DependentUpon>202008161432206_CreateDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008231449191_CreateDb.resx">
+      <DependentUpon>202008231449191_CreateDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008231536454_addConsultation.resx">
+      <DependentUpon>202008231536454_addConsultation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008231610543_consultationModif.resx">
+      <DependentUpon>202008231610543_consultationModif.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

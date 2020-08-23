@@ -1,0 +1,43 @@
+﻿@model WebApplication4.Models.Tables.Consultation
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Consultation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationUser.UserType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationUser.UserType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.diagnostic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diagnostic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdPatients)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdPatients)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ConsultationID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

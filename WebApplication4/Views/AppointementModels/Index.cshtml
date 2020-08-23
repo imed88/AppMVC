@@ -9,6 +9,8 @@
 @using (Html.BeginForm("Index", "AppointementModels", FormMethod.Get))
 {
     @Html.TextBox("searching")
+    @Html.TextBox("nom")
+    @Html.TextBox("prenom")
     <input type="submit" value="submit" />
 }
 
