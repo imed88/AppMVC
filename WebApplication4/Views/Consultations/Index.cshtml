@@ -13,6 +13,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.ApplicationUser.UserName)
         </th>
         <th>
@@ -27,6 +30,7 @@
 
 @foreach (var item in Model) {
     <tr>
+        <td> @Html.DisplayFor(modelItem => item.DateCreated, new { @value = DateTime.Today, @readonly = "readonly" })</td>
         <td>
             @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
         </td>
@@ -41,6 +45,7 @@
             @Html.ActionLink("Edit", "Edit", new { id = item.ConsultationID }) |
             @Html.ActionLink("Details", "Details", new { id = item.ConsultationID }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.ConsultationID })
+            @Html.ActionLink("Medicaments", "Medication", new { id = item.ConsultationID })
         </td>
     </tr>
 }

@@ -1,0 +1,53 @@
+﻿@model WebApplication4.Models.Tables.Consultation
+
+<div>
+    <h4>Consultation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationUser.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationUser.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient.MatriculePatients)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient.MatriculePatients)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient.NomPatient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient.NomPatient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient.PrenomPatient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient.PrenomPatient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.diagnostic)
+        </dt>
+
+        <dd>
+            @Html.ListBoxFor(model => model.MedicsSelect, new MultiSelectList(ViewBag.MedicList, "Value", "text"))
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ConsultationID }) |
+    @Html.ActionLink("Back to List", "Index")
+    <a class="btn btn-success" href="@Url.Action("")">Download Report</a>
+</p>

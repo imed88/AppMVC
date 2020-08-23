@@ -47,6 +47,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="DHTMLX, Version=4.0.7282.34360, Culture=neutral, PublicKeyToken=53f24791214eb8ac, processorArchitecture=MSIL">
       <HintPath>..\packages\DHTMLX.Scheduler.NET.4.0.2\lib\DHTMLX.dll</HintPath>
     </Reference>
@@ -283,17 +286,37 @@
     <Compile Include="Migrations\202007291233576_AddTableMedecinConventionne.Designer.cs">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202008231449191_CreateDb.cs" />
-    <Compile Include="Migrations\202008231449191_CreateDb.Designer.cs">
-      <DependentUpon>202008231449191_CreateDb.cs</DependentUpon>
+    <Compile Include="Migrations\202008231702462_CreateDb.cs" />
+    <Compile Include="Migrations\202008231702462_CreateDb.Designer.cs">
+      <DependentUpon>202008231702462_CreateDb.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202008231536454_addConsultation.cs" />
-    <Compile Include="Migrations\202008231536454_addConsultation.Designer.cs">
-      <DependentUpon>202008231536454_addConsultation.cs</DependentUpon>
+    <Compile Include="Migrations\202008231745105_addConsultationmodif.cs" />
+    <Compile Include="Migrations\202008231745105_addConsultationmodif.Designer.cs">
+      <DependentUpon>202008231745105_addConsultationmodif.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202008231610543_consultationModif.cs" />
-    <Compile Include="Migrations\202008231610543_consultationModif.Designer.cs">
-      <DependentUpon>202008231610543_consultationModif.cs</DependentUpon>
+    <Compile Include="Migrations\202008231756061_addConsultationmodif2.cs" />
+    <Compile Include="Migrations\202008231756061_addConsultationmodif2.Designer.cs">
+      <DependentUpon>202008231756061_addConsultationmodif2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008231813486_addConsultationmodif3.cs" />
+    <Compile Include="Migrations\202008231813486_addConsultationmodif3.Designer.cs">
+      <DependentUpon>202008231813486_addConsultationmodif3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008232207583_addConsultationmodif4.cs" />
+    <Compile Include="Migrations\202008232207583_addConsultationmodif4.Designer.cs">
+      <DependentUpon>202008232207583_addConsultationmodif4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008232221297_addConsultationmodif5.cs" />
+    <Compile Include="Migrations\202008232221297_addConsultationmodif5.Designer.cs">
+      <DependentUpon>202008232221297_addConsultationmodif5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008232248295_addConsultationmodif6.cs" />
+    <Compile Include="Migrations\202008232248295_addConsultationmodif6.Designer.cs">
+      <DependentUpon>202008232248295_addConsultationmodif6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008232302559_addConsultationmodif7.cs" />
+    <Compile Include="Migrations\202008232302559_addConsultationmodif7.Designer.cs">
+      <DependentUpon>202008232302559_addConsultationmodif7.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -311,6 +334,12 @@
     <Compile Include="Models\ViewModels\MedicamentListBox.cs" />
     <Compile Include="Models\ViewModels\MultipleData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\Ordonnance.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ordonnance.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="Validations\MyAppointmentDateValidation.cs" />
   </ItemGroup>
@@ -854,6 +883,7 @@
     <Content Include="Views\Consultations\Details.cshtml" />
     <Content Include="Views\Consultations\Edit.cshtml" />
     <Content Include="Views\Consultations\Index.cshtml" />
+    <Content Include="Views\Consultations\Medication.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -876,18 +906,38 @@
     <EmbeddedResource Include="Migrations\202007291233576_AddTableMedecinConventionne.resx">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008231449191_CreateDb.resx">
-      <DependentUpon>202008231449191_CreateDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008231702462_CreateDb.resx">
+      <DependentUpon>202008231702462_CreateDb.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008231536454_addConsultation.resx">
-      <DependentUpon>202008231536454_addConsultation.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008231745105_addConsultationmodif.resx">
+      <DependentUpon>202008231745105_addConsultationmodif.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008231610543_consultationModif.resx">
-      <DependentUpon>202008231610543_consultationModif.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008231756061_addConsultationmodif2.resx">
+      <DependentUpon>202008231756061_addConsultationmodif2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008231813486_addConsultationmodif3.resx">
+      <DependentUpon>202008231813486_addConsultationmodif3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008232207583_addConsultationmodif4.resx">
+      <DependentUpon>202008232207583_addConsultationmodif4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008232221297_addConsultationmodif5.resx">
+      <DependentUpon>202008232221297_addConsultationmodif5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008232248295_addConsultationmodif6.resx">
+      <DependentUpon>202008232248295_addConsultationmodif6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008232302559_addConsultationmodif7.resx">
+      <DependentUpon>202008232302559_addConsultationmodif7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Ordonnance.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Ordonnance.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

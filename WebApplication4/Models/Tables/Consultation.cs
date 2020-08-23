@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace WebApplication4.Models.Tables
 {
@@ -18,8 +20,28 @@ namespace WebApplication4.Models.Tables
         public string UserID { get; set; }
 
         public virtual ApplicationUser ApplicationUser { get; set; }
-        public string idPatients { get; set; }
 
-        public virtual Patients Patient{ get; set; }
+        [Required] //Changes V2
+        [DisplayName("Patient")]
+        public int idPatients { get; set; }
+        public virtual Patients Patient { get; set; }
+
+        public ICollection<int> SelectedMedicaments { get; set; }
+        public ICollection<Medicament> MedicsSelect { get; set; }
+
+
+
+
+
+        [DataType(DataType.Date)]
+        [Display(Name = "Date Created")]
+        public DateTime DateCreated { get;  set; }
+
+      
+
+
+
+
+
     }
 }

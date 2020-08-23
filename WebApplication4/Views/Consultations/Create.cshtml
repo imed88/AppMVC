@@ -24,13 +24,21 @@
             @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
         </div>
     </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.DateCreated, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DateCreated, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DateCreated, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
 
     <div class="form-group">
-        @Html.LabelFor(model => model.IdPatients, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.idPatients, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @*@Html.EditorFor(model => model.IdPatients, new { htmlAttributes = new { @class = "form-control" } })*@
-            @Html.DropDownList("IdPatients", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.IdPatients, "", new { @class = "text-danger" })
+            @Html.DropDownList("idPatients", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.idPatients, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -42,10 +50,12 @@
         </div>
     </div>
 
+
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Create" class="btn btn-default" />
         </div>
+
     </div>
 </div>
 }
