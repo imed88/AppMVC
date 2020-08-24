@@ -53,9 +53,6 @@
     <Reference Include="DHTMLX, Version=4.0.7282.34360, Culture=neutral, PublicKeyToken=53f24791214eb8ac, processorArchitecture=MSIL">
       <HintPath>..\packages\DHTMLX.Scheduler.NET.4.0.2\lib\DHTMLX.dll</HintPath>
     </Reference>
-    <Reference Include="GroupDocs.Viewer, Version=20.7.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
-      <HintPath>..\packages\GroupDocs.Viewer.20.7.0\lib\net20\GroupDocs.Viewer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
