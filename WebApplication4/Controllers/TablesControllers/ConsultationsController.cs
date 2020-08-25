@@ -4,10 +4,12 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication4.Models;
 using WebApplication4.Models.Tables;
+using WebApplication4.Models.ViewModels;
 
 namespace WebApplication4.Controllers.TablesControllers
 {
@@ -38,21 +40,9 @@ namespace WebApplication4.Controllers.TablesControllers
             return View(consultation);
         }
 
-        public ActionResult Medication(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Consultation consultation = db.Consultations.Find(id);
-            if (consultation == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.MedicList = new MultiSelectList(db.Medicaments, "MedicamentID", "MedicamentName");
-            return View(consultation);
-        }
+      
 
+     
 
         // GET: Consultations/Create
         public ActionResult Create()

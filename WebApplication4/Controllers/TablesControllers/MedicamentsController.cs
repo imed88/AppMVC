@@ -91,7 +91,7 @@ namespace WebApplication4.Controllers.TablesControllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.UserID = new SelectList(db.Users, "Id", "UserType", medicament.UserID);
+            ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", medicament.UserID);
             ViewBag.IdSpecialite = new SelectList(db.Specialites, "IdSpecialite", "SpecialiteName", medicament.IdSpecialite);
             return View(medicament);
         }
@@ -130,5 +130,15 @@ namespace WebApplication4.Controllers.TablesControllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult AffiMedic()
+        {
+            MedicamentModel model = new MedicamentModel();
+            model.medicaments = db.Medicaments.ToList<Medicament>();
+            return View(model);
+        }
+
+
+        
     }
 }

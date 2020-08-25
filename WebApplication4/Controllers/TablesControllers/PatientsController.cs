@@ -167,21 +167,21 @@ namespace WebApplication4.Controllers.TablesControllers
             base.Dispose(disposing);
         }
 
-        public ActionResult Appointements(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Patients patients = db.Patients.Find(id);
+        //public ActionResult Appointements(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Patients patients = db.Patients.Find(id);
           
-            if (patients == null)
-            {
-                return HttpNotFound();
-            }
+        //    if (patients == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
           
-            return RedirectToAction("Index/"+id, "AppointementModels");
-        }
+        //    return RedirectToAction("Index/"+id, "AppointementModels");
+        //}
 
     }
 }

@@ -1,5 +1,12 @@
 ﻿@model WebApplication4.Models.Tables.Consultation
 
+@{
+    ViewBag.Title = "Medication";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<h2>Medication</h2>
+
 <div>
     <h4>Consultation</h4>
     <hr />
@@ -13,14 +20,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Patient.MatriculePatients)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Patient.MatriculePatients)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.Patient.NomPatient)
         </dt>
 
@@ -29,19 +28,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Patient.PrenomPatient)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Patient.PrenomPatient)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.diagnostic)
         </dt>
 
         <dd>
-            @Html.ListBoxFor(model => model.MedicsSelect, new MultiSelectList(ViewBag.MedicList, "Value", "text"))
+            @Html.DisplayFor(model => model.diagnostic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreated)
         </dd>
 
     </dl>
@@ -49,5 +48,4 @@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ConsultationID }) |
     @Html.ActionLink("Back to List", "Index")
-    <a class="btn btn-success" href="@Url.Action("")">Download Report</a>
 </p>
