@@ -1,13 +1,17 @@
 ﻿using Microsoft.AspNet.Identity;
+using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using WebApplication4.Models;
 using WebApplication4.Models.Tables;
 using WebApplication4.Models.ViewModels;
@@ -175,5 +179,7 @@ namespace WebApplication4.Controllers.TablesControllers
         //    Stream s = rpt.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
         //    return File(s, "application/pdf");
         //}
+
+       
     }
 }

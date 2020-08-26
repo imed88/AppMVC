@@ -38,6 +38,8 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Ordonnance", "CreateOrdonnance", new { id = Model.ConsultationID }, new { @class="btn btn-success"}) |
-    @Html.ActionLink("Back to List", "Index",  new { @class = "btn btn-default" })
+    @Html.ActionLink("Ordonnance", "CreateOrdonnance", new { id = Model.ConsultationID }, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("Ordonnance pdf", "ReportEmployee", new { id = Model.ConsultationID }, new { @class = "btn btn-success" }) |
+
+    @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-default" })
 </p>
