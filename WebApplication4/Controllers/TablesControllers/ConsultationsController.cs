@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -37,6 +38,7 @@ namespace WebApplication4.Controllers.TablesControllers
             {
                 return HttpNotFound();
             }
+            Session["ConsultationID"] = id; 
             return View(consultation);
         }
 
@@ -138,5 +140,40 @@ namespace WebApplication4.Controllers.TablesControllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult CreateOrdonnance(ConsultationOrdonnance consultOrd)
+        {
+            ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", consultOrd.UserID);
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateOrdonnance(string Message, ConsultationOrdonnance consultOrd)
+        {
+            var UserId = User.Identity.GetUserId();
+            var ConsultationID = (int)Session["ConsultationID"];
+            var job = new ConsultationOrdonnance();
+            job.UserID = UserId;
+            job.ConsultationID = ConsultationID;
+            job.Message = Message;
+            job.ApplyDate = DateTime.Now;
+
+            db.ConsultationOrdonnances.Add(job);
+            db.SaveChanges();
+            ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", consultOrd.UserID);
+            return View();
+        }
+
+        //public ActionResult ShowCustomerList()
+        //{
+        //    //CrMVCApp.Models.Customer c;
+        //    var c = (from b in db.Customers select b).ToList();
+
+        //    CustomerList rpt = new CustomerList();
+        //    rpt.Load();
+        //    rpt.SetDataSource(c);
+        //    Stream s = rpt.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+        //    return File(s, "application/pdf");
+        //}
     }
 }
