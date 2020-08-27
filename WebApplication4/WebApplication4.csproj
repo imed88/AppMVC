@@ -294,6 +294,7 @@
     <Compile Include="Controllers\TablesControllers\MedecinConventionnesController.cs" />
     <Compile Include="Controllers\TablesControllers\MedicamentsController.cs" />
     <Compile Include="Controllers\TablesControllers\MedicSelectController.cs" />
+    <Compile Include="Controllers\TablesControllers\OrdonnancePDFController.cs" />
     <Compile Include="Controllers\TablesControllers\PatientsController.cs" />
     <Compile Include="Controllers\TablesControllers\RolesController.cs" />
     <Compile Include="Controllers\TablesControllers\SpecialitesController.cs" />
@@ -317,9 +318,17 @@
     <Compile Include="Migrations\202007291233576_AddTableMedecinConventionne.Designer.cs">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202008260735480_CreateDb.cs" />
-    <Compile Include="Migrations\202008260735480_CreateDb.Designer.cs">
-      <DependentUpon>202008260735480_CreateDb.cs</DependentUpon>
+    <Compile Include="Migrations\202008270751180_CreateDb.cs" />
+    <Compile Include="Migrations\202008270751180_CreateDb.Designer.cs">
+      <DependentUpon>202008270751180_CreateDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008270809590_modifs.cs" />
+    <Compile Include="Migrations\202008270809590_modifs.Designer.cs">
+      <DependentUpon>202008270809590_modifs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008270908129_modifs7.cs" />
+    <Compile Include="Migrations\202008270908129_modifs7.Designer.cs">
+      <DependentUpon>202008270908129_modifs7.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -340,6 +349,17 @@
     <Compile Include="Models\ViewModels\MedicamentListBox.cs" />
     <Compile Include="Models\ViewModels\MultipleData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Validations\MyAppointmentDateValidation.cs" />
@@ -640,6 +660,17 @@
     <Content Include="AppsDBDataSet1.xss">
       <DependentUpon>AppsDBDataSet1.xsd</DependentUpon>
     </Content>
+    <Content Include="Report\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
+    <None Include="Report\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Report\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -929,6 +960,7 @@
     <Content Include="Views\Ordonnances\Edit.cshtml" />
     <Content Include="Views\Ordonnances\Index.cshtml" />
     <Content Include="Views\Consultations\CreateOrdonnance.cshtml" />
+    <Content Include="Views\OrdonnancePDF\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -952,10 +984,19 @@
     <EmbeddedResource Include="Migrations\202007291233576_AddTableMedecinConventionne.resx">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008260735480_CreateDb.resx">
-      <DependentUpon>202008260735480_CreateDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008270751180_CreateDb.resx">
+      <DependentUpon>202008270751180_CreateDb.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report\Report1.rdlc" />
+    <EmbeddedResource Include="Migrations\202008270809590_modifs.resx">
+      <DependentUpon>202008270809590_modifs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008270908129_modifs7.resx">
+      <DependentUpon>202008270908129_modifs7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

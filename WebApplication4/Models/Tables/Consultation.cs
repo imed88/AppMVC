@@ -27,9 +27,6 @@ namespace WebApplication4.Models.Tables
         public virtual Patients Patient { get; set; }
 
         
-
-
-
         [DataType(DataType.Date)]
         [Display(Name = "Date Created")]
         public DateTime DateCreated { get;  set; }
