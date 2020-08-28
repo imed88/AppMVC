@@ -1,0 +1,51 @@
+﻿@model WebApplication4.Models.Tables.Ordonnance
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ordonnance</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdPatients)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdPatients)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MatriculePatients)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatriculePatients)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomPatient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomPatient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrenomPatient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrenomPatient)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrdonanceID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
