@@ -1,4 +1,4 @@
-﻿@model WebApplication4.Models.ViewModels.PatientsMedicamentViewModel
+﻿@model WebApplication4.Models.Tables.ConsultationOrdonnance
 
 @{
     ViewBag.Title = "CreateOrdonnance";
@@ -12,56 +12,60 @@
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
-    <h4>PatientsMedicamentViewModel</h4>
+    <h4>ConsultationOrdonnance</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
-        @Html.LabelFor(model => model.MatriculePatients, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.Label("Message", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.MatriculePatients, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.MatriculePatients, "", new { @class = "text-danger" })
+            @Html.TextArea("Message", new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessage("Message", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.NomPatient, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.ApplyDate, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.NomPatient, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.NomPatient, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.ApplyDate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ApplyDate, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    @*<div class="form-group">
+                @Html.LabelFor(model => model.ConsultationID, "ConsultationID", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("ConsultationID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ConsultationID, "", new { @class = "text-danger" })
+                </div>
+            </div>*
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.UserID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.UserID, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserID, "UserID", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("UserID", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
+        </div>
+
+    </div>
+
+    
 
     <div class="form-group">
-        @Html.LabelFor(model => model.PrenomPatient, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.PrenomPatient, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.PrenomPatient, "", new { @class = "text-danger" })
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Créer une ordonance" class="btn btn-default" />
         </div>
     </div>
+</div>
+   
+}
 
-        <div class="form-group">
-            <table>
-                @for(int i=0; i<Model.AvailableMedicaments.Count;i++)
-                {
-                    <tr>
-                        <td>
-                            @Html.HiddenFor(x => Model.AvailableMedicaments[i].Id)
-                            @Html.DisplayFor(it => Model.AvailableMedicaments[i].Title)
-                                            </td>
-                        <td>@Html.CheckBoxFor(it => Model.AvailableMedicaments[i].IsChecked)</td>
-                    </tr>
-                }
-            </table>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-    }
-
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

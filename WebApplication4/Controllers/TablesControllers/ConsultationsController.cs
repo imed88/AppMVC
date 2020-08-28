@@ -1,13 +1,22 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using Microsoft.AspNet.Identity;
+using Microsoft.Reporting.WebForms;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using WebApplication4.Models;
 using WebApplication4.Models.Tables;
+using WebApplication4.Models.ViewModels;
 
 namespace WebApplication4.Controllers.TablesControllers
 {
@@ -35,24 +44,13 @@ namespace WebApplication4.Controllers.TablesControllers
             {
                 return HttpNotFound();
             }
+            Session["ConsultationID"] = id; 
             return View(consultation);
         }
 
-        public ActionResult Medication(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Consultation consultation = db.Consultations.Find(id);
-            if (consultation == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.MedicList = new MultiSelectList(db.Medicaments, "MedicamentID", "MedicamentName");
-            return View(consultation);
-        }
+      
 
+     
 
         // GET: Consultations/Create
         public ActionResult Create()
@@ -148,5 +146,50 @@ namespace WebApplication4.Controllers.TablesControllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult CreateOrdonnance(ConsultationOrdonnance consultOrd)
+        {
+            ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", consultOrd.UserID);
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateOrdonnance(string Message, ConsultationOrdonnance consultOrd)
+        {
+            var UserId = User.Identity.GetUserId();
+            var ConsultationID = (int)Session["ConsultationID"];
+            Patients patients = new Patients();
+
+            var job = new ConsultationOrdonnance();
+            job.UserID = UserId;
+            job.ConsultationID = ConsultationID;
+            job.Message = Message;
+            job.ApplyDate = DateTime.Now;
+
+            db.ConsultationOrdonnances.Add(job);
+            db.SaveChanges();
+            ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", consultOrd.UserID);
+            ViewBag.idPatients = new SelectList(db.Patients, "IdPatients", "PrenomPatient");
+            List<ConsultationOrdonnance> OneBlog = new List<ConsultationOrdonnance>();
+            //OneBlog = db.ConsultationOrdonnances.Where(a => a.patients.IdPatients == patients.IdPatients).ToList();
+
+            ReportDocument rd = new ReportDocument();
+            rd.Load(Path.Combine(Server.MapPath("~/Report"), "CrystalReport1.rpt"));
+            rd.SetDataSource(OneBlog);
+
+            Response.Buffer = false;
+            Response.ClearContent();
+            Response.ClearHeaders();
+
+            Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+            stream.Seek(0, SeekOrigin.Begin);
+
+            return File(stream, "application/pdf", "BlogList.pdf");
+           
+        }
+
+      
+
+       
     }
 }

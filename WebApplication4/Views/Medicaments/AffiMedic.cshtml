@@ -1,0 +1,25 @@
+﻿@model WebApplication4.Models.Tables.MedicamentModel
+@{
+    ViewBag.Title = "AffiMedic";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<h2>AffiMedic</h2>
+
+@using (Html.BeginForm())
+{
+    <table>
+        @for (int i = 0; i < Model.medicaments.Count; i++)
+        {
+            <tr>
+                <td>
+                    @Html.CheckBoxFor(model => model.medicaments[i].isSelected)
+                    <label>@Model.medicaments[i].MedicamentName</label>
+                    @Html.HiddenFor(model => model.medicaments[i].MedicamentID)
+                    @Html.HiddenFor(model => model.medicaments[i].MedicamentName)
+                </td>
+            </tr>
+        }
+    </table>
+}
+

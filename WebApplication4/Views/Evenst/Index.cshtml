@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+<link href="~/Content/CalendarSite.css" rel="stylesheet" />
+<h2>Index</h2>
+<div class="scheduler_container">
+    @Html.Raw(Model.Render())
+</div>

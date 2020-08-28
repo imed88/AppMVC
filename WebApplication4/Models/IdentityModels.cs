@@ -16,6 +16,7 @@ namespace WebApplication4.Models
         public virtual ICollection<AppointementModel> Appointments { get; set; }
         public virtual ICollection<Medicament> Medicaments { get; set; }
         public virtual ICollection<Consultation> Consultations { get; set; }
+        public virtual ICollection<ConsultationOrdonnance> Ordonnances { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -50,9 +51,10 @@ namespace WebApplication4.Models
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Medicament> Medicaments { get; set; }
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Consultation> Consultations { get; set; }
 
+        public System.Data.Entity.DbSet<WebApplication4.Models.Tables.ConsultationOrdonnance> ConsultationOrdonnances { get; set; }
+
         public DbSet<FileDetail> FileDetails { get; set; }
-   
 
-
+       
     }
 }

@@ -26,13 +26,7 @@ namespace WebApplication4.Models.Tables
         public int idPatients { get; set; }
         public virtual Patients Patient { get; set; }
 
-        public ICollection<int> SelectedMedicaments { get; set; }
-        public ICollection<Medicament> MedicsSelect { get; set; }
-
-
-
-
-
+        
         [DataType(DataType.Date)]
         [Display(Name = "Date Created")]
         public DateTime DateCreated { get;  set; }

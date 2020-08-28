@@ -12,40 +12,32 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.IdPatients)
+            @Html.DisplayNameFor(model => model.ApplicationUser.UserType)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.IdPatients)
+            @Html.DisplayFor(model => model.ApplicationUser.UserType)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.MatriculePatients)
+            @Html.DisplayNameFor(model => model.patients.MatriculePatients)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.MatriculePatients)
+            @Html.DisplayFor(model => model.patients.MatriculePatients)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NomPatient)
+            @Html.DisplayNameFor(model => model.Date)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.NomPatient)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PrenomPatient)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PrenomPatient)
+            @Html.DisplayFor(model => model.Date)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.OrdonanceID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrdID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

@@ -22,5 +22,15 @@ namespace WebApplication4.Models.Tables
 
         public virtual ApplicationUser ApplicationUser { get; set; }
         public virtual Specialite specialite { get; set; }
+
+
+      
+    }
+
+    public class MedicamentModel
+    {
+
+
+        public List<Medicament> medicaments { get; set; }
     }
 }

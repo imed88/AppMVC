@@ -53,6 +53,9 @@
     <Reference Include="DHTMLX, Version=4.0.7282.34360, Culture=neutral, PublicKeyToken=53f24791214eb8ac, processorArchitecture=MSIL">
       <HintPath>..\packages\DHTMLX.Scheduler.NET.4.0.2\lib\DHTMLX.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -137,6 +140,27 @@
     </Reference>
     <Reference Include="Microsoft.Owin.Security.Twitter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -246,6 +270,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppsDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppsDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AppsDBDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppsDBDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -260,6 +294,7 @@
     <Compile Include="Controllers\TablesControllers\MedecinConventionnesController.cs" />
     <Compile Include="Controllers\TablesControllers\MedicamentsController.cs" />
     <Compile Include="Controllers\TablesControllers\MedicSelectController.cs" />
+    <Compile Include="Controllers\TablesControllers\OrdonnancePDFController.cs" />
     <Compile Include="Controllers\TablesControllers\PatientsController.cs" />
     <Compile Include="Controllers\TablesControllers\RolesController.cs" />
     <Compile Include="Controllers\TablesControllers\SpecialitesController.cs" />
@@ -283,37 +318,17 @@
     <Compile Include="Migrations\202007291233576_AddTableMedecinConventionne.Designer.cs">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202008231702462_CreateDb.cs" />
-    <Compile Include="Migrations\202008231702462_CreateDb.Designer.cs">
-      <DependentUpon>202008231702462_CreateDb.cs</DependentUpon>
+    <Compile Include="Migrations\202008270751180_CreateDb.cs" />
+    <Compile Include="Migrations\202008270751180_CreateDb.Designer.cs">
+      <DependentUpon>202008270751180_CreateDb.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202008231745105_addConsultationmodif.cs" />
-    <Compile Include="Migrations\202008231745105_addConsultationmodif.Designer.cs">
-      <DependentUpon>202008231745105_addConsultationmodif.cs</DependentUpon>
+    <Compile Include="Migrations\202008270809590_modifs.cs" />
+    <Compile Include="Migrations\202008270809590_modifs.Designer.cs">
+      <DependentUpon>202008270809590_modifs.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202008231756061_addConsultationmodif2.cs" />
-    <Compile Include="Migrations\202008231756061_addConsultationmodif2.Designer.cs">
-      <DependentUpon>202008231756061_addConsultationmodif2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202008231813486_addConsultationmodif3.cs" />
-    <Compile Include="Migrations\202008231813486_addConsultationmodif3.Designer.cs">
-      <DependentUpon>202008231813486_addConsultationmodif3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202008232207583_addConsultationmodif4.cs" />
-    <Compile Include="Migrations\202008232207583_addConsultationmodif4.Designer.cs">
-      <DependentUpon>202008232207583_addConsultationmodif4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202008232221297_addConsultationmodif5.cs" />
-    <Compile Include="Migrations\202008232221297_addConsultationmodif5.Designer.cs">
-      <DependentUpon>202008232221297_addConsultationmodif5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202008232248295_addConsultationmodif6.cs" />
-    <Compile Include="Migrations\202008232248295_addConsultationmodif6.Designer.cs">
-      <DependentUpon>202008232248295_addConsultationmodif6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202008232302559_addConsultationmodif7.cs" />
-    <Compile Include="Migrations\202008232302559_addConsultationmodif7.Designer.cs">
-      <DependentUpon>202008232302559_addConsultationmodif7.cs</DependentUpon>
+    <Compile Include="Migrations\202008270908129_modifs7.cs" />
+    <Compile Include="Migrations\202008270908129_modifs7.Designer.cs">
+      <DependentUpon>202008270908129_modifs7.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -321,22 +336,31 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Tables\Appointement.cs" />
     <Compile Include="Models\Tables\Consultation.cs" />
+    <Compile Include="Models\Tables\ConsultationOrdonnance.cs" />
     <Compile Include="Models\Tables\FileDetail.cs" />
     <Compile Include="Models\Tables\MedecinConventionne.cs" />
     <Compile Include="Models\Tables\Medicament.cs" />
+    <Compile Include="Models\Tables\Ordonnance.cs" />
     <Compile Include="Models\Tables\Patients.cs" />
+    <Compile Include="Models\Tables\PatientsMedicaments.cs" />
     <Compile Include="Models\Tables\RoleViewModel.cs" />
     <Compile Include="Models\Tables\Specialite.cs" />
     <Compile Include="Models\Tables\Usine.cs" />
     <Compile Include="Models\ViewModels\MedicamentListBox.cs" />
     <Compile Include="Models\ViewModels\MultipleData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Report\Ordonnance.cs">
+    <Compile Include="Report\CrystalReport1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Ordonnance.rpt</DependentUpon>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Report\DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Validations\MyAppointmentDateValidation.cs" />
   </ItemGroup>
@@ -614,6 +638,39 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="AppsDBDataSet.xsc">
+      <DependentUpon>AppsDBDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="AppsDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AppsDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="AppsDBDataSet.xss">
+      <DependentUpon>AppsDBDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="AppsDBDataSet1.xsc">
+      <DependentUpon>AppsDBDataSet1.xsd</DependentUpon>
+    </Content>
+    <None Include="AppsDBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AppsDBDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="AppsDBDataSet1.xss">
+      <DependentUpon>AppsDBDataSet1.xsd</DependentUpon>
+    </Content>
+    <Content Include="Report\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
+    <None Include="Report\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Report\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -789,6 +846,19 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -796,14 +866,18 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper.js.flow" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Scripts\moment.min.js.map" />
+    <Content Include="Scripts\moment-with-locales.min.js.map" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
@@ -815,75 +889,82 @@
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\SendCode.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\AppointementModels\Create.cshtml" />
+    <Content Include="Views\AppointementModels\Delete.cshtml" />
+    <Content Include="Views\AppointementModels\Details.cshtml" />
+    <Content Include="Views\AppointementModels\Edit.cshtml" />
+    <Content Include="Views\AppointementModels\Index.cshtml" />
+    <Content Include="Views\Consultations\Create.cshtml" />
+    <Content Include="Views\Consultations\Delete.cshtml" />
+    <Content Include="Views\Consultations\Details.cshtml" />
+    <Content Include="Views\Consultations\Edit.cshtml" />
+    <Content Include="Views\Consultations\Index.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Home\HomePage.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\MainLayout.cshtml" />
     <Content Include="Views\MedecinConventionnes\Create.cshtml" />
     <Content Include="Views\MedecinConventionnes\Delete.cshtml" />
     <Content Include="Views\MedecinConventionnes\Details.cshtml" />
     <Content Include="Views\MedecinConventionnes\Edit.cshtml" />
     <Content Include="Views\MedecinConventionnes\Index.cshtml" />
-    <Content Include="Views\Shared\_Login.cshtml" />
-    <Content Include="Views\Specialites\Create.cshtml" />
-    <Content Include="Views\Specialites\Delete.cshtml" />
-    <Content Include="Views\Specialites\Details.cshtml" />
-    <Content Include="Views\Specialites\Edit.cshtml" />
-    <Content Include="Views\Specialites\Index.cshtml" />
-    <Content Include="Views\Roles\Index.cshtml" />
-    <Content Include="Views\Roles\Create.cshtml" />
-    <Content Include="Views\Roles\Details.cshtml" />
-    <Content Include="Views\Roles\Edit.cshtml" />
-    <Content Include="Views\Roles\Delete.cshtml" />
-    <Content Include="Views\Home\Details.cshtml" />
-    <Content Include="Scripts\umd\popper.min.js.map" />
-    <Content Include="Scripts\umd\popper.js.map" />
-    <Content Include="Scripts\umd\popper.js.flow" />
-    <Content Include="Scripts\umd\popper-utils.min.js.map" />
-    <Content Include="Scripts\umd\popper-utils.js.map" />
-    <Content Include="Scripts\README.md" />
-    <Content Include="Scripts\popper.min.js.map" />
-    <Content Include="Scripts\popper.js.map" />
-    <Content Include="Scripts\popper-utils.min.js.map" />
-    <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Usines\Create.cshtml" />
-    <Content Include="Views\Usines\Delete.cshtml" />
-    <Content Include="Views\Usines\Details.cshtml" />
-    <Content Include="Views\Usines\Edit.cshtml" />
-    <Content Include="Views\Usines\Index.cshtml" />
-    <Content Include="Views\Patients\Create.cshtml" />
-    <Content Include="Views\Patients\Delete.cshtml" />
-    <Content Include="Views\Patients\Details.cshtml" />
-    <Content Include="Views\Patients\Edit.cshtml" />
-    <Content Include="Views\Patients\Index.cshtml" />
-    <Content Include="Views\Home\HomePage.cshtml" />
-    <Content Include="Views\AppointementModels\Create.cshtml" />
-    <Content Include="Views\AppointementModels\Delete.cshtml" />
-    <Content Include="Views\AppointementModels\Details.cshtml" />
-    <Content Include="Views\AppointementModels\Edit.cshtml" />
-    <Content Include="Views\AppointementModels\Index.cshtml" />
     <Content Include="Views\Medicaments\Create.cshtml" />
     <Content Include="Views\Medicaments\Delete.cshtml" />
     <Content Include="Views\Medicaments\Details.cshtml" />
     <Content Include="Views\Medicaments\Edit.cshtml" />
     <Content Include="Views\Medicaments\Index.cshtml" />
     <Content Include="Views\MedicSelect\Index.cshtml" />
-    <Content Include="Scripts\moment.min.js.map" />
-    <Content Include="Scripts\moment-with-locales.min.js.map" />
-    <Content Include="Views\Consultations\Create.cshtml" />
-    <Content Include="Views\Consultations\Delete.cshtml" />
-    <Content Include="Views\Consultations\Details.cshtml" />
-    <Content Include="Views\Consultations\Edit.cshtml" />
-    <Content Include="Views\Consultations\Index.cshtml" />
+    <Content Include="Views\PatientFile\Create.cshtml" />
+    <Content Include="Views\PatientFile\Index.cshtml" />
+    <Content Include="Views\Patients\Create.cshtml" />
+    <Content Include="Views\Patients\Delete.cshtml" />
+    <Content Include="Views\Patients\Details.cshtml" />
+    <Content Include="Views\Patients\Edit.cshtml" />
+    <Content Include="Views\Patients\Index.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Roles\Details.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\MainLayout.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_Login.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Specialites\Create.cshtml" />
+    <Content Include="Views\Specialites\Delete.cshtml" />
+    <Content Include="Views\Specialites\Details.cshtml" />
+    <Content Include="Views\Specialites\Edit.cshtml" />
+    <Content Include="Views\Specialites\Index.cshtml" />
+    <Content Include="Views\Usines\Create.cshtml" />
+    <Content Include="Views\Usines\Delete.cshtml" />
+    <Content Include="Views\Usines\Details.cshtml" />
+    <Content Include="Views\Usines\Edit.cshtml" />
+    <Content Include="Views\Usines\Index.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Consultations\Medication.cshtml" />
+    <Content Include="Views\Medicaments\AffiMedic.cshtml" />
+    <Content Include="Views\Ordonnances\Create.cshtml" />
+    <Content Include="Views\Ordonnances\Delete.cshtml" />
+    <Content Include="Views\Ordonnances\Details.cshtml" />
+    <Content Include="Views\Ordonnances\Edit.cshtml" />
+    <Content Include="Views\Ordonnances\Index.cshtml" />
+    <Content Include="Views\Consultations\CreateOrdonnance.cshtml" />
+    <Content Include="Views\OrdonnancePDF\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Ordonnance\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -903,33 +984,18 @@
     <EmbeddedResource Include="Migrations\202007291233576_AddTableMedecinConventionne.resx">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008231702462_CreateDb.resx">
-      <DependentUpon>202008231702462_CreateDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008270751180_CreateDb.resx">
+      <DependentUpon>202008270751180_CreateDb.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008231745105_addConsultationmodif.resx">
-      <DependentUpon>202008231745105_addConsultationmodif.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008270809590_modifs.resx">
+      <DependentUpon>202008270809590_modifs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008231756061_addConsultationmodif2.resx">
-      <DependentUpon>202008231756061_addConsultationmodif2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008270908129_modifs7.resx">
+      <DependentUpon>202008270908129_modifs7.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008231813486_addConsultationmodif3.resx">
-      <DependentUpon>202008231813486_addConsultationmodif3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008232207583_addConsultationmodif4.resx">
-      <DependentUpon>202008232207583_addConsultationmodif4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008232221297_addConsultationmodif5.resx">
-      <DependentUpon>202008232221297_addConsultationmodif5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008232248295_addConsultationmodif6.resx">
-      <DependentUpon>202008232248295_addConsultationmodif6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008232302559_addConsultationmodif7.resx">
-      <DependentUpon>202008232302559_addConsultationmodif7.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Report\Ordonnance.rpt">
+    <EmbeddedResource Include="Report\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Ordonnance.cs</LastGenOutput>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
