@@ -1,5 +1,4 @@
-﻿using CrystalDecisions.CrystalReports.Engine;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
@@ -7,7 +6,6 @@ using System.Configuration;
 using System.Data;
 using System.Data.Entity;
 using System.Data.SqlClient;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -158,8 +156,6 @@ namespace WebApplication4.Controllers.TablesControllers
         {
             var UserId = User.Identity.GetUserId();
             var ConsultationID = (int)Session["ConsultationID"];
-            Patients patients = new Patients();
-
             var job = new ConsultationOrdonnance();
             job.UserID = UserId;
             job.ConsultationID = ConsultationID;
@@ -169,26 +165,20 @@ namespace WebApplication4.Controllers.TablesControllers
             db.ConsultationOrdonnances.Add(job);
             db.SaveChanges();
             ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", consultOrd.UserID);
-            ViewBag.idPatients = new SelectList(db.Patients, "IdPatients", "PrenomPatient");
-            List<ConsultationOrdonnance> OneBlog = new List<ConsultationOrdonnance>();
-            //OneBlog = db.ConsultationOrdonnances.Where(a => a.patients.IdPatients == patients.IdPatients).ToList();
-
-            ReportDocument rd = new ReportDocument();
-            rd.Load(Path.Combine(Server.MapPath("~/Report"), "CrystalReport1.rpt"));
-            rd.SetDataSource(OneBlog);
-
-            Response.Buffer = false;
-            Response.ClearContent();
-            Response.ClearHeaders();
-
-            Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
-            stream.Seek(0, SeekOrigin.Begin);
-
-            return File(stream, "application/pdf", "BlogList.pdf");
-           
+            return View();
         }
 
-      
+        //public ActionResult ShowCustomerList()
+        //{
+        //    //CrMVCApp.Models.Customer c;
+        //    var c = (from b in db.Customers select b).ToList();
+
+        //    CustomerList rpt = new CustomerList();
+        //    rpt.Load();
+        //    rpt.SetDataSource(c);
+        //    Stream s = rpt.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+        //    return File(s, "application/pdf");
+        //}
 
        
     }
