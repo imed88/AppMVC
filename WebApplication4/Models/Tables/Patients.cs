@@ -26,5 +26,10 @@ namespace WebApplication4.Models.Tables
 
         public virtual ICollection<AppointementModel> Appointments { get; set; }
         public virtual ICollection<Consultation> Consultations { get; set; }
+
+      
+
+
+
     }
 }
