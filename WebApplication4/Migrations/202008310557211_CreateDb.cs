@@ -168,22 +168,6 @@ namespace WebApplication4.Migrations
                 .Index(t => t.IdSpecialite);
             
             CreateTable(
-                "dbo.ConsultationOrdonnances",
-                c => new
-                    {
-                        IDConsultOrd = c.Int(nullable: false, identity: true),
-                        Message = c.String(),
-                        ApplyDate = c.DateTime(nullable: false),
-                        ConsultationID = c.Int(nullable: false),
-                        UserID = c.String(maxLength: 128),
-                    })
-                .PrimaryKey(t => t.IDConsultOrd)
-                .ForeignKey("dbo.Consultations", t => t.ConsultationID, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserID)
-                .Index(t => t.ConsultationID)
-                .Index(t => t.UserID);
-            
-            CreateTable(
                 "dbo.AspNetUserRoles",
                 c => new
                     {
@@ -195,6 +179,19 @@ namespace WebApplication4.Migrations
                 .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
+            
+            CreateTable(
+                "dbo.Ordonnances",
+                c => new
+                    {
+                        ConsultOrdID = c.Int(nullable: false, identity: true),
+                        Message = c.String(),
+                        ApplyDate = c.DateTime(nullable: false),
+                        ConsultationID = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.ConsultOrdID)
+                .ForeignKey("dbo.Consultations", t => t.ConsultationID, cascadeDelete: true)
+                .Index(t => t.ConsultationID);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -211,10 +208,9 @@ namespace WebApplication4.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.Ordonnances", "ConsultationID", "dbo.Consultations");
             DropForeignKey("dbo.AppointementModels", "UserID", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.ConsultationOrdonnances", "UserID", "dbo.AspNetUsers");
-            DropForeignKey("dbo.ConsultationOrdonnances", "ConsultationID", "dbo.Consultations");
             DropForeignKey("dbo.Medicaments", "IdSpecialite", "dbo.Specialites");
             DropForeignKey("dbo.MedecinConventionnes", "IdSpecialite", "dbo.Specialites");
             DropForeignKey("dbo.AppointementModels", "idDoctors", "dbo.MedecinConventionnes");
@@ -227,10 +223,9 @@ namespace WebApplication4.Migrations
             DropForeignKey("dbo.Consultations", "UserID", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.Ordonnances", new[] { "ConsultationID" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
-            DropIndex("dbo.ConsultationOrdonnances", new[] { "UserID" });
-            DropIndex("dbo.ConsultationOrdonnances", new[] { "ConsultationID" });
             DropIndex("dbo.MedecinConventionnes", new[] { "IdSpecialite" });
             DropIndex("dbo.Medicaments", new[] { "UserID" });
             DropIndex("dbo.Medicaments", new[] { "IdSpecialite" });
@@ -245,8 +240,8 @@ namespace WebApplication4.Migrations
             DropIndex("dbo.AppointementModels", new[] { "idDoctors" });
             DropIndex("dbo.AppointementModels", new[] { "UserID" });
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Ordonnances");
             DropTable("dbo.AspNetUserRoles");
-            DropTable("dbo.ConsultationOrdonnances");
             DropTable("dbo.MedecinConventionnes");
             DropTable("dbo.Specialites");
             DropTable("dbo.Medicaments");

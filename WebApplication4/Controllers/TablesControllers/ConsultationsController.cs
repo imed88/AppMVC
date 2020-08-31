@@ -149,7 +149,7 @@ namespace WebApplication4.Controllers.TablesControllers
 
         public ActionResult CreateOrdonnance(ConsultationOrdonnance consultOrd)
         {
-            ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", consultOrd.UserID);
+            //ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", consultOrd.UserID);
             return View();
         }
 
@@ -180,7 +180,7 @@ namespace WebApplication4.Controllers.TablesControllers
                            join t in db.Users
                            on p.UserID equals t.Id
                            where/* e.ConsultationID == p.ConsultationID */
-                           e.ConsultationID == ConsultationID 
+                           e.ConsultationID == ConsultationID
 
                            select new
                            {
