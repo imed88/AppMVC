@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -16,10 +17,10 @@ namespace WebApplication4.Controllers.TablesControllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Usines
-        public ActionResult Index()
-        {
-            return View(db.Usines.ToList());
-        }
+        //public ActionResult Index()
+        //{
+        //    return View(db.Usines.ToList());
+        //}
 
         // GET: Usines/Details/5
         public ActionResult Details(int? id)
@@ -123,6 +124,63 @@ namespace WebApplication4.Controllers.TablesControllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult Index(string order, string currentFilter, string searching, int? page)
+        {
+            if (searching != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searching = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searching;
+
+
+            var usines = from c in db.Usines select c;
+
+            if (!String.IsNullOrEmpty(searching))
+            {
+                usines = usines.Where(s => s.UsineName == searching);
+
+            }
+
+            ViewBag.NameSortParm = String.IsNullOrEmpty(order) ? "UsineName_desc" : "";
+
+
+            switch (order)
+            {
+                case "UsineName_desc":
+                    usines = usines.OrderByDescending(s => s.UsineName);
+                    break;
+                default:
+                    usines = usines.OrderBy(s => s.UsineName);
+                    break;
+            }
+
+            // return View(usines.ToList());
+
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(usines.ToPagedList(pageNumber, pageSize));
+        }
+
+        public ActionResult IndexOrder(string order)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(order) ? "UsineName_desc" : "";
+
+            var usines = from c in db.Usines select c;
+            switch (order)
+            {
+                case "UsineName_desc":
+                    usines = usines.OrderByDescending(s => s.UsineName);
+                    break;
+            }
+
+            return View(usines.ToList());
         }
     }
 }

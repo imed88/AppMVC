@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -18,10 +19,10 @@ namespace WebApplication4.Controllers.TablesControllers
 
         // GET: Specialites
      
-        public ActionResult Index()
-        {
-            return View(db.Specialites.ToList());
-        }
+        //public ActionResult Index()
+        //{
+        //    return View(db.Specialites.ToList());
+        //}
 
         // GET: Specialites/Details/5
         public ActionResult Details(int? id)
@@ -126,5 +127,48 @@ namespace WebApplication4.Controllers.TablesControllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult Index(string order, string currentFilter, string searching, int? page)
+        {
+            if (searching != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searching = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searching;
+
+
+            var specialites = from c in db.Specialites select c;
+
+            if (!String.IsNullOrEmpty(searching))
+            {
+                specialites = specialites.Where(s => s.SpecialiteName == searching);
+
+            }
+
+            ViewBag.NameSortParm = String.IsNullOrEmpty(order) ? "SpecialiteName_desc" : "";
+
+
+            switch (order)
+            {
+                case "SpecialiteName_desc":
+                    specialites = specialites.OrderByDescending(s => s.SpecialiteName);
+                    break;
+                default:
+                    specialites = specialites.OrderBy(s => s.SpecialiteName);
+                    break;
+            }
+
+            // return View(usines.ToList());
+
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(specialites.ToPagedList(pageNumber, pageSize));
+        }
+
     }
 }

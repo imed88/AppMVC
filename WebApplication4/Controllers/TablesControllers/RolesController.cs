@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -14,10 +15,10 @@ namespace WebApplication4.Controllers.TablesControllers
     {
         ApplicationDbContext db = new ApplicationDbContext();
         // GET: Roles
-        public ActionResult Index()
-        {
-            return View(db.Roles.ToList());
-        }
+        //public ActionResult Index()
+        //{
+        //    return View(db.Roles.ToList());
+        //}
 
         // GET: Roles/Details/5
         public ActionResult Details(string id)
@@ -107,6 +108,48 @@ namespace WebApplication4.Controllers.TablesControllers
             {
                 return View(role);
             }
+        }
+
+        public ActionResult Index(string order, string currentFilter, string searching, int? page)
+        {
+            //if (searching != null)
+            //{
+            //    page = 1;
+            //}
+            //else
+            //{
+            //    searching = currentFilter;
+            //}
+
+            //ViewBag.CurrentFilter = searching;
+
+
+            var role = from c in db.Roles select c;
+
+            //if (!String.IsNullOrEmpty(searching))
+            //{
+            //    role = role.Where(s => s.Name == searching);
+
+            //}
+
+            ViewBag.NameSortParm = String.IsNullOrEmpty(order) ? "RoleName_desc" : "";
+
+
+            switch (order)
+            {
+                case "RoleName_desc":
+                    role = role.OrderByDescending(s => s.Name);
+                    break;
+                default:
+                    role = role.OrderBy(s => s.Name);
+                    break;
+            }
+
+            // return View(usines.ToList());
+
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(role.ToPagedList(pageNumber, pageSize));
         }
     }
 }

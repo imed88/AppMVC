@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -18,10 +19,58 @@ namespace WebApplication2.Controllers.TablesControllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: MedecinConventionnes
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    var medecinConventionnes = db.MedecinConventionnes.Include(m => m.specialite);
+        //    return View(medecinConventionnes.ToList());
+        //}
+
+        public ActionResult Index(string order, string currentFilter, string searching, int? page)
         {
-            var medecinConventionnes = db.MedecinConventionnes.Include(m => m.specialite);
-            return View(medecinConventionnes.ToList());
+            if (searching != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searching = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searching;
+
+
+            //var specialites = from c in db.Specialites select c;
+            var medconv = db.MedecinConventionnes.Include(m => m.specialite);
+
+            if (!String.IsNullOrEmpty(searching))
+            {
+                medconv = medconv.Where(s => s.nameDoctors == searching);
+
+            }
+
+
+            ViewBag.NameSortParm = String.IsNullOrEmpty(order) ? "nameDoctors_desc" : "";
+            ViewBag.specialiteNameSortParm = String.IsNullOrEmpty(order) ? "specialiteName_desc" : "";
+
+
+            switch (order)
+            {
+                case "nameDoctors_desc":
+                    medconv = medconv.OrderByDescending(s => s.nameDoctors);
+                    break;
+                case "specialiteName_desc":
+                    medconv = medconv.OrderByDescending(s => s.specialite.SpecialiteName);
+                    break;
+                default:
+                    medconv = medconv.OrderBy(s => s.nameDoctors);
+                    break;
+            }
+
+            // return View(usines.ToList());
+
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(medconv.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: MedecinConventionnes/Details/5

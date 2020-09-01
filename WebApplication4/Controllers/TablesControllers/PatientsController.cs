@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -17,11 +18,11 @@ namespace WebApplication4.Controllers.TablesControllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Patients
-        public ActionResult Index()
-        {
-            var patients = db.Patients.Include(p => p.Usines);
-            return View(patients.ToList());
-        }
+        //public ActionResult Index()
+        //{
+        //    var patients = db.Patients.Include(p => p.Usines);
+        //    return View(patients.ToList());
+        //}
 
         // GET: Patients/Details/5
         public ActionResult Details(int? id)
@@ -174,14 +175,65 @@ namespace WebApplication4.Controllers.TablesControllers
         //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         //    }
         //    Patients patients = db.Patients.Find(id);
-          
+
         //    if (patients == null)
         //    {
         //        return HttpNotFound();
         //    }
-          
+
         //    return RedirectToAction("Index/"+id, "AppointementModels");
         //}
+
+        public ActionResult Index(string order, string currentFilter, string searching, int? page)
+        {
+            if (searching != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searching = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searching;
+
+
+            //var Patient = from c in db.Patients select c;
+            var patients = db.Patients.Include(p => p.Usines);
+
+            if (!String.IsNullOrEmpty(searching))
+            {
+                patients = patients.Where(s => s.NomPatient == searching);
+
+            }
+
+            ViewBag.LastNameSortParm = String.IsNullOrEmpty(order) ? "NomPatient_desc" : "";
+            ViewBag.FirstNameSortParm = String.IsNullOrEmpty(order) ? "PrenomPatient_desc" : "";
+            ViewBag.UsineNameSortParm = String.IsNullOrEmpty(order) ? "UsinePatient_desc" : "";
+
+
+            switch (order)
+            {
+                case "NomPatient_desc":
+                    patients = patients.OrderByDescending(s => s.NomPatient);
+                    break;
+                case "PrenomPatient_desc":
+                    patients = patients.OrderByDescending(s => s.PrenomPatient);
+                    break;
+                case "UsinePatient_desc":
+                    patients = patients.OrderByDescending(s => s.Usines.UsineName);
+                    break;
+                default:
+                    patients = patients.OrderBy(s => s.NomPatient);
+                    break;
+            }
+
+            // return View(usines.ToList());
+
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(patients.ToPagedList(pageNumber, pageSize));
+        }
 
     }
 }

@@ -1,5 +1,5 @@
-﻿@model IEnumerable<WebApplication4.Models.Tables.Usine>
-
+﻿@model PagedList.IPagedList<WebApplication4.Models.Tables.Usine>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/MainLayout.cshtml";
@@ -10,25 +10,42 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@using (Html.BeginForm("Index", "Usines", FormMethod.Post))
+{
+    <div>
+        @Html.Label("Recherche:")
+        @Html.TextBox("searching")
+        <input id="submit" type="submit" value="Rechercher" />
+    </div>
+}
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.UsineName)
+            @Html.DisplayNameFor(model => model.First().UsineName)
+
+            @Html.ActionLink("Usine", "Index", new { order = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.UsineName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdUsine }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdUsine }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdUsine })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsineName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IdUsine }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IdUsine }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IdUsine })
+            </td>
+        </tr>
+    }
 
 </table>
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, Page_No =>Url.Action("Index",
+    new { Page_No, Sorting_Order= ViewBag.CurrentSortOrder, Filter_Value = ViewBag.FilterValue }))   
