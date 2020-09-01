@@ -141,7 +141,7 @@ namespace WebApplication4.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.UserType = new SelectList(db.Roles.Where(a=>!a.Name.Contains("Administrateur/Medecins")).ToList(), "Name","Name");
+            ViewBag.UserType = new SelectList(db.Roles.Where(a=>!a.Name.Contains("Administrateur")).ToList(), "Name","Name");
             return View();
         }
 
@@ -155,7 +155,7 @@ namespace WebApplication4.Controllers
             if (ModelState.IsValid)
             {
 
-                ViewBag.UserType = new SelectList(db.Roles.Where(a => !a.Name.Contains("Administrateur/Medecins")).ToList(), "Name", "Name");
+                ViewBag.UserType = new SelectList(db.Roles.Where(a => !a.Name.Contains("Administrateur")).ToList(), "Name", "Name");
                 var user = new ApplicationUser { UserName = model.Username, Email = model.Email, UserType=model.UserType};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

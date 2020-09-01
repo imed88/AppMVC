@@ -49,10 +49,10 @@ namespace WebApplication4.Models
 
     public class LoginViewModel
     {
-        /*[Required]
+        [Required]
         [Display(Name = "Courrier électronique")]
         [EmailAddress]
-        public string Email { get; set; }*/
+        public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

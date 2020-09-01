@@ -149,7 +149,7 @@ namespace WebApplication4.Controllers.TablesControllers
 
         public ActionResult CreateOrdonnance(ConsultationOrdonnance consultOrd)
         {
-            ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", consultOrd.UserID);
+          
             return View();
         }
 
@@ -158,20 +158,21 @@ namespace WebApplication4.Controllers.TablesControllers
         {
             //var UserId = User.Identity.GetUserId();
             var ConsultationID = (int)Session["ConsultationID"];
+           
             //Patients patients = new Patients();
 
+        
+
+          
+
             var job = new Ordonnance();
-           
             job.ConsultationID = ConsultationID;
             job.Message = Message;
             job.ApplyDate = DateTime.Now;
 
             db.ConsultationOrdonnances.Add(job);
             db.SaveChanges();
-            //ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", consultOrd.UserID);
-            //ViewBag.idPatients = new SelectList(db.Patients, "IdPatients", "PrenomPatient");
-            //List<Ordonnance> OneBlog = new List<Ordonnance>();
-            //OneBlog = db.ConsultationOrdonnances.Where(a => a.ConsultationID == 1).ToList();
+        
             var OneBlog = (from e in db.ConsultationOrdonnances
                            join p in db.Consultations
                            on e.ConsultationID equals p.ConsultationID
@@ -180,7 +181,7 @@ namespace WebApplication4.Controllers.TablesControllers
                            join t in db.Users
                            on p.UserID equals t.Id
                            where/* e.ConsultationID == p.ConsultationID */
-                           e.ConsultationID == ConsultationID 
+                           e.ConsultationID == ConsultationID
 
                            select new
                            {
@@ -193,6 +194,7 @@ namespace WebApplication4.Controllers.TablesControllers
                                ConsultationID=p.ConsultationID
 
                            }).ToList();
+
             ReportDocument rd = new ReportDocument();
             rd.Load(Path.Combine(Server.MapPath("~/Report"), "CrystalReport2.rpt"));
             rd.SetDataSource(OneBlog);

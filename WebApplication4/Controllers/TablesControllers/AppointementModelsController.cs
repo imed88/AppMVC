@@ -24,10 +24,10 @@ namespace WebApplication4.Controllers.TablesControllers
             return View(appointementModels.ToList());
         }*/
 
-        public ActionResult Index(string searching, string nom, string prenom)
+        public ActionResult Index(string searching, string nom, string prenom )
         {
-            var appointementModels = db.AppointementModels.Include(a => a.ApplicationUser);
-           
+            var appointementModels = from c in db.AppointementModels select c;
+
             if (!String.IsNullOrEmpty(searching))
             {
                 appointementModels = appointementModels.Where(s => s.Patient.NomPatient.Contains(searching));
@@ -45,6 +45,19 @@ namespace WebApplication4.Controllers.TablesControllers
 
                 return View(appointementModels.ToList());
             }
+
+
+
+
+
+
+
+
+
+
+
+
+
             return View(appointementModels.ToList());
         }
             // GET: AppointementModels/Details/5

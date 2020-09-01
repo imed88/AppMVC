@@ -1,0 +1,54 @@
+﻿@{ 
+    Layout = null;
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/StyleStyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top shadow  ">
+        <div class="container">
+            <div class="navbar-header ">
+                <a href="#" class="navbar-brand img">
+                     Logo Image 
+                    <img src="~/Content/logo.png" width="140" alt="" class="d-inline-block align-middle mr-2 ">
+
+                </a>
+                <button class="navbar-toggle collapsed shadow" data-toggle="collapse" data-target="#navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+            <div id="navbar" class="navbar-collapse collapse textChange ">
+                <ul class="nav navbar-nav" id="TextColor:hover">
+                    <li><a href="#" id="TextColor"><i class="glyphicon glyphicon-home"></i>Accueil</a></li>
+                    <li><a href="#" id="TextColor"><i class="glyphicon glyphicon-bed"></i>Patients</a></li>
+                    <li><a href="#" id="TextColor"><i class="glyphicon glyphicon-briefcase"></i>Medecins Conventionnés</a></li>
+                </ul>
+                  Partial View login
+                @Html.Partial("_LoginPartial")
+
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
