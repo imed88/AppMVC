@@ -10,9 +10,14 @@
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
+
 <div class="form-horizontal">
-    <h4>ConsultationOrdonnance</h4>
+ <div>
+     @if (ViewBag.Result != null)
+     {
+         <h3>@ViewBag.Result</h3>
+     }
+     </div>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">

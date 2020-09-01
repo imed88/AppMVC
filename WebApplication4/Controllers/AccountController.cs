@@ -141,7 +141,7 @@ namespace WebApplication4.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.UserType = new SelectList(db.Roles.Where(a=>!a.Name.Contains("Administrateur/Medecins")).ToList(), "Name","Name");
+            ViewBag.UserType = new SelectList(db.Roles.Where(a=>!a.Name.Contains("Administrateur")).ToList(), "Name","Name");
             return View();
         }
 
@@ -155,7 +155,7 @@ namespace WebApplication4.Controllers
             if (ModelState.IsValid)
             {
 
-                ViewBag.UserType = new SelectList(db.Roles.Where(a => !a.Name.Contains("Administrateur/Medecins")).ToList(), "Name", "Name");
+                ViewBag.UserType = new SelectList(db.Roles.Where(a => !a.Name.Contains("Administrateur")).ToList(), "Name", "Name");
                 var user = new ApplicationUser { UserName = model.Username, Email = model.Email, UserType=model.UserType};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -207,7 +207,7 @@ namespace WebApplication4.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await UserManager.FindByNameAsync(model.Email);
+                var user = await UserManager.FindByEmailAsync(model.Email);
                 if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
                 {
                     // Ne révélez pas que l'utilisateur n'existe pas ou qu'il n'est pas confirmé
@@ -216,10 +216,10 @@ namespace WebApplication4.Controllers
 
                 // Pour plus d'informations sur l'activation de la confirmation de compte et de la réinitialisation de mot de passe, visitez https://go.microsoft.com/fwlink/?LinkID=320771
                 // Envoyer un message électronique avec ce lien
-                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
-                // await UserManager.SendEmailAsync(user.Id, "Réinitialiser le mot de passe", "Réinitialisez votre mot de passe en cliquant <a href=\"" + callbackUrl + "\">ici</a>");
-                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                await UserManager.SendEmailAsync(user.Id, "Réinitialiser le mot de passe", "Réinitialisez votre mot de passe en cliquant <a href=\"" + callbackUrl + "\">ici</a>");
+                return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
 
             // Si nous sommes arrivés là, un échec s’est produit. Réafficher le formulaire
@@ -253,7 +253,7 @@ namespace WebApplication4.Controllers
             {
                 return View(model);
             }
-            var user = await UserManager.FindByNameAsync(model.Email);
+            var user = await UserManager.FindByEmailAsync(model.Email);
             if (user == null)
             {
                 // Ne révélez pas que l'utilisateur n'existe pas

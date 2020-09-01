@@ -10,10 +10,22 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@using (Html.BeginForm("Index", "Usines", FormMethod.Post))
+{
+<div>
+    @Html.Label("Recherche:")
+    @Html.TextBox("searching")
+    <input id="submit" type="submit" value="Rechercher" />
+</div>
+}
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.UsineName)
+           @* @Html.DisplayNameFor(model => model.UsineName)*@
+
+            @Html.ActionLink("Usine", "Index", new { order=ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th></th>
     </tr>
