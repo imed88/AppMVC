@@ -44,7 +44,7 @@ namespace WebApplication2.Controllers.TablesControllers
 
             if (!String.IsNullOrEmpty(searching))
             {
-                medconv = medconv.Where(s => s.nameDoctors == searching);
+                medconv = medconv.Where(s => s.nameDoctors.Contains(searching));
 
             }
 

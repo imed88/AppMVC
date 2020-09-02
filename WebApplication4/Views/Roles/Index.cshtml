@@ -1,16 +1,30 @@
 ﻿@model PagedList.IPagedList<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
 @using PagedList.Mvc;
-<p>
-    @Html.ActionLink("Créer un nouveau rôle", "Create")
-</p>
-@using (Html.BeginForm("Index", "Roles", FormMethod.Post))
-{
-    <div>
-        @Html.Label("Recherche:")
-        @Html.TextBox("searching")
-        <input id="submit" type="submit" value="Rechercher" />
+<div class="row">
+    <div class="col-sm-2">
+        <p>
+            @*@Html.ActionLink("Créer un nouveau Médecin Conventionné", "Create")*@
+            <a href="@Url.Action("Create", "Roles")" class="btn btn-success">
+                <i class="glyphicon glyphicon-plus"></i>
+                <span>
+                    <strong>Nouveau Rôle</strong>
+                </span>
+            </a>
+        </p>
     </div>
-}
+    <div class="col-sm-8">
+
+        @using (Html.BeginForm("Index", "Roles", FormMethod.Post))
+        {
+            <div>
+                @Html.Label("Rôle:")
+                @Html.TextBox("searching")
+                @*<input id="submit" type="submit" value="Rechercher" />*@
+                <button type="submit" value="" class="btn btn-warning glyphicon glyphicon-search " />
+            </div>
+        }
+    </div>
+</div>
 <table class="table">
     <tr>
         <th>
@@ -28,15 +42,35 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+                <a href="@Url.Action("Edit", "Roles",new { id = item.Id })" class="btn btn-warning">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                    <span>
+                        <strong></strong>
+                    </span>
+                </a>
+                <a href="@Url.Action("Details", "Roles",new { id = item.Id })" class="btn btn-info">
+                    <i class="glyphicon glyphicon-info-sign"></i>
+                    <span>
+                        <strong></strong>
+                    </span>
+                </a>
+
+                <a href="@Url.Action("Delete", "Roles",new { id = item.Id })" class="btn btn-danger">
+                    <i class="glyphicon glyphicon-trash"></i>
+                    <span>
+                        <strong></strong>
+                    </span>
+                </a>
             </td>
         </tr>
     }
 
 </table>
 
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) sur @Model.PageCount
-@Html.PagedListPager(Model, Page_No =>Url.Action("Index",
-    new { Page_No, Sorting_Order= ViewBag.CurrentSortOrder, Filter_Value = ViewBag.FilterValue }))
+<div class="pagination">
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+    sur @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>

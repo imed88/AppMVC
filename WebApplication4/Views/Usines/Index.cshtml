@@ -11,15 +11,31 @@
     @Html.ActionLink("Nouvelle usine", "Create")
 </p>
 
-@using (Html.BeginForm("Index", "Usines", FormMethod.Post))
-{
-    <div>
-        @Html.Label("Recherche:")
-        @Html.TextBox("searching")
-        <input id="submit" type="submit" value="Rechercher" />
+<div class="row">
+    <div class="col-sm-2">
+        <p>
+            @*@Html.ActionLink("Créer un nouveau Médecin Conventionné", "Create")*@
+            <a href="@Url.Action("Create", "Usine")" class="btn btn-success">
+                <i class="glyphicon glyphicon-plus"></i>
+                <span>
+                    <strong>Nouvelle usine</strong>
+                </span>
+            </a>
+        </p>
     </div>
-}
+    <div class="col-sm-8">
 
+        @using (Html.BeginForm("Index", "Usines", FormMethod.Post))
+        {
+            <div>
+                @Html.Label("Usine:")
+                @Html.TextBox("searching")
+                @*<input id="submit" type="submit" value="Rechercher" />*@
+                <button type="submit" value="" class="btn btn-warning glyphicon glyphicon-search " />
+            </div>
+        }
+    </div>
+</div>
 <table class="table">
     <tr>
         <th>
@@ -37,15 +53,32 @@
                 @Html.DisplayFor(modelItem => item.UsineName)
             </td>
             <td>
-                @Html.ActionLink("Modifier", "Edit", new { id = item.IdUsine }) |
-                @Html.ActionLink("Informations", "Details", new { id = item.IdUsine }) |
-                @Html.ActionLink("Suppression", "Delete", new { id = item.IdUsine })
+                <a href="@Url.Action("Edit", "Specialites",new { id = item.IdUsine })" class="btn btn-warning">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                    <span>
+                        <strong></strong>
+                    </span>
+                </a>
+                <a href="@Url.Action("Details", "Specialites",new { id = item.IdUsine })" class="btn btn-info">
+                    <i class="glyphicon glyphicon-info-sign"></i>
+                    <span>
+                        <strong></strong>
+                    </span>
+                </a>
+
+                <a href="@Url.Action("Delete", "Specialites",new { id = item.IdUsine })" class="btn btn-danger">
+                    <i class="glyphicon glyphicon-trash"></i>
+                    <span>
+                        <strong></strong>
+                    </span>
+                </a>
             </td>
         </tr>
     }
 
 </table>
 
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) sur @Model.PageCount
-@Html.PagedListPager(Model, Page_No =>Url.Action("Index",
-    new { Page_No, Sorting_Order= ViewBag.CurrentSortOrder, Filter_Value = ViewBag.FilterValue }))   
+<div class="pagination">
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+    sur @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>  

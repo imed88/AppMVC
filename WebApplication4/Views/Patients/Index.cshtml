@@ -5,21 +5,31 @@
     Layout = "~/Views/Shared/MainLayout.cshtml";
 }
 
-<h2>Index</h2>
-
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
-@using (Html.BeginForm("Index", "Patients", FormMethod.Post))
-{
-    <div>
-        @Html.Label("Recherche:")
-        @Html.TextBox("searching")
-        <input id="submit" type="submit" value="Rechercher" />
+<div class="row">
+    <div class="col-sm-2">
+        <p>
+            @*@Html.ActionLink("Créer un nouveau Médecin Conventionné", "Create")*@
+            <a href="@Url.Action("Create", "Patients")" class="btn btn-success">
+                <i class="glyphicon glyphicon-plus"></i>
+                <span>
+                    <strong>Nouveau patient</strong>
+                </span>
+            </a>
+        </p>
     </div>
-}
+    <div class="col-sm-8">
+
+        @using (Html.BeginForm("Index", "Patients", FormMethod.Post))
+        {
+            <div>
+                @Html.Label("Nom du Patient:")
+                @Html.TextBox("searching")
+                @*<input id="submit" type="submit" value="Rechercher" />*@
+                <button type="submit" value="" class="btn btn-warning glyphicon glyphicon-search " />
+            </div>
+        }
+    </div>
+</div>
 <table class="table">
     <tr>
         <th>
@@ -28,7 +38,7 @@
         </th>
         <th>
             @*@Html.DisplayNameFor(model => model.First().MatriculePatients)*@
-            @Html.Label("Matricule du patient", htmlAttributes: new { @class = "control-label col-md-9" })
+            @Html.Label("Matricule du patient", htmlAttributes: new { @class = "control-label col-9" })
         </th>
         <th>
             @*@Html.DisplayNameFor(model => model.NomPatient)*@
@@ -41,11 +51,11 @@
         </th>
         <th>
             @*@Html.DisplayNameFor(model => model.First().Gender)*@
-            @Html.Label("Sexe", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Sexe", htmlAttributes: new { @class = "control-label col-2" })
         </th>
         <th>
             @*@Html.DisplayNameFor(model => model.First().PhonePatients)*@
-            @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-2" })
         </th>
         <th></th>
     </tr>
@@ -74,7 +84,7 @@
             <td>
                 @if (item.FileDetails.Count() == 0)
                 {
-                    <span>No File</span>
+                    <span>Pas de fichiers</span>
                 }
                 else
                 {
@@ -82,14 +92,34 @@
                 }
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.IdPatients }) |
-                @Html.ActionLink("Details", "Details", new { id = item.IdPatients }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.IdPatients })
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.IdPatients }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.IdPatients }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IdPatients })*@
+                <a href="@Url.Action("Edit", "Patients",new { id = item.IdPatients })" class="btn btn-warning">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                    <span>
+                        <strong></strong>
+                    </span>
+                </a>
+                <a href="@Url.Action("Details", "Patients",new { id = item.IdPatients })" class="btn btn-info">
+                    <i class="glyphicon glyphicon-info-sign"></i>
+                    <span>
+                        <strong></strong>
+                    </span>
+                </a>
+
+                <a href="@Url.Action("Delete", "Patients",new { id = item.IdPatients })" class="btn btn-danger">
+                    <i class="glyphicon glyphicon-trash"></i>
+                    <span>
+                        <strong></strong>
+                    </span>
+                </a>
             </td>
         </tr>
     }
 
 </table>
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) sur @Model.PageCount
-@Html.PagedListPager(Model, Page_No =>Url.Action("Index",
-    new { Page_No, Sorting_Order= ViewBag.CurrentSortOrder, Filter_Value = ViewBag.FilterValue }))
+<div class="pagination">
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+    sur @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>

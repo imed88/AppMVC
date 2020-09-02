@@ -48,7 +48,7 @@
         @Html.Label("Sexe", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @*@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })*@
+                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })*@
 
             <div class="editor-field">
                 @Html.DropDownList("Gender", new List<SelectListItem>
@@ -91,7 +91,7 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Créer" class="btn btn-default" />
+            <input type="submit" value="Créer" class="btn btn-success" />
         </div>
     </div>
 </div>

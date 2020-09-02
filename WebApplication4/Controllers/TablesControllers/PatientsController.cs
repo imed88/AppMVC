@@ -203,7 +203,7 @@ namespace WebApplication4.Controllers.TablesControllers
 
             if (!String.IsNullOrEmpty(searching))
             {
-                patients = patients.Where(s => s.NomPatient == searching);
+                patients = patients.Where(s => s.NomPatient.Contains(searching));
 
             }
 

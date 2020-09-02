@@ -146,7 +146,7 @@ namespace WebApplication4.Controllers.TablesControllers
 
             if (!String.IsNullOrEmpty(searching))
             {
-                specialites = specialites.Where(s => s.SpecialiteName == searching);
+                specialites = specialites.Where(s => s.SpecialiteName.Contains(searching));
 
             }
 

@@ -39,7 +39,7 @@
 
     <div class="form-group">
         @*@Html.LabelFor(model => model.phoneDoctors, htmlAttributes: new { @class = "control-label col-md-2" })*@
-           @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.phoneDoctors, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.phoneDoctors, "", new { @class = "text-danger" })
@@ -48,7 +48,7 @@
 
     <div class="form-group">
         @*@Html.LabelFor(model => model.picDoctor, htmlAttributes: new { @class = "control-label col-md-2" })*@
-           @Html.Label("Photo du médecin", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.Label("Photo du médecin", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @*Html.EditorFor(model => model.picDoctor, new { htmlAttributes = new { @class = "form-control" } })*@
             <input type="file" name="upload" id="picDoctors" />
@@ -67,7 +67,7 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Créer" class="btn btn-default" id="create" />
+            <input type="submit" value="Créer" class="btn btn-success" />
         </div>
     </div>
 </div>
