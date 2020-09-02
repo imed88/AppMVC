@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/MainLayout.cshtml";
 }
 
-<h2>Index</h2>
+@*<h2>Index</h2>*@
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nouvelle usine", "Create")
 </p>
 
 @using (Html.BeginForm("Index", "Usines", FormMethod.Post))
@@ -23,7 +23,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.First().UsineName)
+            @*@Html.DisplayNameFor(model => model.First().UsineName)*@
 
             @Html.ActionLink("Usine", "Index", new { order = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
@@ -37,15 +37,15 @@
                 @Html.DisplayFor(modelItem => item.UsineName)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.IdUsine }) |
-                @Html.ActionLink("Details", "Details", new { id = item.IdUsine }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.IdUsine })
+                @Html.ActionLink("Modifier", "Edit", new { id = item.IdUsine }) |
+                @Html.ActionLink("Informations", "Details", new { id = item.IdUsine }) |
+                @Html.ActionLink("Suppression", "Delete", new { id = item.IdUsine })
             </td>
         </tr>
     }
 
 </table>
 
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) sur @Model.PageCount
 @Html.PagedListPager(Model, Page_No =>Url.Action("Index",
     new { Page_No, Sorting_Order= ViewBag.CurrentSortOrder, Filter_Value = ViewBag.FilterValue }))   

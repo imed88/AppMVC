@@ -5,14 +5,15 @@
     Layout = "~/Views/Shared/MainLayout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Informations</h2>
 
 <div>
-    <h4>AppointementModel</h4>
+    
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.ApplicationUser.UserName)
+            @*@Html.DisplayNameFor(model => model.ApplicationUser.UserName)*@
+            @Html.Label("Administrateur", htmlAttributes: new { @class = "control-label col-md-15" })
         </dt>
 
         <dd>
@@ -20,7 +21,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.idDoctors)
+            @*@Html.DisplayNameFor(model => model.Doctor.idDoctors)*@
+            @Html.Label("Médecin", htmlAttributes: new { @class = "control-label col-md-15" })
         </dt>
 
         <dd>
@@ -28,7 +30,26 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Date)
+            @*@Html.DisplayNameFor(model => model.Patient.NomPatient)*@
+            @Html.Label("Nom du patient", htmlAttributes: new { @class = "control-label col-md-15" })
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient.NomPatient)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Patient.PrenomPatient)*@
+            @Html.Label("Prénom du patient", htmlAttributes: new { @class = "control-label col-md-15" })
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient.PrenomPatient)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Date)*@
+            @Html.Label("Date du rendez-vous", htmlAttributes: new { @class = "control-label col-md-15" })
         </dt>
 
         <dd>
@@ -36,17 +57,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Time)
+            @*@Html.DisplayNameFor(model => model.Time)*@
+            @Html.Label("Heure du rendez-vous", htmlAttributes: new { @class = "control-label col-md-15" })
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Time)
         </dd>
 
-      
+
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.AppointmentID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Modifier", "Edit", new { id = Model.AppointmentID }) |
+    @Html.ActionLink("Retour", "Index")
 </p>

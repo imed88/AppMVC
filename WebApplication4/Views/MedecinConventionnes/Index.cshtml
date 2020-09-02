@@ -5,11 +5,11 @@
     Layout = "~/Views/Shared/MainLayout.cshtml";
 }
 
-<h2>Index</h2>
+@*<h2>Index</h2>*@
 
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Créer un nouveau Médecin Conventionné", "Create")
 </p>
 
 @using (Html.BeginForm("Index", "MedecinConventionnes", FormMethod.Post))
@@ -31,13 +31,16 @@
             @Html.ActionLink("Nom et Prenom du medecin", "Index", new { order = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().emailDoctors)
+            @*Html.DisplayNameFor(model => model.First().emailDoctors)*@
+            @Html.Label("Messagerie électronique", htmlAttributes: new { @class = "control-label col-12" })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().phoneDoctors)
+            @*@Html.DisplayNameFor(model => model.First().phoneDoctors)*@
+            @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-12" })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().picDoctor)
+            @*@Html.DisplayNameFor(model => model.First().picDoctor)*@
+            @Html.Label("Photo du Médecin", htmlAttributes: new { @class = "control-label col-12" })
         </th>
         <th></th>
     </tr>
@@ -69,7 +72,7 @@
     }
 
 </table>
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) sur @Model.PageCount
 @Html.PagedListPager(Model, Page_No =>Url.Action("Index",
     new { Page_No, Sorting_Order= ViewBag.CurrentSortOrder, Filter_Value = ViewBag.FilterValue }))
 

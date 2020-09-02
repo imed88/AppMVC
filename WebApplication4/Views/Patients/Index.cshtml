@@ -27,7 +27,8 @@
             @Html.ActionLink("Usine", "Index", new { order = ViewBag.UsineNameSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().MatriculePatients)
+            @*@Html.DisplayNameFor(model => model.First().MatriculePatients)*@
+            @Html.Label("Matricule du patient", htmlAttributes: new { @class = "control-label col-md-9" })
         </th>
         <th>
             @*@Html.DisplayNameFor(model => model.NomPatient)*@
@@ -39,10 +40,12 @@
 
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().Gender)
+            @*@Html.DisplayNameFor(model => model.First().Gender)*@
+            @Html.Label("Sexe", htmlAttributes: new { @class = "control-label col-md-2" })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().PhonePatients)
+            @*@Html.DisplayNameFor(model => model.First().PhonePatients)*@
+            @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-md-2" })
         </th>
         <th></th>
     </tr>
@@ -87,6 +90,6 @@
     }
 
 </table>
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) sur @Model.PageCount
 @Html.PagedListPager(Model, Page_No =>Url.Action("Index",
     new { Page_No, Sorting_Order= ViewBag.CurrentSortOrder, Filter_Value = ViewBag.FilterValue }))

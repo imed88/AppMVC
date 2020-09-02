@@ -5,14 +5,15 @@
     Layout = "~/Views/Shared/MainLayout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Informations</h2>
 
 <div>
-    <h4>Patients</h4>
+   
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Usines.UsineName)
+            @*@Html.DisplayNameFor(model => model.Usines.UsineName)*@
+            @Html.Label("Usine", htmlAttributes: new { @class = "control-label col-md-25" })
         </dt>
 
         <dd>
@@ -20,7 +21,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.MatriculePatients)
+            @*@Html.DisplayNameFor(model => model.MatriculePatients)*@
+            @Html.Label("Matricule du patient", htmlAttributes: new { @class = "control-label col-md-25" })
         </dt>
 
         <dd>
@@ -28,7 +30,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NomPatient)
+            @*@Html.DisplayNameFor(model => model.NomPatient)*@
+            @Html.Label("Nom du patient", htmlAttributes: new { @class = "control-label col-md-25" })
         </dt>
 
         <dd>
@@ -36,7 +39,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PrenomPatient)
+            @*@Html.DisplayNameFor(model => model.PrenomPatient)*@
+            @Html.Label("Prénom du Patient", htmlAttributes: new { @class = "control-label col-md-25" })
         </dt>
 
         <dd>
@@ -44,7 +48,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Gender)
+            @*@Html.DisplayNameFor(model => model.Gender)*@
+            @Html.Label("Sexe", htmlAttributes: new { @class = "control-label col-md-25" })
         </dt>
 
         <dd>
@@ -52,35 +57,37 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PhonePatients)
+            @*Html.DisplayNameFor(model => model.PhonePatients)*@
+            @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-md-25" })
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.PhonePatients)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.FileDetails)
+            @*@Html.DisplayNameFor(model => model.FileDetails)*@
+            @Html.Label("Compléments du dossier", htmlAttributes: new { @class = "control-label col-md-25" })
         </dt>
 
         <dd>
             <ul class="attachment">
                 @foreach (var item in Model.FileDetails)
                 {
-                <li>
-                    <a class="title" href="/Patients/Download/?p=@(item.Id + item.Extension)&d=@item.FileName">@item.FileName</a>
-                 
-                </li>
+                    <li>
+                        <a class="title" href="/Patients/Download/?p=@(item.Id + item.Extension)&d=@item.FileName">@item.FileName</a>
+
+                    </li>
 
                 }
             </ul>
-            </dd>
+        </dd>
 
 
     </dl>
 
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdPatients }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Modifier", "Edit", new { id = Model.IdPatients }) |
+    @Html.ActionLink("Retour", "Index")
     @*@Html.ActionLink("Rendez-vous", "Appointements", new { id = Model.IdPatients })*@ 
 </p>

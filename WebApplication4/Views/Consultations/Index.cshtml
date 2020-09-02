@@ -22,10 +22,12 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.First().DateCreated)
+            @*@Html.DisplayNameFor(model => model.First().DateCreated)*@
+            @Html.Label("Date de consultation", htmlAttributes: new { @class = "control-label col-12" })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().ApplicationUser.UserName)
+            @*@Html.DisplayNameFor(model => model.First().ApplicationUser.UserName)*@
+            @Html.Label("Administrateur", htmlAttributes: new { @class = "control-label col-5" })
         </th>
         <th>
             @*@Html.DisplayNameFor(model => model.First().Patient.PrenomPatient)*@
@@ -33,7 +35,8 @@
 
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().diagnostic)
+            @*@Html.DisplayNameFor(model => model.First().diagnostic)*@
+            @Html.Label("Diagnostic", htmlAttributes: new { @class = "control-label col-5" })
         </th>
 
         <th></th>
@@ -63,6 +66,6 @@
     }
 
 </table>
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) sur @Model.PageCount
 @Html.PagedListPager(Model, Page_No =>Url.Action("Index",
     new { Page_No, Sorting_Order= ViewBag.CurrentSortOrder, Filter_Value = ViewBag.FilterValue }))

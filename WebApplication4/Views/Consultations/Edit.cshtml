@@ -5,14 +5,14 @@
     Layout = "~/Views/Shared/MainLayout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2>Modifier l'élément</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
-    <h4>Consultation</h4>
+  
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.ConsultationID)
@@ -20,7 +20,8 @@
 
 
     <div class="form-group">
-        @Html.LabelFor(model => model.UserID, "UserID", htmlAttributes: new { @class = "control-label col-md-2" })
+        @*@Html.LabelFor(model => model.UserID, "UserID", htmlAttributes: new { @class = "control-label col-md-2" })*@
+        @Html.Label("Administrateur", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownList("UserID", null, htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
@@ -28,29 +29,32 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.IdPatients, htmlAttributes: new { @class = "control-label col-md-2" })
+        @*@Html.LabelFor(model => model.Patient.IdPatients, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        @Html.Label("Patient", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.IdPatients, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.IdPatients, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.Patient.NomPatient, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Patient.IdPatients, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.diagnostic, htmlAttributes: new { @class = "control-label col-md-2" })
+        @*@Html.LabelFor(model => model.diagnostic, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        @Html.Label("Diagnostic", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.diagnostic, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.TextAreaFor(model => model.diagnostic, 10, 100, new { htmlAttributes = new { style = " width:100%, max-width:100%" } })
+
             @Html.ValidationMessageFor(model => model.diagnostic, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
+            <input type="submit" value="Créer" class="btn btn-default" />
         </div>
     </div>
 </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Retour", "Index")
 </div>

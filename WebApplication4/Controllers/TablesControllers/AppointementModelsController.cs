@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -24,28 +25,52 @@ namespace WebApplication4.Controllers.TablesControllers
             return View(appointementModels.ToList());
         }*/
 
-        public ActionResult Index(string searching, string nom, string prenom )
+        public ActionResult Index(string searching, string prenom, string order, string currentFilter, int? page)
         {
-            var appointementModels = from c in db.AppointementModels select c;
+            if (searching != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searching = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searching;
+
+            var appointementModels = db.AppointementModels.Include(a => a.ApplicationUser);
 
             if (!String.IsNullOrEmpty(searching))
             {
                 appointementModels = appointementModels.Where(s => s.Patient.NomPatient.Contains(searching));
             }
-            else if (!String.IsNullOrEmpty(nom))
-            {
-                appointementModels = appointementModels.Where(s => s.Patient.NomPatient.Contains(nom));
-            }
+           
             else if (!String.IsNullOrEmpty(prenom))
             {
                 appointementModels = appointementModels.Where(s => s.Patient.NomPatient.Contains(prenom));
             }
-            else
-            {
+           
 
-                return View(appointementModels.ToList());
+
+
+            ViewBag.NameSortParm = String.IsNullOrEmpty(order) ? "PrenomPatient_desc" : "";
+
+
+            switch (order)
+            {
+                case "PrenomPatient_desc":
+                    appointementModels = appointementModels.OrderByDescending(s => s.Patient.PrenomPatient);
+                    break;
+                default:
+                    appointementModels = appointementModels.OrderBy(s => s.Patient.PrenomPatient);
+                    break;
             }
 
+            // return View(usines.ToList());
+
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(appointementModels.ToPagedList(pageNumber, pageSize));
 
 
 
@@ -55,10 +80,7 @@ namespace WebApplication4.Controllers.TablesControllers
 
 
 
-
-
-
-            return View(appointementModels.ToList());
+            //return View(appointementModels.ToList());
         }
             // GET: AppointementModels/Details/5
             public ActionResult Details(int? id)

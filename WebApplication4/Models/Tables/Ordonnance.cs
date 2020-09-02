@@ -13,7 +13,7 @@ namespace WebApplication4.Models.Tables
         public string Message { get; set; }
 
         [Required]
-        [Display(Name = "Date for Appointment")]
+        [Display(Name = "Date du Rendez vous de consultation")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime ApplyDate { get; set; }

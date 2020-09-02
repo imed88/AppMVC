@@ -1,7 +1,7 @@
 ﻿@model PagedList.IPagedList<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
 @using PagedList.Mvc;
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Créer un nouveau rôle", "Create")
 </p>
 @using (Html.BeginForm("Index", "Roles", FormMethod.Post))
 {
@@ -37,6 +37,6 @@
 
 </table>
 
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) sur @Model.PageCount
 @Html.PagedListPager(Model, Page_No =>Url.Action("Index",
     new { Page_No, Sorting_Order= ViewBag.CurrentSortOrder, Filter_Value = ViewBag.FilterValue }))

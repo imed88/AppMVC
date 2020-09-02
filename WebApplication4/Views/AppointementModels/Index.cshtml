@@ -1,92 +1,164 @@
-﻿@model IEnumerable<WebApplication4.Models.Tables.AppointementModel>
+﻿@model PagedList.IPagedList<WebApplication4.Models.Tables.AppointementModel>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/MainLayout.cshtml";
 }
 
-<h2>Index</h2>
-@using (Html.BeginForm("Index", "AppointementModels", FormMethod.Get))
-{
-    @Html.TextBox("searching")
-    @Html.TextBox("nom")
-    @Html.TextBox("prenom")
-    <input type="submit" value="submit" />
-}
+<h2>Rendez-vous avec un médecin conventionné</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 
-<table id="table_id" class="display">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ApplicationUser.UserName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Doctor.specialite.SpecialiteName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idDoctors)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Time)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Patient.MatriculePatients)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Patient.NomPatient)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Patient.PrenomPatient)
-        </th>
+<hr />
+@*<p>
+    @Html.ActionLink("Créer un rendez-vous", "Create")
+</p>*@
+<div class="row">
+    <div class="col-sm-2" >
+        <p>
+            @*@Html.ActionLink("Créer un rendez-vous", "Create")*@
+            <a href="@Url.Action("Create", "AppointementModels")" class="btn btn-primary">
+                <i class="glyphicon glyphicon-plus"></i>
+                <span>
+                    <strong>Nouevau rendez-vous</strong>
+                </span>
+            </a>
+        </p>
+    </div>
+    <div class="col-sm-8">
+        @using (Html.BeginForm("Index", "AppointementModels", FormMethod.Get))
+        {
+
+            @Html.Label("Nom du Patient", htmlAttributes: new { @class = "control-label col-2" })
+
+            @Html.TextBox("searching")
+
+            @Html.Label("Prénom du patient", htmlAttributes: new { @class = "control-label col-2" })
+            @Html.TextBox("prenom")
 
 
 
 
-        <th>
-        </th>
-    </tr>
+            <input type="submit" value="Rechercher" class="btn btn-info" />
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Doctor.specialite.SpecialiteName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Doctor.nameDoctors)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Time)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Patient.MatriculePatients)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Patient.NomPatient)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Patient.PrenomPatient)
-            </td>
+        }
+    </div>
+</div>
 
 
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.AppointmentID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.AppointmentID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.AppointmentID })
-            </td>
-        </tr>
-    }
+        
+        
+         
 
-</table>
+    
+
+       
+            <table id="table_id" class="table">
+                <tr>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.Date)*@
+                        @*@Html.Label("Date du rendez-vous", htmlAttributes: new { @class = "control-label col-md-15" })*@
+                        @Html.ActionLink("Date du rendez-vous", "Index", new { order = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.ApplicationUser.UserName)*@
+                        @Html.Label("Administrateur", htmlAttributes: new { @class = "control-label col-md-15" })
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.Doctor.specialite.SpecialiteName)*@
+                        @Html.Label("Spécialité", htmlAttributes: new { @class = "control-label col-md-15" })
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.idDoctors)*@
+                        @Html.Label("Médecin", htmlAttributes: new { @class = "control-label col-md-15" })
+                    </th>
+
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.Time)*@
+                        @Html.Label("Heure du rendez-vous", htmlAttributes: new { @class = "control-label col-md-15" })
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.Patient.MatriculePatients)*@
+                        @Html.Label("Matricule du patient", htmlAttributes: new { @class = "control-label col-md-15" })
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.Patient.NomPatient)*@
+                        @Html.Label("Nom du patient", htmlAttributes: new { @class = "control-label col-md-15" })
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.Patient.PrenomPatient)*@
+                        @Html.Label("Prénom du patient", htmlAttributes: new { @class = "control-label col-md-15" })
+                    </th>
+
+
+
+
+                    <th>
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Doctor.specialite.SpecialiteName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Doctor.nameDoctors)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Time)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Patient.MatriculePatients)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Patient.NomPatient)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Patient.PrenomPatient)
+                        </td>
+
+
+                        <td>
+                            @*@Html.ActionLink("Modifier", "Edit", new { id = item.AppointmentID },htmlAttributes: new { @class = "glyphicon glyphicon-pencil btn btn-primary" })
+        @Html.ActionLink(" Details", "Details", new { id = item.AppointmentID }, htmlAttributes: new { @class = "glyphicon glyphicon-info-sign btn btn-info" })
+        @Html.ActionLink(" Supprimer", "Delete", new { id = item.AppointmentID }, htmlAttributes: new { @class = "glyphicon glyphicon-trash btn btn-danger" })*@
+                            <a href="@Url.Action("Edit", "AppointementModels",new { id = item.AppointmentID })" class="btn btn-primary">
+                                <i class="glyphicon glyphicon-plus"></i>
+                                <span>
+                                    <strong></strong>
+                                </span>
+                            </a>
+                            <a href="@Url.Action("Details", "AppointementModels",new { id = item.AppointmentID })" class="btn btn-primary">
+                                <i class="glyphicon glyphicon-plus"></i>
+                                <span>
+                                    <strong></strong>
+                                </span>
+                            </a>
+
+                            <a href="@Url.Action("Delete", "AppointementModels",new { id = item.AppointmentID })" class="btn btn-primary">
+                                <i class="glyphicon glyphicon-plus"></i>
+                                <span>
+                                    <strong></strong>
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) sur @Model.PageCount
+            @Html.PagedListPager(Model, Page_No =>Url.Action("Index",
+                new { Page_No, Sorting_Order= ViewBag.CurrentSortOrder, Filter_Value = ViewBag.FilterValue }))
+       
+
+

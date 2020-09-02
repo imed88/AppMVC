@@ -5,14 +5,15 @@
     Layout = "~/Views/Shared/MainLayout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Informations</h2>
 
 <div>
-    <h4>MedecinConventionne</h4>
+    @*<h4>MedecinConventionne</h4>*@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.specialite.SpecialiteName)
+            @*@Html.DisplayNameFor(model => model.specialite.SpecialiteName)*@
+            @Html.Label("Spécialité", htmlAttributes: new { @class = "control-label col-md-25" })
         </dt>
 
         <dd>
@@ -20,7 +21,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.nameDoctors)
+            @*@Html.DisplayNameFor(model => model.nameDoctors)*@
+            @Html.Label("Nom du médecin", htmlAttributes: new { @class = "control-label col-md-25" })
         </dt>
 
         <dd>
@@ -28,7 +30,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.emailDoctors)
+            @*@Html.DisplayNameFor(model => model.emailDoctors)*@
+            @Html.Label("Messagerie électronique", htmlAttributes: new { @class = "control-label col-md-25" })
         </dt>
 
         <dd>
@@ -36,7 +39,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.phoneDoctors)
+            @*@Html.DisplayNameFor(model => model.phoneDoctors)*@
+            @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-md-25" })
         </dt>
 
         <dd>
@@ -44,9 +48,22 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.picDoctor)
+            @*@Html.DisplayNameFor(model => model.picDoctor)*@
+            @Html.Label("Photo du medecin", htmlAttributes: new { @class = "control-label col-md-25" })
         </dt>
 
         <dd>
             @*Html.DisplayFor(model => model.picDoctor)*@
+
             <img src="~/Uploads/@Html.DisplayFor(model => model.picDoctor)" class="thumbnail" style="width:150px; height:150px" />
+        </dd>
+
+
+    </dl>
+
+</div>
+<p>
+    @Html.ActionLink("Modifier", "Edit", new { id = Model.idDoctors }) |
+    @Html.ActionLink("Retour", "Index")
+    @*@Html.ActionLink("Rendez-vous", "Appointements", new { id = Model.IdPatients })*@
+</p>

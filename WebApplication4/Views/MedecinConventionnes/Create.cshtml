@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/MainLayout.cshtml";
 }
 
-<h2>Create</h2>
+<h2>Créer un nouveau médecin conventionné</h2>
 
 @using (Html.BeginForm("Create", "MedecinConventionnes", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -20,7 +20,8 @@
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
-        @Html.LabelFor(model => model.nameDoctors, htmlAttributes: new { @class = "control-label col-md-2" })
+        @*@Html.LabelFor(model => model.nameDoctors, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        @Html.Label("Nom du médecin", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.nameDoctors, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.nameDoctors, "", new { @class = "text-danger" })
@@ -28,7 +29,8 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.emailDoctors, htmlAttributes: new { @class = "control-label col-md-2" })
+        @*@Html.LabelFor(model => model.emailDoctors, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        @Html.Label("Messagerie électronique", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.emailDoctors, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.emailDoctors, "", new { @class = "text-danger" })
@@ -36,7 +38,8 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.phoneDoctors, htmlAttributes: new { @class = "control-label col-md-2" })
+        @*@Html.LabelFor(model => model.phoneDoctors, htmlAttributes: new { @class = "control-label col-md-2" })*@
+           @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.phoneDoctors, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.phoneDoctors, "", new { @class = "text-danger" })
@@ -44,7 +47,8 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.picDoctor, htmlAttributes: new { @class = "control-label col-md-2" })
+        @*@Html.LabelFor(model => model.picDoctor, htmlAttributes: new { @class = "control-label col-md-2" })*@
+           @Html.Label("Photo du médecin", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @*Html.EditorFor(model => model.picDoctor, new { htmlAttributes = new { @class = "form-control" } })*@
             <input type="file" name="upload" id="picDoctors" />
@@ -53,7 +57,8 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.IdSpecialite, "IdSpecialite", htmlAttributes: new { @class = "control-label col-md-2" })
+        @*@Html.LabelFor(model => model.IdSpecialite, "IdSpecialite", htmlAttributes: new { @class = "control-label col-md-2" })*@
+        @Html.Label("Spécialité", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownList("IdSpecialite", null, htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.IdSpecialite, "", new { @class = "text-danger" })
@@ -62,14 +67,14 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" id="create" />
+            <input type="submit" value="Créer" class="btn btn-default" id="create" />
         </div>
     </div>
 </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Retour", "Index")
 </div>
 @section scripts{
     <script>

@@ -26,11 +26,12 @@ namespace WebApplication4.Models.Tables
         public int idPatients { get; set; }
         public virtual Patients Patient { get; set; }
 
-        
+
 
 
 
         [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0: dd/MM/yyyy}")]
         [Display(Name = "Date Created")]
         public DateTime DateCreated { get;  set; }
 

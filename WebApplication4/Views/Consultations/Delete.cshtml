@@ -5,30 +5,40 @@
     Layout = "~/Views/Shared/MainLayout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2>Suppression de l'élément</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Vous êtes sûr de vouloir supprimer cet élément?</h3>
 <div>
-    <h4>Consultation</h4>
+    @*<h4>Consultation</h4>*@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.ApplicationUser.UserType)
+            @*@Html.DisplayNameFor(model => model.Patient.MatriculePatients)*@
+            @Html.Label("Matricule du patient", htmlAttributes: new { @class = "control-label col-md-15" })
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ApplicationUser.UserType)
+            @Html.DisplayFor(model => model.Patient.MatriculePatients)
+        </dd>
+        <dt>
+            @*@Html.DisplayNameFor(model => model.ApplicationUser.UserName)*@
+            @Html.Label("Médecin", htmlAttributes: new { @class = "control-label col-md-15" })
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationUser.UserName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.diagnostic)
+            @*@Html.DisplayNameFor(model => model.diagnostic)*@
+            @Html.Label("Diagnostic", htmlAttributes: new { @class = "control-label col-md-15" })
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.diagnostic)
         </dd>
 
-       
+
 
     </dl>
 
@@ -36,8 +46,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Supprimer" class="btn btn-default" /> |
+            @Html.ActionLink("Retour", "Index")
         </div>
     }
 </div>
