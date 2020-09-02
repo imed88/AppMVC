@@ -10,7 +10,7 @@ using WebApplication4.Models;
 
 namespace WebApplication4.Controllers.TablesControllers
 {
-    [Authorize(Roles = "Administrateur")]
+  
     public class RolesController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
@@ -112,25 +112,25 @@ namespace WebApplication4.Controllers.TablesControllers
 
         public ActionResult Index(string order, string currentFilter, string searching, int? page)
         {
-            //if (searching != null)
-            //{
-            //    page = 1;
-            //}
-            //else
-            //{
-            //    searching = currentFilter;
-            //}
+            if (searching != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searching = currentFilter;
+            }
 
-            //ViewBag.CurrentFilter = searching;
+            ViewBag.CurrentFilter = searching;
 
 
             var role = from c in db.Roles select c;
 
-            //if (!String.IsNullOrEmpty(searching))
-            //{
-            //    role = role.Where(s => s.Name == searching);
+            if (!String.IsNullOrEmpty(searching))
+            {
+                role = role.Where(s => s.Name.ToLower().Contains(searching.ToLower()));
 
-            //}
+            }
 
             ViewBag.NameSortParm = String.IsNullOrEmpty(order) ? "RoleName_desc" : "";
 

@@ -1,6 +1,7 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
 using Microsoft.AspNet.Identity;
 using Microsoft.Reporting.WebForms;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -23,13 +24,56 @@ namespace WebApplication4.Controllers.TablesControllers
     public class ConsultationsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-       
+
 
         // GET: Consultations
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    var consultations = db.Consultations.Include(c => c.ApplicationUser).Include(c=>c.Patient);
+        //    return View(consultations.ToList());
+        //}
+
+        public ActionResult Index(string order, string currentFilter, string searching, int? page)
         {
-            var consultations = db.Consultations.Include(c => c.ApplicationUser).Include(c=>c.Patient);
-            return View(consultations.ToList());
+            if (searching != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searching = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searching;
+
+
+            var consultations = db.Consultations.Include(c => c.ApplicationUser).Include(c => c.Patient);
+
+            if (!String.IsNullOrEmpty(searching))
+            {
+
+                consultations = consultations.Where(s => s.Patient.PrenomPatient.ToLower().Contains(searching.ToLower()));
+
+            }
+
+            ViewBag.NameSortParm = String.IsNullOrEmpty(order) ? "PrenomPatient_desc" : "";
+
+
+            switch (order)
+            {
+                case "PrenomPatient_desc":
+                    consultations = consultations.OrderByDescending(s => s.Patient.PrenomPatient);
+                    break;
+                default:
+                    consultations = consultations.OrderBy(s => s.Patient.PrenomPatient);
+                    break;
+            }
+
+            // return View(usines.ToList());
+
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(consultations.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Consultations/Details/5

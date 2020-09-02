@@ -1,4 +1,5 @@
-﻿@model IEnumerable<WebApplication4.Models.Tables.Consultation>
+﻿@model PagedList.IPagedList<WebApplication4.Models.Tables.Consultation>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Index";
@@ -10,44 +11,58 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@using (Html.BeginForm("Index", "Consultations", FormMethod.Post))
+{
+    <div>
+        @Html.Label("Recherche:")
+        @Html.TextBox("searching")
+        <input id="submit" type="submit" value="Rechercher" />
+    </div>
+}
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.DateCreated)
+            @Html.DisplayNameFor(model => model.First().DateCreated)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ApplicationUser.UserName)
+            @Html.DisplayNameFor(model => model.First().ApplicationUser.UserName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Patient.PrenomPatient)
+            @*@Html.DisplayNameFor(model => model.First().Patient.PrenomPatient)*@
+            @Html.ActionLink("Nom du patient", "Index", new { order = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.diagnostic)
+            @Html.DisplayNameFor(model => model.First().diagnostic)
         </th>
 
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td> @Html.DisplayFor(modelItem => item.DateCreated, new { @value = DateTime.Today, @readonly = "readonly" })</td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td> @Html.DisplayFor(modelItem => item.DateCreated, new { @value = DateTime.Today, @readonly = "readonly" })</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
+            </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.Patient.PrenomPatient)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.diagnostic)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ConsultationID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ConsultationID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ConsultationID })
-            @*@Html.ActionLink("Medicaments", "Medication", new { id = item.ConsultationID })*@
-        </td>
-    </tr>
-}
+            <td>
+                @Html.DisplayFor(modelItem => item.Patient.PrenomPatient)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.diagnostic)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ConsultationID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ConsultationID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ConsultationID })
+                @*@Html.ActionLink("Medicaments", "Medication", new { id = item.ConsultationID })*@
+            </td>
+        </tr>
+    }
 
 </table>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, Page_No =>Url.Action("Index",
+    new { Page_No, Sorting_Order= ViewBag.CurrentSortOrder, Filter_Value = ViewBag.FilterValue }))
