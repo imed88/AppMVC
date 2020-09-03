@@ -65,8 +65,13 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Supprimer" class="btn btn-default" /> |
-            @Html.ActionLink("Retour", "Index")
+            <input type="submit" value="Supprimer" class="btn btn-danger" /> |
+            <a href="@Url.Action("Index", "MesecinConventionnes")" class="btn btn-default">
+                <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
+                <span>
+                    <strong>Retour</strong>
+                </span>
+            </a>
         </div>
     }
 </div>

@@ -23,6 +23,19 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Modifier", "Edit", new { id = Model.IdUsine }) |
-    @Html.ActionLink("Retour", "Index")
+    @*@Html.ActionLink("Modifier", "Edit", new { id = Model.IdUsine }) |*@
+    <a href="@Url.Action("Edit", "Usines",new { id = Model.IdUsine })" class="btn btn-warning">
+        <i class="glyphicon glyphicon-pencil"></i>
+        <span>
+            <strong></strong>
+        </span>
+    </a>
+    @*@Html.ActionLink("Retour", "Index")*@
+    |
+    <a href="@Url.Action("Index", "Usines")" class="btn btn-default">
+        <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
+        <span>
+            <strong>Retour</strong>
+        </span>
+    </a>
 </p>

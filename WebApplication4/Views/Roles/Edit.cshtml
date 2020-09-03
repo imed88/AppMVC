@@ -28,7 +28,13 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Modifier" class="btn btn-default" />
+                <input type="submit" value="Modifier" class="btn btn-warning" />|   @*@Html.ActionLink("Retour", "Index")*@
+                <a href="@Url.Action("Index", "Roles")" class="btn btn-default">
+                    <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
+                    <span>
+                        <strong>Retour</strong>
+                    </span>
+                </a>
             </div>
         </div>
     </div>

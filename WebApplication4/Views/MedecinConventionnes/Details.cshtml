@@ -63,7 +63,18 @@
 
 </div>
 <p>
-    @Html.ActionLink("Modifier", "Edit", new { id = Model.idDoctors }) |
-    @Html.ActionLink("Retour", "Index")
+    <a href="@Url.Action("Edit", "MedecinConventionnes",new { id = Model.idDoctors })" class="btn btn-warning">
+        <i class="glyphicon glyphicon-pencil"></i>
+        <span>
+            <strong></strong>
+        </span>
+    </a> 
+    |
+    <a href="@Url.Action("Index", "MedecinConventionnes")" class="btn btn-default">
+        <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
+        <span>
+            <strong>Retour</strong>
+        </span>
+    </a>
     @*@Html.ActionLink("Rendez-vous", "Appointements", new { id = Model.IdPatients })*@
 </p>
