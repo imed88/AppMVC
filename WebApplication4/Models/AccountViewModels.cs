@@ -40,12 +40,7 @@ namespace WebApplication4.Models
         public bool RememberMe { get; set; }
     }
 
-    public class ForgotViewModel
-    {
-        [Required]
-        [Display(Name = "Courrier électronique")]
-        public string Email { get; set; }
-    }
+
 
     public class LoginViewModel
     {

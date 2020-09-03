@@ -27,6 +27,8 @@ namespace WebApplication4.Models
 
             return userIdentity;
         }
+
+
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

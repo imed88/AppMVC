@@ -91,15 +91,20 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Créer" class="btn btn-success" />
+            <input type="submit" value="Créer" class="btn btn-success" /> |  <a href="@Url.Action("Index", "Patients")" class="btn btn-default">
+                <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
+                <span>
+                    <strong>Retour</strong>
+                </span>
+            </a>
         </div>
     </div>
 </div>
 }
 
-<div>
+@*<div>
     @Html.ActionLink("Retour", "Index")
-</div>
+</div>*@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
