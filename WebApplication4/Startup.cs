@@ -30,7 +30,7 @@ namespace WebApplication4
                 roleManager.Create(role);
                 ApplicationUser user = new ApplicationUser();
                 user.UserName = "darragi";
-                user.Email = "darragi@test.com";
+                user.Email = "imededdine.benzarti@gmail.com";
                 
                 var check = userManager.Create(user, "darragi@123");
                 if(check.Succeeded)
