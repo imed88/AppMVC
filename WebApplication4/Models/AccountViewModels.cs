@@ -50,10 +50,10 @@ namespace WebApplication4.Models
 
     public class LoginViewModel
     {
-        //[Required]
-        //[Display(Name = "Courrier électronique")]
-        //[EmailAddress]
-        //public string Email { get; set; }
+        /*[Required]
+        [Display(Name = "Courrier électronique")]
+        [EmailAddress]
+        public string Email { get; set; }*/
 
         [Required]
         [DataType(DataType.Password)]
@@ -76,7 +76,7 @@ namespace WebApplication4.Models
 
         [Required]
         [Display(Name = "Type d'utilisateur")]
-        public string UserType{ get; set; }
+        public string UserType { get; set; }
 
         [Required]
         [EmailAddress]
