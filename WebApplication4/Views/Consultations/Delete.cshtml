@@ -1,56 +1,74 @@
 ﻿@model WebApplication4.Models.Tables.Consultation
 
+<section class="content-header">
+    <h1>
+        Infirmerie
+        <small>Les consultations</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
+        <li>Consultations</li>
+        <li class="active">Supprimer</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <div class="row">
+
+        <h2>Suppression de l'élément</h2>
+
+        <h3>Vous êtes sûr de vouloir supprimer cet élément?</h3>
+        <div>
+            @*<h4>Consultation</h4>*@
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @*@Html.DisplayNameFor(model => model.Patient.MatriculePatients)*@
+                    @Html.Label("Matricule du patient", htmlAttributes: new { @class = "control-label col-md-15" })
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Patient.MatriculePatients)
+                </dd>
+                <dt>
+                    @*@Html.DisplayNameFor(model => model.ApplicationUser.UserName)*@
+                    @Html.Label("Médecin", htmlAttributes: new { @class = "control-label col-md-15" })
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ApplicationUser.UserName)
+                </dd>
+
+                <dt>
+                    @*@Html.DisplayNameFor(model => model.diagnostic)*@
+                    @Html.Label("Diagnostic", htmlAttributes: new { @class = "control-label col-md-15" })
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.diagnostic)
+                </dd>
 
 
-<h2>Suppression de l'élément</h2>
 
-<h3>Vous êtes sûr de vouloir supprimer cet élément?</h3>
-<div>
-    @*<h4>Consultation</h4>*@
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @*@Html.DisplayNameFor(model => model.Patient.MatriculePatients)*@
-            @Html.Label("Matricule du patient", htmlAttributes: new { @class = "control-label col-md-15" })
-        </dt>
+            </dl>
 
-        <dd>
-            @Html.DisplayFor(model => model.Patient.MatriculePatients)
-        </dd>
-        <dt>
-            @*@Html.DisplayNameFor(model => model.ApplicationUser.UserName)*@
-            @Html.Label("Médecin", htmlAttributes: new { @class = "control-label col-md-15" })
-        </dt>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-        <dd>
-            @Html.DisplayFor(model => model.ApplicationUser.UserName)
-        </dd>
-
-        <dt>
-            @*@Html.DisplayNameFor(model => model.diagnostic)*@
-            @Html.Label("Diagnostic", htmlAttributes: new { @class = "control-label col-md-15" })
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.diagnostic)
-        </dd>
-
-
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-    <div class="form-actions no-color">
-        <input type="submit" value="Supprimer" class="btn btn-danger" /> |
-        @*@Html.ActionLink("Retour", "Index")*@
-        <a href="@Url.Action("Index", "Consultations")" class="btn btn-default">
-            <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
-            <span>
-                <strong>Retour</strong>
-            </span>
-        </a>
-    </div>
-    }
-</div>
+                <div class="form-actions no-color">
+                    <input type="submit" value="Supprimer" class="btn btn-danger" /> |
+                    @*@Html.ActionLink("Retour", "Index")*@
+                    <a href="@Url.Action("Index", "Consultations")" class="btn btn-default">
+                        <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
+                        <span>
+                            <strong>Retour</strong>
+                        </span>
+                    </a>
+                </div>
+            }
+        </div>
+        </div>
+</section>

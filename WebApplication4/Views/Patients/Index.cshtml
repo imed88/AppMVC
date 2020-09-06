@@ -1,121 +1,134 @@
 ﻿@model PagedList.IPagedList<WebApplication4.Models.Tables.Patients>
 @using PagedList.Mvc;
+<section class="content-header">
+    <h1>
+        Infirmerie
+        <small>Liste des patients</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
+        <li class="active">Patients</li>
+    </ol>
+</section>
 
-<div class="row">
-    <div class="col-sm-2">
-        <p>
-            @*@Html.ActionLink("Créer un nouveau Médecin Conventionné", "Create")*@
-            <a href="@Url.Action("Create", "Patients")" class="btn btn-success">
-                <i class="glyphicon glyphicon-plus"></i>
-                <span>
-                    <strong>Nouveau patient</strong>
-                </span>
-            </a>
-        </p>
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-sm-2">
+            <p>
+                @*@Html.ActionLink("Créer un nouveau Médecin Conventionné", "Create")*@
+                <a href="@Url.Action("Create", "Patients")" class="btn btn-success">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    <span>
+                        <strong>Nouveau patient</strong>
+                    </span>
+                </a>
+            </p>
+        </div>
+        <div class="col-sm-8">
+
+            @using (Html.BeginForm("Index", "Patients", FormMethod.Post))
+            {
+                <div>
+                    @Html.Label("Nom du Patient:")
+                    @Html.TextBox("searching")
+                    @*<input id="submit" type="submit" value="Rechercher" />*@
+                    <button type="submit" value="" class="btn btn-warning glyphicon glyphicon-search " />
+                </div>
+            }
+        </div>
     </div>
-    <div class="col-sm-8">
-
-        @using (Html.BeginForm("Index", "Patients", FormMethod.Post))
-        {
-            <div>
-                @Html.Label("Nom du Patient:")
-                @Html.TextBox("searching")
-                @*<input id="submit" type="submit" value="Rechercher" />*@
-                <button type="submit" value="" class="btn btn-warning glyphicon glyphicon-search " />
-            </div>
-        }
-    </div>
-</div>
-<table class="table">
-    <tr>
-        <th>
-            @*@Html.DisplayNameFor(model => model.Usines.UsineName)*@
-            @Html.ActionLink("Usine", "Index", new { order = ViewBag.UsineNameSortParm, currentFilter = ViewBag.CurrentFilter })
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.First().MatriculePatients)*@
-            @Html.Label("Matricule du patient", htmlAttributes: new { @class = "control-label col-9" })
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.NomPatient)*@
-            @Html.ActionLink("Nom Patient", "Index", new { order = ViewBag.LastNameSortParm, currentFilter = ViewBag.CurrentFilter })
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.PrenomPatient)*@
-            @Html.ActionLink("Prenom Patient", "Index", new { order = ViewBag.FirstNameSortParm, currentFilter = ViewBag.CurrentFilter })
-
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.First().Gender)*@
-            @Html.Label("Sexe", htmlAttributes: new { @class = "control-label col-2" })
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.First().PhonePatients)*@
-            @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-2" })
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Usines.UsineName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MatriculePatients)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomPatient)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrenomPatient)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhonePatients)
-            </td>
-            <td>
-                @if (item.FileDetails.Count() == 0)
-                {
-                    <span>Pas de fichiers</span>
-                }
-                else
-                {
-                    <span>@item.FileDetails.Count() File(s)</span>
-                }
-            </td>
-            <td>
-                @*@Html.ActionLink("Edit", "Edit", new { id = item.IdPatients }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.IdPatients }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.IdPatients })*@
-                <a href="@Url.Action("Edit", "Patients",new { id = item.IdPatients })" class="btn btn-warning">
-                    <i class="glyphicon glyphicon-wrench"></i>
-                    <span>
-                        <strong></strong>
-                    </span>
-                </a>
-                <a href="@Url.Action("Details", "Patients",new { id = item.IdPatients })" class="btn btn-info">
-                    <i class="glyphicon glyphicon-info-sign"></i>
-                    <span>
-                        <strong></strong>
-                    </span>
-                </a>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Usines.UsineName)*@
+                @Html.ActionLink("Usine", "Index", new { order = ViewBag.UsineNameSortParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.First().MatriculePatients)*@
+                @Html.Label("Matricule du patient", htmlAttributes: new { @class = "control-label col-9" })
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.NomPatient)*@
+                @Html.ActionLink("Nom Patient", "Index", new { order = ViewBag.LastNameSortParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.PrenomPatient)*@
+                @Html.ActionLink("Prenom Patient", "Index", new { order = ViewBag.FirstNameSortParm, currentFilter = ViewBag.CurrentFilter })
 
-                <a href="@Url.Action("Delete", "Patients",new { id = item.IdPatients })" class="btn btn-danger">
-                    <i class="glyphicon glyphicon-trash"></i>
-                    <span>
-                        <strong></strong>
-                    </span>
-                </a>
-            </td>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.First().Gender)*@
+                @Html.Label("Sexe", htmlAttributes: new { @class = "control-label col-2" })
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.First().PhonePatients)*@
+                @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-2" })
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
-<div class="pagination">
-    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
-    sur @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
-</div>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usines.UsineName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MatriculePatients)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomPatient)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrenomPatient)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhonePatients)
+                </td>
+                <td>
+                    @if (item.FileDetails.Count() == 0)
+                    {
+                        <span>Pas de fichiers</span>
+                    }
+                    else
+                    {
+                        <span>@item.FileDetails.Count() File(s)</span>
+                    }
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.IdPatients }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.IdPatients }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.IdPatients })*@
+                    <a href="@Url.Action("Edit", "Patients",new { id = item.IdPatients })" class="btn btn-warning">
+                        <i class="glyphicon glyphicon-wrench"></i>
+                        <span>
+                            <strong></strong>
+                        </span>
+                    </a>
+                    <a href="@Url.Action("Details", "Patients",new { id = item.IdPatients })" class="btn btn-info">
+                        <i class="glyphicon glyphicon-info-sign"></i>
+                        <span>
+                            <strong></strong>
+                        </span>
+                    </a>
+
+                    <a href="@Url.Action("Delete", "Patients",new { id = item.IdPatients })" class="btn btn-danger">
+                        <i class="glyphicon glyphicon-trash"></i>
+                        <span>
+                            <strong></strong>
+                        </span>
+                    </a>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="pagination">
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+        sur @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    </div>
+    </section>

@@ -1,70 +1,87 @@
 ﻿@model WebApplication4.Models.Tables.Consultation
 
+<section class="content-header">
+    <h1>
+        Infirmerie
+        <small>Les consultations</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
+        <li>Consultations</li>
+        <li class="active">Créer</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <div class="row">
+
+        <h2>Nouvelle Consultation</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
-<h2>Nouvelle Consultation</h2>
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.UserID, "UserID", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    @Html.Label("Administrateur", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("UserID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.DateCreated, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    @Html.Label("Date de consultation", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DateCreated, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DateCreated, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
 
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.idPatients, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    @Html.Label("Patient", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @*@Html.EditorFor(model => model.IdPatients, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.DropDownList("idPatients", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.idPatients, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @*Html.LabelFor(model => model.diagnostic, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    @Html.Label("Diagnostic", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.diagnostic, 10, 100, new { htmlAttributes = new { style = " width:100%, max-width:100%" } })
+                        @Html.ValidationMessageFor(model => model.diagnostic, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
 
-    <div class="form-group">
-        @*@Html.LabelFor(model => model.UserID, "UserID", htmlAttributes: new { @class = "control-label col-md-2" })*@
-        @Html.Label("Administrateur", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("UserID", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Créer" class="btn btn-success" /> |  <a href="@Url.Action("Index", "Consultations")" class="btn btn-default">
+                            <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
+                            <span>
+                                <strong>Retour</strong>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+
+        @*<div>
+                @Html.ActionLink("Retour", "Index")
+            </div>*@
         </div>
-    </div>
-    <div class="form-group">
-        @*@Html.LabelFor(model => model.DateCreated, htmlAttributes: new { @class = "control-label col-md-2" })*@
-        @Html.Label("Date de consultation", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.DateCreated, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.DateCreated, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        @*@Html.LabelFor(model => model.idPatients, htmlAttributes: new { @class = "control-label col-md-2" })*@
-        @Html.Label("Patient", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @*@Html.EditorFor(model => model.IdPatients, new { htmlAttributes = new { @class = "form-control" } })*@
-            @Html.DropDownList("idPatients", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.idPatients, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @*Html.LabelFor(model => model.diagnostic, htmlAttributes: new { @class = "control-label col-md-2" })*@
-        @Html.Label("Diagnostic", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.TextAreaFor(model => model.diagnostic, 10, 100, new { htmlAttributes = new { style = " width:100%, max-width:100%" } })
-            @Html.ValidationMessageFor(model => model.diagnostic, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Créer" class="btn btn-success" /> |  <a href="@Url.Action("Index", "Consultations")" class="btn btn-default">
-                <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
-                <span>
-                    <strong>Retour</strong>
-                </span>
-            </a>
-        </div>
-    </div>
-</div>
-}
-
-@*<div>
-    @Html.ActionLink("Retour", "Index")
-</div>*@
+</section>
