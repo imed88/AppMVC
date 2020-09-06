@@ -1,21 +1,16 @@
 ﻿@model PagedList.IPagedList<WebApplication4.Models.Tables.Usine>
 @using PagedList.Mvc;
-@{
+@*@{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/MainLayout.cshtml";
-}
-
+    Layout = "~/Views/Shared/adminlte/_mainLayout.cshtml";
+}*@
 @*<h2>Index</h2>*@
-
-<p>
-    @Html.ActionLink("Nouvelle usine", "Create")
-</p>
 
 <div class="row">
     <div class="col-sm-2">
         <p>
             @*@Html.ActionLink("Créer un nouveau Médecin Conventionné", "Create")*@
-            <a href="@Url.Action("Create", "Usine")" class="btn btn-success">
+            <a href="@Url.Action("Create", "Usines")" class="btn btn-success">
                 <i class="glyphicon glyphicon-plus"></i>
                 <span>
                     <strong>Nouvelle usine</strong>
@@ -53,20 +48,20 @@
                 @Html.DisplayFor(modelItem => item.UsineName)
             </td>
             <td>
-                <a href="@Url.Action("Edit", "Specialites",new { id = item.IdUsine })" class="btn btn-warning">
+                <a href="@Url.Action("Edit", "Usines",new { id = item.IdUsine })" class="btn btn-warning">
                     <i class="glyphicon glyphicon-wrench"></i>
                     <span>
                         <strong></strong>
                     </span>
                 </a>
-                <a href="@Url.Action("Details", "Specialites",new { id = item.IdUsine })" class="btn btn-info">
+                <a href="@Url.Action("Details", "Usines",new { id = item.IdUsine })" class="btn btn-info">
                     <i class="glyphicon glyphicon-info-sign"></i>
                     <span>
                         <strong></strong>
                     </span>
                 </a>
 
-                <a href="@Url.Action("Delete", "Specialites",new { id = item.IdUsine })" class="btn btn-danger">
+                <a href="@Url.Action("Delete", "Usines",new { id = item.IdUsine })" class="btn btn-danger">
                     <i class="glyphicon glyphicon-trash"></i>
                     <span>
                         <strong></strong>

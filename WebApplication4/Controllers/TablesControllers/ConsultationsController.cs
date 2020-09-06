@@ -21,6 +21,7 @@ using WebApplication4.Models.ViewModels;
 
 namespace WebApplication4.Controllers.TablesControllers
 {
+   
     public class ConsultationsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

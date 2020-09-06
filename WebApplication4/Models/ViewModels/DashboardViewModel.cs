@@ -10,5 +10,9 @@ namespace WebApplication4.Models.ViewModels
         public int Doctors_count { get; set; }
         public int Patients_count { get; set; }
         public int Specialite_count { get; set; }
+        public int Appoint_count { get; set; }
+        public int Usine_count { get; set; }
+        public int Consultations_count { get; set; }
+
     }
 }

@@ -17,10 +17,11 @@
 
 .textChange {
     font-family: myFont;
-    text-align:center
+    
 }
 
-    #TextColor {
+#TextColor {
+    font-family: myFont;
     color: #660000;
 }
 
@@ -39,8 +40,8 @@
 
 #TextFooter {
     color: #660000;
-    padding:10px;
-    background:white;
+   
+
     
 }
 

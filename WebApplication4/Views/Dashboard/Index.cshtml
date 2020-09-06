@@ -1,0 +1,106 @@
+﻿@model WebApplication4.Models.ViewModels.DashboardViewModel
+
+<!-- Content Header (Page header) -->
+<link href="~/Content/StyleStyleSheet.css" rel="stylesheet" />
+<section class="content-header">
+    <h1>
+        Infirmerie
+        <small>Tableau de bord</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
+        <li class="active">Tableau de board</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <div class="row">
+        <div class="col-lg-3 col-xs-6 ">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3>@Model.Doctors_count</h3>
+                    <p>Medecins Conventionnés</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-user-md"></i>
+                </div>
+                <a href="@Url.Action("Index", "MedecinConventionnes")" class="small-box-footer">Plus d'informations<i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h3>@Model.Patients_count<sup style="font-size: 20px"></sup></h3>
+                    <p>Patients</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-heartbeat"></i>
+                </div>
+                <a href="@Url.Action("Index", "Patients")" class="small-box-footer">Plus d'informations <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h3>@Model.Specialite_count</h3>
+                    <p>Spécialités</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-sliders"></i>
+                </div>
+                <a href="@Url.Action("Index", "Specialites")" class="small-box-footer">Plus d'informations <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3>@Model.Appoint_count</h3>
+                    <p>Rendez-vous avec les médecins </p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-calendar"></i>
+                </div>
+                <a href="@Url.Action("Index", "AppointementModels")" class="small-box-footer">Plus d'informations <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-purple-gradient">
+                <div class="inner">
+                    <h3>@Model.Usine_count</h3>
+                    <p>Usines</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-industry"></i>
+                </div>
+                <a href="@Url.Action("Index", "Usines")" class="small-box-footer">Plus d'informations <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-blue-active">
+                <div class="inner">
+                    <h3>@Model.Consultations_count</h3>
+                    <p>Consultations</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-stethoscope"></i>
+                </div>
+                <a href="@Url.Action("Index", "Consultations")" class="small-box-footer">Plus d'informations <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+    </div>
+
+</section>
+<!-- /.content -->
+<!-- /.content -->

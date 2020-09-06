@@ -1,10 +1,5 @@
 ﻿@model WebApplication4.Models.Tables.MedecinConventionne
 
-@{
-    ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/MainLayout.cshtml";
-}
-
 <h2>Créer un nouveau médecin conventionné</h2>
 
 @using (Html.BeginForm("Create", "MedecinConventionnes", FormMethod.Post, new { enctype = "multipart/form-data" }))

@@ -18,6 +18,9 @@ namespace WebApplication4.Controllers
             dashboard.Doctors_count = db.MedecinConventionnes.Count();
             dashboard.Patients_count = db.Patients.Count();
             dashboard.Specialite_count = db.Specialites.Count();
+            dashboard.Appoint_count = db.AppointementModels.Count();
+            dashboard.Usine_count = db.Usines.Count();
+            dashboard.Consultations_count = db.Consultations.Count();
             return View(dashboard);
         }
     }

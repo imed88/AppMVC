@@ -12,6 +12,7 @@ using WebApplication4.Models.Tables;
 
 namespace WebApplication4.Controllers.TablesControllers
 {
+    
     public class UsinesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

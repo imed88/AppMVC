@@ -1,9 +1,6 @@
 ﻿@model WebApplication4.Models.Tables.Usine
 
-@{
-    ViewBag.Title = "Delete";
-    Layout = "~/Views/Shared/MainLayout.cshtml";
-}
+
 
 <h2>Suppression de l'élément</h2>
 
@@ -23,18 +20,19 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-    <div class="form-actions no-color">
-        <input type="submit" value="Supprimer" class="btn btn-danger" /> |
-        @*@Html.ActionLink("Retour", "Index")*@
-        <a href="@Url.Action("Index", "Usines")" class="btn btn-default">
-            <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
-            <span>
-                <strong>Retour</strong>
-            </span>
-        </a>
-    </div>
+        <div class="form-actions no-color">
+            <input type="submit" value="Supprimer" class="btn btn-danger" /> |
+            @*@Html.ActionLink("Retour", "Index")*@
+            <a href="@Url.Action("Index", "Usines")" class="btn btn-default">
+                <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
+                <span>
+                    <strong>Retour</strong>
+                </span>
+            </a>
+        </div>
     }
 </div>
