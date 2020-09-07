@@ -51,7 +51,7 @@ namespace WebApplication4.Controllers.TablesControllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdPatients,MatriculePatients,NomPatient,PrenomPatient,Gender,PhonePatients,IdUsine")] Patients patients)
+        public ActionResult Create([Bind(Include = "IdPatients,MatriculePatients,NomPatient,PrenomPatient,Gender,PhonePatients,DOB,Parente,IdUsine")] Patients patients)
         {
             if (ModelState.IsValid)
             {
@@ -121,7 +121,7 @@ namespace WebApplication4.Controllers.TablesControllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdPatients,MatriculePatients,NomPatient,PrenomPatient,Gender,PhonePatients,IdUsine")] Patients patients)
+        public ActionResult Edit([Bind(Include = "IdPatients,MatriculePatients,NomPatient,PrenomPatient,Gender,PhonePatients,DOB,Parente,IdUsine")] Patients patients)
         {
             if (ModelState.IsValid)
             {

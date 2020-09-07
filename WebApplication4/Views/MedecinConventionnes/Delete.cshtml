@@ -1,73 +1,90 @@
 ﻿@model WebApplication4.Models.Tables.MedecinConventionne
+<section class="content-header">
+    <h1>
+        Infirmerie
+        <small>Medecins Conventionnés</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
+        <li>Patients</li>
+        <li class="active">Supprimer</li>
+    </ol>
+</section>
 
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <h2>Créer un nouveau patient</h2>
 
-<h2>Supression de l'élément</h2>
+        <h2>Supression de l'élément</h2>
 
-<h3>Vous êtes sur de vouloir supprimer cet élément ?</h3>
-<div>
-    
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @*@Html.DisplayNameFor(model => model.specialite.SpecialiteName)*@
-            @Html.Label("Spécialité", htmlAttributes: new { @class = "control-label col-md-15" })
-        </dt>
+        <h3>Vous êtes sur de vouloir supprimer cet élément ?</h3>
+        <div>
 
-        <dd>
-            @Html.DisplayFor(model => model.specialite.SpecialiteName)
-        </dd>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @*@Html.DisplayNameFor(model => model.specialite.SpecialiteName)*@
+                    @Html.Label("Spécialité", htmlAttributes: new { @class = "control-label col-md-15" })
+                </dt>
 
-        <dt>
-            @*@Html.DisplayNameFor(model => model.nameDoctors)*@
-            @Html.Label("Nom du médecin", htmlAttributes: new { @class = "control-label col-md-15" })
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.specialite.SpecialiteName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.nameDoctors)
-        </dd>
+                <dt>
+                    @*@Html.DisplayNameFor(model => model.nameDoctors)*@
+                    @Html.Label("Nom du médecin", htmlAttributes: new { @class = "control-label col-md-15" })
+                </dt>
 
-        <dt>
-            @*@Html.DisplayNameFor(model => model.emailDoctors)*@
-            @Html.Label("Messagerie électronique", htmlAttributes: new { @class = "control-label col-md-15" })
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.nameDoctors)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.emailDoctors)
-        </dd>
+                <dt>
+                    @*@Html.DisplayNameFor(model => model.emailDoctors)*@
+                    @Html.Label("Messagerie électronique", htmlAttributes: new { @class = "control-label col-md-15" })
+                </dt>
 
-        <dt>
-            @*@Html.DisplayNameFor(model => model.phoneDoctors)*@
-            @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-md-15" })
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.emailDoctors)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.phoneDoctors)
-        </dd>
+                <dt>
+                    @*@Html.DisplayNameFor(model => model.phoneDoctors)*@
+                    @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-md-15" })
+                </dt>
 
-        <dt>
-            @*@Html.DisplayNameFor(model => model.picDoctor)*@
-            @Html.Label("Photo du médecin", htmlAttributes: new { @class = "control-label col-md-15" })
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.phoneDoctors)
+                </dd>
 
-        <dd>
-            @*@Html.DisplayFor(model => model.picDoctor)*@
-            <img src="~/Uploads/@Html.DisplayFor(model=> model.picDoctor)" class="thumbnail" style="width:100px; height:100px" />
+                <dt>
+                    @*@Html.DisplayNameFor(model => model.picDoctor)*@
+                    @Html.Label("Photo du médecin", htmlAttributes: new { @class = "control-label col-md-15" })
+                </dt>
 
-        </dd>
+                <dd>
+                    @*@Html.DisplayFor(model => model.picDoctor)*@
+                    <img src="~/Uploads/@Html.DisplayFor(model=> model.picDoctor)" class="thumbnail" style="width:100px; height:100px" />
 
-    </dl>
+                </dd>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+            </dl>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Supprimer" class="btn btn-danger" /> |
-            <a href="@Url.Action("Index", "MesecinConventionnes")" class="btn btn-default">
-                <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
-                <span>
-                    <strong>Retour</strong>
-                </span>
-            </a>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Supprimer" class="btn btn-danger" /> |
+                    <a href="@Url.Action("Index", "MedecinConventionnes")" class="btn btn-default">
+                        <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
+                        <span>
+                            <strong>Retour</strong>
+                        </span>
+                    </a>
+                </div>
+            }
         </div>
-    }
-</div>
+        </div></section>

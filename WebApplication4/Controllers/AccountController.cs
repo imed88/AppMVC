@@ -81,7 +81,7 @@ namespace WebApplication4.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Index","Dashboard");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -177,6 +177,41 @@ namespace WebApplication4.Controllers
             return View(model);
         }
 
+        public ActionResult EditProfile()
+        {
+            var UserID = User.Identity.GetUserId();
+            var CurrentUser = db.Users.Where(a => a.Id == UserID).SingleOrDefault();
+            EditProfileViewModel profile = new EditProfileViewModel();
+            profile.Username = CurrentUser.UserName;
+            profile.Email = CurrentUser.Email;
+           
+            return View(profile);
+        }
+        [HttpPost]
+        public ActionResult EditProfile(EditProfileViewModel profile)
+        {
+            var UserID = User.Identity.GetUserId();
+            var CurrentUser = db.Users.Where(a => a.Id == UserID).SingleOrDefault();
+            if (!UserManager.CheckPassword(CurrentUser, profile.CurrentPassword))
+            {
+                ViewBag.Message = "Mot de passe incorrect";
+            }
+            else
+            {
+                var newPasswordHash = UserManager.PasswordHasher.HashPassword(profile.NewPassword);
+                CurrentUser.UserName = profile.Username;
+                CurrentUser.Email = profile.Email;
+                CurrentUser.PasswordHash = newPasswordHash;
+                db.Entry(CurrentUser).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                ViewBag.Message = "Compte modifié";
+                LogOff();
+            }
+            return RedirectToAction("Login", "Account");
+        }
+
+
+
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
@@ -193,7 +228,7 @@ namespace WebApplication4.Controllers
         //
         // GET: /Account/ForgotPassword
         [AllowAnonymous]
-        public ActionResult ForgotPassword()
+        public ActionResult PasswordForgot()
         {
             return View();
         }
@@ -203,24 +238,45 @@ namespace WebApplication4.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        public async Task<ActionResult> PasswordForgot(EditProfileViewModel model)
         {
-            if (ModelState.IsValid)
+            var UserID = User.Identity.GetUserId();
+            var CurrentUser = db.Users.Where(a => a.Id == UserID).SingleOrDefault();
+            if (!UserManager.CheckPassword(CurrentUser, model.CurrentPassword))
             {
-                var user = await UserManager.FindByEmailAsync(model.Email);
-                if (user != null || await UserManager.IsEmailConfirmedAsync(user.Id))
-                {
-                    // Ne révélez pas que l'utilisateur n'existe pas ou qu'il n'est pas confirmé
-                    return View("ForgotPasswordConfirmation");
-                }
-
-                // Pour plus d'informations sur l'activation de la confirmation de compte et de la réinitialisation de mot de passe, visitez https://go.microsoft.com/fwlink/?LinkID=320771
-                // Envoyer un message électronique avec ce lien
-                string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                await UserManager.SendEmailAsync(user.Id, "Réinitialiser le mot de passe", "Réinitialisez votre mot de passe en cliquant <a href=\"" + callbackUrl + "\">ici</a>");
-                return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                ViewBag.Message = "Mot de passe incorrect";
             }
+            else
+            {
+                var newPasswordHash = UserManager.PasswordHasher.HashPassword(model.NewPassword);
+                CurrentUser.UserName = model.Username;
+                CurrentUser.Email = model.Email;
+                CurrentUser.PasswordHash = newPasswordHash;
+                db.Entry(CurrentUser).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                ViewBag.Message = "Compte modifié";
+
+            }
+            return RedirectToAction("Login", "Account");
+
+
+
+            //if (ModelState.IsValid)
+            //{
+            //    var user = await UserManager.FindByEmailAsync(model.Email);
+            //    if (user != null || await UserManager.IsEmailConfirmedAsync(user.Id))
+            //    {
+            //        // Ne révélez pas que l'utilisateur n'existe pas ou qu'il n'est pas confirmé
+            //        return View("ForgotPasswordConfirmation");
+            //    }
+
+            //    // Pour plus d'informations sur l'activation de la confirmation de compte et de la réinitialisation de mot de passe, visitez https://go.microsoft.com/fwlink/?LinkID=320771
+            //    // Envoyer un message électronique avec ce lien
+            //    string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+            //    var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+            //    await UserManager.SendEmailAsync(user.Id, "Réinitialiser le mot de passe", "Réinitialisez votre mot de passe en cliquant <a href=\"" + callbackUrl + "\">ici</a>");
+            //    return RedirectToAction("ForgotPasswordConfirmation", "Account");
+            //}
 
             // Si nous sommes arrivés là, un échec s’est produit. Réafficher le formulaire
             return View(model);
@@ -397,7 +453,7 @@ namespace WebApplication4.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         //

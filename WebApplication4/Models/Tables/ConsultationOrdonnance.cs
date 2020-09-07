@@ -14,10 +14,10 @@ namespace WebApplication4.Models.Tables
         public string Message { get; set; }
 
         [Required]
-        [Display(Name = "Date for Appointment")]
+        [Display(Name = "Date du rendez vous")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [MyAppointmentDateValidation(ErrorMessage = "Are you creating an appointment for the past?")]
+        //[MyAppointmentDateValidation(ErrorMessage = "Are you creating an appointment for the past?")]
         public DateTime ApplyDate { get; set; }
 
         public int ConsultationID { get; set; }

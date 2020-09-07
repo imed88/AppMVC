@@ -2,12 +2,12 @@
 <section class="content-header">
     <h1>
         Infirmerie
-        <small>Liste des médecins conventionnés</small>
+        <small>Patients</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
-        <li>Medecins Conventionnés</li>
-        <li class="active">Informations</li>
+        <li>Patients</li>
+        <li class="active">Details</li>
     </ol>
 </section>
 
@@ -23,7 +23,7 @@
             <dl class="dl-horizontal">
                 <dt>
                     @*@Html.DisplayNameFor(model => model.Usines.UsineName)*@
-                    @Html.Label("Usine", htmlAttributes: new { @class = "control-label col-md-25" })
+                    @Html.Label("Usine", htmlAttributes: new { @class = "control-label col-md-30" })
                 </dt>
 
                 <dd>
@@ -32,7 +32,7 @@
 
                 <dt>
                     @*@Html.DisplayNameFor(model => model.MatriculePatients)*@
-                    @Html.Label("Matricule du patient", htmlAttributes: new { @class = "control-label col-md-25" })
+                    @Html.Label("Matricule du patient", htmlAttributes: new { @class = "control-label col-md-30" })
                 </dt>
 
                 <dd>
@@ -41,7 +41,7 @@
 
                 <dt>
                     @*@Html.DisplayNameFor(model => model.NomPatient)*@
-                    @Html.Label("Nom du patient", htmlAttributes: new { @class = "control-label col-md-25" })
+                    @Html.Label("Nom du patient", htmlAttributes: new { @class = "control-label col-md-30" })
                 </dt>
 
                 <dd>
@@ -50,7 +50,7 @@
 
                 <dt>
                     @*@Html.DisplayNameFor(model => model.PrenomPatient)*@
-                    @Html.Label("Prénom du Patient", htmlAttributes: new { @class = "control-label col-md-25" })
+                    @Html.Label("Prénom du Patient", htmlAttributes: new { @class = "control-label col-md-30" })
                 </dt>
 
                 <dd>
@@ -59,7 +59,7 @@
 
                 <dt>
                     @*@Html.DisplayNameFor(model => model.Gender)*@
-                    @Html.Label("Sexe", htmlAttributes: new { @class = "control-label col-md-25" })
+                    @Html.Label("Sexe", htmlAttributes: new { @class = "control-label col-md-30" })
                 </dt>
 
                 <dd>
@@ -68,15 +68,31 @@
 
                 <dt>
                     @*Html.DisplayNameFor(model => model.PhonePatients)*@
-                    @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-md-25" })
+                    @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-md-30" })
                 </dt>
 
                 <dd>
                     @Html.DisplayFor(model => model.PhonePatients)
                 </dd>
                 <dt>
+                    @*Html.DisplayNameFor(model => model.PhonePatients)*@
+                    @Html.Label("Date de Naissance", htmlAttributes: new { @class = "control-label col-md-30" })
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DOB)
+                </dd>
+                <dt>
+                    @*Html.DisplayNameFor(model => model.PhonePatients)*@
+                    @Html.Label("Lien de Parenté", htmlAttributes: new { @class = "control-label col-md-30" })
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Parente)
+                </dd>
+                <dt>
                     @*@Html.DisplayNameFor(model => model.FileDetails)*@
-                    @Html.Label("Compléments du dossier", htmlAttributes: new { @class = "control-label col-md-25" })
+                    @Html.Label("Compléments du dossier", htmlAttributes: new { @class = "control-label col-md-30" })
                 </dt>
 
                 <dd>

@@ -65,65 +65,82 @@
                 @*@Html.DisplayNameFor(model => model.First().PhonePatients)*@
                 @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-2" })
             </th>
-            <th></th>
+
+            <th>
+                @*@Html.DisplayNameFor(model => model.First().PhonePatients)*@
+                @Html.Label("Date de naissance", htmlAttributes: new { @class = "control-label col-2" })
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.First().PhonePatients)*@
+                @Html.Label("Lien de parenté", htmlAttributes: new { @class = "control-label col-2" })
+            </th>
+            <th>
+                @Html.Label("Dossier", htmlAttributes: new { @class = "control-label col-2" })
+            </th>
         </tr>
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Usines.UsineName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MatriculePatients)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NomPatient)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PrenomPatient)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Gender)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PhonePatients)
-                </td>
-                <td>
-                    @if (item.FileDetails.Count() == 0)
-                    {
-                        <span>Pas de fichiers</span>
-                    }
-                    else
-                    {
-                        <span>@item.FileDetails.Count() File(s)</span>
-                    }
-                </td>
-                <td>
-                    @*@Html.ActionLink("Edit", "Edit", new { id = item.IdPatients }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.IdPatients }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.IdPatients })*@
-                    <a href="@Url.Action("Edit", "Patients",new { id = item.IdPatients })" class="btn btn-warning">
-                        <i class="glyphicon glyphicon-wrench"></i>
-                        <span>
-                            <strong></strong>
-                        </span>
-                    </a>
-                    <a href="@Url.Action("Details", "Patients",new { id = item.IdPatients })" class="btn btn-info">
-                        <i class="glyphicon glyphicon-info-sign"></i>
-                        <span>
-                            <strong></strong>
-                        </span>
-                    </a>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usines.UsineName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatriculePatients)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomPatient)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrenomPatient)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhonePatients)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parente)
+            </td>
+            <td>
+                @if (item.FileDetails.Count() == 0)
+                {
+                    <span>Pas de fichiers</span>
+                }
+                else
+                {
+                    <span>@item.FileDetails.Count() File(s)</span>
+                }
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.IdPatients }) |
+            @Html.ActionLink("Details", "Details", new { id = item.IdPatients }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.IdPatients })*@
+                <a href="@Url.Action("Edit", "Patients",new { id = item.IdPatients })" class="btn btn-warning">
+                    <i class="glyphicon glyphicon-wrench"></i>
+                    <span>
+                        <strong></strong>
+                    </span>
+                </a>
+                <a href="@Url.Action("Details", "Patients",new { id = item.IdPatients })" class="btn btn-info">
+                    <i class="glyphicon glyphicon-info-sign"></i>
+                    <span>
+                        <strong></strong>
+                    </span>
+                </a>
 
-                    <a href="@Url.Action("Delete", "Patients",new { id = item.IdPatients })" class="btn btn-danger">
-                        <i class="glyphicon glyphicon-trash"></i>
-                        <span>
-                            <strong></strong>
-                        </span>
-                    </a>
-                </td>
-            </tr>
+                <a href="@Url.Action("Delete", "Patients",new { id = item.IdPatients })" class="btn btn-danger">
+                    <i class="glyphicon glyphicon-trash"></i>
+                    <span>
+                        <strong></strong>
+                    </span>
+                </a>
+            </td>
+        </tr>
         }
 
     </table>

@@ -16,6 +16,9 @@ namespace WebApplication4.Models.Tables
 
         public string diagnostic { get; set; }
 
+        public string traitement { get; set; }
+
+
         [ForeignKey("ApplicationUser")]
         public string UserID { get; set; }
 
@@ -32,7 +35,7 @@ namespace WebApplication4.Models.Tables
 
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0: dd/MM/yyyy}")]
-        [Display(Name = "Date Created")]
+        [Display(Name = "Date de consultation")]
         public DateTime DateCreated { get;  set; }
 
       

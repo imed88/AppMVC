@@ -59,6 +59,6 @@ namespace WebApplication4.Models
 
         public DbSet<FileDetail> FileDetails { get; set; }
 
-       
+        public System.Data.Entity.DbSet<WebApplication4.Models.EditProfileViewModel> EditProfileViewModels { get; set; }
     }
 }

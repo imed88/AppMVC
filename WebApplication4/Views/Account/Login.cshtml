@@ -36,6 +36,7 @@
         <div class="login-box-body"><div class="login-logo">
     <a href="#"> <img src="~/Content/logo-transparent.png" width="250" alt="" class="d-inline-block align-middle mr-2 "></a>
 </div>
+        <hr />
             <p class="login-box-msg">Utilisez un compte local pour vous connecter.</p>
             @*<form action="../../index2.html" method="post">
                 <div class="form-group has-feedback">
@@ -69,14 +70,14 @@
                     <hr />
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="form-group has-feedback">
-                        <div class="col-md-10">
+                        <div class="col-md-12">
                             @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Nom d'utilisateur" })
                             @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                         </div>
                     </div>
                     <div class="form-group has-feedback">
-                        <div class="col-md-10">
+                        <div class="col-md-12">
                             @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Mot de passe" })
                             @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
@@ -91,16 +92,17 @@
                         </div>
                     </div>*@
                     <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
+                        <div class="col-md-offset-2 col-md-12">
                             <input type="submit" value="Connexion" class="btn btn-default" />
                         </div>
                     </div>
+                    <hr />
                     <p>
                         @Html.ActionLink("S'inscrire comme nouvel utilisateur", "Register")
                     </p>
                     //Activer ceci une fois que la confirmation de votre compte est activée pour la fonctionnalité de réinitialisation du mot de passe
                     <p>
-                        @Html.ActionLink("Vous avez oublié votre mot de passe ?", "ForgotPassword")
+                        @Html.ActionLink("Vous avez oublié votre mot de passe ?", "PasswordForgot")
                     </p>
                 }
             </section>

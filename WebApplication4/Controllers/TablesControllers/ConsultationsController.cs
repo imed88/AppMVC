@@ -198,7 +198,7 @@ namespace WebApplication4.Controllers.TablesControllers
             return View();
         }
 
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult CreateOrdonnance(string Message, Ordonnance consultOrd)
         {
             //var UserId = User.Identity.GetUserId();

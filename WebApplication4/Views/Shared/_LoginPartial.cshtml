@@ -1,16 +1,62 @@
 ﻿@using Microsoft.AspNet.Identity
+@using WebApplication4.Models;
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
+        var db = new ApplicationDbContext();
+        var UserID = User.Identity.GetUserId();
+        var CurrentUser = db.Users.Where(a=>a.Id==UserID).SingleOrDefault();
         @Html.AntiForgeryToken()
 
-        <ul class="nav navbar-nav navbar-right">
+<ul class="nav navbar-nav ">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color: #ffffff;
+    color: #660000; ">
+            <span class="glyphicon glyphicon-user"></span>
+            <strong>Bonjour  @CurrentUser.UserName !</strong>
+            <span class="glyphicon glyphicon-chevron-down">
+            </span>
+        </a>
+        <ul class="dropdown-menu">
             <li>
-                @Html.ActionLink("Bonjour " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                <div class="navbar-user">
+                    <div class="row">
+                        <div class="col-lg-20">
+                            <p class="text-center">
+
+                                <strong>Utilisateur:  @CurrentUser.UserName !</strong>
+                                <a href="~/Account/EditProfile" class="btn btn-primary">Modifier le compte</a>
+                                <div class="row text-center">
+                                    <div class="col-lg-12">
+                                        <a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-danger">Se déconnecter</a>
+                                    </div>
+                                </div>
+                            </p>
+                           
+                        </div>
+                    </div>
+                </div>
             </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">Se déconnecter</a></li>
+           
+            
         </ul>
+    </li>
+   
+   
+        
+
+  
+
+
+ 
+
+    @*<li>
+            @Html.ActionLink("Bonjour " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        </li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Se déconnecter</a></li>*@
+
+</ul>
     }
 }
 else

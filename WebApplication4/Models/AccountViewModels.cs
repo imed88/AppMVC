@@ -95,6 +95,40 @@ namespace WebApplication4.Models
         public string ConfirmPassword { get; set; }
     }
 
+    public class EditProfileViewModel
+    {
+        [Key]
+        public int IdProfile { get; set; }
+
+
+        [Required]
+        [Display(Name = "Nom d'utilisateur")]
+        public string Username { get; set; }
+
+
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Courrier électronique")]
+        public string Email { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "La chaîne {0} doit comporter au moins {2} caractères.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = "Ancien Mot de passe")]
+        public string CurrentPassword { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "La chaîne {0} doit comporter au moins {2} caractères.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = "Nouveau Mot de passe")]
+        public string NewPassword { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirmer le nouveau mot de passe ")]
+        [Compare("NewPassword", ErrorMessage = "Le mot de passe et le mot de passe de confirmation ne correspondent pas.")]
+        public string ConfirmPassword { get; set; }
+    }
+
     public class ResetPasswordViewModel
     {
         [Required]

@@ -18,6 +18,11 @@ namespace WebApplication4.Models.Tables
         public string PrenomPatient { get; set; }
         public string Gender { get; set; }
         public string PhonePatients { get; set; }
+        [Display(Name = "Date de naissance")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime DOB { get; set; }
+        public string Parente { get; set; }
              
         public int IdUsine { get; set; }
         public virtual ICollection<FileDetail> FileDetails { get; set; }

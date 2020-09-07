@@ -2,11 +2,11 @@
 <section class="content-header">
     <h1>
         Infirmerie
-        <small>Liste des médecins conventionnés</small>
+        <small>Patients</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
-        <li>Medecins Conventionnés</li>
+        <li>Patients</li>
         <li class="active">Editer</li>
     </ol>
 </section>
@@ -23,80 +23,107 @@
         {
             @Html.AntiForgeryToken()
 
-            <div class="form-horizontal">
+        <div class="form-horizontal">
 
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                @Html.HiddenFor(model => model.IdPatients)
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.IdPatients)
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.MatriculePatients, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.MatriculePatients, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.MatriculePatients, "", new { @class = "text-danger" })
-                    </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.MatriculePatients, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.MatriculePatients, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MatriculePatients, "", new { @class = "text-danger" })
                 </div>
+            </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.NomPatient, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.NomPatient, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.NomPatient, "", new { @class = "text-danger" })
-                    </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.NomPatient, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.NomPatient, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NomPatient, "", new { @class = "text-danger" })
                 </div>
+            </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.PrenomPatient, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.PrenomPatient, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.PrenomPatient, "", new { @class = "text-danger" })
-                    </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.PrenomPatient, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.PrenomPatient, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PrenomPatient, "", new { @class = "text-danger" })
                 </div>
+            </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @*@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })*@
+            <div class="form-group">
+                @Html.Label("Sexe", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @*@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })*@
 
-                        <div class="editor-field">
-                            @Html.DropDownList("Gender", new List<SelectListItem>
-                               {
-                                   new SelectListItem{ Text="Masculin", Value="Male"},
-                                   new SelectListItem{ Text="Féminin", Value="Female"}
-                               }, "--- Séléctionner un élément ---", new { @class = "form-control" })
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.PhonePatients, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.PhonePatients, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.PhonePatients, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.IdUsine, "IdUsine", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DropDownList("IdUsine", null, htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.IdUsine, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Modifier" class="btn btn-warning" />|   @*@Html.ActionLink("Retour", "Index")*@
-                        <a href="@Url.Action("Index", "Patients")" class="btn btn-default">
-                            <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
-                            <span>
-                                <strong>Retour</strong>
-                            </span>
-                        </a>
+                    <div class="editor-field">
+                        @Html.DropDownList("Gender", new List<SelectListItem>
+                           {
+                               new SelectListItem{ Text="Masculin", Value="Masculin"},
+                               new SelectListItem{ Text="Féminin", Value="Féminin"}
+                           }, "--- Séléctionner un élément ---", new { @class = "form-control" })
                     </div>
                 </div>
             </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PhonePatients, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.PhonePatients, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PhonePatients, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                @Html.Label("Date de naissance", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                @Html.Label("Lien de parenté", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @*@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })*@
+
+                    <div class="editor-field">
+                        @Html.DropDownList("Parente", new List<SelectListItem>
+                           {
+                               new SelectListItem{ Text="Lui-Même", Value="Lui-Même"},
+                               new SelectListItem{ Text="Conjoint(e)", Value="Conjoint(e)"},
+                               new SelectListItem{ Text="Fils / Fille", Value="Fils / Fille"}
+                           }, "--- Séléctionner un élément ---", new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdUsine, "IdUsine", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.DropDownList("IdUsine", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IdUsine, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Modifier" class="btn btn-warning" />|   @*@Html.ActionLink("Retour", "Index")*@
+                    <a href="@Url.Action("Index", "Patients")" class="btn btn-default">
+                        <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
+                        <span>
+                            <strong>Retour</strong>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
         }
 
         @*<div>
