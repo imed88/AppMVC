@@ -66,6 +66,7 @@ namespace WebApplication4.Migrations
                     {
                         ConsultationID = c.Int(nullable: false, identity: true),
                         diagnostic = c.String(),
+                        traitement = c.String(),
                         UserID = c.String(maxLength: 128),
                         idPatients = c.Int(nullable: false),
                         DateCreated = c.DateTime(nullable: false),
@@ -86,6 +87,8 @@ namespace WebApplication4.Migrations
                         PrenomPatient = c.String(),
                         Gender = c.String(),
                         PhonePatients = c.String(),
+                        DOB = c.DateTime(nullable: false),
+                        Parente = c.String(),
                         IdUsine = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.IdPatients)
@@ -194,6 +197,19 @@ namespace WebApplication4.Migrations
                 .Index(t => t.ConsultationID);
             
             CreateTable(
+                "dbo.EditProfileViewModels",
+                c => new
+                    {
+                        IdProfile = c.Int(nullable: false, identity: true),
+                        Username = c.String(nullable: false),
+                        Email = c.String(nullable: false),
+                        CurrentPassword = c.String(nullable: false, maxLength: 100),
+                        NewPassword = c.String(nullable: false, maxLength: 100),
+                        ConfirmPassword = c.String(),
+                    })
+                .PrimaryKey(t => t.IdProfile);
+            
+            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -240,6 +256,7 @@ namespace WebApplication4.Migrations
             DropIndex("dbo.AppointementModels", new[] { "idDoctors" });
             DropIndex("dbo.AppointementModels", new[] { "UserID" });
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.EditProfileViewModels");
             DropTable("dbo.Ordonnances");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.MedecinConventionnes");

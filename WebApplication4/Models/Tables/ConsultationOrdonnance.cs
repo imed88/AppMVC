@@ -16,7 +16,7 @@ namespace WebApplication4.Models.Tables
         [Required]
         [Display(Name = "Date du rendez vous")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         //[MyAppointmentDateValidation(ErrorMessage = "Are you creating an appointment for the past?")]
         public DateTime ApplyDate { get; set; }
 

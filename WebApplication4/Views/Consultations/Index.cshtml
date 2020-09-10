@@ -60,49 +60,54 @@
                 @Html.Label("Diagnostic", htmlAttributes: new { @class = "control-label col-5" })
             </th>
 
-            <th></th>
+            <th> @Html.Label("Traitement", htmlAttributes: new { @class = "control-label col-5" })</th>
         </tr>
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td> @Html.DisplayFor(modelItem => item.DateCreated, new { @value = DateTime.Today, @readonly = "readonly" })</td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
-                </td>
+        <tr>
+            <td> @Html.DisplayFor(modelItem => item.DateCreated, new { @value = DateTime.Today, @readonly = "readonly" })</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
+            </td>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.Patient.PrenomPatient)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.diagnostic)
-                </td>
-                <td>
-                    @*@Html.ActionLink("Edit", "Edit", new { id = item.ConsultationID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.ConsultationID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ConsultationID })
-                        @Html.ActionLink("Medicaments", "Medication", new { id = item.ConsultationID })*@
-                    <a href="@Url.Action("Edit", "Consultations",new { id = item.ConsultationID })" class="btn btn-warning">
-                        <i class="glyphicon glyphicon-wrench"></i>
-                        <span>
-                            <strong></strong>
-                        </span>
-                    </a>
-                    <a href="@Url.Action("Details", "Consultations",new { id = item.ConsultationID })" class="btn btn-info">
-                        <i class="glyphicon glyphicon-info-sign"></i>
-                        <span>
-                            <strong></strong>
-                        </span>
-                    </a>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patient.PrenomPatient)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.diagnostic)*@
+                @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => item.diagnostic).ToString()))
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.diagnostic)*@
+                @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => item.traitement).ToString()))
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.ConsultationID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ConsultationID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ConsultationID })
+            @Html.ActionLink("Medicaments", "Medication", new { id = item.ConsultationID })*@
+                <a href="@Url.Action("Edit", "Consultations",new { id = item.ConsultationID })" class="btn btn-warning">
+                    <i class="glyphicon glyphicon-wrench"></i>
+                    <span>
+                        <strong></strong>
+                    </span>
+                </a>
+                <a href="@Url.Action("Details", "Consultations",new { id = item.ConsultationID })" class="btn btn-info">
+                    <i class="glyphicon glyphicon-info-sign"></i>
+                    <span>
+                        <strong></strong>
+                    </span>
+                </a>
 
-                    <a href="@Url.Action("Delete", "Consultations",new { id = item.ConsultationID })" class="btn btn-danger">
-                        <i class="glyphicon glyphicon-trash"></i>
-                        <span>
-                            <strong></strong>
-                        </span>
-                    </a>
-                </td>
-            </tr>
+                <a href="@Url.Action("Delete", "Consultations",new { id = item.ConsultationID })" class="btn btn-danger">
+                    <i class="glyphicon glyphicon-trash"></i>
+                    <span>
+                        <strong></strong>
+                    </span>
+                </a>
+            </td>
+        </tr>
         }
 
     </table>

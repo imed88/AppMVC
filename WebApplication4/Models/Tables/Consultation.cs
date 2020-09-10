@@ -13,9 +13,9 @@ namespace WebApplication4.Models.Tables
     {
         [Key]
         public int ConsultationID { get; set; }
-
+        [AllowHtml]
         public string diagnostic { get; set; }
-
+        [AllowHtml]
         public string traitement { get; set; }
 
 

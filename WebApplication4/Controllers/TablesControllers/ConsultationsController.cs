@@ -210,14 +210,14 @@ namespace WebApplication4.Controllers.TablesControllers
 
           
 
-            var job = new Ordonnance();
+            Ordonnance job = new Ordonnance();
             job.ConsultationID = ConsultationID;
             job.Message = Message;
             job.ApplyDate = DateTime.Now;
 
             db.ConsultationOrdonnances.Add(job);
             db.SaveChanges();
-        
+
             var OneBlog = (from e in db.ConsultationOrdonnances
                            join p in db.Consultations
                            on e.ConsultationID equals p.ConsultationID
@@ -225,8 +225,8 @@ namespace WebApplication4.Controllers.TablesControllers
                            on p.idPatients equals s.IdPatients
                            join t in db.Users
                            on p.UserID equals t.Id
-                           where/* e.ConsultationID == p.ConsultationID */
-                           e.ConsultationID == ConsultationID
+                           where e.ConsultationID == p.ConsultationID
+                         
 
                            select new
                            {
@@ -240,9 +240,12 @@ namespace WebApplication4.Controllers.TablesControllers
 
                            }).ToList();
 
+            var last = OneBlog.Last();
+
             ReportDocument rd = new ReportDocument();
             rd.Load(Path.Combine(Server.MapPath("~/Report"), "CrystalReport2.rpt"));
-            rd.SetDataSource(OneBlog);
+            //rd.SetDataSource(last);
+            rd.SetDataSource(new[] { last });
 
             Response.Buffer = false;
             Response.ClearContent();

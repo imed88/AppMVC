@@ -45,7 +45,8 @@
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.diagnostic)
+                    @*@Html.DisplayFor(model => model.diagnostic)*@
+                    @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(model => model.diagnostic).ToString()))
                 </dd>
                 <dt>
                     @*@Html.DisplayNameFor(model => model.diagnostic)*@
@@ -53,7 +54,9 @@
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.traitement)
+                    @*@Html.DisplayFor(model => model.traitement)*@
+                    @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(model => model.traitement).ToString()))
+
                 </dd>
 
             </dl>
