@@ -56,14 +56,14 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini sidebar-closed">
     <div class="wrapper ">
 
         <!-- Main Header -->
         <header class="main-header ">
 
             <!-- Logo -->
-            <a href="index2.html" class="logo shadow">
+            <a href="index2.html" class="logo ">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><img src="~/Content/logoimage.png" alt="" class="d-inline-block align-middle mr-2 "></span>
                 <!-- logo for regular state and mobile devices -->
@@ -71,14 +71,15 @@ desired effect
             </a>
 
             <!-- Header Navbar -->
-            <nav class="navbar navbar-static-top shadow" role="navigation">
+            <nav class="main-header navbar navbar-expand navbar-white navbar-light" role="navigation">
                 <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" style="background-color: #ffffff;
-    color: #660000; " data-toggle="offcanvas" role="button">
+                <a href="#" class="sidebar-toggle" style="color:brown" data-toggle="offcanvas" role="button">
                     <span class="sr-only">Toggle navigation</span>
                 </a>
                 <!-- Navbar Right Menu -->
-                @Html.Partial("_LoginPartial")
+             
+                    @Html.Partial("_LoginPartial")
+           
                 @*<div class="navbar-custom-menu">
                             <ul class="nav navbar-nav">
                                 <!-- Messages: style can be found in dropdown.less-->
@@ -232,7 +233,7 @@ desired effect
             </nav>
         </header>
         <!-- Left side column. contains the logo and sidebar -->
-        <aside class="main-sidebar shadow">
+        <aside class="main-sidebar ">
 
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
@@ -295,6 +296,7 @@ desired effect
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
+      
         <div class="content-wrapper">
             @RenderBody()
         </div>
