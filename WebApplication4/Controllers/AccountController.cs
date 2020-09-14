@@ -238,7 +238,7 @@ namespace WebApplication4.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> PasswordForgot(EditProfileViewModel model)
+        public ActionResult PasswordForgot(EditProfileViewModel model)
         {
             var UserID = User.Identity.GetUserId();
             var CurrentUser = db.Users.Where(a => a.Id == UserID).SingleOrDefault();
@@ -279,7 +279,7 @@ namespace WebApplication4.Controllers
             //}
 
             // Si nous sommes arrivés là, un échec s’est produit. Réafficher le formulaire
-            return View(model);
+           // return View(model);
         }
 
         //

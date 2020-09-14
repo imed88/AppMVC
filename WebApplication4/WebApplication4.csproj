@@ -275,7 +275,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PatientFileController.cs" />
-    <Compile Include="Controllers\TablesControllers\AppointementModelsController.cs" />
     <Compile Include="Controllers\TablesControllers\ConsultationsController.cs" />
     <Compile Include="Controllers\TablesControllers\MedecinConventionnesController.cs" />
     <Compile Include="Controllers\TablesControllers\MedicamentsController.cs" />
@@ -304,16 +303,19 @@
     <Compile Include="Migrations\202007291233576_AddTableMedecinConventionne.Designer.cs">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202009090520361_CreateDb.cs" />
-    <Compile Include="Migrations\202009090520361_CreateDb.Designer.cs">
-      <DependentUpon>202009090520361_CreateDb.cs</DependentUpon>
+    <Compile Include="Migrations\202009131440058_CreateDb.cs" />
+    <Compile Include="Migrations\202009131440058_CreateDb.Designer.cs">
+      <DependentUpon>202009131440058_CreateDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009131446268_ModifRDV.cs" />
+    <Compile Include="Migrations\202009131446268_ModifRDV.Designer.cs">
+      <DependentUpon>202009131446268_ModifRDV.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CheckBoxItem.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Tables\Appointement.cs" />
     <Compile Include="Models\Tables\Consultation.cs" />
     <Compile Include="Models\Tables\ConsultationOrdonnance.cs" />
     <Compile Include="Models\Tables\FileDetail.cs" />
@@ -322,6 +324,7 @@
     <Compile Include="Models\Tables\Ordonnance.cs" />
     <Compile Include="Models\Tables\Patients.cs" />
     <Compile Include="Models\Tables\PatientsMedicaments.cs" />
+    <Compile Include="Models\Tables\RDV.cs" />
     <Compile Include="Models\Tables\RoleViewModel.cs" />
     <Compile Include="Models\Tables\Specialite.cs" />
     <Compile Include="Models\Tables\Usine.cs" />
@@ -2458,7 +2461,6 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2466,73 +2468,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\AppointementModels\Create.cshtml" />
-    <Content Include="Views\AppointementModels\Delete.cshtml" />
-    <Content Include="Views\AppointementModels\Details.cshtml" />
-    <Content Include="Views\AppointementModels\Edit.cshtml" />
-    <Content Include="Views\AppointementModels\Index.cshtml" />
-    <Content Include="Views\Consultations\Create.cshtml" />
-    <Content Include="Views\Consultations\Delete.cshtml" />
-    <Content Include="Views\Consultations\Details.cshtml" />
-    <Content Include="Views\Consultations\Edit.cshtml" />
-    <Content Include="Views\Consultations\Index.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Details.cshtml" />
-    <Content Include="Views\Home\HomePage.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\MedecinConventionnes\Create.cshtml" />
-    <Content Include="Views\MedecinConventionnes\Delete.cshtml" />
-    <Content Include="Views\MedecinConventionnes\Details.cshtml" />
-    <Content Include="Views\MedecinConventionnes\Edit.cshtml" />
-    <Content Include="Views\MedecinConventionnes\Index.cshtml" />
-    <Content Include="Views\Patients\Create.cshtml" />
-    <Content Include="Views\Patients\Delete.cshtml" />
-    <Content Include="Views\Patients\Details.cshtml" />
-    <Content Include="Views\Patients\Edit.cshtml" />
-    <Content Include="Views\Patients\Index.cshtml" />
-    <Content Include="Views\Roles\Create.cshtml" />
-    <Content Include="Views\Roles\Delete.cshtml" />
-    <Content Include="Views\Roles\Details.cshtml" />
-    <Content Include="Views\Roles\Edit.cshtml" />
-    <Content Include="Views\Roles\Index.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\MainLayout.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\_Login.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Specialites\Create.cshtml" />
-    <Content Include="Views\Specialites\Delete.cshtml" />
-    <Content Include="Views\Specialites\Details.cshtml" />
-    <Content Include="Views\Specialites\Edit.cshtml" />
-    <Content Include="Views\Specialites\Index.cshtml" />
-    <Content Include="Views\Usines\Create.cshtml" />
-    <Content Include="Views\Usines\Delete.cshtml" />
-    <Content Include="Views\Usines\Details.cshtml" />
-    <Content Include="Views\Usines\Edit.cshtml" />
-    <Content Include="Views\Usines\Index.cshtml" />
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Consultations\CreateOrdonnance.cshtml" />
-    <Content Include="Views\OrdonnancePDF\Index.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.js.flow" />
@@ -2543,12 +2478,6 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Shared\adminlte\_mainLayout.cshtml" />
-    <Content Include="Views\Dashboard\Index.cshtml" />
-    <Content Include="Views\Account\EditProfile.cshtml" />
-    <Content Include="Views\Account\PasswordForgot.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\tinymce_full_compressed.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\tinymce_full.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2567,8 +2496,11 @@
     <EmbeddedResource Include="Migrations\202007291233576_AddTableMedecinConventionne.resx">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009090520361_CreateDb.resx">
-      <DependentUpon>202009090520361_CreateDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202009131440058_CreateDb.resx">
+      <DependentUpon>202009131440058_CreateDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009131446268_ModifRDV.resx">
+      <DependentUpon>202009131446268_ModifRDV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\CrystalReport2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

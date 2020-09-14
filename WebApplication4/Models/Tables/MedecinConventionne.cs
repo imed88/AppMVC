@@ -15,23 +15,23 @@ namespace WebApplication4.Models.Tables
            // this.patients = new HashSet<patients>();
         }
         [Key]
-        public int idDoctors { get; set; }
+        public int IdDoctors { get; set; }
         [DisplayName("Nom et Prénom du docteur")]
-        public string nameDoctors { get; set; }
+        public string NameDoctors { get; set; }
         [DisplayName("Messagerie Electronique")]
         [EmailAddress]
-        public string emailDoctors { get; set; }
+        public string EmailDoctors { get; set; }
         [DisplayName("Telephone")]
         [Phone]
-        public string phoneDoctors { get; set; }
+        public string PhoneDoctors { get; set; }
         [DisplayName("Photo")]
-        public string picDoctor { get; set; }
+        public string PicDoctor { get; set; }
 
         [DisplayName("Spécialiste")]
         public int IdSpecialite { get; set; }
 
-        public virtual Specialite specialite { get; set; }
+        public virtual Specialite Specialite { get; set; }
 
-        public virtual ICollection<AppointementModel> Appointments { get; set; }
+        //public virtual ICollection<AppointementModel> Appointments { get; set; }
     }
 }

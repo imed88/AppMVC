@@ -203,17 +203,19 @@ namespace WebApplication4.Controllers.TablesControllers
         {
             //var UserId = User.Identity.GetUserId();
             var ConsultationID = (int)Session["ConsultationID"];
-           
+
             //Patients patients = new Patients();
 
-        
 
-          
 
-            Ordonnance job = new Ordonnance();
-            job.ConsultationID = ConsultationID;
-            job.Message = Message;
-            job.ApplyDate = DateTime.Now;
+
+
+            Ordonnance job = new Ordonnance
+            {
+                ConsultationID = ConsultationID,
+                Message = Message,
+                ApplyDate = DateTime.Now
+            };
 
             db.ConsultationOrdonnances.Add(job);
             db.SaveChanges();
@@ -230,13 +232,13 @@ namespace WebApplication4.Controllers.TablesControllers
 
                            select new
                            {
-                               Message = e.Message,
-                               ApplyDate = e.ApplyDate,
-                               MatriculePatients = s.MatriculePatients,
-                               NomPatient = s.NomPatient,
-                               PrenomPatient = s.PrenomPatient,
-                               UserName = t.UserName,
-                               ConsultationID=p.ConsultationID
+                               e.Message,
+                               e.ApplyDate,
+                               s.MatriculePatients,
+                               s.NomPatient,
+                               s.PrenomPatient,
+                               t.UserName,
+                               p.ConsultationID
 
                            }).ToList();
 
@@ -260,8 +262,78 @@ namespace WebApplication4.Controllers.TablesControllers
            
         }
 
-      
+        public ActionResult CreateRDV(ConsultationOrdonnance consultOrd)
+        {
 
-       
+            return View();
+        }
+        [ValidateInput(false)]
+        [HttpPost]
+        public ActionResult CreateRDV(string Message, RDV consultRDV)
+        {
+            //var UserId = User.Identity.GetUserId();
+            var ConsultationID = (int)Session["ConsultationID"];
+
+            //Patients patients = new Patients();
+
+
+
+
+
+            RDV job = new RDV
+            {
+                ConsultationID = ConsultationID,
+                Message = Message,
+                ApplyDate = DateTime.Now
+            };
+
+            db.RDV.Add(job);
+            db.SaveChanges();
+
+            //var OneBlog = (from e in db.ConsultationOrdonnances
+            //               join p in db.Consultations
+            //               on e.ConsultationID equals p.ConsultationID
+            //               join s in db.Patients
+            //               on p.idPatients equals s.IdPatients
+            //               join t in db.Users
+            //               on p.UserID equals t.Id
+            //               where e.ConsultationID == p.ConsultationID
+
+
+            //               select new
+            //               {
+            //                   Message = e.Message,
+            //                   ApplyDate = e.ApplyDate,
+            //                   MatriculePatients = s.MatriculePatients,
+            //                   NomPatient = s.NomPatient,
+            //                   PrenomPatient = s.PrenomPatient,
+            //                   UserName = t.UserName,
+            //                   ConsultationID = p.ConsultationID
+
+            //               }).ToList();
+
+            //var last = OneBlog.Last();
+
+            //ReportDocument rd = new ReportDocument();
+            //rd.Load(Path.Combine(Server.MapPath("~/Report"), "CrystalReport2.rpt"));
+            ////rd.SetDataSource(last);
+            //rd.SetDataSource(new[] { last });
+
+            //Response.Buffer = false;
+            //Response.ClearContent();
+            //Response.ClearHeaders();
+
+            //Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+            //stream.Seek(0, SeekOrigin.Begin);
+
+            //return File(stream, "application/pdf", "BlogList.pdf");
+
+            return View();
+
+        }
+
+
+
+
     }
 }

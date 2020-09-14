@@ -40,11 +40,11 @@ namespace WebApplication2.Controllers.TablesControllers
 
 
             //var specialites = from c in db.Specialites select c;
-            var medconv = db.MedecinConventionnes.Include(m => m.specialite);
+            var medconv = db.MedecinConventionnes.Include(m => m.Specialite);
 
             if (!String.IsNullOrEmpty(searching))
             {
-                medconv = medconv.Where(s => s.nameDoctors.Contains(searching));
+                medconv = medconv.Where(s => s.NameDoctors.Contains(searching));
 
             }
 
@@ -56,13 +56,13 @@ namespace WebApplication2.Controllers.TablesControllers
             switch (order)
             {
                 case "nameDoctors_desc":
-                    medconv = medconv.OrderByDescending(s => s.nameDoctors);
+                    medconv = medconv.OrderByDescending(s => s.NameDoctors);
                     break;
                 case "specialiteName_desc":
-                    medconv = medconv.OrderByDescending(s => s.specialite.SpecialiteName);
+                    medconv = medconv.OrderByDescending(s => s.Specialite.SpecialiteName);
                     break;
                 default:
-                    medconv = medconv.OrderBy(s => s.nameDoctors);
+                    medconv = medconv.OrderBy(s => s.NameDoctors);
                     break;
             }
 
@@ -106,7 +106,7 @@ namespace WebApplication2.Controllers.TablesControllers
             {
                 string path = Path.Combine(Server.MapPath("~/Uploads/"), upload.FileName);
                 upload.SaveAs(path);
-                medecinConventionne.picDoctor = upload.FileName;
+                medecinConventionne.PicDoctor = upload.FileName;
                 db.MedecinConventionnes.Add(medecinConventionne);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -141,13 +141,13 @@ namespace WebApplication2.Controllers.TablesControllers
         {
             if (ModelState.IsValid)
             {
-                string oldPath = Path.Combine(Server.MapPath("~/Uploads/"), medecinConventionne.picDoctor);
+                string oldPath = Path.Combine(Server.MapPath("~/Uploads/"), medecinConventionne.PicDoctor);
                 if (upload != null)
                 {
                     System.IO.File.Delete(oldPath);
                     string path = Path.Combine(Server.MapPath("~/Uploads/"), upload.FileName);
                     upload.SaveAs(path);
-                    medecinConventionne.picDoctor = upload.FileName;
+                    medecinConventionne.PicDoctor = upload.FileName;
                 }
 
                 

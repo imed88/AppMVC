@@ -13,8 +13,8 @@ namespace WebApplication4.Models
     public class ApplicationUser : IdentityUser
     {
         public string UserType { get; set; }
-        public virtual ICollection<AppointementModel> Appointments { get; set; }
-        public virtual ICollection<Medicament> Medicaments { get; set; }
+        //public virtual ICollection<AppointementModel> Appointments { get; set; }
+        //public virtual ICollection<Medicament> Medicaments { get; set; }
         public virtual ICollection<Consultation> Consultations { get; set; }
        // public virtual ICollection<ConsultationOrdonnance> Ordonnances { get; set; }
        
@@ -50,7 +50,7 @@ namespace WebApplication4.Models
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Usine> Usines { get; set; }
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Patients> Patients { get; set; }
 
-        public System.Data.Entity.DbSet<WebApplication4.Models.Tables.AppointementModel> AppointementModels { get; set; }
+        //public System.Data.Entity.DbSet<WebApplication4.Models.Tables.AppointementModel> AppointementModels { get; set; }
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Medicament> Medicaments { get; set; }
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Consultation> Consultations { get; set; }
 
@@ -59,6 +59,6 @@ namespace WebApplication4.Models
 
         public DbSet<FileDetail> FileDetails { get; set; }
 
-        public System.Data.Entity.DbSet<WebApplication4.Models.EditProfileViewModel> EditProfileViewModels { get; set; }
+        public System.Data.Entity.DbSet<WebApplication4.Models.Tables.RDV> RDV { get; set; }
     }
 }

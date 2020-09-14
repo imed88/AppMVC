@@ -14,13 +14,15 @@ namespace WebApplication4.Controllers
         // GET: Dashboard
         public ActionResult Index()
         {
-            DashboardViewModel dashboard = new DashboardViewModel();
-            dashboard.Doctors_count = db.MedecinConventionnes.Count();
-            dashboard.Patients_count = db.Patients.Count();
-            dashboard.Specialite_count = db.Specialites.Count();
-            dashboard.Appoint_count = db.AppointementModels.Count();
-            dashboard.Usine_count = db.Usines.Count();
-            dashboard.Consultations_count = db.Consultations.Count();
+            DashboardViewModel dashboard = new DashboardViewModel
+            {
+                Doctors_count = db.MedecinConventionnes.Count(),
+                Patients_count = db.Patients.Count(),
+                Specialite_count = db.Specialites.Count(),
+                //dashboard.Appoint_count = db.AppointementModels.Count();
+                Usine_count = db.Usines.Count(),
+                Consultations_count = db.Consultations.Count()
+            };
             return View(dashboard);
         }
     }

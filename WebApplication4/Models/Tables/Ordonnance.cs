@@ -11,8 +11,7 @@ namespace WebApplication4.Models.Tables
     {
         [Key]
         public int ConsultOrdID { get; set; }
-        [UIHint("tinymce_full_compressed")]
-        [AllowHtml]
+ 
         public string Message { get; set; }
 
         [Required]
@@ -22,7 +21,7 @@ namespace WebApplication4.Models.Tables
         public DateTime ApplyDate { get; set; }
 
         public int ConsultationID { get; set; }
-        public virtual Consultation consultation { get; set; }
+        public virtual Consultation Consultation { get; set; }
 
       
     }
