@@ -1,0 +1,120 @@
+﻿@model PagedList.IPagedList<WebApplication4.Models.Tables.MedecinConventionne>
+@using PagedList.Mvc;
+
+
+@*<h2>Index</h2>*@
+<section class="content-header">
+    <h1>
+        Infirmerie
+        <small>Liste des médecins conventionnés</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
+        <li class="active">Medecins Conventionnés</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-sm-2">
+            <p>
+                @*@Html.ActionLink("Créer un nouveau Médecin Conventionné", "Create")*@
+                <a href="@Url.Action("Create", "MedecinConventionnes")" class="btn btn-success">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    <span>
+                        <strong>Nouveau Medecin</strong>
+                    </span>
+                </a>
+            </p>
+        </div>
+        <div class="col-sm-8">
+
+            @using (Html.BeginForm("Index", "MedecinConventionnes", FormMethod.Post))
+            {
+                <div>
+                    @Html.Label("Nom du médecin:")
+                    @Html.TextBox("searching")
+                    @*<input id="submit" type="submit" value="Rechercher" />*@
+                    <button type="submit" value="" class="btn btn-warning glyphicon glyphicon-search " />
+                </div>
+            }
+        </div>
+    </div>
+    <table class="table">
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.specialite.SpecialiteName)*@
+                @Html.ActionLink("Specialite", "Index", new { order = ViewBag.specialiteNameSortParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.nameDoctors)*@
+                @Html.ActionLink("Nom et Prenom du medecin", "Index", new { order = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
+            <th>
+                @*Html.DisplayNameFor(model => model.First().emailDoctors)*@
+                @Html.Label("Messagerie électronique", htmlAttributes: new { @class = "control-label col-12" })
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.First().phoneDoctors)*@
+                @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-12" })
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.First().picDoctor)*@
+                @Html.Label("Photo du Médecin", htmlAttributes: new { @class = "control-label col-12" })
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.specialite.SpecialiteName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nameDoctors)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.emailDoctors)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phoneDoctors)
+                </td>
+                <td>
+                    <img src="~/Uploads/@Html.DisplayFor(modelItem=> item.picDoctor)" class="thumbnail" style="width:100px; height:100px" />
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.idDoctors }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.idDoctors }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.idDoctors })*@
+                    <a href="@Url.Action("Edit", "MedecinConventionnes",new { id = item.idDoctors })" class="btn btn-warning">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                        <span>
+                            <strong></strong>
+                        </span>
+                    </a>
+                    <a href="@Url.Action("Details", "MedecinConventionnes",new { id = item.idDoctors })" class="btn btn-info">
+                        <i class="glyphicon glyphicon-info-sign"></i>
+                        <span>
+                            <strong></strong>
+                        </span>
+                    </a>
+
+                    <a href="@Url.Action("Delete", "MedecinConventionnes",new { id = item.idDoctors })" class="btn btn-danger">
+                        <i class="glyphicon glyphicon-trash"></i>
+                        <span>
+                            <strong></strong>
+                        </span>
+                    </a>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="pagination">
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+        sur @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    </div>
+
+    </section>
