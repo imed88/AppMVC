@@ -40,11 +40,11 @@ namespace WebApplication2.Controllers.TablesControllers
 
 
             //var specialites = from c in db.Specialites select c;
-            var medconv = db.MedecinConventionnes.Include(m => m.Specialite);
+            var medconv = db.MedecinConventionnes.Include(m => m.specialite);
 
             if (!String.IsNullOrEmpty(searching))
             {
-                medconv = medconv.Where(s => s.NameDoctors.Contains(searching));
+                medconv = medconv.Where(s => s.nameDoctors.Contains(searching));
 
             }
 
@@ -56,13 +56,13 @@ namespace WebApplication2.Controllers.TablesControllers
             switch (order)
             {
                 case "nameDoctors_desc":
-                    medconv = medconv.OrderByDescending(s => s.NameDoctors);
+                    medconv = medconv.OrderByDescending(s => s.nameDoctors);
                     break;
                 case "specialiteName_desc":
-                    medconv = medconv.OrderByDescending(s => s.Specialite.SpecialiteName);
+                    medconv = medconv.OrderByDescending(s => s.specialite.SpecialiteName);
                     break;
                 default:
-                    medconv = medconv.OrderBy(s => s.NameDoctors);
+                    medconv = medconv.OrderBy(s => s.nameDoctors);
                     break;
             }
 
@@ -106,13 +106,13 @@ namespace WebApplication2.Controllers.TablesControllers
             {
                 string path = Path.Combine(Server.MapPath("~/Uploads/"), upload.FileName);
                 upload.SaveAs(path);
-                medecinConventionne.PicDoctor = upload.FileName;
+                medecinConventionne.picDoctor = upload.FileName;
                 db.MedecinConventionnes.Add(medecinConventionne);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.IdSpecialite = new SelectList(db.Specialites, "IdSpecialite", "SpecialiteName", medecinConventionne.IdSpecialite,  "--Select Process--");
+            ViewBag.IdSpecialite = new SelectList(db.Specialites, "IdSpecialite", "SpecialiteName", medecinConventionne.idSpecialite,  "--Select Process--");
             return View(medecinConventionne);
         }
 
@@ -128,7 +128,7 @@ namespace WebApplication2.Controllers.TablesControllers
             {
                 return HttpNotFound();
             }
-            ViewBag.IdSpecialite = new SelectList(db.Specialites, "IdSpecialite", "SpecialiteName", medecinConventionne.IdSpecialite);
+            ViewBag.IdSpecialite = new SelectList(db.Specialites, "IdSpecialite", "SpecialiteName", medecinConventionne.idSpecialite);
             return View(medecinConventionne);
         }
 
@@ -141,13 +141,13 @@ namespace WebApplication2.Controllers.TablesControllers
         {
             if (ModelState.IsValid)
             {
-                string oldPath = Path.Combine(Server.MapPath("~/Uploads/"), medecinConventionne.PicDoctor);
+                string oldPath = Path.Combine(Server.MapPath("~/Uploads/"), medecinConventionne.picDoctor);
                 if (upload != null)
                 {
                     System.IO.File.Delete(oldPath);
                     string path = Path.Combine(Server.MapPath("~/Uploads/"), upload.FileName);
                     upload.SaveAs(path);
-                    medecinConventionne.PicDoctor = upload.FileName;
+                    medecinConventionne.picDoctor = upload.FileName;
                 }
 
                 
@@ -155,7 +155,7 @@ namespace WebApplication2.Controllers.TablesControllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IdSpecialite = new SelectList(db.Specialites, "IdSpecialite", "SpecialiteName", medecinConventionne.IdSpecialite);
+            ViewBag.IdSpecialite = new SelectList(db.Specialites, "IdSpecialite", "SpecialiteName", medecinConventionne.idSpecialite);
             return View(medecinConventionne);
         }
 

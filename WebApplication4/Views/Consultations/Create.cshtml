@@ -61,7 +61,7 @@
                 @*Html.LabelFor(model => model.diagnostic, htmlAttributes: new { @class = "control-label col-md-2" })*@
                 @Html.Label("Diagnostic", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.TextAreaFor(model => model.diagnostic, 10, 100, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id="diagnostic" } })
+                    @Html.TextAreaFor(model => model.diagnostic, 10, 83, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id="diagnostic" } })
                     @Html.ValidationMessageFor(model => model.diagnostic, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -69,7 +69,7 @@
                 @*Html.LabelFor(model => model.diagnostic, htmlAttributes: new { @class = "control-label col-md-2" })*@
                 @Html.Label("Traitement", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.TextAreaFor(model => model.traitement, 10, 100, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "traitement" } })
+                    @Html.TextAreaFor(model => model.traitement, 10, 83, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "traitement" } })
                     @Html.ValidationMessageFor(model => model.traitement, "", new { @class = "text-danger" })
                 </div>
             </div>

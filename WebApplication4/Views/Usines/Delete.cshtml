@@ -1,0 +1,53 @@
+﻿@model WebApplication4.Models.Tables.Usine
+
+<section class="content-header">
+    <h1>
+        Infirmerie
+        <small>Liste des Usines</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
+        <li>Usines</li>
+        <li class="active">Supprimer</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+
+        <h2>Suppression de l'élément</h2>
+
+        <h3>Vous êtes sûr de vouloir supprimer cet élément?</h3>
+        <div>
+            @*<h4>Usine</h4>*@
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @*@Html.DisplayNameFor(model => model.UsineName)*@
+                    @Html.Label("Nom de l'usine", htmlAttributes: new { @class = "control-label col-md-10" })
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UsineName)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Supprimer" class="btn btn-danger" /> |
+                    @*@Html.ActionLink("Retour", "Index")*@
+                    <a href="@Url.Action("Index", "Usines")" class="btn btn-default">
+                        <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
+                        <span>
+                            <strong>Retour</strong>
+                        </span>
+                    </a>
+                </div>
+            }
+        </div>
+        </div></section>

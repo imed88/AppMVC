@@ -11,10 +11,9 @@
 
 <ul class="nav navbar-nav ">
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color: #ffffff;
-    color: #660000; ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:brown">
             <span class="glyphicon glyphicon-user"></span>
-            <strong>Bonjour  @CurrentUser.UserName !</strong>
+           Bonjour  @CurrentUser.UserName !
             <span class="glyphicon glyphicon-chevron-down">
             </span>
         </a>
@@ -22,16 +21,11 @@
             <li>
                 <div class="navbar-user">
                     <div class="row">
-                        <div class="col-lg-20">
+                        <div style="background-color:#ffffff">
                             <p class="text-center">
-
-                                <strong>Utilisateur:  @CurrentUser.UserName !</strong>
                                 <a href="~/Account/EditProfile" class="btn btn-primary">Modifier le compte</a>
-                                <div class="row text-center">
-                                    <div class="col-lg-12">
-                                        <a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-danger">Se déconnecter</a>
-                                    </div>
-                                </div>
+                                <a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-danger">Se déconnecter</a>
+
                             </p>
                            
                         </div>
@@ -42,16 +36,7 @@
             
         </ul>
     </li>
-   
-   
-        
-
-  
-
-
- 
-
-    @*<li>
+       @*<li>
             @Html.ActionLink("Bonjour " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Se déconnecter</a></li>*@

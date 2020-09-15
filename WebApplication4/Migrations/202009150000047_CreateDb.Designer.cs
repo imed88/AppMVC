@@ -13,7 +13,7 @@ namespace WebApplication4.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202009131440058_CreateDb"; }
+            get { return "202009150000047_CreateDb"; }
         }
         
         string IMigrationMetadata.Source

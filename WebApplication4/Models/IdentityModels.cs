@@ -50,7 +50,7 @@ namespace WebApplication4.Models
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Usine> Usines { get; set; }
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Patients> Patients { get; set; }
 
-        //public System.Data.Entity.DbSet<WebApplication4.Models.Tables.AppointementModel> AppointementModels { get; set; }
+        public System.Data.Entity.DbSet<WebApplication4.Models.Tables.AppointementModel> AppointementModels { get; set; }
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Medicament> Medicaments { get; set; }
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Consultation> Consultations { get; set; }
 
