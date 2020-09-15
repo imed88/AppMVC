@@ -15,7 +15,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Bootstrap 3.3.6 -->
     <link href="~/Content/StyleStyleSheet.css" rel="stylesheet" />
     @Styles.Render("~/Css")
-
+    <link href="~/Content/bootstrap-chosen.css" rel="stylesheet" />
     @*<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">*@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -412,7 +412,7 @@ desired effect
     @Scripts.Render("~/Js")
     @RenderSection("scripts", required: false)
 
-
+    <script src="~/Scripts/chosen.jquery.js"></script>
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
          Both of these plugins are recommended to enhance the
          user experience. Slimscroll is required when using the

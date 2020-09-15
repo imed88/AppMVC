@@ -55,7 +55,7 @@
                         @Html.Label("Sexe", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-6">
                             @*@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })*@
+                        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })*@
                             <div class="editor-field">
                                 @Html.DropDownList("Gender", new List<SelectListItem>
                                    {
@@ -86,7 +86,7 @@
                         @Html.Label("Lien de parenté", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-6">
                             @*@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })*@
+                        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })*@
                             <div class="editor-field">
                                 @Html.DropDownList("Parente", new List<SelectListItem>
                                    {
@@ -101,7 +101,7 @@
                         @*@Html.LabelFor(model => model.IdUsine, "IdUsine", htmlAttributes: new { @class = "control-label col-md-2" })*@
                         @Html.Label("Usine", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-6">
-                            @Html.DropDownList("IdUsine", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.DropDownList("IdUsine", null, htmlAttributes: new { @class = "form-control", @id = "Usine" })
                             @Html.ValidationMessageFor(model => model.IdUsine, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -126,10 +126,18 @@
                 </div>
             }
             @*<div>
-                    @Html.ActionLink("Retour", "Index")
-                </div>*@
+            @Html.ActionLink("Retour", "Index")
+        </div>*@
             @section Scripts {
                 @Scripts.Render("~/bundles/jqueryval")
+                <script>
+        $(function () {
+
+
+                       $("#Usine").chosen();
+        });
+
+                </script>
             }
         </div>
     </section>

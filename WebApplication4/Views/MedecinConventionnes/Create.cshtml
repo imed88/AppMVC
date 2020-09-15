@@ -65,7 +65,7 @@
                         @*@Html.LabelFor(model => model.IdSpecialite, "IdSpecialite", htmlAttributes: new { @class = "control-label col-md-2" })*@
                         @Html.Label("Spécialité", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.DropDownList("IdSpecialite", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.DropDownList("IdSpecialite", null, htmlAttributes: new { @class = "form-control", @id="Specialite" })
                             @Html.ValidationMessageFor(model => model.idSpecialite, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -95,6 +95,12 @@
 
                             }
                         });
+                    });
+                </script>
+                <script>
+                    $(function () {
+
+                        $("#Specialite").chosen();
                     });
                 </script>
             }
