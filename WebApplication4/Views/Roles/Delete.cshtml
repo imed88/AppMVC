@@ -12,39 +12,38 @@
 </section>
 
 <!-- Main content -->
-<section class="content">
-    <div class="row">
-        <h2>Suppression de l'élément</h2>
-        <h3>Vous êtes sûr de vouloir supprimer cette élément?</h3>
-        <div>
+<div class="container-fluid">
+    <section class="content">
+        <div class="row">
+            <h2>Suppression de l'élément</h2>
+            <h3>Vous êtes sûr de vouloir supprimer cette élément?</h3>
+            <div>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @*@Html.DisplayNameFor(model => model.Name)*@
+                        @Html.Label("Nom de rôle", htmlAttributes: new { @class = "control-label col-md-10" })
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+                </dl>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
 
-            <hr />
-            <dl class="dl-horizontal">
-                <dt>
-                    @*@Html.DisplayNameFor(model => model.Name)*@
-                    @Html.Label("Nom de rôle", htmlAttributes: new { @class = "control-label col-md-10" })
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Name)
-                </dd>
-
-            </dl>
-
-            @using (Html.BeginForm())
-            {
-                @Html.AntiForgeryToken()
-
-                <div class="form-actions no-color">
-                    <input type="submit" value="Supprimer" class="btn btn-danger" /> |
-                    @*@Html.ActionLink("Retour", "Index")*@
-                    <a href="@Url.Action("Index", "Roles")" class="btn btn-default">
-                        <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
-                        <span>
-                            <strong>Retour</strong>
-                        </span>
-                    </a>
-                </div>
-            }
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Supprimer" class="btn btn-danger" /> |
+                        @*@Html.ActionLink("Retour", "Index")*@
+                        <a href="@Url.Action("Index", "Roles")" class="btn btn-default">
+                            <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
+                            <span>
+                                <strong>Retour</strong>
+                            </span>
+                        </a>
+                    </div>
+                }
+            </div>
         </div>
-        </div></section>
+    </section>
+</div>

@@ -12,74 +12,71 @@
 </section>
 
 <!-- Main content -->
-<section class="content">
+<div class="container-fluid">
+    <section class="content">
+        <div class="row">
 
-    <div class="row">
+            <div>
+                <h4>Consultation</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @*@Html.DisplayNameFor(model => model.Patient.MatriculePatients)*@
+                        @Html.Label("Matricule du patient", htmlAttributes: new { @class = "control-label col-md-15" })
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Patient.MatriculePatients)
+                    </dd>
+                    <dt>
+                        @*@Html.DisplayNameFor(model => model.ApplicationUser.UserName)*@
+                        @Html.Label("Médecin", htmlAttributes: new { @class = "control-label col-md-15" })
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ApplicationUser.UserName)
+                    </dd>
+                    <dt>
+                        @*@Html.DisplayNameFor(model => model.diagnostic)*@
+                        @Html.Label("Diagnostic", htmlAttributes: new { @class = "control-label col-md-15" })
+                    </dt>
+                    <dd>
+                        @*@Html.DisplayFor(model => model.diagnostic)*@
+                        @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(model => model.diagnostic).ToString()))
+                    </dd>
+                    <dt>
+                        @*@Html.DisplayNameFor(model => model.diagnostic)*@
+                        @Html.Label("Traitement", htmlAttributes: new { @class = "control-label col-md-15" })
+                    </dt>
+                    <dd>
+                        @*@Html.DisplayFor(model => model.traitement)*@
+                        @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(model => model.traitement).ToString()))
+                    </dd>
 
-
-
-        <div>
-            <h4>Consultation</h4>
-            <hr />
-            <dl class="dl-horizontal">
-                <dt>
-                    @*@Html.DisplayNameFor(model => model.Patient.MatriculePatients)*@
-                    @Html.Label("Matricule du patient", htmlAttributes: new { @class = "control-label col-md-15" })
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Patient.MatriculePatients)
-                </dd>
-                <dt>
-                    @*@Html.DisplayNameFor(model => model.ApplicationUser.UserName)*@
-                    @Html.Label("Médecin", htmlAttributes: new { @class = "control-label col-md-15" })
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.ApplicationUser.UserName)
-                </dd>
-
-                <dt>
-                    @*@Html.DisplayNameFor(model => model.diagnostic)*@
-                    @Html.Label("Diagnostic", htmlAttributes: new { @class = "control-label col-md-15" })
-                </dt>
-
-                <dd>
-                    @*@Html.DisplayFor(model => model.diagnostic)*@
-                    @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(model => model.diagnostic).ToString()))
-                </dd>
-                <dt>
-                    @*@Html.DisplayNameFor(model => model.diagnostic)*@
-                    @Html.Label("Traitement", htmlAttributes: new { @class = "control-label col-md-15" })
-                </dt>
-
-                <dd>
-                    @*@Html.DisplayFor(model => model.traitement)*@
-                    @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(model => model.traitement).ToString()))
-
-                </dd>
-
-               
-
-            </dl>
+                </dl>
+            </div>
+            <p>
+                @*@Html.ActionLink("Ordonnance", "CreateOrdonnance", new { id = Model.ConsultationID }, new { @class = "btn btn-success" })*@
+                <a href="@Url.Action("CreateOrdonnance", "Consultations",new { id = Model.ConsultationID })" class="btn btn-primary">
+                    <i class="glyphicon glyphicon glyphicon-file"></i>
+                    <span>
+                        <strong>Ordonnance</strong>
+                    </span>
+                </a>|
+                <a href="@Url.Action("CreateRDV", "Consultations",new { id = Model.ConsultationID })" class="btn btn-primary">
+                    <i class="glyphicon glyphicon glyphicon-file"></i>
+                    <span>
+                        <strong>Lettre au confrère</strong>
+                    </span>
+                </a>|
+                @*@Html.ActionLink("Ordonnance pdf", "ReportEmployee", new { id = Model.ConsultationID }, new { @class = "btn btn-success" }) |*@
+                @*@Html.ActionLink("Retour", "Index", new { @class = "btn btn-default" })*@
+                |
+                <a href="@Url.Action("Index", "Consultations")" class="btn btn-default">
+                    <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
+                    <span>
+                        <strong>Retour</strong>
+                    </span>
+                </a>
+            </p>
         </div>
-        <p>
-            @*@Html.ActionLink("Ordonnance", "CreateOrdonnance", new { id = Model.ConsultationID }, new { @class = "btn btn-success" })*@
-            <a href="@Url.Action("CreateOrdonnance", "Consultations",new { id = Model.ConsultationID })" class="btn btn-primary">
-                <i class="glyphicon glyphicon glyphicon-file"></i>
-                <span>
-                    <strong>Ordonnance</strong>
-                </span>
-            </a>|
-            @*@Html.ActionLink("Ordonnance pdf", "ReportEmployee", new { id = Model.ConsultationID }, new { @class = "btn btn-success" }) |*@
-
-            @*@Html.ActionLink("Retour", "Index", new { @class = "btn btn-default" })*@
-            |
-            <a href="@Url.Action("Index", "Consultations")" class="btn btn-default">
-                <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
-                <span>
-                    <strong>Retour</strong>
-                </span>
-            </a>
-        </p>
-</div></section>
+    </section>
+</div>

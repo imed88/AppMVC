@@ -12,41 +12,39 @@
 </section>
 
 <!-- Main content -->
-<section class="content">
-    <div class="row">
-
-        <h2>Informations</h2>
-
-        <div>
-
-            <hr />
-            <dl class="dl-horizontal">
-                <dt>
-                    @*@Html.DisplayNameFor(model => model.UsineName)*@
-                    @Html.Label("Nom de l'usine", htmlAttributes: new { @class = "control-label col-md-10" })
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.UsineName)
-                </dd>
-
-            </dl>
+<div class="container-fluid">
+    <section class="content">
+        <div class="row">
+            <h2>Informations</h2>
+            <div>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @*@Html.DisplayNameFor(model => model.UsineName)*@
+                        @Html.Label("Nom de l'usine", htmlAttributes: new { @class = "control-label col-md-10" })
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.UsineName)
+                    </dd>
+                </dl>
+            </div>
+            <p>
+                @*@Html.ActionLink("Modifier", "Edit", new { id = Model.IdUsine }) |*@
+                <a href="@Url.Action("Edit", "Usines",new { id = Model.IdUsine })" class="btn btn-warning">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                    <span>
+                        <strong></strong>
+                    </span>
+                </a>
+                @*@Html.ActionLink("Retour", "Index")*@
+                |
+                <a href="@Url.Action("Index", "Usines")" class="btn btn-default">
+                    <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
+                    <span>
+                        <strong>Retour</strong>
+                    </span>
+                </a>
+            </p>
         </div>
-        <p>
-            @*@Html.ActionLink("Modifier", "Edit", new { id = Model.IdUsine }) |*@
-            <a href="@Url.Action("Edit", "Usines",new { id = Model.IdUsine })" class="btn btn-warning">
-                <i class="glyphicon glyphicon-pencil"></i>
-                <span>
-                    <strong></strong>
-                </span>
-            </a>
-            @*@Html.ActionLink("Retour", "Index")*@
-            |
-            <a href="@Url.Action("Index", "Usines")" class="btn btn-default">
-                <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
-                <span>
-                    <strong>Retour</strong>
-                </span>
-            </a>
-        </p>
-        </div></section>
+    </section>
+</div>

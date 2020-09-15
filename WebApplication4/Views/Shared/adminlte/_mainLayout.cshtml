@@ -193,9 +193,9 @@ desired effect
                                         <!-- The user image in the navbar-->
                                         @*<img src="~/Content/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">*@
                                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                        
+                                        <span class="glyphicon glyphicon-user" style="color:brown"></span>
                                         <span class="hidden-xs" style="color:brown"><strong>
-                                                                                        <span class="glyphicon glyphicon-user"></span>
+                                                                                        
                                             @CurrentUser.UserName</strong></span>
                                     </a>
                                     <ul class="dropdown-menu">
@@ -225,9 +225,17 @@ desired effect
                                 </li>*@
                                         <!-- Menu Footer-->
                                         <li class="user-footer">
-                                            <a href="~/Account/EditProfile" class="btn btn-primary" style="color:white">Modifier le compte</a>
-                                            <a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-danger" style="color:white">Se déconnecter</a>
+                                            <div class="navbar-user">
+                                                <div class="row">
+                                                    <div >
+                                                        <p class="text-center">
+                                                            <a href="~/Account/EditProfile" class="btn btn-primary">Modifier le compte</a>
+                                                            <a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-danger">Se déconnecter</a>
+                                                        </p>
 
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </li>
                                     </ul>
                                 </li>

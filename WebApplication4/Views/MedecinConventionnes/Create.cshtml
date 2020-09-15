@@ -12,97 +12,92 @@
 </section>
 
 <!-- Main content -->
-<section class="content">
-    <div class="row">
-      
-        <h2>Créer un nouveau médecin conventionné</h2>
+<div class="container-fluid">
+    <section class="content">
+        <div class="row">
 
-        @using (Html.BeginForm("Create", "MedecinConventionnes", FormMethod.Post, new { enctype = "multipart/form-data" }))
-        {
-            @Html.AntiForgeryToken()
+            <h2>Créer un nouveau médecin conventionné</h2>
+            @using (Html.BeginForm("Create", "MedecinConventionnes", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
 
-            <div class="form-horizontal">
-                <div class="alert alert-danger" id="error-div" style="display:none">
-                    <span id="view-err">
-
-                    </span>
-                </div>
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @*@Html.LabelFor(model => model.nameDoctors, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                    @Html.Label("Nom du médecin", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.nameDoctors, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.nameDoctors, "", new { @class = "text-danger" })
+                <div class="form-horizontal">
+                    <div class="alert alert-danger" id="error-div" style="display:none">
+                        <span id="view-err">
+                        </span>
+                    </div>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.nameDoctors, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        @Html.Label("Nom du médecin", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.nameDoctors, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.nameDoctors, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.emailDoctors, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        @Html.Label("Messagerie électronique", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.emailDoctors, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.emailDoctors, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.phoneDoctors, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.phoneDoctors, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.phoneDoctors, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.picDoctor, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        @Html.Label("Photo du médecin", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @*Html.EditorFor(model => model.picDoctor, new { htmlAttributes = new { @class = "form-control" } })*@
+                            <input type="file" name="upload" id="picDoctors" />
+                            @Html.ValidationMessageFor(model => model.picDoctor, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.IdSpecialite, "IdSpecialite", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        @Html.Label("Spécialité", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("IdSpecialite", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.idSpecialite, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Créer" class="btn btn-success" /> |  <a href="@Url.Action("Index", "MedecinConventionnes")" class="btn btn-default">
+                                <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
+                                <span>
+                                    <strong>Retour</strong>
+                                </span>
+                            </a>
+                        </div>
                     </div>
                 </div>
+            }
+            @*<div>
+                    @Html.ActionLink("Retour", "Index")
+                </div>*@
+            @section scripts{
+                <script>
+                    $(function () {
+                        $("#create").click(function () {
+                            if ($("#picDoctors").val() == "") {
+                                $("#error-div").fadeIn();
+                                $("#view-err").append("Veuillez choisir une image");
+                                return false;
 
-                <div class="form-group">
-                    @*@Html.LabelFor(model => model.emailDoctors, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                    @Html.Label("Messagerie électronique", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.emailDoctors, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.emailDoctors, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @*@Html.LabelFor(model => model.phoneDoctors, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                    @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.phoneDoctors, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.phoneDoctors, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @*@Html.LabelFor(model => model.picDoctor, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                    @Html.Label("Photo du médecin", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @*Html.EditorFor(model => model.picDoctor, new { htmlAttributes = new { @class = "form-control" } })*@
-                        <input type="file" name="upload" id="picDoctors" />
-                        @Html.ValidationMessageFor(model => model.picDoctor, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @*@Html.LabelFor(model => model.IdSpecialite, "IdSpecialite", htmlAttributes: new { @class = "control-label col-md-2" })*@
-                    @Html.Label("Spécialité", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DropDownList("IdSpecialite", null, htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.IdSpecialite, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Créer" class="btn btn-success" /> |  <a href="@Url.Action("Index", "MedecinConventionnes")" class="btn btn-default">
-                            <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
-                            <span>
-                                <strong>Retour</strong>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        }
-
-        @*<div>
-                @Html.ActionLink("Retour", "Index")
-            </div>*@
-        @section scripts{
-            <script>
-                $(function () {
-                    $("#create").click(function () {
-                        if ($("#picDoctors").val() == "") {
-                            $("#error-div").fadeIn();
-                            $("#view-err").append("Veuillez choisir une image");
-                            return false;
-
-                        }
+                            }
+                        });
                     });
-                });
-            </script>
-        }
-        </div></section>
+                </script>
+            }
+        </div>
+    </section>
+</div>

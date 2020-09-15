@@ -1,0 +1,69 @@
+﻿@model WebApplication4.Models.Tables.RDV
+
+@{
+    ViewBag.Title = "Lettre au medecin";
+}
+
+
+
+<div class="container-fluid">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h2>Lettre au Medecin conventionné</h2>
+            <hr />
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.ApplyDate, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                @Html.Label("Date de Consultation", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ApplyDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ApplyDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @*@Html.Label("Message", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                @Html.Label("Lettre au confrère", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @* @Html.TextArea("Message", new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.TextAreaFor(model => model.Message, 10, 83, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "Message" } })
+
+                    @Html.ValidationMessage("Message", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.ConsultationID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ConsultationID, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ConsultationID, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+
+            |
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Créer la lettre" class="btn btn-success" /> |  <a href="@Url.Action("Index", "Consultations")" class="btn btn-default">
+                        <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
+                        <span>
+                            <strong>Retour</strong>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

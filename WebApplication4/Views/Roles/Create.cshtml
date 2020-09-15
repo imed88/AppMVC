@@ -13,11 +13,12 @@
 </section>
 
 <!-- Main content -->
-<section class="content">
-    <div class="row">
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
+<div class="container-fluid">
+    <section class="content">
+        <div class="row">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
                 <h4>Créer une role</h4>
@@ -26,23 +27,29 @@
                 <div class="form-group">
                     @*@Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })*@
                     @Html.Label("Nom de rôle", htmlAttributes: new { @class = "control-label col-md-2" })
-
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                     </div>
                 </div>
-
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <input type="submit" value="Créer" class="btn btn-success" />
                     </div>
                 </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-6">
+                        <input type="submit" value="Créer" class="btn btn-success" /> |  <a href="@Url.Action("Index", "Patients")" class="btn btn-default">
+                            <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
+                            <span>
+                                <strong>Retour</strong>
+                            </span>
+                        </a>
+                    </div>
+                </div>
             </div>
-        }
-
-        <div>
-            @Html.ActionLink("Retour", "Index")
+            }
+           
         </div>
-        </div>
-</section>
+    </section>
+</div>

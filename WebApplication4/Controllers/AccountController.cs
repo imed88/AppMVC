@@ -141,7 +141,7 @@ namespace WebApplication4.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.UserType = new SelectList(db.Roles.ToList(), "Name","Name");
+            ViewBag.UserType = new SelectList(db.Roles, "Name","Name");
             return View();
         }
 
@@ -155,7 +155,7 @@ namespace WebApplication4.Controllers
             if (ModelState.IsValid)
             {
 
-                ViewBag.UserType = new SelectList(db.Roles.ToList(), "Name", "Name");
+                ViewBag.UserType = new SelectList(db.Roles, "Name", "Name");
                 var user = new ApplicationUser { UserName = model.Username, Email = model.Email, UserType=model.UserType};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -168,7 +168,7 @@ namespace WebApplication4.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirmez votre compte", "Confirmez votre compte en cliquant <a href=\"" + callbackUrl + "\">ici</a>");
                     await UserManager.AddToRoleAsync(user.Id, model.UserType);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Dashboard");
                 }
                 AddErrors(result);
             }

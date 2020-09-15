@@ -12,79 +12,67 @@
 </section>
 
 <!-- Main content -->
-<section class="content">
-    <div class="row">
-        <h2>Créer un nouveau patient</h2>
+<div class="container-fluid">
+    <section class="content">
+        <div class="row">
+            <h2>Créer un nouveau patient</h2>
+            <h2>Supression de l'élément</h2>
+            <h3>Vous êtes sur de vouloir supprimer cet élément ?</h3>
+            <div>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @*@Html.DisplayNameFor(model => model.specialite.SpecialiteName)*@
+                        @Html.Label("Spécialité", htmlAttributes: new { @class = "control-label col-md-15" })
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.specialite.SpecialiteName)
+                    </dd>
+                    <dt>
+                        @*@Html.DisplayNameFor(model => model.nameDoctors)*@
+                        @Html.Label("Nom du médecin", htmlAttributes: new { @class = "control-label col-md-15" })
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.nameDoctors)
+                    </dd>
+                    <dt>
+                        @*@Html.DisplayNameFor(model => model.emailDoctors)*@
+                        @Html.Label("Messagerie électronique", htmlAttributes: new { @class = "control-label col-md-15" })
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.emailDoctors)
+                    </dd>
+                    <dt>
+                        @*@Html.DisplayNameFor(model => model.phoneDoctors)*@
+                        @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-md-15" })
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.phoneDoctors)
+                    </dd>
+                    <dt>
+                        @*@Html.DisplayNameFor(model => model.picDoctor)*@
+                        @Html.Label("Photo du médecin", htmlAttributes: new { @class = "control-label col-md-15" })
+                    </dt>
+                    <dd>
+                        @*@Html.DisplayFor(model => model.picDoctor)*@
+                        <img src="~/Uploads/@Html.DisplayFor(model=> model.picDoctor)" class="thumbnail" style="width:100px; height:100px" />
+                    </dd>
+                </dl>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
 
-        <h2>Supression de l'élément</h2>
-
-        <h3>Vous êtes sur de vouloir supprimer cet élément ?</h3>
-        <div>
-
-            <hr />
-            <dl class="dl-horizontal">
-                <dt>
-                    @*@Html.DisplayNameFor(model => model.specialite.SpecialiteName)*@
-                    @Html.Label("Spécialité", htmlAttributes: new { @class = "control-label col-md-15" })
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.specialite.SpecialiteName)
-                </dd>
-
-                <dt>
-                    @*@Html.DisplayNameFor(model => model.nameDoctors)*@
-                    @Html.Label("Nom du médecin", htmlAttributes: new { @class = "control-label col-md-15" })
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.nameDoctors)
-                </dd>
-
-                <dt>
-                    @*@Html.DisplayNameFor(model => model.emailDoctors)*@
-                    @Html.Label("Messagerie électronique", htmlAttributes: new { @class = "control-label col-md-15" })
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.emailDoctors)
-                </dd>
-
-                <dt>
-                    @*@Html.DisplayNameFor(model => model.phoneDoctors)*@
-                    @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-md-15" })
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.phoneDoctors)
-                </dd>
-
-                <dt>
-                    @*@Html.DisplayNameFor(model => model.picDoctor)*@
-                    @Html.Label("Photo du médecin", htmlAttributes: new { @class = "control-label col-md-15" })
-                </dt>
-
-                <dd>
-                    @*@Html.DisplayFor(model => model.picDoctor)*@
-                    <img src="~/Uploads/@Html.DisplayFor(model=> model.picDoctor)" class="thumbnail" style="width:100px; height:100px" />
-
-                </dd>
-
-            </dl>
-
-            @using (Html.BeginForm())
-            {
-                @Html.AntiForgeryToken()
-
-                <div class="form-actions no-color">
-                    <input type="submit" value="Supprimer" class="btn btn-danger" /> |
-                    <a href="@Url.Action("Index", "MedecinConventionnes")" class="btn btn-default">
-                        <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
-                        <span>
-                            <strong>Retour</strong>
-                        </span>
-                    </a>
-                </div>
-            }
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Supprimer" class="btn btn-danger" /> |
+                        <a href="@Url.Action("Index", "MedecinConventionnes")" class="btn btn-default">
+                            <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
+                            <span>
+                                <strong>Retour</strong>
+                            </span>
+                        </a>
+                    </div>
+                }
+            </div>
         </div>
-        </div></section>
+    </section>
+</div>

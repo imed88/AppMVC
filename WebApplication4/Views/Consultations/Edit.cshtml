@@ -12,75 +12,65 @@
 </section>
 
 <!-- Main content -->
-<section class="content">
+<div class="container-fluid">
+    <section class="content">
+        <div class="row">
+            <h2>Modifier l'élément</h2>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-    <div class="row">
+                <div class="form-horizontal">
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.ConsultationID)
 
-        <h2>Modifier l'élément</h2>
-
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-
-        <div class="form-horizontal">
-
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.ConsultationID)
-
-
-
-            <div class="form-group">
-                @*@Html.LabelFor(model => model.UserID, "UserID", htmlAttributes: new { @class = "control-label col-md-2" })*@
-                @Html.Label("Administrateur", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("UserID", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.UserID, "UserID", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        @Html.Label("Administrateur", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("UserID", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.Patient.IdPatients, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        @Html.Label("Patient", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Patient.NomPatient, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Patient.IdPatients, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.diagnostic, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        @Html.Label("Diagnostic", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(model => model.diagnostic, 10, 83, new { htmlAttributes = new { style = " width:100%, max-width:100%" } })
+                            @Html.ValidationMessageFor(model => model.diagnostic, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.diagnostic, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        @Html.Label("Traitement", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(model => model.traitement, 10, 83, new { htmlAttributes = new { style = " width:100%, max-width:100%" } })
+                            @Html.ValidationMessageFor(model => model.traitement, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Modifier" class="btn btn-warning" /> |   @*@Html.ActionLink("Retour", "Index")*@
+                            <a href="@Url.Action("Index", "Consultations")" class="btn btn-default">
+                                <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
+                                <span>
+                                    <strong>Retour</strong>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            }
 
-            <div class="form-group">
-                @*@Html.LabelFor(model => model.Patient.IdPatients, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                @Html.Label("Patient", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Patient.NomPatient, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Patient.IdPatients, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @*@Html.LabelFor(model => model.diagnostic, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                @Html.Label("Diagnostic", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.TextAreaFor(model => model.diagnostic, 10, 83, new { htmlAttributes = new { style = " width:100%, max-width:100%" } })
-
-                    @Html.ValidationMessageFor(model => model.diagnostic, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @*@Html.LabelFor(model => model.diagnostic, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                @Html.Label("Traitement", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.TextAreaFor(model => model.traitement, 10, 83, new { htmlAttributes = new { style = " width:100%, max-width:100%" } })
-
-                    @Html.ValidationMessageFor(model => model.traitement, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Modifier" class="btn btn-warning" /> |   @*@Html.ActionLink("Retour", "Index")*@
-                    <a href="@Url.Action("Index", "Consultations")" class="btn btn-default">
-                        <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
-                        <span>
-                            <strong>Retour</strong>
-                        </span>
-                    </a>
-                </div>
-            </div>
         </div>
-        }
-
-
-        </div></section>
+    </section>
+</div>
