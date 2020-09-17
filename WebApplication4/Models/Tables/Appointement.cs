@@ -30,15 +30,21 @@ namespace WebApplication4.Models.Tables
 
       
         [Required]
-        [Display(Name = "Jour et Heure du Travail")]
+        [DisplayName("Jour et Heure de Travail 1")]
 
-        public string JourHeureTravail { get; set; }
+        public string JourHeureTravail1 { get; set; }
+
+        [Required]
+        [DisplayName("Jour et Heure de Travail 2")]
+
+        public string JourHeureTravail2 { get; set; }
 
 
         [Required] //Changes V2
         [DisplayName("Patient")]
         public int idPatients { get; set; }
 
+        
         public virtual MedecinConventionne Doctor { get; set; }
 
         public virtual ApplicationUser ApplicationUser { get; set; }
