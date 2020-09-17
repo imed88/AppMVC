@@ -74,13 +74,6 @@ namespace WebApplication4.Controllers.TablesControllers
             return View(appointementModels.ToPagedList(pageNumber, pageSize));
 
 
-
-
-
-
-
-
-
             //return View(appointementModels.ToList());
         }
             // GET: AppointementModels/Details/5
@@ -104,7 +97,15 @@ namespace WebApplication4.Controllers.TablesControllers
             ViewBag.UserID = new SelectList(db.Users, "Id", "UserName");
             ViewBag.idDoctors = new SelectList(db.MedecinConventionnes, "idDoctors", "nameDoctors");
             ViewBag.idPatients = new SelectList(db.Patients, "idPatients", "PrenomPatient");
+            ViewBag.idSpecialite = new SelectList(db.Specialites, "idSpecialite", "SpecialiteName");
+            ViewBag.JourHeureTravail = new SelectList(db.MedecinConventionnes, "idDoctors", "JourHeureTravail");
             return View();
+        }
+
+
+        public JsonResult GetSpecialiteByID(int ID)
+        {
+            return Json(db.Specialites.Where(p => p.IdSpecialite == ID), JsonRequestBehavior.AllowGet);
         }
 
         // POST: AppointementModels/Create
@@ -125,7 +126,7 @@ namespace WebApplication4.Controllers.TablesControllers
             ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", appointementModel.UserID);
             ViewBag.idDoctors = new SelectList(db.MedecinConventionnes, "idDoctors", "nameDoctors", appointementModel.idDoctors);
             ViewBag.idPatients = new SelectList(db.Patients, "idPatients", "PrenomPatient", appointementModel.idPatients);
-
+            ViewBag.JourHeureTravail = new SelectList(db.MedecinConventionnes, "idDoctors", "JourHeureTravail", appointementModel.idDoctors);
             return View(appointementModel);
         }
 

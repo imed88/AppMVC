@@ -27,48 +27,46 @@
                     @*@Html.DisplayNameFor(model => model.specialite.SpecialiteName)*@
                     @Html.Label("Spécialité", htmlAttributes: new { @class = "control-label col-md-25" })
                 </dt>
-
                 <dd>
                     @Html.DisplayFor(model => model.specialite.SpecialiteName)
                 </dd>
-
                 <dt>
                     @*@Html.DisplayNameFor(model => model.nameDoctors)*@
                     @Html.Label("Nom du médecin", htmlAttributes: new { @class = "control-label col-md-25" })
                 </dt>
-
                 <dd>
                     @Html.DisplayFor(model => model.nameDoctors)
                 </dd>
-
                 <dt>
                     @*@Html.DisplayNameFor(model => model.emailDoctors)*@
                     @Html.Label("Messagerie électronique", htmlAttributes: new { @class = "control-label col-md-25" })
                 </dt>
-
                 <dd>
                     @Html.DisplayFor(model => model.emailDoctors)
                 </dd>
-
                 <dt>
                     @*@Html.DisplayNameFor(model => model.phoneDoctors)*@
                     @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-md-25" })
                 </dt>
-
                 <dd>
                     @Html.DisplayFor(model => model.phoneDoctors)
                 </dd>
+                <dt>
+                    @*@Html.DisplayNameFor(model => model.phoneDoctors)*@
+                    @Html.Label("Jour et Heure de Travail1", htmlAttributes: new { @class = "control-label col-md-15" })
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.JourHeureTravail1)
+                </dd>
 
                 <dt>
-                    @*@Html.DisplayNameFor(model => model.picDoctor)*@
-                    @Html.Label("Photo du medecin", htmlAttributes: new { @class = "control-label col-md-25" })
+                    @*@Html.DisplayNameFor(model => model.phoneDoctors)*@
+                    @Html.Label("Jour et Heure de Travail 2", htmlAttributes: new { @class = "control-label col-md-15" })
                 </dt>
-
                 <dd>
-                    @*Html.DisplayFor(model => model.picDoctor)*@
-
-                    <img src="~/Uploads/@Html.DisplayFor(model => model.picDoctor)" class="thumbnail" style="width:150px; height:150px" />
+                    @Html.DisplayFor(model => model.JourHeureTravail2)
                 </dd>
+
 
 
             </dl>

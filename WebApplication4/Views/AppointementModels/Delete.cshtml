@@ -50,18 +50,12 @@
                     </dd>
                     <dt>
                         @*@Html.DisplayNameFor(model => model.Date)*@
-                        @Html.Label("Date du rendez-vous", htmlAttributes: new { @class = "control-label col-md-15" })
+                        @Html.Label("Jour et Heure du Travail", htmlAttributes: new { @class = "control-label col-md-15" })
                     </dt>
                     <dd>
-                        @Html.DisplayFor(model => model.Date)
+                        @Html.DisplayFor(model => model.JourHeureTravail)
                     </dd>
-                    <dt>
-                        @*@Html.DisplayNameFor(model => model.Time)*@
-                        @Html.Label("Heure du rendez-vous", htmlAttributes: new { @class = "control-label col-md-15" })
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Time)
-                    </dd>
+                   
 
                 </dl>
                 @using (Html.BeginForm())

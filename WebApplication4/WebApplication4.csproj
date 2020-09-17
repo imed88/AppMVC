@@ -393,9 +393,21 @@
     <Compile Include="Migrations\202007291233576_AddTableMedecinConventionne.Designer.cs">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202009150524547_CreateDb.cs" />
-    <Compile Include="Migrations\202009150524547_CreateDb.Designer.cs">
-      <DependentUpon>202009150524547_CreateDb.cs</DependentUpon>
+    <Compile Include="Migrations\202009170547210_CreateDb.cs" />
+    <Compile Include="Migrations\202009170547210_CreateDb.Designer.cs">
+      <DependentUpon>202009170547210_CreateDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009170643523_ModifMedecinConventionne.cs" />
+    <Compile Include="Migrations\202009170643523_ModifMedecinConventionne.Designer.cs">
+      <DependentUpon>202009170643523_ModifMedecinConventionne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009170844460_ModifMedecinConventionne1.cs" />
+    <Compile Include="Migrations\202009170844460_ModifMedecinConventionne1.Designer.cs">
+      <DependentUpon>202009170844460_ModifMedecinConventionne1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009171233219_appoints.cs" />
+    <Compile Include="Migrations\202009171233219_appoints.Designer.cs">
+      <DependentUpon>202009171233219_appoints.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -2661,8 +2673,17 @@
     <EmbeddedResource Include="Migrations\202007291233576_AddTableMedecinConventionne.resx">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009150524547_CreateDb.resx">
-      <DependentUpon>202009150524547_CreateDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202009170547210_CreateDb.resx">
+      <DependentUpon>202009170547210_CreateDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009170643523_ModifMedecinConventionne.resx">
+      <DependentUpon>202009170643523_ModifMedecinConventionne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009170844460_ModifMedecinConventionne1.resx">
+      <DependentUpon>202009170844460_ModifMedecinConventionne1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009171233219_appoints.resx">
+      <DependentUpon>202009171233219_appoints.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

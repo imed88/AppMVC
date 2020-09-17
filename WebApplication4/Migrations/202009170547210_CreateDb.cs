@@ -14,8 +14,7 @@ namespace WebApplication4.Migrations
                         AppointmentID = c.Int(nullable: false, identity: true),
                         UserID = c.String(maxLength: 128),
                         idDoctors = c.Int(nullable: false),
-                        Date = c.DateTime(nullable: false),
-                        Time = c.DateTime(nullable: false),
+                        JourHeureTravail = c.String(nullable: false),
                         idPatients = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.AppointmentID)

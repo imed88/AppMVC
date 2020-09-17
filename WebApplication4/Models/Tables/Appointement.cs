@@ -9,7 +9,7 @@ using WebApplication4.Validations;
 
 namespace WebApplication4.Models.Tables
 {
-    public class AppointementModel : IComparable<AppointementModel>
+    public class AppointementModel 
     {
         public AppointementModel()
         {
@@ -28,19 +28,12 @@ namespace WebApplication4.Models.Tables
         [DisplayName("Docteur")]
         public int idDoctors { get; set; }
 
-        [Required]
-        [Display(Name = "Date du rendez-vous")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [MyAppointmentDateValidation(ErrorMessage = "Est ce que vous êtes de la date fournie?")]
-        public DateTime Date { get; set; }
-
-        //Disabling due to variable appointment times now. 
-        //[MyTimeValidation(ErrorMessage="Appointments only available for HH:00 and HH:30")]
-        [DataType(DataType.Time)]
-        public DateTime Time { get; set; }
-
       
+        [Required]
+        [Display(Name = "Jour et Heure du Travail")]
+
+        public string JourHeureTravail { get; set; }
+
 
         [Required] //Changes V2
         [DisplayName("Patient")]
@@ -51,10 +44,8 @@ namespace WebApplication4.Models.Tables
         public virtual ApplicationUser ApplicationUser { get; set; }
 
         public virtual Patients Patient { get; set; }
+       
 
-        public int CompareTo(AppointementModel other)
-        {
-            return this.Date.Date.Add(this.Time.TimeOfDay).CompareTo(other.Date.Date.Add(other.Time.TimeOfDay));
-        }
+
     }
 }

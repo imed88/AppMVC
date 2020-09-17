@@ -15,7 +15,7 @@
 <div class="container-fluid">
     <section class="content">
         <div class="row">
-            <h2>Créer un nouveau patient</h2>
+            <h2>Supprimer de l'élément</h2>
             <h2>Supression de l'élément</h2>
             <h3>Vous êtes sur de vouloir supprimer cet élément ?</h3>
             <div>
@@ -50,13 +50,23 @@
                         @Html.DisplayFor(model => model.phoneDoctors)
                     </dd>
                     <dt>
-                        @*@Html.DisplayNameFor(model => model.picDoctor)*@
-                        @Html.Label("Photo du médecin", htmlAttributes: new { @class = "control-label col-md-15" })
+                        @*@Html.DisplayNameFor(model => model.phoneDoctors)*@
+                        @Html.Label("Jour et Heure de Travail1", htmlAttributes: new { @class = "control-label col-md-15" })
                     </dt>
                     <dd>
-                        @*@Html.DisplayFor(model => model.picDoctor)*@
-                        <img src="~/Uploads/@Html.DisplayFor(model=> model.picDoctor)" class="thumbnail" style="width:100px; height:100px" />
+                        @Html.DisplayFor(model => model.JourHeureTravail1)
                     </dd>
+
+                    <dt>
+                        @*@Html.DisplayNameFor(model => model.phoneDoctors)*@
+                        @Html.Label("Jour et Heure de Travail2", htmlAttributes: new { @class = "control-label col-md-15" })
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.JourHeureTravail2)
+                    </dd>
+
+                  
+
                 </dl>
                 @using (Html.BeginForm())
                 {

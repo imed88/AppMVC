@@ -24,13 +24,20 @@ namespace WebApplication4.Models.Tables
         [DisplayName("Telephone")]
         [Phone]
         public string phoneDoctors { get; set; }
-        [DisplayName("Photo")]
-        public string picDoctor { get; set; }
+
+        [DisplayName("Jour et Heure de Travail 1")]
+        public string JourHeureTravail1{ get; set; }
+
+        [DisplayName("Jour et Heure de Travail 2")]
+        public string JourHeureTravail2 { get; set; }
+
 
         [DisplayName("Spécialiste")]
         public int idSpecialite { get; set; }
-
         public virtual Specialite specialite { get; set; }
+
+        
+
 
         public virtual ICollection<AppointementModel> Appointments { get; set; }
     }

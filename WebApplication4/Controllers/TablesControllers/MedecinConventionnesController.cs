@@ -68,7 +68,7 @@ namespace WebApplication2.Controllers.TablesControllers
 
             // return View(usines.ToList());
 
-            int pageSize = 5;
+            int pageSize = 8;
             int pageNumber = (page ?? 1);
             return View(medconv.ToPagedList(pageNumber, pageSize));
         }
@@ -104,9 +104,9 @@ namespace WebApplication2.Controllers.TablesControllers
         {
             if (ModelState.IsValid)
             {
-                string path = Path.Combine(Server.MapPath("~/Uploads/"), upload.FileName);
-                upload.SaveAs(path);
-                medecinConventionne.picDoctor = upload.FileName;
+                //string path = Path.Combine(Server.MapPath("~/Uploads/"), upload.FileName);
+                //upload.SaveAs(path);
+                //medecinConventionne.picDoctor = upload.FileName;
                 db.MedecinConventionnes.Add(medecinConventionne);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -141,14 +141,14 @@ namespace WebApplication2.Controllers.TablesControllers
         {
             if (ModelState.IsValid)
             {
-                string oldPath = Path.Combine(Server.MapPath("~/Uploads/"), medecinConventionne.picDoctor);
-                if (upload != null)
-                {
-                    System.IO.File.Delete(oldPath);
-                    string path = Path.Combine(Server.MapPath("~/Uploads/"), upload.FileName);
-                    upload.SaveAs(path);
-                    medecinConventionne.picDoctor = upload.FileName;
-                }
+                //string oldPath = Path.Combine(Server.MapPath("~/Uploads/"), medecinConventionne.picDoctor);
+                //if (upload != null)
+                //{
+                //    System.IO.File.Delete(oldPath);
+                //    string path = Path.Combine(Server.MapPath("~/Uploads/"), upload.FileName);
+                //    upload.SaveAs(path);
+                //    medecinConventionne.picDoctor = upload.FileName;
+                //}
 
                 
                 db.Entry(medecinConventionne).State = EntityState.Modified;

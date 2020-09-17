@@ -28,7 +28,7 @@
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.idDoctors)
-                @Html.HiddenFor(model => model.picDoctor)
+
                 <div class="form-group">
                     @*@Html.LabelFor(model => model.nameDoctors, htmlAttributes: new { @class = "control-label col-md-2" })*@
                     @Html.Label("Nom du médecin", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -54,14 +54,24 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    @*@Html.LabelFor(model => model.picDoctor, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                    @Html.Label("Photo du Médecin", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @*@Html.LabelFor(model => model.phoneDoctors, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    @Html.Label("Jour et Heure de travail 1 ", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @*Html.EditorFor(model => model.picDoctor, new { htmlAttributes = new { @class = "form-control" } })*@
-                        <input type="file" name="upload" id="picDoctors" /><img src="~/Uploads/@Html.DisplayFor(model => model.picDoctor)" class="thumbnail" style="width:150px; height:150px" />
-                        @Html.ValidationMessageFor(model => model.picDoctor, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.JourHeureTravail1, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.JourHeureTravail1, "", new { @class = "text-danger" })
                     </div>
                 </div>
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.phoneDoctors, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    @Html.Label("Jour et Heure de travail 2 ", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.JourHeureTravail2, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.JourHeureTravail2, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
                 <div class="form-group">
                     @*@Html.LabelFor(model => model.IdSpecialite, "IdSpecialite", htmlAttributes: new { @class = "control-label col-md-2" })*@
                     @Html.Label("Spécialité", htmlAttributes: new { @class = "control-label col-md-2" })
