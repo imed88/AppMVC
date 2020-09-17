@@ -137,6 +137,7 @@ namespace WebApplication4.Controllers.TablesControllers
                 return HttpNotFound();
             }
             ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", consultation.UserID);
+            ViewBag.idPatients = new SelectList(db.Patients, "IdPatients", "NomPatient", consultation.idPatients);
             return View(consultation);
         }
 
@@ -154,6 +155,8 @@ namespace WebApplication4.Controllers.TablesControllers
                 return RedirectToAction("Index");
             }
             ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", consultation.UserID);
+            ViewBag.idPatients = new SelectList(db.Patients, "IdPatients", "NomPatient", consultation.idPatients);
+
             return View(consultation);
         }
 
