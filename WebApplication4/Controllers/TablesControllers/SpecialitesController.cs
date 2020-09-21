@@ -12,7 +12,7 @@ using WebApplication4.Models.Tables;
 
 namespace WebApplication4.Controllers.TablesControllers
 {
-   
+    [Authorize(Roles = "Administrateur")]
     public class SpecialitesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

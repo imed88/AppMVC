@@ -22,9 +22,7 @@ namespace WebApplication4.Models.Tables
         [Key]
         public int AppointmentID { get; set; }
 
-        [ForeignKey("ApplicationUser")]
-        public string UserID { get; set; }
-
+       
         [Required] //Changes V2
         [DisplayName("Docteur")]
         public int idDoctors { get; set; }
@@ -43,8 +41,7 @@ namespace WebApplication4.Models.Tables
         
         public virtual MedecinConventionne Doctor { get; set; }
 
-        public virtual ApplicationUser ApplicationUser { get; set; }
-
+       
         public virtual Patients Patient { get; set; }
        
 

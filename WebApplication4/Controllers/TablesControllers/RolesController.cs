@@ -10,7 +10,7 @@ using WebApplication4.Models;
 
 namespace WebApplication4.Controllers.TablesControllers
 {
-  
+    [Authorize(Roles = "Administrateur")]
     public class RolesController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();

@@ -60,10 +60,7 @@
                         @Html.Label("Date de Prise de Rendez Vous", htmlAttributes: new { @class = "control-label col-md-15" })
 
                     </th>
-                    <th>
-                        @*@Html.DisplayNameFor(model => model.ApplicationUser.UserName)*@
-                        @Html.Label("Administrateur", htmlAttributes: new { @class = "control-label col-md-15" })
-                    </th>
+                  
                     <th>
                         @*@Html.DisplayNameFor(model => model.Doctor.specialite.SpecialiteName)*@
                         @Html.Label("Spécialité", htmlAttributes: new { @class = "control-label col-md-15" })
@@ -99,9 +96,7 @@
                             @Html.DisplayFor(model => item.DtEdit)
                         </td>
 
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
-                        </td>
+                      
                         <td>
                             @Html.DisplayFor(modelItem => item.Doctor.specialite.SpecialiteName)
                         </td>

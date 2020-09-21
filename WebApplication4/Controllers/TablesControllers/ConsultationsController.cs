@@ -21,7 +21,7 @@ using WebApplication4.Models.ViewModels;
 
 namespace WebApplication4.Controllers.TablesControllers
 {
-   
+    [Authorize(Roles = "Administrateur")]
     public class ConsultationsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -204,7 +204,7 @@ namespace WebApplication4.Controllers.TablesControllers
         [HttpPost]
         public ActionResult CreateOrdonnance(string Message, Ordonnance consultOrd)
         {
-            //var UserId = User.Identity.GetUserId();
+           // var UserId = User.Identity.GetUserId();
             var ConsultationID = (int)Session["ConsultationID"];
 
             //Patients patients = new Patients();

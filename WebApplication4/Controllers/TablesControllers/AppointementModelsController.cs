@@ -1,4 +1,5 @@
-﻿using PagedList;
+﻿using Microsoft.AspNet.Identity;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,7 +13,7 @@ using WebApplication4.Models.Tables;
 
 namespace WebApplication4.Controllers.TablesControllers
 {
-    
+    [Authorize(Roles ="Administrateur")]
     public class AppointementModelsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -42,17 +43,9 @@ namespace WebApplication4.Controllers.TablesControllers
 
             ViewBag.CurrentFilter = searching;
 
-            var appointementModels = db.AppointementModels.Include(a => a.ApplicationUser);
+            var appointementModels = db.AppointementModels.Include(a => a.Patient);
 
-            if (!String.IsNullOrEmpty(searching))
-            {
-                appointementModels = appointementModels.Where(s => s.Patient.NomPatient.Contains(searching));
-            }
-           
-            else if (!String.IsNullOrEmpty(prenom))
-            {
-                appointementModels = appointementModels.Where(s => s.Patient.NomPatient.Contains(prenom));
-            }
+          
            
 
 
@@ -97,7 +90,7 @@ namespace WebApplication4.Controllers.TablesControllers
         // GET: AppointementModels/Create
         public ActionResult Create()
         {
-            ViewBag.UserID = new SelectList(db.Users, "Id", "UserName");
+            //ViewBag.UserID = new SelectList(db.Users, "Id", "UserName");
             ViewBag.idDoctors = new SelectList(db.MedecinConventionnes, "idDoctors", "nameDoctors");
             ViewBag.idPatients = new SelectList(db.Patients, "idPatients", "PrenomPatient");
   
@@ -118,13 +111,13 @@ namespace WebApplication4.Controllers.TablesControllers
         {
             if (ModelState.IsValid)
             {
-               
+                //var UserId = User.Identity.GetUserId();
                 db.AppointementModels.Add(appointementModel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", appointementModel.UserID);
+           // ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", appointementModel.UserID);
             ViewBag.idDoctors = new SelectList(db.MedecinConventionnes, "idDoctors", "nameDoctors", appointementModel.idDoctors);
             ViewBag.idPatients = new SelectList(db.Patients, "idPatients", "PrenomPatient", appointementModel.idPatients);
            
@@ -143,7 +136,7 @@ namespace WebApplication4.Controllers.TablesControllers
             {
                 return HttpNotFound();
             }
-            ViewBag.UserID = new SelectList(db.Users, "Id", "Username", appointementModel.UserID);
+           
             ViewBag.idDoctors = new SelectList(db.MedecinConventionnes, "idDoctors", "nameDoctors", appointementModel.idDoctors);
             ViewBag.idPatients = new SelectList(db.Patients, "idPatients", "PrenomPatient", appointementModel.idPatients);
 
@@ -163,7 +156,7 @@ namespace WebApplication4.Controllers.TablesControllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.UserID = new SelectList(db.Users, "Id", "Username", appointementModel.UserID);
+            
             ViewBag.idDoctors = new SelectList(db.MedecinConventionnes, "idDoctors", "nameDoctors", appointementModel.idDoctors);
             ViewBag.idPatients = new SelectList(db.Patients, "idPatients", "PrenomPatient", appointementModel.idPatients);
 

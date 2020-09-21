@@ -13,7 +13,7 @@ using WebApplication4.Models.Tables;
 
 namespace WebApplication2.Controllers.TablesControllers
 {
-    
+    [Authorize(Roles = "Administrateur")]
     public class MedecinConventionnesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

@@ -22,11 +22,12 @@
                 <dl class="dl-horizontal">
                     <dt>
                         @*@Html.DisplayNameFor(model => model.ApplicationUser.UserName)*@
-                        @Html.Label("Administrateur", htmlAttributes: new { @class = "control-label col-md-15" })
+                        @Html.Label("Date de prise de rendez vous", htmlAttributes: new { @class = "control-label col-md-15" })
                     </dt>
                     <dd>
-                        @Html.DisplayFor(model => model.ApplicationUser.UserName)
+                        @Html.DisplayFor(model => model.DtEdit)
                     </dd>
+                   
                     <dt>
                         @*@Html.DisplayNameFor(model => model.Doctor.idDoctors)*@
                         @Html.Label("Médecin", htmlAttributes: new { @class = "control-label col-md-15" })
@@ -48,8 +49,8 @@
                     <dd>
                         @Html.DisplayFor(model => model.Patient.PrenomPatient)
                     </dd>
-                   
-                   
+
+
 
                 </dl>
                 @using (Html.BeginForm())
