@@ -331,7 +331,7 @@ namespace WebApplication4.Controllers.TablesControllers
 
             return File(stream, "application/pdf", "LettreConfrere.pdf");
 
-            return View();
+           // return View();
 
         }
 

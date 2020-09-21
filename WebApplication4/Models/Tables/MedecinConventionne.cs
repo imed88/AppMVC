@@ -25,11 +25,7 @@ namespace WebApplication4.Models.Tables
         [Phone]
         public string phoneDoctors { get; set; }
 
-        [DisplayName("Jour et Heure de Travail 1")]
-        public string JourHeureTravail1{ get; set; }
-
-        [DisplayName("Jour et Heure de Travail 2")]
-        public string JourHeureTravail2 { get; set; }
+      
 
 
         [DisplayName("Spécialiste")]
@@ -40,5 +36,6 @@ namespace WebApplication4.Models.Tables
 
 
         public virtual ICollection<AppointementModel> Appointments { get; set; }
+        
     }
 }

@@ -26,6 +26,9 @@ namespace WebApplication4.Controllers.TablesControllers
             return View(appointementModels.ToList());
         }*/
 
+      
+
+
         public ActionResult Index(string searching, string prenom, string order, string currentFilter, int? page)
         {
             if (searching != null)
@@ -97,16 +100,14 @@ namespace WebApplication4.Controllers.TablesControllers
             ViewBag.UserID = new SelectList(db.Users, "Id", "UserName");
             ViewBag.idDoctors = new SelectList(db.MedecinConventionnes, "idDoctors", "nameDoctors");
             ViewBag.idPatients = new SelectList(db.Patients, "idPatients", "PrenomPatient");
-            ViewBag.idSpecialite = new SelectList(db.Specialites, "idSpecialite", "SpecialiteName");
-            ViewBag.JourHeureTravail = new SelectList(db.MedecinConventionnes, "idDoctors", "JourHeureTravail");
+  
+
+          
             return View();
         }
 
+       
 
-        public JsonResult GetSpecialiteByID(int ID)
-        {
-            return Json(db.Specialites.Where(p => p.IdSpecialite == ID), JsonRequestBehavior.AllowGet);
-        }
 
         // POST: AppointementModels/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
@@ -126,7 +127,7 @@ namespace WebApplication4.Controllers.TablesControllers
             ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", appointementModel.UserID);
             ViewBag.idDoctors = new SelectList(db.MedecinConventionnes, "idDoctors", "nameDoctors", appointementModel.idDoctors);
             ViewBag.idPatients = new SelectList(db.Patients, "idPatients", "PrenomPatient", appointementModel.idPatients);
-            ViewBag.JourHeureTravail = new SelectList(db.MedecinConventionnes, "idDoctors", "JourHeureTravail", appointementModel.idDoctors);
+           
             return View(appointementModel);
         }
 

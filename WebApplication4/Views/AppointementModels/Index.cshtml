@@ -56,7 +56,10 @@
         <div class="table-responsive">
             <table id="table_id" class="table">
                 <tr>
+                    <th>
+                        @Html.Label("Date de Prise de Rendez Vous", htmlAttributes: new { @class = "control-label col-md-15" })
 
+                    </th>
                     <th>
                         @*@Html.DisplayNameFor(model => model.ApplicationUser.UserName)*@
                         @Html.Label("Administrateur", htmlAttributes: new { @class = "control-label col-md-15" })
@@ -83,11 +86,7 @@
                         @Html.Label("Prénom du patient", htmlAttributes: new { @class = "control-label col-md-15" })
                     </th>
 
-                    <th>
-                        @*@Html.DisplayNameFor(model => model.Date)*@
-                        @*@Html.Label("Date du rendez-vous", htmlAttributes: new { @class = "control-label col-md-15" })*@
-                        @Html.ActionLink("Jour et Heure du Travail ", "Index", new { order = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
-                    </th>
+                   
 
 
                     <th>
@@ -96,6 +95,9 @@
                 @foreach (var item in Model)
                 {
                     <tr>
+                        <td>
+                            @Html.DisplayFor(model => item.DtEdit)
+                        </td>
 
                         <td>
                             @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
@@ -116,9 +118,7 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Patient.PrenomPatient)
                         </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.JourHeureTravail)
-                        </td>
+                       
 
                         <td>
                             @*@Html.ActionLink("Modifier", "Edit", new { id = item.AppointmentID },htmlAttributes: new { @class = "glyphicon glyphicon-pencil btn btn-primary" })

@@ -13,6 +13,7 @@ namespace WebApplication4.Models.Tables
     {
         public AppointementModel()
         {
+            DtEdit = DateTime.Today.Date;
         }
         public AppointementModel(AppointementModel appoint)
         {
@@ -28,17 +29,18 @@ namespace WebApplication4.Models.Tables
         [DisplayName("Docteur")]
         public int idDoctors { get; set; }
 
-      
-        [Required]
-        [Display(Name = "Jour et Heure du Travail")]
 
-        public string JourHeureTravail { get; set; }
+        
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime DtEdit { get; set; }
 
 
         [Required] //Changes V2
         [DisplayName("Patient")]
         public int idPatients { get; set; }
 
+        
         public virtual MedecinConventionne Doctor { get; set; }
 
         public virtual ApplicationUser ApplicationUser { get; set; }
