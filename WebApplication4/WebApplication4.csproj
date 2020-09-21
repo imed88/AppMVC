@@ -409,13 +409,45 @@
     <Compile Include="Migrations\202009171233219_appoints.Designer.cs">
       <DependentUpon>202009171233219_appoints.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202009171851598_modifs.cs" />
-    <Compile Include="Migrations\202009171851598_modifs.Designer.cs">
-      <DependentUpon>202009171851598_modifs.cs</DependentUpon>
+    <Compile Include="Migrations\202009190934564_modifs.cs" />
+    <Compile Include="Migrations\202009190934564_modifs.Designer.cs">
+      <DependentUpon>202009190934564_modifs.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202009172255592_modifs2.cs" />
-    <Compile Include="Migrations\202009172255592_modifs2.Designer.cs">
-      <DependentUpon>202009172255592_modifs2.cs</DependentUpon>
+    <Compile Include="Migrations\202009191805262_addEmploiTemps.cs" />
+    <Compile Include="Migrations\202009191805262_addEmploiTemps.Designer.cs">
+      <DependentUpon>202009191805262_addEmploiTemps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009191911021_addModif.cs" />
+    <Compile Include="Migrations\202009191911021_addModif.Designer.cs">
+      <DependentUpon>202009191911021_addModif.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009200842411_addModif1.cs" />
+    <Compile Include="Migrations\202009200842411_addModif1.Designer.cs">
+      <DependentUpon>202009200842411_addModif1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009201014567_addModif2.cs" />
+    <Compile Include="Migrations\202009201014567_addModif2.Designer.cs">
+      <DependentUpon>202009201014567_addModif2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009201255103_modifications2.cs" />
+    <Compile Include="Migrations\202009201255103_modifications2.Designer.cs">
+      <DependentUpon>202009201255103_modifications2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009201258520_modifications3.cs" />
+    <Compile Include="Migrations\202009201258520_modifications3.Designer.cs">
+      <DependentUpon>202009201258520_modifications3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009201551591_modifications.cs" />
+    <Compile Include="Migrations\202009201551591_modifications.Designer.cs">
+      <DependentUpon>202009201551591_modifications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009201610477_modifications1.cs" />
+    <Compile Include="Migrations\202009201610477_modifications1.Designer.cs">
+      <DependentUpon>202009201610477_modifications1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009201611585_modifications21.cs" />
+    <Compile Include="Migrations\202009201611585_modifications21.Designer.cs">
+      <DependentUpon>202009201611585_modifications21.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -451,6 +483,12 @@
       <DependentUpon>CrystalReport2.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Report\CrystalReport3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Report\DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -463,6 +501,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet3.xsd</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Startup.cs" />
@@ -2134,6 +2177,17 @@
     <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="Scripts\ckeditor\skins\moono-lisa\readme.md" />
+    <Content Include="Report\DataSet3.xsc">
+      <DependentUpon>DataSet3.xsd</DependentUpon>
+    </Content>
+    <None Include="Report\DataSet3.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet3.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Report\DataSet3.xss">
+      <DependentUpon>DataSet3.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -2693,11 +2747,35 @@
     <EmbeddedResource Include="Migrations\202009171233219_appoints.resx">
       <DependentUpon>202009171233219_appoints.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009171851598_modifs.resx">
-      <DependentUpon>202009171851598_modifs.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202009190934564_modifs.resx">
+      <DependentUpon>202009190934564_modifs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009172255592_modifs2.resx">
-      <DependentUpon>202009172255592_modifs2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202009191805262_addEmploiTemps.resx">
+      <DependentUpon>202009191805262_addEmploiTemps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009191911021_addModif.resx">
+      <DependentUpon>202009191911021_addModif.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009200842411_addModif1.resx">
+      <DependentUpon>202009200842411_addModif1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009201014567_addModif2.resx">
+      <DependentUpon>202009201014567_addModif2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009201255103_modifications2.resx">
+      <DependentUpon>202009201255103_modifications2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009201258520_modifications3.resx">
+      <DependentUpon>202009201258520_modifications3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009201551591_modifications.resx">
+      <DependentUpon>202009201551591_modifications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009201610477_modifications1.resx">
+      <DependentUpon>202009201610477_modifications1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009201611585_modifications21.resx">
+      <DependentUpon>202009201611585_modifications21.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -2706,6 +2784,10 @@
     <EmbeddedResource Include="Report\CrystalReport2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrystalReport3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport3.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

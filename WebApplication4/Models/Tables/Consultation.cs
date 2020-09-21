@@ -19,6 +19,7 @@ namespace WebApplication4.Models.Tables
         public string traitement { get; set; }
 
 
+
         [ForeignKey("ApplicationUser")]
         public string UserID { get; set; }
 

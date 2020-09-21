@@ -53,23 +53,7 @@
                         @Html.ValidationMessageFor(model => model.phoneDoctors, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                <div class="form-group">
-                    @*@Html.LabelFor(model => model.phoneDoctors, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                    @Html.Label("Jour et Heure de travail 1 ", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.JourHeureTravail1, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.JourHeureTravail1, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @*@Html.LabelFor(model => model.phoneDoctors, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                    @Html.Label("Jour et Heure de travail 2 ", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.JourHeureTravail2, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.JourHeureTravail2, "", new { @class = "text-danger" })
-                    </div>
-                </div>
+              
 
 
                 <div class="form-group">
