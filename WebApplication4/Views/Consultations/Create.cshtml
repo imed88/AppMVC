@@ -59,7 +59,7 @@
                         @*@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })*@
                         <div class="editor-field">
-                            @Html.DropDownList("Choisir un élément", new List<SelectListItem>
+                            @Html.DropDownList("natureVisite", new List<SelectListItem>
                                {
                                    new SelectListItem{ Text="Visite d'embauche", Value="Visite d'embauche"},
                                    new SelectListItem{ Text="Visite Périodique", Value="Visite Périodique"},
