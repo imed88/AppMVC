@@ -19,7 +19,7 @@ namespace WebApplication4.Controllers
                 Doctors_count = db.MedecinConventionnes.Count(),
                 Patients_count = db.Patients.Count(),
                 Specialite_count = db.Specialites.Count(),
-                //dashboard.Appoint_count = db.AppointementModels.Count();
+                Appoint_count = db.AppointementModels.Count(),
                 Usine_count = db.Usines.Count(),
                 Consultations_count = db.Consultations.Count()
             };

@@ -30,6 +30,10 @@ namespace WebApplication4.Models.Tables
         public int idPatients { get; set; }
         public virtual Patients Patient { get; set; }
 
+        [Required] //Changes V2
+        [DisplayName("Nature de la visite")]
+        public string natureVisite { get; set; }
+      
 
 
 

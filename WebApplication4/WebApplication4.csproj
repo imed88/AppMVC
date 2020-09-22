@@ -405,6 +405,10 @@
     <Compile Include="Migrations\202009211057379_modifications1.Designer.cs">
       <DependentUpon>202009211057379_modifications1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009221054046_modifications2.cs" />
+    <Compile Include="Migrations\202009221054046_modifications2.Designer.cs">
+      <DependentUpon>202009221054046_modifications2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CheckBoxItem.cs" />
@@ -2699,6 +2703,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009211057379_modifications1.resx">
       <DependentUpon>202009211057379_modifications1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009221054046_modifications2.resx">
+      <DependentUpon>202009221054046_modifications2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

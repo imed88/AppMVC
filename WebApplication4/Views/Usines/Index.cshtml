@@ -8,7 +8,7 @@
 <section class="content-header">
     <h1>
         Infirmerie
-        <small>Liste des usines</small>
+        <small>Liste des lieux du travail</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
@@ -26,7 +26,7 @@
                 <a href="@Url.Action("Create", "Usines")" class="btn btn-success">
                     <i class="glyphicon glyphicon-plus"></i>
                     <span>
-                        <strong>Nouvelle usine</strong>
+                        <strong>Nouveau lieu du travail</strong>
                     </span>
                 </a>
             </p>
@@ -36,7 +36,7 @@
             @using (Html.BeginForm("Index", "Usines", FormMethod.Post))
             {
                 <div>
-                    @Html.Label("Usine:")
+                    @Html.Label("Lieu du travail:")
                     @Html.TextBox("searching")
                     @*<input id="submit" type="submit" value="Rechercher" />*@
                     <button type="submit" value="" class="btn btn-warning glyphicon glyphicon-search " />

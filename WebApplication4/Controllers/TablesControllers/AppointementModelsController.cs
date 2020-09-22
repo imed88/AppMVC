@@ -29,8 +29,8 @@ namespace WebApplication4.Controllers.TablesControllers
 
       
 
-
-        public ActionResult Index(string searching, string prenom, string order, string currentFilter, int? page)
+       [Authorize(Roles ="Administrateur, Infirmier")]
+        public ActionResult Index(string searching, string order, string currentFilter, int? page)
         {
             if (searching != null)
             {
@@ -43,12 +43,15 @@ namespace WebApplication4.Controllers.TablesControllers
 
             ViewBag.CurrentFilter = searching;
 
-            var appointementModels = db.AppointementModels.Include(a => a.Patient);
 
-          
-           
+            var appointementModels = db.AppointementModels.Include(c => c.Patient);
 
+            if (!String.IsNullOrEmpty(searching))
+            {
 
+                appointementModels = appointementModels.Where(s => s.Patient.MatriculePatients.ToLower().Contains(searching.ToLower()));
+
+            }
 
             ViewBag.NameSortParm = String.IsNullOrEmpty(order) ? "PrenomPatient_desc" : "";
 
@@ -68,9 +71,6 @@ namespace WebApplication4.Controllers.TablesControllers
             int pageSize = 5;
             int pageNumber = (page ?? 1);
             return View(appointementModels.ToPagedList(pageNumber, pageSize));
-
-
-            //return View(appointementModels.ToList());
         }
             // GET: AppointementModels/Details/5
             public ActionResult Details(int? id)

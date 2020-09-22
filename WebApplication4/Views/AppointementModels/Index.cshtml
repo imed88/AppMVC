@@ -31,21 +31,14 @@
                 </p>
             </div>
             <div class="col-sm-8">
-                @using (Html.BeginForm("Index", "AppointementModels", FormMethod.Get))
+                @using (Html.BeginForm("Index", "AppointementModels", FormMethod.Post))
                 {
-
-                    @Html.Label("Nom du Patient", htmlAttributes: new { @class = "control-label col-2" })
-
-                    @Html.TextBox("searching")
-
-                    @Html.Label("Prénom du patient", htmlAttributes: new { @class = "control-label col-2" })
-                    @Html.TextBox("prenom")
-
-
-
-
-                    <button type="submit" value="" class="btn btn-warning glyphicon glyphicon-search "></button>
-
+                    <div>
+                        @Html.Label("Matricule du Patient:")
+                        @Html.TextBox("searching")
+                        @*<input id="submit" type="submit" value="Rechercher" />*@
+                        <button type="submit" value="" class="btn btn-warning glyphicon glyphicon-search " />
+                    </div>
                 }
             </div>
         </div>

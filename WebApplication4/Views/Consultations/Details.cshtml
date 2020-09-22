@@ -35,6 +35,13 @@
                         @Html.DisplayFor(model => model.ApplicationUser.UserName)
                     </dd>
                     <dt>
+                        @*@Html.DisplayNameFor(model => model.ApplicationUser.UserName)*@
+                        @Html.Label("Nature de la visite", htmlAttributes: new { @class = "control-label col-md-15" })
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.natureVisite)
+                    </dd>
+                    <dt>
                         @*@Html.DisplayNameFor(model => model.diagnostic)*@
                         @Html.Label("Diagnostic", htmlAttributes: new { @class = "control-label col-md-15" })
                     </dt>

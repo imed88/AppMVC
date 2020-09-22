@@ -33,7 +33,7 @@ namespace WebApplication4.Controllers.TablesControllers
         //    var consultations = db.Consultations.Include(c => c.ApplicationUser).Include(c=>c.Patient);
         //    return View(consultations.ToList());
         //}
-
+        [AllowAnonymous]
         public ActionResult Index(string order, string currentFilter, string searching, int? page)
         {
             if (searching != null)
@@ -102,6 +102,7 @@ namespace WebApplication4.Controllers.TablesControllers
         {
             ViewBag.UserID = new SelectList(db.Users, "Id", "UserName");
             ViewBag.idPatients = new SelectList(db.Patients, "idPatients", "PrenomPatient");
+            ViewBag.natureVisite = new SelectList(db.Consultations, "ConsultationID", "natureVisite");
             return View();
         }
 
@@ -110,7 +111,7 @@ namespace WebApplication4.Controllers.TablesControllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( Consultation consultation)
+        public ActionResult Create(Consultation consultation)
         {
             if (ModelState.IsValid)
             {

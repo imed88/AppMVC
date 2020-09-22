@@ -3,11 +3,11 @@
 <section class="content-header">
     <h1>
         Infirmerie
-        <small>Liste des usines</small>
+        <small>Lieux du travail</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
-        <li >Usines</li>
+        <li >Lieux du travail</li>
         <li class="active">Editer</li>
     </ol>
 </section>
@@ -32,7 +32,7 @@
 
                 <div class="form-group">
                     @*@Html.LabelFor(model => model.UsineName, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                    @Html.Label("Nom de l'usine", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.Label("Lieu du travail", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.UsineName, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.UsineName, "", new { @class = "text-danger" })
