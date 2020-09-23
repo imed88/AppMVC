@@ -55,10 +55,7 @@
                     @*@Html.DisplayNameFor(model => model.First().Patient.PrenomPatient)*@
                     @Html.ActionLink("Nom du patient", "Index", new { order = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
                 </th>
-                <th>
-                    @*@Html.DisplayNameFor(model => model.First().Patient.PrenomPatient)*@
-                    @Html.ActionLink("Nature de la visite", "Index", new { order = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
-                </th>
+             
                 <th>
                     @*@Html.DisplayNameFor(model => model.First().diagnostic)*@
                     @Html.Label("Diagnostic", htmlAttributes: new { @class = "control-label col-5" })
@@ -76,10 +73,6 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Patient.PrenomPatient)
-                </td>
-                <td>
-                    @*@Html.DisplayFor(modelItem => item.diagnostic)*@
-                    @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => item.natureVisite).ToString()))
                 </td>
                 <td>
                     @*@Html.DisplayFor(modelItem => item.diagnostic)*@
