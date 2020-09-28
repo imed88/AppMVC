@@ -33,6 +33,8 @@ namespace WebApplication4.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -51,7 +53,7 @@ namespace WebApplication4.Models
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Patients> Patients { get; set; }
 
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.AppointementModel> AppointementModels { get; set; }
-        public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Medicament> Medicaments { get; set; }
+        //public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Medicament> Medicaments { get; set; }
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Consultation> Consultations { get; set; }
 
         //public System.Data.Entity.DbSet<WebApplication4.Models.Tables.ConsultationOrdonnance> ConsultationOrdonnances { get; set; }
@@ -61,6 +63,9 @@ namespace WebApplication4.Models
 
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.RDV> RDV { get; set; }
 
-    
-      }
+        public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Medicine.tbl_product> tbl_product { get; set; }
+        public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Medicine.tbl_invoice> tbl_invoice { get; set; }
+        public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Medicine.tbl_order> tbl_order { get; set; }
+
+    }
 }

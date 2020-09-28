@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
+
 namespace WebApplication4.Models.Tables
 {
     public class Patients
@@ -31,8 +32,13 @@ namespace WebApplication4.Models.Tables
 
         public virtual ICollection<AppointementModel> Appointments { get; set; }
         public virtual ICollection<Consultation> Consultations { get; set; }
+       
 
-      
+
+
+
+
+
 
 
 

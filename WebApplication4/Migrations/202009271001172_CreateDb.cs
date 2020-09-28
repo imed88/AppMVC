@@ -12,17 +12,73 @@ namespace WebApplication4.Migrations
                 c => new
                     {
                         AppointmentID = c.Int(nullable: false, identity: true),
-                        UserID = c.String(maxLength: 128),
                         idDoctors = c.Int(nullable: false),
-                        JourHeureTravail = c.String(nullable: false),
+                        DtEdit = c.DateTime(nullable: false),
                         idPatients = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.AppointmentID)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserID)
                 .ForeignKey("dbo.MedecinConventionnes", t => t.idDoctors, cascadeDelete: true)
                 .ForeignKey("dbo.Patients", t => t.idPatients, cascadeDelete: true)
-                .Index(t => t.UserID)
                 .Index(t => t.idDoctors)
+                .Index(t => t.idPatients);
+            
+            CreateTable(
+                "dbo.MedecinConventionnes",
+                c => new
+                    {
+                        idDoctors = c.Int(nullable: false, identity: true),
+                        nameDoctors = c.String(),
+                        emailDoctors = c.String(),
+                        phoneDoctors = c.String(),
+                        idSpecialite = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.idDoctors)
+                .ForeignKey("dbo.Specialites", t => t.idSpecialite, cascadeDelete: true)
+                .Index(t => t.idSpecialite);
+            
+            CreateTable(
+                "dbo.Specialites",
+                c => new
+                    {
+                        IdSpecialite = c.Int(nullable: false, identity: true),
+                        SpecialiteName = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.IdSpecialite);
+            
+            CreateTable(
+                "dbo.Patients",
+                c => new
+                    {
+                        IdPatients = c.Int(nullable: false, identity: true),
+                        MatriculePatients = c.String(),
+                        NomPatient = c.String(),
+                        PrenomPatient = c.String(),
+                        Gender = c.String(),
+                        PhonePatients = c.String(),
+                        DOB = c.DateTime(nullable: false),
+                        Parente = c.String(),
+                        IdUsine = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.IdPatients)
+                .ForeignKey("dbo.Usines", t => t.IdUsine, cascadeDelete: true)
+                .Index(t => t.IdUsine);
+            
+            CreateTable(
+                "dbo.Consultations",
+                c => new
+                    {
+                        ConsultationID = c.Int(nullable: false, identity: true),
+                        diagnostic = c.String(),
+                        traitement = c.String(),
+                        UserID = c.String(maxLength: 128),
+                        idPatients = c.Int(nullable: false),
+                        natureVisite = c.String(nullable: false),
+                        DateCreated = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.ConsultationID)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserID)
+                .ForeignKey("dbo.Patients", t => t.idPatients, cascadeDelete: true)
+                .Index(t => t.UserID)
                 .Index(t => t.idPatients);
             
             CreateTable(
@@ -60,63 +116,6 @@ namespace WebApplication4.Migrations
                 .Index(t => t.UserId);
             
             CreateTable(
-                "dbo.Consultations",
-                c => new
-                    {
-                        ConsultationID = c.Int(nullable: false, identity: true),
-                        diagnostic = c.String(),
-                        traitement = c.String(),
-                        UserID = c.String(maxLength: 128),
-                        idPatients = c.Int(nullable: false),
-                        DateCreated = c.DateTime(nullable: false),
-                    })
-                .PrimaryKey(t => t.ConsultationID)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserID)
-                .ForeignKey("dbo.Patients", t => t.idPatients, cascadeDelete: true)
-                .Index(t => t.UserID)
-                .Index(t => t.idPatients);
-            
-            CreateTable(
-                "dbo.Patients",
-                c => new
-                    {
-                        IdPatients = c.Int(nullable: false, identity: true),
-                        MatriculePatients = c.String(),
-                        NomPatient = c.String(),
-                        PrenomPatient = c.String(),
-                        Gender = c.String(),
-                        PhonePatients = c.String(),
-                        DOB = c.DateTime(nullable: false),
-                        Parente = c.String(),
-                        IdUsine = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.IdPatients)
-                .ForeignKey("dbo.Usines", t => t.IdUsine, cascadeDelete: true)
-                .Index(t => t.IdUsine);
-            
-            CreateTable(
-                "dbo.FileDetails",
-                c => new
-                    {
-                        Id = c.Guid(nullable: false),
-                        FileName = c.String(),
-                        Extension = c.String(),
-                        IdPatients = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Patients", t => t.IdPatients, cascadeDelete: true)
-                .Index(t => t.IdPatients);
-            
-            CreateTable(
-                "dbo.Usines",
-                c => new
-                    {
-                        IdUsine = c.Int(nullable: false, identity: true),
-                        UsineName = c.String(),
-                    })
-                .PrimaryKey(t => t.IdUsine);
-            
-            CreateTable(
                 "dbo.AspNetUserLogins",
                 c => new
                     {
@@ -142,45 +141,26 @@ namespace WebApplication4.Migrations
                 .Index(t => t.RoleId);
             
             CreateTable(
-                "dbo.MedecinConventionnes",
+                "dbo.FileDetails",
                 c => new
                     {
-                        idDoctors = c.Int(nullable: false, identity: true),
-                        nameDoctors = c.String(),
-                        emailDoctors = c.String(),
-                        phoneDoctors = c.String(),
-                        picDoctor = c.String(),
-                        idSpecialite = c.Int(nullable: false),
+                        Id = c.Guid(nullable: false),
+                        FileName = c.String(),
+                        Extension = c.String(),
+                        IdPatients = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.idDoctors)
-                .ForeignKey("dbo.Specialites", t => t.idSpecialite, cascadeDelete: true)
-                .Index(t => t.idSpecialite);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Patients", t => t.IdPatients, cascadeDelete: true)
+                .Index(t => t.IdPatients);
             
             CreateTable(
-                "dbo.Specialites",
+                "dbo.Usines",
                 c => new
                     {
-                        IdSpecialite = c.Int(nullable: false, identity: true),
-                        SpecialiteName = c.String(nullable: false),
+                        IdUsine = c.Int(nullable: false, identity: true),
+                        UsineName = c.String(),
                     })
-                .PrimaryKey(t => t.IdSpecialite);
-            
-            CreateTable(
-                "dbo.Medicaments",
-                c => new
-                    {
-                        MedicamentID = c.Int(nullable: false, identity: true),
-                        MedicamentName = c.String(),
-                        MedicamentStock = c.Int(nullable: false),
-                        IdSpecialite = c.Int(nullable: false),
-                        isSelected = c.Boolean(nullable: false),
-                        UserID = c.String(maxLength: 128),
-                    })
-                .PrimaryKey(t => t.MedicamentID)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserID)
-                .ForeignKey("dbo.Specialites", t => t.IdSpecialite, cascadeDelete: true)
-                .Index(t => t.IdSpecialite)
-                .Index(t => t.UserID);
+                .PrimaryKey(t => t.IdUsine);
             
             CreateTable(
                 "dbo.Ordonnances",
@@ -218,58 +198,100 @@ namespace WebApplication4.Migrations
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.Name, unique: true, name: "RoleNameIndex");
             
+            CreateTable(
+                "dbo.tbl_product",
+                c => new
+                    {
+                        pro_id = c.Int(nullable: false, identity: true),
+                        pro_name = c.String(),
+                        pro_price = c.Double(),
+                        pro_desc = c.String(),
+                        pro_image = c.String(),
+                    })
+                .PrimaryKey(t => t.pro_id);
+            
+            CreateTable(
+                "dbo.tbl_order",
+                c => new
+                    {
+                        o_id = c.Int(nullable: false, identity: true),
+                        o_fk_pro = c.Int(),
+                        o_fk_invoice = c.Int(),
+                        o_date = c.DateTime(),
+                        o_qty = c.Int(),
+                        o_bill = c.Double(),
+                        o_unitprice = c.Int(),
+                        tbl_invoice_in_id = c.Int(),
+                        tbl_product_pro_id = c.Int(),
+                    })
+                .PrimaryKey(t => t.o_id)
+                .ForeignKey("dbo.tbl_invoice", t => t.tbl_invoice_in_id)
+                .ForeignKey("dbo.tbl_product", t => t.tbl_product_pro_id)
+                .Index(t => t.tbl_invoice_in_id)
+                .Index(t => t.tbl_product_pro_id);
+            
+            CreateTable(
+                "dbo.tbl_invoice",
+                c => new
+                    {
+                        in_id = c.Int(nullable: false, identity: true),
+                        in_date = c.DateTime(),
+                        in_totalbill = c.Double(),
+                    })
+                .PrimaryKey(t => t.in_id);
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.tbl_order", "tbl_product_pro_id", "dbo.tbl_product");
+            DropForeignKey("dbo.tbl_order", "tbl_invoice_in_id", "dbo.tbl_invoice");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.RDVs", "ConsultationID", "dbo.Consultations");
             DropForeignKey("dbo.Ordonnances", "ConsultationID", "dbo.Consultations");
-            DropForeignKey("dbo.AppointementModels", "idPatients", "dbo.Patients");
-            DropForeignKey("dbo.Medicaments", "IdSpecialite", "dbo.Specialites");
-            DropForeignKey("dbo.Medicaments", "UserID", "dbo.AspNetUsers");
-            DropForeignKey("dbo.MedecinConventionnes", "idSpecialite", "dbo.Specialites");
-            DropForeignKey("dbo.AppointementModels", "idDoctors", "dbo.MedecinConventionnes");
-            DropForeignKey("dbo.AppointementModels", "UserID", "dbo.AspNetUsers");
-            DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Patients", "IdUsine", "dbo.Usines");
             DropForeignKey("dbo.FileDetails", "IdPatients", "dbo.Patients");
             DropForeignKey("dbo.Consultations", "idPatients", "dbo.Patients");
             DropForeignKey("dbo.Consultations", "UserID", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AppointementModels", "idPatients", "dbo.Patients");
+            DropForeignKey("dbo.MedecinConventionnes", "idSpecialite", "dbo.Specialites");
+            DropForeignKey("dbo.AppointementModels", "idDoctors", "dbo.MedecinConventionnes");
+            DropIndex("dbo.tbl_order", new[] { "tbl_product_pro_id" });
+            DropIndex("dbo.tbl_order", new[] { "tbl_invoice_in_id" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.RDVs", new[] { "ConsultationID" });
             DropIndex("dbo.Ordonnances", new[] { "ConsultationID" });
-            DropIndex("dbo.Medicaments", new[] { "UserID" });
-            DropIndex("dbo.Medicaments", new[] { "IdSpecialite" });
-            DropIndex("dbo.MedecinConventionnes", new[] { "idSpecialite" });
+            DropIndex("dbo.FileDetails", new[] { "IdPatients" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
-            DropIndex("dbo.FileDetails", new[] { "IdPatients" });
-            DropIndex("dbo.Patients", new[] { "IdUsine" });
-            DropIndex("dbo.Consultations", new[] { "idPatients" });
-            DropIndex("dbo.Consultations", new[] { "UserID" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
+            DropIndex("dbo.Consultations", new[] { "idPatients" });
+            DropIndex("dbo.Consultations", new[] { "UserID" });
+            DropIndex("dbo.Patients", new[] { "IdUsine" });
+            DropIndex("dbo.MedecinConventionnes", new[] { "idSpecialite" });
             DropIndex("dbo.AppointementModels", new[] { "idPatients" });
             DropIndex("dbo.AppointementModels", new[] { "idDoctors" });
-            DropIndex("dbo.AppointementModels", new[] { "UserID" });
+            DropTable("dbo.tbl_invoice");
+            DropTable("dbo.tbl_order");
+            DropTable("dbo.tbl_product");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.RDVs");
             DropTable("dbo.Ordonnances");
-            DropTable("dbo.Medicaments");
-            DropTable("dbo.Specialites");
-            DropTable("dbo.MedecinConventionnes");
-            DropTable("dbo.AspNetUserRoles");
-            DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.Usines");
             DropTable("dbo.FileDetails");
-            DropTable("dbo.Patients");
-            DropTable("dbo.Consultations");
+            DropTable("dbo.AspNetUserRoles");
+            DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
+            DropTable("dbo.Consultations");
+            DropTable("dbo.Patients");
+            DropTable("dbo.Specialites");
+            DropTable("dbo.MedecinConventionnes");
             DropTable("dbo.AppointementModels");
         }
     }
