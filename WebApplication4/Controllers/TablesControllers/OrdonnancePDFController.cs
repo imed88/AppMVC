@@ -25,7 +25,7 @@ namespace WebApplication4.Controllers.TablesControllers
             //                         AspNetUsers ON Consultations.UserID = AspNetUsers.Id
 
 
-            var OneBlog = (from e in db.ConsultationOrdonnances
+            /*var OneBlog = (from e in db.ConsultationOrdonnances
                           join p in db.Consultations
                           on e.ConsultationID equals p.ConsultationID
                           join s in db.Patients
@@ -60,7 +60,9 @@ namespace WebApplication4.Controllers.TablesControllers
             Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
             stream.Seek(0, SeekOrigin.Begin);
             return File(stream, "application/pdf", "BlogList.pdf");
+            */
 
+            return View();
 
         }
     }

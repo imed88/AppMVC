@@ -146,16 +146,7 @@ namespace WebApplication4.Controllers.TablesControllers
             return RedirectToAction("checkout");
         }
 
-        private int isExistingCheck(int? id)
-        {
-            List<cart> lscart = (List<cart>)Session["cart"];
-            for(int i=0; i<lscart.Count; i++)
-            {
-                if (lscart[i].product.pro_id == id) return i;
-            }
-
-            return -1;
-        }
+       
 
         
     }

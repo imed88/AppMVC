@@ -23,11 +23,11 @@ namespace WebApplication4.Models.Tables.Medicine
 
         [Key]
         public int in_id { get; set; }
-        //public Nullable<int> in_fk_user { get; set; }
+        public Nullable<int> ConsultationID { get; set; }
         public Nullable<System.DateTime> in_date { get; set; }
-        public Nullable<int> in_totalbill { get; set; }
+        public Nullable<double> in_totalbill { get; set; }
     
-        //public virtual tbl_user tbl_user { get; set; }
+        public virtual Consultation consultation { get; set; }
         public virtual ICollection<tbl_order> tbl_order { get; set; }
     }
 }
