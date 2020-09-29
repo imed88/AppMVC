@@ -10,68 +10,70 @@
 @if (TempData["cart"] != null)
 {
 
-        <table class="table table-responsive">
+    <table class="table table-responsive">
 
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>NAME</th>
-                    <th>QUANTITY</th>
-                    <th>BILL</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in TempData["cart"] as List<WebApplication4.Models.Tables.Medicine.cart>)
-                {
-
-                    <tr>
-                        <td>@item.productid</td>
-                        <td>@item.productname</td>
-                        <td>
-                            @*@item.qty*@
-                            <input type="text" name="quantity" value="@item.qty" id="quantity" />
-                            &nbsp;<span id="errmsg"></span>
-                        </td>
-                        <td>@item.bill</td>
-                        <td>
-                            <a class="btn btn-danger btn-sm"
-                               href="@Url.Action("remove", new { id = @item.productid })">
-                                &#10008;
-                            </a>
-                        </td>
-
-                    </tr>
-
-                }
-
-            </tbody>
-
-            <tfoot>
-                <tr>
-                    <td colspan="3"><strong>Total</strong></td>
-                    <td>@TempData["total"]</td>
-
-                </tr>
-            </tfoot>
-
-        </table>
-
-        if (TempData["cart"] != null)
-        {
-            using (Html.BeginForm())
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>QUANTITY</th>
+                <th>BILL</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in TempData["cart"] as List<WebApplication4.Models.Tables.Medicine.cart>)
             {
-                <input type="submit" value="Shop Now" class="btn btn-primary" />
-                <input type="submit" value="Update Now" class="btn btn-primary" />
+
+                <tr>
+                    <td>@item.productid</td>
+                    <td>@item.productname</td>
+                    <td>
+                        @*@item.qty*@
+                        <input type="text" name="quantity" value="@item.qty" id="quantity" />
+                        &nbsp;<span id="errmsg"></span>
+                    </td>
+                    <td>@item.bill</td>
+                    <td>
+                        <a class="btn btn-danger btn-sm"
+                           href="@Url.Action("remove", new { id = @item.productid })">
+                            &#10008;
+                        </a>
+                    </td>
+
+                </tr>
+
             }
+
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="3"><strong>Total</strong></td>
+                <td>@TempData["total"]</td>
+
+            </tr>
+        </tfoot>
+
+    </table>
+
+    if (TempData["cart"] != null)
+    {
+        using (Html.BeginForm())
+        {
+            <input type="submit" value="Shop Now" class="btn btn-primary" />
+            <input type="submit" value="Ordonnance" class="btn btn-primary" />
         }
+    }
 
 
 
-    
+
+
+
 
     @Html.ActionLink("go Back", "Index", "Medicine")
 
 
- 
+
 }
 

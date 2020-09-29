@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebApplication4.Models.Tables.Medicine.tbl_order>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.o_fk_pro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.o_fk_invoice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.o_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.o_qty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.o_bill)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.o_unitprice)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.o_fk_pro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.o_fk_invoice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.o_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.o_qty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.o_bill)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.o_unitprice)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.o_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.o_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.o_id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -27,5 +27,6 @@ namespace WebApplication4.Models.Tables.Medicine
         public string pro_image { get; set; }
     
         public virtual ICollection<tbl_order> tbl_order { get; set; }
+        public virtual ICollection<ProductPurchase> ProductPurchases { get; set; }
     }
 }

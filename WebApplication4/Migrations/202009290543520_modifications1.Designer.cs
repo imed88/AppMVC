@@ -7,13 +7,13 @@ namespace WebApplication4.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class modifications : IMigrationMetadata
+    public sealed partial class modifications1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(modifications));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(modifications1));
         
         string IMigrationMetadata.Id
         {
-            get { return "202009271018430_modifications"; }
+            get { return "202009290543520_modifications1"; }
         }
         
         string IMigrationMetadata.Source

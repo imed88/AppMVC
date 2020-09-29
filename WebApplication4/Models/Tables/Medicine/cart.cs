@@ -16,8 +16,8 @@ namespace WebApplication4.Models.Tables.Medicine
         public float price { get; set; }
         public int qty { get; set; }
         public float bill { get; set; }
+        public List<tbl_product> Products { get; set; }
 
-      
 
 
 

@@ -3,16 +3,16 @@ namespace WebApplication4.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class modifications : DbMigration
+    public partial class modifications3 : DbMigration
     {
         public override void Up()
         {
-            DropColumn("dbo.tbl_product", "pro_price");
+            DropColumn("dbo.ProductPurchases", "PurchaseProd");
         }
         
         public override void Down()
         {
-            AddColumn("dbo.tbl_product", "pro_price", c => c.Double());
+            AddColumn("dbo.ProductPurchases", "PurchaseProd", c => c.String());
         }
     }
 }
