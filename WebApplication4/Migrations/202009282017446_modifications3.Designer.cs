@@ -13,7 +13,7 @@ namespace WebApplication4.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202009271502403_modifications3"; }
+            get { return "202009282017446_modifications3"; }
         }
         
         string IMigrationMetadata.Source

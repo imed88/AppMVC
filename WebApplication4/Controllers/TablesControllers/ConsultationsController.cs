@@ -196,7 +196,7 @@ namespace WebApplication4.Controllers.TablesControllers
             base.Dispose(disposing);
         }
 
-        public ActionResult CreateOrdonnance(ConsultationOrdonnance consultOrd)
+       /* public ActionResult CreateOrdonnance(ConsultationOrdonnance consultOrd)
         {
           
             return View();
@@ -264,7 +264,7 @@ namespace WebApplication4.Controllers.TablesControllers
 
             //return View();
            
-        }
+        }*/
 
         public ActionResult CreateRDV(RDV consultOrd)
         {

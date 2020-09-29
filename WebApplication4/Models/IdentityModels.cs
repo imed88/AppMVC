@@ -57,7 +57,7 @@ namespace WebApplication4.Models
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Consultation> Consultations { get; set; }
 
         //public System.Data.Entity.DbSet<WebApplication4.Models.Tables.ConsultationOrdonnance> ConsultationOrdonnances { get; set; }
-        public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Ordonnance> ConsultationOrdonnances { get; set; }
+        ////public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Ordonnance> ConsultationOrdonnances { get; set; }
 
         public DbSet<FileDetail> FileDetails { get; set; }
 
@@ -66,6 +66,7 @@ namespace WebApplication4.Models
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Medicine.tbl_product> tbl_product { get; set; }
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Medicine.tbl_invoice> tbl_invoice { get; set; }
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Medicine.tbl_order> tbl_order { get; set; }
+
 
     }
 }

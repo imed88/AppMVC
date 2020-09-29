@@ -370,6 +370,7 @@
     <Compile Include="Controllers\TablesControllers\MedicineController.cs" />
     <Compile Include="Controllers\TablesControllers\OrdonnancePDFController.cs" />
     <Compile Include="Controllers\TablesControllers\PatientsController.cs" />
+    <Compile Include="Controllers\TablesControllers\ProductsController.cs" />
     <Compile Include="Controllers\TablesControllers\RolesController.cs" />
     <Compile Include="Controllers\TablesControllers\SpecialitesController.cs" />
     <Compile Include="Controllers\TablesControllers\UsinesController.cs" />
@@ -408,9 +409,13 @@
     <Compile Include="Migrations\202009271428054_modifications2.Designer.cs">
       <DependentUpon>202009271428054_modifications2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202009271502403_modifications3.cs" />
-    <Compile Include="Migrations\202009271502403_modifications3.Designer.cs">
-      <DependentUpon>202009271502403_modifications3.cs</DependentUpon>
+    <Compile Include="Migrations\202009282017446_modifications3.cs" />
+    <Compile Include="Migrations\202009282017446_modifications3.Designer.cs">
+      <DependentUpon>202009282017446_modifications3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009282204314_modifications4.cs" />
+    <Compile Include="Migrations\202009282204314_modifications4.Designer.cs">
+      <DependentUpon>202009282204314_modifications4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -423,6 +428,7 @@
     <Compile Include="Models\Tables\FileDetail.cs" />
     <Compile Include="Models\Tables\MedecinConventionne.cs" />
     <Compile Include="Models\Tables\Medicine\cart.cs" />
+    <Compile Include="Models\Tables\Medicine\ProductPurchase.cs" />
     <Compile Include="Models\Tables\Medicine\tbl_invoice.cs" />
     <Compile Include="Models\Tables\Medicine\tbl_order.cs" />
     <Compile Include="Models\Tables\Medicine\tbl_product.cs" />
@@ -2698,6 +2704,11 @@
     <Content Include="Views\Medicine\checkout.cshtml" />
     <Content Include="Views\Medicine\AddToCart.cshtml" />
     <Content Include="Views\Medicine\Index.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2730,8 +2741,11 @@
     <EmbeddedResource Include="Migrations\202009271428054_modifications2.resx">
       <DependentUpon>202009271428054_modifications2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009271502403_modifications3.resx">
-      <DependentUpon>202009271502403_modifications3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202009282017446_modifications3.resx">
+      <DependentUpon>202009282017446_modifications3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009282204314_modifications4.resx">
+      <DependentUpon>202009282204314_modifications4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
