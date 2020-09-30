@@ -1,7 +1,5 @@
-﻿using CrystalDecisions.CrystalReports.Engine;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -82,12 +80,17 @@ namespace WebApplication4.Controllers.TablesControllers
 
             TempData.Keep();
 
-            return RedirectToAction("checkout");
+
+
+
+            return RedirectToAction("Index");
         }
 
         public ActionResult checkout()
         {
             TempData.Keep();
+
+
             return View();
         }
 
@@ -126,38 +129,7 @@ namespace WebApplication4.Controllers.TablesControllers
 
             TempData["msg"] = "Translation Completed";
             TempData.Keep();
-            var OneBlog = (from e in db.tbl_order
-                           join p in db.tbl_product
-                           on e.o_fk_pro equals p.pro_id
-                           where e.o_fk_pro == p.pro_id
-
-
-                           select new
-                           {
-                            e.o_fk_pro, 
-        e.o_fk_invoice,
-        e.o_date,
-        e.o_qty, 
-        e.o_bill,
-        e.o_unitprice 
-    }).ToList();
-
-            var last = OneBlog.Last();
-           
-
-            ReportDocument rd = new ReportDocument();
-            rd.Load(Path.Combine(Server.MapPath("~/Report"), "CrystalReport4.rpt"));
-            rd.SetDataSource(last);
-            //rd.SetDataSource(new[] { last });
-
-            Response.Buffer = false;
-            Response.ClearContent();
-            Response.ClearHeaders();
-
-            Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
-            stream.Seek(0, SeekOrigin.Begin);
-
-            return File(stream, "application/pdf", "OrdonnancePatient.pdf");
+            return RedirectToAction("Index");
         }
 
       public ActionResult remove(int? id)
@@ -173,14 +145,9 @@ namespace WebApplication4.Controllers.TablesControllers
             TempData["total"] = h;
             return RedirectToAction("checkout");
         }
-        public ActionResult CreateOrdonnance()
-        {
 
-            return View();
-        }
+       
+
         
-
-
-
     }
 }

@@ -411,6 +411,10 @@
     <Compile Include="Migrations\202009290704535_modifications3.Designer.cs">
       <DependentUpon>202009290704535_modifications3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009300614329_modifications5.cs" />
+    <Compile Include="Migrations\202009300614329_modifications5.Designer.cs">
+      <DependentUpon>202009300614329_modifications5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CheckBoxItem.cs" />
@@ -454,12 +458,6 @@
       <DependentUpon>CrystalReport3.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Report\CrystalReport4.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport4.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Report\DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -477,11 +475,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet3.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Report\DataSet4.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet4.xsd</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Startup.cs" />
@@ -2205,17 +2198,6 @@
     <Content Include="Report\DataSet3.xss">
       <DependentUpon>DataSet3.xsd</DependentUpon>
     </Content>
-    <Content Include="Report\DataSet4.xsc">
-      <DependentUpon>DataSet4.xsd</DependentUpon>
-    </Content>
-    <None Include="Report\DataSet4.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet4.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Report\DataSet4.xss">
-      <DependentUpon>DataSet4.xsd</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -2818,6 +2800,9 @@
     <EmbeddedResource Include="Migrations\202009290704535_modifications3.resx">
       <DependentUpon>202009290704535_modifications3.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009300614329_modifications5.resx">
+      <DependentUpon>202009300614329_modifications5.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.cs</LastGenOutput>
@@ -2830,11 +2815,6 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport3.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report\CrystalReport4.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReport4.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Report\Report1.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

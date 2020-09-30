@@ -23,8 +23,10 @@ namespace WebApplication4.Models.Tables.Medicine
         public Nullable<int> o_qty { get; set; }
         public Nullable<double> o_bill { get; set; }
         public Nullable<int> o_unitprice { get; set; }
-    
+        public Nullable<int> ConsultationID { get; set; }
+
         public virtual tbl_invoice tbl_invoice { get; set; }
+        public virtual Consultation consultation { get; set; }
         public virtual tbl_product tbl_product { get; set; }
     }
 }

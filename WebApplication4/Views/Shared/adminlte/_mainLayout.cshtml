@@ -281,21 +281,47 @@ desired effect
                 <ul class="sidebar-menu ">
 
                     <!-- Optionally, you can add icons to the links -->
-                    <li class="shadow"><a href="@Url.Action("Index", "Patients")" style="background-color: #ffffff;
-    color: #660000; "><i class="fa fa-heartbeat"></i> <span>Patients</span></a></li>
-                    <li class="shadow"><a href="@Url.Action("Index", "MedecinConventionnes")" style="background-color: #ffffff;
-    color: #660000; "><i class="fa fa-user-md"></i> <span>Medecins Conventionnés</span></a></li>
-                    <li class="shadow"><a href="@Url.Action("Index", "Specialites")" style="background-color: #ffffff;
-    color: #660000; "><i class="fa fa-sliders"></i> <span>Spécialités</span></a></li>
-                    <li class="shadow"><a href="@Url.Action("Index", "AppointementModels")" style="background-color: #ffffff;
-    color: #660000; "><i class="fa fa-calendar"></i> <span>Rendez-vous</span></a></li>
-                    <li class="shadow"><a href="@Url.Action("Index", "Usines")" style="background-color: #ffffff;
-    color: #660000; "><i class="fa fa-industry"></i> <span>Lieu du travail</span></a></li>
-                    <li class="shadow"><a href="@Url.Action("Index", "Consultations")" style="background-color: #ffffff;
-    color: #660000; "><i class="fa fa-stethoscope"></i><span>Consultations</span></a></li>
+                    <li class="shadow">
+                        <a href="@Url.Action("Index", "Patients")" style="background-color: #ffffff;
+    color: #660000; "><i class="fa fa-heartbeat"></i><span>Patients</span></a>
+                    </li>
+                    <li class="shadow">
+                        <a href="@Url.Action("Index", "MedecinConventionnes")" style="background-color: #ffffff;
+    color: #660000; "><i class="fa fa-user-md"></i><span>Medecins Conventionnés</span></a>
+                    </li>
+                    <li class="shadow">
+                        <a href="@Url.Action("Index", "Specialites")" style="background-color: #ffffff;
+    color: #660000; "><i class="fa fa-sliders"></i><span>Spécialités</span></a>
+                    </li>
+                    <li class="shadow">
+                        <a href="@Url.Action("Index", "AppointementModels")" style="background-color: #ffffff;
+    color: #660000; "><i class="fa fa-calendar"></i><span>Rendez-vous</span></a>
+                    </li>
+                    <li class="shadow">
+                        <a href="@Url.Action("Index", "Usines")" style="background-color: #ffffff;
+    color: #660000; "><i class="fa fa-industry"></i><span>Lieu du travail</span></a>
+                    </li>
+                    <li class="shadow">
+                        <a href="@Url.Action("Index", "Consultations")" style="background-color: #ffffff;
+    color: #660000; "><i class="fa fa-stethoscope"></i><span>Consultations</span></a>
+                    </li>
                     <li class="treeview">
                         <a href="#" class="shadow " style="background-color: #ffffff;
-    color: #660000; " >
+    color: #660000; ">
+                            <i class="fa fa-shield"></i><span>Medicaments</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="@Url.Action("Index", "ProductPurchases")" class="textChange shadow navbar-user" id="TextColor">Achat en stock</a></li>
+                            <li><a href="@Url.Action("","")" class="textChange shadow" id="TextColor">Sortie en stock</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="treeview">
+                        <a href="#" class="shadow " style="background-color: #ffffff;
+    color: #660000; ">
                             <i class="fa fa-cog"></i><span>Administration</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>

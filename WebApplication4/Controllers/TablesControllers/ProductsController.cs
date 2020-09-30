@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -45,18 +46,22 @@ namespace WebApplication4.Controllers.TablesControllers
         // POST: Products/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "pro_id,pro_name,Quantity,pro_desc,pro_image")] tbl_product tbl_product)
+        public ActionResult Create(tbl_product product, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
-                db.tbl_product.Add(tbl_product);
+                string path = Path.Combine(Server.MapPath("~/Uploads/"), upload.FileName);
+                upload.SaveAs(path);
+                product.pro_image = upload.FileName;
+                db.tbl_product.Add(product);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+              
             }
 
-            return View(tbl_product);
+            return RedirectToAction("Index");
         }
 
         // GET: Products/Edit/5
@@ -79,15 +84,19 @@ namespace WebApplication4.Controllers.TablesControllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "pro_id,pro_name,Quantity,pro_desc,pro_image")] tbl_product tbl_product)
+        public ActionResult Edit(tbl_product product, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tbl_product).State = EntityState.Modified;
+                string path = Path.Combine(Server.MapPath("~/Uploads/"), upload.FileName);
+                upload.SaveAs(path);
+                product.pro_image = upload.FileName;
+             
+                db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(tbl_product);
+            return View(product);
         }
 
         // GET: Products/Delete/5

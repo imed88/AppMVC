@@ -4,48 +4,106 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="container-fluid">
+    <section class="content-header">
+        <h1>
+            Infirmerie
+            <small>Gestion des Médicaments</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
+            <li class="active">Medicaments</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-sm-2">
+                <p>
+                    @*@Html.ActionLink("Créer un rendez-vous", "Create")*@
+                    <a href="@Url.Action("Create", "Products")" class="btn btn-success">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        <span>
+                            <strong>Nouveau Medicament</strong>
+                        </span>
+                    </a>
+                </p>
+            </div>
+            <div class="col-sm-8">
+                @using (Html.BeginForm("Index", "Products", FormMethod.Post))
+                {
+                    <div>
+                        @Html.Label("Medicament:")
+                        @Html.TextBox("searching")
+                        @*<input id="submit" type="submit" value="Rechercher" />*@
+                        <button type="submit" value="" class="btn btn-warning glyphicon glyphicon-search " />
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayName("Médicaments")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Quantité")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Description")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Aperçu")
+                    </th>
+                    <th></th>
+                </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.pro_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Quantity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.pro_desc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.pro_image)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.pro_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.pro_desc)
-        </td>
-        <td>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pro_name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pro_desc)
+                    </td>
+                    @*<td>
             @Html.DisplayFor(modelItem => item.pro_image)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.pro_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.pro_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.pro_id })
-        </td>
-    </tr>
-}
+        </td>*@
+                    <td>
+                        <img src="~/Uploads/@Html.DisplayFor(modelItem=> item.pro_image)" class="thumbnail" style="width:100px; height:100px" />
+                    </td>
 
-</table>
+                    <td>
+                        @*@Html.ActionLink("Edit", "Edit", new { id = item.IdSpecialite }) |
+            @Html.ActionLink("Details", "Details", new { id = item.IdSpecialite }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.IdSpecialite })*@
+                        <a href="@Url.Action("Edit", "Products",new { id = item.pro_id })" class="btn btn-warning">
+                            <i class="glyphicon glyphicon-wrench"></i>
+                            <span>
+                                <strong></strong>
+                            </span>
+                        </a>
+                        <a href="@Url.Action("Details", "Products",new { id = item.pro_id })" class="btn btn-info">
+                            <i class="glyphicon glyphicon-info-sign"></i>
+                            <span>
+                                <strong></strong>
+                            </span>
+                        </a>
+                        <a href="@Url.Action("Delete", "Products",new { id = item.pro_id })" class="btn btn-danger">
+                            <i class="glyphicon glyphicon-trash"></i>
+                            <span>
+                                <strong></strong>
+                            </span>
+                        </a>
+                    </td>
+                </tr>
+                }
+
+            </table>
+            </div>
+    </section>
+    </div>
