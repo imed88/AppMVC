@@ -5,73 +5,103 @@
 }
 
 
-<h2>Index</h2>
+<div class="container-fluid">
+    <section class="content-header">
+        <h1>
+            Infirmerie
+            <small>Gestion des Médicaments</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
+            <li class="active">Medicaments</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-sm-2">
+                <p>
+                    @*@Html.ActionLink("Créer un rendez-vous", "Create")*@
+                    <a href="@Url.Action("Create", "ProductPurchase")" class="btn btn-success">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        <span>
+                            <strong>Nouveau Stock</strong>
+                        </span>
+                    </a>
+                </p>
+            </div>
+            <div class="col-sm-8">
+                @using (Html.BeginForm("Index", "ProductPurchase", FormMethod.Post))
+                {
+                    <div>
+                        @Html.Label("Medicament:")
+                        @Html.TextBox("searching")
+                        @*<input id="submit" type="submit" value="Rechercher" />*@
+                        <button type="submit" value="" class="btn btn-warning glyphicon glyphicon-search " />
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayName("Médicament")
+                    </th>
 
-<p>
-    <a href="@Url.Action("Create", "ProductPurchases")" class="btn btn-success">
-        <i class="glyphicon glyphicon-plus"></i>
-        <span>
-            <strong>Nouvel achat</strong>
-        </span>
-    </a>
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.product.pro_name)
-        </th>
+                    <th>
+                        @Html.DisplayName("Quantité")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Date d'achat")
+                    </th>
+                    <th></th>
+                </tr>
 
-        <th>
-            @Html.DisplayNameFor(model => model.PurchaseQuantity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PurchaseDate)
-        </th>
-        <th></th>
-    </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.product.pro_name)
+                        </td>
 
-    @foreach (var item in Model)
-    {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.product.pro_name)
-        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PurchaseQuantity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PurchaseDate)
+                        </td>
+                        @*<td>
+                                @Html.ActionLink("Edit", "Edit",new { @class="btn btn-primary", id = item.PurchaseID }) |
+                                @Html.ActionLink("Details", "Details",new { @class = "btn btn-success", id = item.PurchaseID }) |
+                                @Html.ActionLink("Delete", "Delete",new { @class = "btn btn-danger", id = item.PurchaseID })
+                            </td>*@
+                        <td>
+                            @*@Html.ActionLink("Edit", "Edit", new { id = item.IdPatients }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.IdPatients }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.IdPatients })*@
+                            <a href="@Url.Action("Edit", "ProductPurchases",new { id = item.PurchaseID })" class="btn btn-warning">
+                                <i class="glyphicon glyphicon-wrench"></i>
+                                <span>
+                                    <strong></strong>
+                                </span>
+                            </a>
+                            <a href="@Url.Action("Details", "ProductPurchases",new { id = item.PurchaseID })" class="btn btn-info">
+                                <i class="glyphicon glyphicon-info-sign"></i>
+                                <span>
+                                    <strong></strong>
+                                </span>
+                            </a>
+                            <a href="@Url.Action("Delete", "ProductPurchases",new { id = item.PurchaseID })" class="btn btn-danger">
+                                <i class="glyphicon glyphicon-trash"></i>
+                                <span>
+                                    <strong></strong>
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+                }
 
-        <td>
-            @Html.DisplayFor(modelItem => item.PurchaseQuantity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PurchaseDate)
-        </td>
-        @*<td>
-            @Html.ActionLink("Edit", "Edit",new { @class="btn btn-primary", id = item.PurchaseID }) |
-            @Html.ActionLink("Details", "Details",new { @class = "btn btn-success", id = item.PurchaseID }) |
-            @Html.ActionLink("Delete", "Delete",new { @class = "btn btn-danger", id = item.PurchaseID })
-        </td>*@
-        <td>
-            @*@Html.ActionLink("Edit", "Edit", new { id = item.IdPatients }) |
-            @Html.ActionLink("Details", "Details", new { id = item.IdPatients }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.IdPatients })*@
-            <a href="@Url.Action("Edit", "ProductPurchases",new { id = item.PurchaseID })" class="btn btn-warning">
-                <i class="glyphicon glyphicon-wrench"></i>
-                <span>
-                    <strong></strong>
-                </span>
-            </a>
-            <a href="@Url.Action("Details", "ProductPurchases",new { id = item.PurchaseID })" class="btn btn-info">
-                <i class="glyphicon glyphicon-info-sign"></i>
-                <span>
-                    <strong></strong>
-                </span>
-            </a>
-            <a href="@Url.Action("Delete", "ProductPurchases",new { id = item.PurchaseID })" class="btn btn-danger">
-                <i class="glyphicon glyphicon-trash"></i>
-                <span>
-                    <strong></strong>
-                </span>
-            </a>
-        </td>
-    </tr>
-    }
-
-</table>
+            </table>
+            </div>
+        </section>
+    </div>

@@ -133,5 +133,10 @@ namespace WebApplication4.Controllers.TablesControllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult SortieStock()
+        {
+            return View(db.tbl_order.ToList());
+        }
     }
 }
