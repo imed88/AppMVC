@@ -395,25 +395,9 @@
     <Compile Include="Migrations\202007291233576_AddTableMedecinConventionne.Designer.cs">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202009290530371_CreateDb.cs" />
-    <Compile Include="Migrations\202009290530371_CreateDb.Designer.cs">
-      <DependentUpon>202009290530371_CreateDb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009290543520_modifications1.cs" />
-    <Compile Include="Migrations\202009290543520_modifications1.Designer.cs">
-      <DependentUpon>202009290543520_modifications1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009290627063_modifications2.cs" />
-    <Compile Include="Migrations\202009290627063_modifications2.Designer.cs">
-      <DependentUpon>202009290627063_modifications2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009290704535_modifications3.cs" />
-    <Compile Include="Migrations\202009290704535_modifications3.Designer.cs">
-      <DependentUpon>202009290704535_modifications3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009300614329_modifications5.cs" />
-    <Compile Include="Migrations\202009300614329_modifications5.Designer.cs">
-      <DependentUpon>202009300614329_modifications5.cs</DependentUpon>
+    <Compile Include="Migrations\202009301654136_CreateDb.cs" />
+    <Compile Include="Migrations\202009301654136_CreateDb.Designer.cs">
+      <DependentUpon>202009301654136_CreateDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -2788,20 +2772,8 @@
     <EmbeddedResource Include="Migrations\202007291233576_AddTableMedecinConventionne.resx">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009290530371_CreateDb.resx">
-      <DependentUpon>202009290530371_CreateDb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009290543520_modifications1.resx">
-      <DependentUpon>202009290543520_modifications1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009290627063_modifications2.resx">
-      <DependentUpon>202009290627063_modifications2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009290704535_modifications3.resx">
-      <DependentUpon>202009290704535_modifications3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009300614329_modifications5.resx">
-      <DependentUpon>202009300614329_modifications5.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202009301654136_CreateDb.resx">
+      <DependentUpon>202009301654136_CreateDb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
