@@ -17,7 +17,8 @@ namespace WebApplication4.Models.Tables.Medicine
         public int qty { get; set; }
         public float bill { get; set; }
         public List<tbl_product> Products { get; set; }
-
+        public int ConsultationID { get; set; }
+        public virtual Consultation Consultation { get; set; }
 
 
 

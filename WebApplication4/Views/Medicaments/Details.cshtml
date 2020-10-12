@@ -1,0 +1,58 @@
+﻿@model WebApplication4.Models.Tables.Medicament
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Medicament</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitsInStock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitsInStock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idSpecialite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idSpecialite)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MedID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
