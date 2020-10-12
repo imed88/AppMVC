@@ -21,7 +21,7 @@
             <div class="col-sm-2">
                 <p>
                     @*@Html.ActionLink("Créer un rendez-vous", "Create")*@
-                    <a href="@Url.Action("Create", "ProductPurchase")" class="btn btn-success">
+                    <a href="@Url.Action("Create", "ProductPurchases")" class="btn btn-success">
                         <i class="glyphicon glyphicon-plus"></i>
                         <span>
                             <strong>Nouveau Stock</strong>
@@ -30,7 +30,7 @@
                 </p>
             </div>
             <div class="col-sm-8">
-                @using (Html.BeginForm("Index", "ProductPurchase", FormMethod.Post))
+                @using (Html.BeginForm("Index", "ProductPurchases", FormMethod.Post))
                 {
                     <div>
                         @Html.Label("Medicament:")
