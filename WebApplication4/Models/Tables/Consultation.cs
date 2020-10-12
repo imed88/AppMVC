@@ -6,7 +6,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-//using WebApplication4.Models.Tables.Medicine;
 
 namespace WebApplication4.Models.Tables
 {
@@ -44,11 +43,7 @@ namespace WebApplication4.Models.Tables
         [Display(Name = "Date de consultation")]
         public DateTime DateCreated { get;  set; }
 
-
-        //public virtual ICollection<cart> carts { get; set; }
-
-
-
+      
 
 
 

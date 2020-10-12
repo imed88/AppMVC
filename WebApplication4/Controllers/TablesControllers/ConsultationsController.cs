@@ -196,11 +196,11 @@ namespace WebApplication4.Controllers.TablesControllers
             base.Dispose(disposing);
         }
 
-        //public ActionResult CreateOrdonnance(ConsultationOrdonnance consultOrd)
-        //{
+        public ActionResult CreateOrdonnance(ConsultationOrdonnance consultOrd)
+        {
 
-        //    return View();
-        //}
+            return View();
+        }
         //[ValidateInput(false)]
         //[HttpPost]
         //public ActionResult CreateOrdonnance(string Message, Ordonnance consultOrd)
