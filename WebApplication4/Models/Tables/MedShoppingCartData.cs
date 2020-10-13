@@ -6,7 +6,7 @@ using System.Web;
 
 namespace WebApplication4.Models.Tables
 {
-    public class ShoppingCartData
+    public class MedShoppingCartData
     {
         [Key]
         public int TempOrderID { get; set; }

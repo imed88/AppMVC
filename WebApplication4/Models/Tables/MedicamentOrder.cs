@@ -10,7 +10,7 @@ namespace WebApplication4.Models.Tables
     {
         public MedicamentOrder()
         {
-            this.Order_Products = new HashSet<Order_Products>();
+            this.Order_Products = new HashSet<MedOrder_Products>();
         }
         [Key]
         public int OrderID { get; set; }
@@ -20,6 +20,6 @@ namespace WebApplication4.Models.Tables
 
         public virtual Patients Patients { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order_Products> Order_Products { get; set; }
+        public virtual ICollection<MedOrder_Products> Order_Products { get; set; }
     }
 }

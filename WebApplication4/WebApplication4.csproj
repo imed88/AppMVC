@@ -365,8 +365,11 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PatientFileController.cs" />
     <Compile Include="Controllers\TablesControllers\AppointementModelsController.cs" />
+    <Compile Include="Controllers\TablesControllers\BaseController.cs" />
+    <Compile Include="Controllers\TablesControllers\CheckOutController.cs" />
     <Compile Include="Controllers\TablesControllers\ConsultationsController.cs" />
     <Compile Include="Controllers\TablesControllers\MedecinConventionnesController.cs" />
+    <Compile Include="Controllers\TablesControllers\MedicamentOrdersController.cs" />
     <Compile Include="Controllers\TablesControllers\MedicamentsController.cs" />
     <Compile Include="Controllers\TablesControllers\OrdonnancePDFController.cs" />
     <Compile Include="Controllers\TablesControllers\PatientsController.cs" />
@@ -392,9 +395,9 @@
     <Compile Include="Migrations\202007291233576_AddTableMedecinConventionne.Designer.cs">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202010121109205_CreateDb.cs" />
-    <Compile Include="Migrations\202010121109205_CreateDb.Designer.cs">
-      <DependentUpon>202010121109205_CreateDb.cs</DependentUpon>
+    <Compile Include="Migrations\202010131334408_CreateDb.cs" />
+    <Compile Include="Migrations\202010131334408_CreateDb.Designer.cs">
+      <DependentUpon>202010131334408_CreateDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -408,12 +411,12 @@
     <Compile Include="Models\Tables\MedecinConventionne.cs" />
     <Compile Include="Models\Tables\Medicament.cs" />
     <Compile Include="Models\Tables\MedicamentOrder.cs" />
-    <Compile Include="Models\Tables\Order_Products.cs" />
+    <Compile Include="Models\Tables\MedOrder_Products.cs" />
     <Compile Include="Models\Tables\Ordonnance.cs" />
     <Compile Include="Models\Tables\Patients.cs" />
     <Compile Include="Models\Tables\RDV.cs" />
     <Compile Include="Models\Tables\RoleViewModel.cs" />
-    <Compile Include="Models\Tables\ShoppingCartData.cs" />
+    <Compile Include="Models\Tables\MedShoppingCartData.cs" />
     <Compile Include="Models\Tables\Specialite.cs" />
     <Compile Include="Models\Tables\Usine.cs" />
     <Compile Include="Models\ViewModels\DashboardViewModel.cs" />
@@ -2735,12 +2738,20 @@
     <Content Include="Views\Medicaments\Details.cshtml" />
     <Content Include="Views\Medicaments\Edit.cshtml" />
     <Content Include="Views\Medicaments\Index.cshtml" />
+    <Content Include="Views\MedicamentOrders\Create.cshtml" />
+    <Content Include="Views\MedicamentOrders\Delete.cshtml" />
+    <Content Include="Views\MedicamentOrders\Details.cshtml" />
+    <Content Include="Views\MedicamentOrders\Edit.cshtml" />
+    <Content Include="Views\MedicamentOrders\Index.cshtml" />
+    <Content Include="Views\CheckOut\Index.cshtml" />
+    <Content Include="Views\CheckOut\Purchase.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="images\" />
     <Folder Include="SqlServerTypes\x64\" />
     <Folder Include="SqlServerTypes\x86\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202007291126243_AddUsername.resx">
@@ -2755,8 +2766,8 @@
     <EmbeddedResource Include="Migrations\202007291233576_AddTableMedecinConventionne.resx">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010121109205_CreateDb.resx">
-      <DependentUpon>202010121109205_CreateDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010131334408_CreateDb.resx">
+      <DependentUpon>202010131334408_CreateDb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
