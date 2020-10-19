@@ -9,114 +9,114 @@ using System.Web.Mvc;
 using WebApplication4.Models;
 using WebApplication4.Models.Tables;
 
-namespace WebApplication4.Controllers.TablesControllers
+namespace WebApplication4.Controllers
 {
-    public class MedicamentOrdersController : Controller
+    public class MedsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: MedicamentOrders
+        // GET: Meds
         public ActionResult Index()
         {
-            var medicamentOrders = db.MedicamentOrders.Include(m => m.Patients);
-            return View(medicamentOrders.ToList());
+            var medicaments = db.Medicaments.Include(m => m.specialite);
+            return View(medicaments.ToList());
         }
 
-        // GET: MedicamentOrders/Details/5
+        // GET: Meds/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MedicamentOrder medicamentOrder = db.MedicamentOrders.Find(id);
-            if (medicamentOrder == null)
+            Medicaments medicaments = db.Medicaments.Find(id);
+            if (medicaments == null)
             {
                 return HttpNotFound();
             }
-            return View(medicamentOrder);
+            return View(medicaments);
         }
 
-        // GET: MedicamentOrders/Create
+        // GET: Meds/Create
         public ActionResult Create()
         {
-            ViewBag.idPatients = new SelectList(db.Patients, "IdPatients", "MatriculePatients");
+            ViewBag.idSpecialite = new SelectList(db.Specialites, "IdSpecialite", "SpecialiteName");
             return View();
         }
 
-        // POST: MedicamentOrders/Create
+        // POST: Meds/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderID,OrderDate,DeliveryDate,idPatients")] MedicamentOrder medicamentOrder)
+        public ActionResult Create([Bind(Include = "MedID,Title,ModeEmploi,idSpecialite")] Medicaments medicaments)
         {
             if (ModelState.IsValid)
             {
-                db.MedicamentOrders.Add(medicamentOrder);
+                db.Medicaments.Add(medicaments);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.idPatients = new SelectList(db.Patients, "IdPatients", "MatriculePatients", medicamentOrder.idPatients);
-            return View(medicamentOrder);
+            ViewBag.idSpecialite = new SelectList(db.Specialites, "IdSpecialite", "SpecialiteName", medicaments.idSpecialite);
+            return View(medicaments);
         }
 
-        // GET: MedicamentOrders/Edit/5
+        // GET: Meds/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MedicamentOrder medicamentOrder = db.MedicamentOrders.Find(id);
-            if (medicamentOrder == null)
+            Medicaments medicaments = db.Medicaments.Find(id);
+            if (medicaments == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.idPatients = new SelectList(db.Patients, "IdPatients", "MatriculePatients", medicamentOrder.idPatients);
-            return View(medicamentOrder);
+            ViewBag.idSpecialite = new SelectList(db.Specialites, "IdSpecialite", "SpecialiteName", medicaments.idSpecialite);
+            return View(medicaments);
         }
 
-        // POST: MedicamentOrders/Edit/5
+        // POST: Meds/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OrderID,OrderDate,DeliveryDate,idPatients")] MedicamentOrder medicamentOrder)
+        public ActionResult Edit([Bind(Include = "MedID,Title,ModeEmploi,idSpecialite")] Medicaments medicaments)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(medicamentOrder).State = EntityState.Modified;
+                db.Entry(medicaments).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.idPatients = new SelectList(db.Patients, "IdPatients", "MatriculePatients", medicamentOrder.idPatients);
-            return View(medicamentOrder);
+            ViewBag.idSpecialite = new SelectList(db.Specialites, "IdSpecialite", "SpecialiteName", medicaments.idSpecialite);
+            return View(medicaments);
         }
 
-        // GET: MedicamentOrders/Delete/5
+        // GET: Meds/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MedicamentOrder medicamentOrder = db.MedicamentOrders.Find(id);
-            if (medicamentOrder == null)
+            Medicaments medicaments = db.Medicaments.Find(id);
+            if (medicaments == null)
             {
                 return HttpNotFound();
             }
-            return View(medicamentOrder);
+            return View(medicaments);
         }
 
-        // POST: MedicamentOrders/Delete/5
+        // POST: Meds/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            MedicamentOrder medicamentOrder = db.MedicamentOrders.Find(id);
-            db.MedicamentOrders.Remove(medicamentOrder);
+            Medicaments medicaments = db.Medicaments.Find(id);
+            db.Medicaments.Remove(medicaments);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

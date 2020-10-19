@@ -15,8 +15,8 @@ namespace WebApplication4.Models.Tables
         [Display(Name = "Spécialité")]
         public string SpecialiteName { get; set; }
 
-        public  virtual ICollection<MedecinConventionne> medConv { get; set; }
-        public virtual ICollection<Medicament> medicaments { get; set; }
+        public virtual ICollection<MedecinConventionne> medConv { get; set; }
+        public virtual ICollection<Medicaments> Medicament { get; set; }
 
 
 

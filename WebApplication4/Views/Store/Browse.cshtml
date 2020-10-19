@@ -1,0 +1,15 @@
+﻿@model WebApplication4.Models.Tables.Specialite 
+    
+@{
+ViewBag.Title = "Browse"; 
+    } 
+
+<h2>Browsing Genre: @Model.SpecialiteName</h2>
+<ul>
+    @foreach (var album in Model.Medicament)
+    {
+        <li>
+            @album.Title
+        </li>
+    }
+</ul>

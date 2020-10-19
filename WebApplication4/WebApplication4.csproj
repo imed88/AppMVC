@@ -363,14 +363,12 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MedsController.cs" />
     <Compile Include="Controllers\PatientFileController.cs" />
+    <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Controllers\TablesControllers\AppointementModelsController.cs" />
-    <Compile Include="Controllers\TablesControllers\BaseController.cs" />
-    <Compile Include="Controllers\TablesControllers\CheckOutController.cs" />
     <Compile Include="Controllers\TablesControllers\ConsultationsController.cs" />
     <Compile Include="Controllers\TablesControllers\MedecinConventionnesController.cs" />
-    <Compile Include="Controllers\TablesControllers\MedicamentOrdersController.cs" />
-    <Compile Include="Controllers\TablesControllers\MedicamentsController.cs" />
     <Compile Include="Controllers\TablesControllers\OrdonnancePDFController.cs" />
     <Compile Include="Controllers\TablesControllers\PatientsController.cs" />
     <Compile Include="Controllers\TablesControllers\RolesController.cs" />
@@ -395,9 +393,17 @@
     <Compile Include="Migrations\202007291233576_AddTableMedecinConventionne.Designer.cs">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202010131334408_CreateDb.cs" />
-    <Compile Include="Migrations\202010131334408_CreateDb.Designer.cs">
-      <DependentUpon>202010131334408_CreateDb.cs</DependentUpon>
+    <Compile Include="Migrations\202010160559020_CreateDb.cs" />
+    <Compile Include="Migrations\202010160559020_CreateDb.Designer.cs">
+      <DependentUpon>202010160559020_CreateDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010190920567_modifsMedicaments.cs" />
+    <Compile Include="Migrations\202010190920567_modifsMedicaments.Designer.cs">
+      <DependentUpon>202010190920567_modifsMedicaments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010190932118_modifsMedicamentsKey.cs" />
+    <Compile Include="Migrations\202010190932118_modifsMedicamentsKey.Designer.cs">
+      <DependentUpon>202010190932118_modifsMedicamentsKey.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -409,14 +415,11 @@
     <Compile Include="Models\Tables\ConsultationOrdonnance.cs" />
     <Compile Include="Models\Tables\FileDetail.cs" />
     <Compile Include="Models\Tables\MedecinConventionne.cs" />
-    <Compile Include="Models\Tables\Medicament.cs" />
-    <Compile Include="Models\Tables\MedicamentOrder.cs" />
-    <Compile Include="Models\Tables\MedOrder_Products.cs" />
+    <Compile Include="Models\Tables\Medicaments.cs" />
     <Compile Include="Models\Tables\Ordonnance.cs" />
     <Compile Include="Models\Tables\Patients.cs" />
     <Compile Include="Models\Tables\RDV.cs" />
     <Compile Include="Models\Tables\RoleViewModel.cs" />
-    <Compile Include="Models\Tables\MedShoppingCartData.cs" />
     <Compile Include="Models\Tables\Specialite.cs" />
     <Compile Include="Models\Tables\Usine.cs" />
     <Compile Include="Models\ViewModels\DashboardViewModel.cs" />
@@ -2678,11 +2681,6 @@
     <Content Include="Views\Consultations\Edit.cshtml" />
     <Content Include="Views\Consultations\Index.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Details.cshtml" />
-    <Content Include="Views\Home\HomePage.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
@@ -2733,25 +2731,21 @@
     <Content Include="Uploads\benzartiimed eddine\ebba3f47-413d-4a05-b73f-6f2571494469.pdf" />
     <Content Include="Uploads\kkkkkk\6489eba5-30ac-4955-b5ab-a0eccfa6d9d7.docx" />
     <Content Include="Uploads\kkkkkk\8d423913-c37a-4390-b88a-1024462151bf.docx" />
-    <Content Include="Views\Medicaments\Create.cshtml" />
-    <Content Include="Views\Medicaments\Delete.cshtml" />
-    <Content Include="Views\Medicaments\Details.cshtml" />
-    <Content Include="Views\Medicaments\Edit.cshtml" />
-    <Content Include="Views\Medicaments\Index.cshtml" />
-    <Content Include="Views\MedicamentOrders\Create.cshtml" />
-    <Content Include="Views\MedicamentOrders\Delete.cshtml" />
-    <Content Include="Views\MedicamentOrders\Details.cshtml" />
-    <Content Include="Views\MedicamentOrders\Edit.cshtml" />
-    <Content Include="Views\MedicamentOrders\Index.cshtml" />
-    <Content Include="Views\CheckOut\Index.cshtml" />
-    <Content Include="Views\CheckOut\Purchase.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Store\Browse.cshtml" />
+    <Content Include="Views\Store\Details.cshtml" />
+    <Content Include="Views\Store\Index.cshtml" />
+    <Content Include="Views\Meds\Create.cshtml" />
+    <Content Include="Views\Meds\Delete.cshtml" />
+    <Content Include="Views\Meds\Details.cshtml" />
+    <Content Include="Views\Meds\Edit.cshtml" />
+    <Content Include="Views\Meds\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="images\" />
     <Folder Include="SqlServerTypes\x64\" />
     <Folder Include="SqlServerTypes\x86\" />
-    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202007291126243_AddUsername.resx">
@@ -2766,8 +2760,14 @@
     <EmbeddedResource Include="Migrations\202007291233576_AddTableMedecinConventionne.resx">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010131334408_CreateDb.resx">
-      <DependentUpon>202010131334408_CreateDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010160559020_CreateDb.resx">
+      <DependentUpon>202010160559020_CreateDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010190920567_modifsMedicaments.resx">
+      <DependentUpon>202010190920567_modifsMedicaments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010190932118_modifsMedicamentsKey.resx">
+      <DependentUpon>202010190932118_modifsMedicamentsKey.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
