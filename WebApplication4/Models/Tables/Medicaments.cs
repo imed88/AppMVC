@@ -12,6 +12,7 @@ namespace WebApplication4.Models.Tables
         public int MedID { get; set; }
         public string Title { get; set; }
         public string ModeEmploi { get; set; }
+        public int quantity { get; set; }
         public int idSpecialite { get; set; }
         public virtual Specialite specialite { get; set; }
     }
