@@ -20,17 +20,16 @@ namespace WebApplication4.Controllers
 
         public ActionResult Browse(string genre)
         {
-            var genreModel = from p in db.Specialites.Include("Medicaments")
-                             where p.SpecialiteName == genre
-                             select p;
-            return View(genreModel.Single());
+            var genreModel = db.Specialites.Include("Medicament")
+  .Single(g => g.SpecialiteName == genre);
+            return View(genreModel);
 
 
         }
         public ActionResult Details(int id)
         {
-            var Medicament = new Medicaments { Title = "Album " + id };
-            return View(Medicament);
+            var album = db.Medicaments.Find(id);
+            return View(album);
         }
 
     }

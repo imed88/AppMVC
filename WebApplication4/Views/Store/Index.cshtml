@@ -10,6 +10,6 @@
     @foreach (var genre in Model)
     {
         @*<li>@genre.SpecialiteName</li>*@
-    <li>@Html.ActionLink(genre.IdSpecialite, "Browse", new { genre = genre.IdSpecialite })</li>
+    <li>@Html.ActionLink(genre.SpecialiteName, "Browse", new { genre = genre.SpecialiteName })</li>
     }
 </ul>

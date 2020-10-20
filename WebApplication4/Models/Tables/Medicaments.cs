@@ -13,6 +13,6 @@ namespace WebApplication4.Models.Tables
         public string Title { get; set; }
         public string ModeEmploi { get; set; }
         public int idSpecialite { get; set; }
-        public Specialite specialite { get; set; }
+        public virtual Specialite specialite { get; set; }
     }
 }
