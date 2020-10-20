@@ -8,8 +8,8 @@ ViewBag.Title = "Browse";
 <ul>
     @foreach (var album in Model.Medicament)
     {
-        <li>
-            @album.Title
-        </li>
+    <li>
+        @Html.ActionLink(album.Title, "Details", new { id = album.MedID })
+    </li>
     }
 </ul>
