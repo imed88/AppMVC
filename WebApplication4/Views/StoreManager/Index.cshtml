@@ -30,27 +30,38 @@
         <th>
             @Html.DisplayNameFor(model => model.ModeEmploi)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MedImage)
+        </th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.specialite.SpecialiteName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModeEmploi)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MedID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.MedID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.MedID })
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.specialite.SpecialiteName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModeEmploi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MedImage)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.MedID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.MedID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.MedID })
+        </td>
+    </tr>
     }
 
 </table>

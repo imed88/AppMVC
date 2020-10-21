@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -49,10 +50,39 @@ namespace WebApplication4.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MedID,Title,ModeEmploi,idSpecialite")] Medicaments medicaments)
+        public ActionResult Create([Bind(Include = "MedID,Title,ModeEmploi,idSpecialite")] Medicaments medicaments, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
+                if (upload != null && upload.ContentLength > 0)
+                {
+
+                    var fileName = Path.GetFileName(file.FileName);
+                    FileDetail fileDetail = new FileDetail()
+                    {
+                        FileName = fileName,
+                        Extension = Path.GetExtension(fileName),
+                        Id = Guid.NewGuid()
+                    };
+                    fileDetails.Add(fileDetail);
+                    string foldername = "MedImage";
+                    string createfolder = Server.MapPath(string.Format("~/{0}/", foldername));
+                    if (!Directory.Exists(createfolder))
+                    {
+                        Directory.CreateDirectory(createfolder);
+
+                    }
+
+                    string subfoldername = foldername + "/" + patients.NomPatient + patients.PrenomPatient;
+                    string subcreatefolder = Server.MapPath(string.Format("~/{0}/", subfoldername));
+                    if (!Directory.Exists(subcreatefolder))
+                    {
+                        Directory.CreateDirectory(subcreatefolder);
+                    }
+
+                    var path = Path.Combine(subcreatefolder, fileDetail.Id + fileDetail.Extension);
+                    file.SaveAs(path);
+                }
                 db.Medicaments.Add(medicaments);
                 db.SaveChanges();
                 return RedirectToAction("Index");

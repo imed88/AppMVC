@@ -13,6 +13,8 @@ namespace WebApplication4.Models.Tables
         public string Title { get; set; }
         public string ModeEmploi { get; set; }
         public int quantity { get; set; }
+        public string ImagePath { get; set; }
+        public HttpPostedFileBase MedImage { get; set; }
         public int idSpecialite { get; set; }
         public virtual Specialite specialite { get; set; }
     }
