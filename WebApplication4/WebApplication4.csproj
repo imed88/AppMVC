@@ -397,37 +397,9 @@
     <Compile Include="Migrations\202007291233576_AddTableMedecinConventionne.Designer.cs">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202010240035118_CreateDb.cs" />
-    <Compile Include="Migrations\202010240035118_CreateDb.Designer.cs">
-      <DependentUpon>202010240035118_CreateDb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010240044597_Modifs.cs" />
-    <Compile Include="Migrations\202010240044597_Modifs.Designer.cs">
-      <DependentUpon>202010240044597_Modifs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010240046541_Modifs1.cs" />
-    <Compile Include="Migrations\202010240046541_Modifs1.Designer.cs">
-      <DependentUpon>202010240046541_Modifs1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010240120178_ModifsPath.cs" />
-    <Compile Include="Migrations\202010240120178_ModifsPath.Designer.cs">
-      <DependentUpon>202010240120178_ModifsPath.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010240126577_ModifsPath1.cs" />
-    <Compile Include="Migrations\202010240126577_ModifsPath1.Designer.cs">
-      <DependentUpon>202010240126577_ModifsPath1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010240149377_ModifsPath2.cs" />
-    <Compile Include="Migrations\202010240149377_ModifsPath2.Designer.cs">
-      <DependentUpon>202010240149377_ModifsPath2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010242055161_ModifsPath3.cs" />
-    <Compile Include="Migrations\202010242055161_ModifsPath3.Designer.cs">
-      <DependentUpon>202010242055161_ModifsPath3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010250114533_ModifsPath4.cs" />
-    <Compile Include="Migrations\202010250114533_ModifsPath4.Designer.cs">
-      <DependentUpon>202010250114533_ModifsPath4.cs</DependentUpon>
+    <Compile Include="Migrations\202010261019151_CreateDb.cs" />
+    <Compile Include="Migrations\202010261019151_CreateDb.Designer.cs">
+      <DependentUpon>202010261019151_CreateDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -2520,29 +2492,8 @@
     <EmbeddedResource Include="Migrations\202007291233576_AddTableMedecinConventionne.resx">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010240035118_CreateDb.resx">
-      <DependentUpon>202010240035118_CreateDb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010240044597_Modifs.resx">
-      <DependentUpon>202010240044597_Modifs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010240046541_Modifs1.resx">
-      <DependentUpon>202010240046541_Modifs1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010240120178_ModifsPath.resx">
-      <DependentUpon>202010240120178_ModifsPath.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010240126577_ModifsPath1.resx">
-      <DependentUpon>202010240126577_ModifsPath1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010240149377_ModifsPath2.resx">
-      <DependentUpon>202010240149377_ModifsPath2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010242055161_ModifsPath3.resx">
-      <DependentUpon>202010242055161_ModifsPath3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010250114533_ModifsPath4.resx">
-      <DependentUpon>202010250114533_ModifsPath4.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010261019151_CreateDb.resx">
+      <DependentUpon>202010261019151_CreateDb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

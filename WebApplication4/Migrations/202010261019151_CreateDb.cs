@@ -53,25 +53,12 @@ namespace WebApplication4.Migrations
                         Title = c.String(),
                         ModeEmploi = c.String(),
                         quantity = c.Int(nullable: false),
-                        Image = c.String(),
+                        MedPic = c.String(),
                         idSpecialite = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.MedID)
                 .ForeignKey("dbo.Specialites", t => t.idSpecialite, cascadeDelete: true)
                 .Index(t => t.idSpecialite);
-            
-            CreateTable(
-                "dbo.MedImages",
-                c => new
-                    {
-                        Id = c.Guid(nullable: false),
-                        FileName = c.String(),
-                        Extension = c.String(),
-                        MedID = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Medicaments", t => t.MedID, cascadeDelete: true)
-                .Index(t => t.MedID);
             
             CreateTable(
                 "dbo.Patients",
@@ -288,7 +275,6 @@ namespace WebApplication4.Migrations
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AppointementModels", "idPatients", "dbo.Patients");
             DropForeignKey("dbo.Medicaments", "idSpecialite", "dbo.Specialites");
-            DropForeignKey("dbo.MedImages", "MedID", "dbo.Medicaments");
             DropForeignKey("dbo.MedecinConventionnes", "idSpecialite", "dbo.Specialites");
             DropForeignKey("dbo.AppointementModels", "idDoctors", "dbo.MedecinConventionnes");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
@@ -307,7 +293,6 @@ namespace WebApplication4.Migrations
             DropIndex("dbo.Consultations", new[] { "idPatients" });
             DropIndex("dbo.Consultations", new[] { "UserID" });
             DropIndex("dbo.Patients", new[] { "IdUsine" });
-            DropIndex("dbo.MedImages", new[] { "MedID" });
             DropIndex("dbo.Medicaments", new[] { "idSpecialite" });
             DropIndex("dbo.MedecinConventionnes", new[] { "idSpecialite" });
             DropIndex("dbo.AppointementModels", new[] { "idPatients" });
@@ -326,7 +311,6 @@ namespace WebApplication4.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.Consultations");
             DropTable("dbo.Patients");
-            DropTable("dbo.MedImages");
             DropTable("dbo.Medicaments");
             DropTable("dbo.Specialites");
             DropTable("dbo.MedecinConventionnes");

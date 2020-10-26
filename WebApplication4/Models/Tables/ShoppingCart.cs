@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace WebApplication4.Models.Tables
 {
-    public class ShoppingCart
+    public partial class ShoppingCart
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace WebApplication4.Models.Tables
 {
-    public class Order
+    public partial class Order
     {
         public int OrderId { get; set; }
         public int IdPatients { get; set; }

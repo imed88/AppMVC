@@ -54,15 +54,9 @@ namespace WebApplication4.Controllers
         {
             if (ModelState.IsValid)
             {
-                string foldername = "Uploads";
-                string createfolder = Server.MapPath(string.Format("~/{0}/", foldername));
-                if (!Directory.Exists(createfolder))
-                {
-                    Directory.CreateDirectory(createfolder);
-                    string path = Path.Combine(Server.MapPath(createfolder), upload.FileName);
-                    upload.SaveAs(path);
-                }
-               
+              
+                string path = Path.Combine(Server.MapPath("~/Uploads/"), upload.FileName);
+                upload.SaveAs(path);
                 medicaments.MedPic = upload.FileName;
                 db.Medicaments.Add(medicaments);
                 db.SaveChanges();

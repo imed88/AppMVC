@@ -1,15 +1,26 @@
-﻿@model WebApplication4.Models.Tables.Specialite 
-    
+﻿@model WebApplication4.Models.Tables.Specialite
+
 @{
-ViewBag.Title = "Browse"; 
-    } 
+    ViewBag.Title = "Browse";
+}
 
 <h2>Browsing Genre: @Model.SpecialiteName</h2>
-<ul>
-    @foreach (var album in Model.Medicament)
-    {
-    <li>
-        @Html.ActionLink(album.Title, "Details", new { id = album.MedID })
-    </li>
-    }
-</ul>
+@foreach (var album in Model.Medicament)
+{
+    @*<li>@genre.SpecialiteName</li>*@
+    @*<li></li>*@
+    <div class="col-lg-3 col-xs-6 ">
+        <!-- small box -->
+        <div class="small-box bg-red-active">
+            <div class="inner">
+                <p>@Html.ActionLink(album.Title, "Details", new { id = album.MedID }, new { style = "color: white; text-transform:uppercase;" })</p>
+            </div>
+
+        </div>
+    </div>
+
+
+
+}
+
+

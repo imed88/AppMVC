@@ -6,7 +6,7 @@ using System.Web;
 
 namespace WebApplication4.Models.Tables
 {
-    public class Medicaments
+    public partial class Medicaments
     {
         [Key]
         public int MedID { get; set; }
