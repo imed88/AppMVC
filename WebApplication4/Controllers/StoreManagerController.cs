@@ -50,45 +50,19 @@ namespace WebApplication4.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MedID,Title,ModeEmploi,idSpecialite")] Medicaments medicaments, HttpPostedFileBase upload)
+        public ActionResult Create(Medicaments medicaments, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
-                if (upload != null && upload.ContentLength > 0)
-                {
-
-                    var fileName = Path.GetFileName(file.FileName);
-                    FileDetail fileDetail = new FileDetail()
-                    {
-                        FileName = fileName,
-                        Extension = Path.GetExtension(fileName),
-                        Id = Guid.NewGuid()
-                    };
-                    fileDetails.Add(fileDetail);
-                    string foldername = "MedImage";
-                    string createfolder = Server.MapPath(string.Format("~/{0}/", foldername));
-                    if (!Directory.Exists(createfolder))
-                    {
-                        Directory.CreateDirectory(createfolder);
-
-                    }
-
-                    string subfoldername = foldername + "/" + patients.NomPatient + patients.PrenomPatient;
-                    string subcreatefolder = Server.MapPath(string.Format("~/{0}/", subfoldername));
-                    if (!Directory.Exists(subcreatefolder))
-                    {
-                        Directory.CreateDirectory(subcreatefolder);
-                    }
-
-                    var path = Path.Combine(subcreatefolder, fileDetail.Id + fileDetail.Extension);
-                    file.SaveAs(path);
-                }
+                string path = Path.Combine(Server.MapPath("~/Uploads/"), upload.FileName);
+                upload.SaveAs(path);
+                medicaments.MedPic = upload.FileName;
                 db.Medicaments.Add(medicaments);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.idSpecialite = new SelectList(db.Specialites, "IdSpecialite", "SpecialiteName", medicaments.idSpecialite);
+            ViewBag.IdSpecialite = new SelectList(db.Specialites, "IdSpecialite", "SpecialiteName", medicaments.idSpecialite);
             return View(medicaments);
         }
 

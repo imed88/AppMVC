@@ -397,25 +397,37 @@
     <Compile Include="Migrations\202007291233576_AddTableMedecinConventionne.Designer.cs">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202010201312327_CreateDb.cs" />
-    <Compile Include="Migrations\202010201312327_CreateDb.Designer.cs">
-      <DependentUpon>202010201312327_CreateDb.cs</DependentUpon>
+    <Compile Include="Migrations\202010240035118_CreateDb.cs" />
+    <Compile Include="Migrations\202010240035118_CreateDb.Designer.cs">
+      <DependentUpon>202010240035118_CreateDb.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202010201332309_ModifDB.cs" />
-    <Compile Include="Migrations\202010201332309_ModifDB.Designer.cs">
-      <DependentUpon>202010201332309_ModifDB.cs</DependentUpon>
+    <Compile Include="Migrations\202010240044597_Modifs.cs" />
+    <Compile Include="Migrations\202010240044597_Modifs.Designer.cs">
+      <DependentUpon>202010240044597_Modifs.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202010201347428_ModifDB1.cs" />
-    <Compile Include="Migrations\202010201347428_ModifDB1.Designer.cs">
-      <DependentUpon>202010201347428_ModifDB1.cs</DependentUpon>
+    <Compile Include="Migrations\202010240046541_Modifs1.cs" />
+    <Compile Include="Migrations\202010240046541_Modifs1.Designer.cs">
+      <DependentUpon>202010240046541_Modifs1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202010210943544_modifs.cs" />
-    <Compile Include="Migrations\202010210943544_modifs.Designer.cs">
-      <DependentUpon>202010210943544_modifs.cs</DependentUpon>
+    <Compile Include="Migrations\202010240120178_ModifsPath.cs" />
+    <Compile Include="Migrations\202010240120178_ModifsPath.Designer.cs">
+      <DependentUpon>202010240120178_ModifsPath.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202010211009052_modifs1.cs" />
-    <Compile Include="Migrations\202010211009052_modifs1.Designer.cs">
-      <DependentUpon>202010211009052_modifs1.cs</DependentUpon>
+    <Compile Include="Migrations\202010240126577_ModifsPath1.cs" />
+    <Compile Include="Migrations\202010240126577_ModifsPath1.Designer.cs">
+      <DependentUpon>202010240126577_ModifsPath1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010240149377_ModifsPath2.cs" />
+    <Compile Include="Migrations\202010240149377_ModifsPath2.Designer.cs">
+      <DependentUpon>202010240149377_ModifsPath2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010242055161_ModifsPath3.cs" />
+    <Compile Include="Migrations\202010242055161_ModifsPath3.Designer.cs">
+      <DependentUpon>202010242055161_ModifsPath3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010250114533_ModifsPath4.cs" />
+    <Compile Include="Migrations\202010250114533_ModifsPath4.Designer.cs">
+      <DependentUpon>202010250114533_ModifsPath4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -2388,15 +2400,6 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="Uploads\0.jpg" />
-    <Content Include="Uploads\10.jpg" />
-    <Content Include="Uploads\7.jpg" />
-    <Content Include="Uploads\benzartiimed eddine\6239e957-fc92-429a-bb81-ea67bcb600d1.gif" />
-    <Content Include="Uploads\benzartiimed eddine\646bddb1-c62a-40f5-aa3e-ce4582a2897d.jpg" />
-    <Content Include="Uploads\benzartiimed eddine\8677d3f7-48fa-46c3-b1c5-554f16e557f3.jpg" />
-    <Content Include="Uploads\benzartiimed eddine\fe13ed53-8224-41e2-9bfd-61d3da9fdaf3.gif" />
-    <Content Include="Uploads\rnta.png" />
-    <Content Include="Uploads\titre.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2482,12 +2485,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Consultations\CreateRDV.cshtml" />
-    <Content Include="Uploads\benzartiimed eddine\51d3fc6f-3d29-41b1-8122-4356395773d4.docx" />
-    <Content Include="Uploads\benzartiimed eddine\7f2c4b2e-2782-4512-a7c7-7569077a2430.docx" />
-    <Content Include="Uploads\benzartiimed eddine\d73cfcc7-1da3-433e-a07a-182da35a4ad9.docx" />
-    <Content Include="Uploads\benzartiimed eddine\ebba3f47-413d-4a05-b73f-6f2571494469.pdf" />
-    <Content Include="Uploads\kkkkkk\6489eba5-30ac-4955-b5ab-a0eccfa6d9d7.docx" />
-    <Content Include="Uploads\kkkkkk\8d423913-c37a-4390-b88a-1024462151bf.docx" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Store\Browse.cshtml" />
     <Content Include="Views\Store\Details.cshtml" />
@@ -2501,8 +2498,8 @@
     <Content Include="Views\StoreManager\Delete.cshtml" />
     <Content Include="Views\StoreManager\Details.cshtml" />
     <Content Include="Views\StoreManager\Edit.cshtml" />
-    <Content Include="Views\StoreManager\Index.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\StoreManager\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2523,20 +2520,29 @@
     <EmbeddedResource Include="Migrations\202007291233576_AddTableMedecinConventionne.resx">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010201312327_CreateDb.resx">
-      <DependentUpon>202010201312327_CreateDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010240035118_CreateDb.resx">
+      <DependentUpon>202010240035118_CreateDb.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010201332309_ModifDB.resx">
-      <DependentUpon>202010201332309_ModifDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010240044597_Modifs.resx">
+      <DependentUpon>202010240044597_Modifs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010201347428_ModifDB1.resx">
-      <DependentUpon>202010201347428_ModifDB1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010240046541_Modifs1.resx">
+      <DependentUpon>202010240046541_Modifs1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010210943544_modifs.resx">
-      <DependentUpon>202010210943544_modifs.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010240120178_ModifsPath.resx">
+      <DependentUpon>202010240120178_ModifsPath.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010211009052_modifs1.resx">
-      <DependentUpon>202010211009052_modifs1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010240126577_ModifsPath1.resx">
+      <DependentUpon>202010240126577_ModifsPath1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010240149377_ModifsPath2.resx">
+      <DependentUpon>202010240149377_ModifsPath2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010242055161_ModifsPath3.resx">
+      <DependentUpon>202010242055161_ModifsPath3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010250114533_ModifsPath4.resx">
+      <DependentUpon>202010250114533_ModifsPath4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

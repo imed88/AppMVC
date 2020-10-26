@@ -1,15 +1,5 @@
 ﻿@model IEnumerable<WebApplication4.Models.Tables.Medicaments>
-@helper Truncate(string input, int length)
-{
-    if (input.Length <= length)
-    {
-        @input
-    }
-    else
-    {
-        @input.Substring(0, length)<text>...</text>
-    }
-}
+
 @{
     ViewBag.Title = "Index";
 }
@@ -33,13 +23,10 @@
         <th>
             @Html.DisplayNameFor(model => model.quantity)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MedImage)
-        </th>
+        <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
+@foreach (var item in Model) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.specialite.SpecialiteName)
@@ -54,7 +41,7 @@
             @Html.DisplayFor(modelItem => item.quantity)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MedImage)
+            <img src="~/Uploads/@Html.DisplayFor(modelItem=> item.MedPic)" class="thumbnail" style="width:100px; height:100px" />         
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.MedID }) |
@@ -62,6 +49,6 @@
             @Html.ActionLink("Delete", "Delete", new { id = item.MedID })
         </td>
     </tr>
-    }
+}
 
 </table>

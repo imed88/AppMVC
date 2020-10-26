@@ -3,7 +3,7 @@
     ViewBag.Title = "Album - " + Model.Title; }
 <h2>@Model.Title</h2>
 <p>
-    <img alt="@Model.Title" src="@Model.AlbumArtUrl" />
+    <img alt="@Model.Title" src="~/Uploads/@Model.MedPic" class="thumbnail" style="width:100px; height:100px" />
 </p>
 <div id="album-details">
     <p>
