@@ -365,17 +365,17 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\MedsController.cs" />
     <Compile Include="Controllers\PatientFileController.cs" />
-    <Compile Include="Controllers\StoreController.cs" />
-    <Compile Include="Controllers\StoreManagerController.cs" />
     <Compile Include="Controllers\TablesControllers\AppointementModelsController.cs" />
     <Compile Include="Controllers\TablesControllers\ConsultationsController.cs" />
     <Compile Include="Controllers\TablesControllers\MedecinConventionnesController.cs" />
+    <Compile Include="Controllers\TablesControllers\MedicineController.cs" />
     <Compile Include="Controllers\TablesControllers\OrdonnancePDFController.cs" />
     <Compile Include="Controllers\TablesControllers\PatientsController.cs" />
+    <Compile Include="Controllers\TablesControllers\ProductPurchasesController.cs" />
+    <Compile Include="Controllers\TablesControllers\ProductsController.cs" />
     <Compile Include="Controllers\TablesControllers\RolesController.cs" />
-    <Compile Include="Controllers\TablesControllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\TablesControllers\SalesController.cs" />
     <Compile Include="Controllers\TablesControllers\SpecialitesController.cs" />
     <Compile Include="Controllers\TablesControllers\UsinesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -401,32 +401,43 @@
     <Compile Include="Migrations\202010261019151_CreateDb.Designer.cs">
       <DependentUpon>202010261019151_CreateDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010271027231_ModificationOrders.cs" />
+    <Compile Include="Migrations\202010271027231_ModificationOrders.Designer.cs">
+      <DependentUpon>202010271027231_ModificationOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010271052009_Test.cs" />
+    <Compile Include="Migrations\202010271052009_Test.Designer.cs">
+      <DependentUpon>202010271052009_Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010271120498_Modifications.cs" />
+    <Compile Include="Migrations\202010271120498_Modifications.Designer.cs">
+      <DependentUpon>202010271120498_Modifications.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CheckBoxItem.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Tables\Appointement.cs" />
-    <Compile Include="Models\Tables\Cart.cs" />
     <Compile Include="Models\Tables\Consultation.cs" />
     <Compile Include="Models\Tables\ConsultationOrdonnance.cs" />
     <Compile Include="Models\Tables\FileDetail.cs" />
     <Compile Include="Models\Tables\MedecinConventionne.cs" />
     <Compile Include="Models\Tables\Medicaments.cs" />
-    <Compile Include="Models\Tables\Order.cs" />
-    <Compile Include="Models\Tables\OrderDetail.cs" />
+    <Compile Include="Models\Tables\Medicine\cart.cs" />
+    <Compile Include="Models\Tables\Medicine\ProductPurchase.cs" />
+    <Compile Include="Models\Tables\Medicine\tbl_invoice.cs" />
+    <Compile Include="Models\Tables\Medicine\tbl_order.cs" />
+    <Compile Include="Models\Tables\Medicine\tbl_product.cs" />
     <Compile Include="Models\Tables\Ordonnance.cs" />
     <Compile Include="Models\Tables\Patients.cs" />
     <Compile Include="Models\Tables\RDV.cs" />
     <Compile Include="Models\Tables\RoleViewModel.cs" />
-    <Compile Include="Models\Tables\ShoppingCart.cs" />
     <Compile Include="Models\Tables\Specialite.cs" />
     <Compile Include="Models\Tables\Usine.cs" />
     <Compile Include="Models\ViewModels\DashboardViewModel.cs" />
     <Compile Include="Models\ViewModels\MedicamentListBox.cs" />
     <Compile Include="Models\ViewModels\MultipleData.cs" />
-    <Compile Include="Models\ViewModels\ShoppingCartRemoveViewModel.cs" />
-    <Compile Include="Models\ViewModels\ShoppingCartViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Report\CrystalReport1.cs">
       <AutoGen>True</AutoGen>
@@ -2458,20 +2469,35 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Consultations\CreateRDV.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Store\Browse.cshtml" />
-    <Content Include="Views\Store\Details.cshtml" />
-    <Content Include="Views\Store\Index.cshtml" />
-    <Content Include="Views\Meds\Create.cshtml" />
-    <Content Include="Views\Meds\Delete.cshtml" />
-    <Content Include="Views\Meds\Details.cshtml" />
-    <Content Include="Views\Meds\Edit.cshtml" />
-    <Content Include="Views\Meds\Index.cshtml" />
-    <Content Include="Views\StoreManager\Create.cshtml" />
-    <Content Include="Views\StoreManager\Delete.cshtml" />
-    <Content Include="Views\StoreManager\Details.cshtml" />
-    <Content Include="Views\StoreManager\Edit.cshtml" />
-    <Content Include="Views\ShoppingCart\Index.cshtml" />
-    <Content Include="Views\StoreManager\Index.cshtml" />
+    <Content Include="Views\MedicamentOrders\Create.cshtml" />
+    <Content Include="Views\MedicamentOrders\Delete.cshtml" />
+    <Content Include="Views\MedicamentOrders\Details.cshtml" />
+    <Content Include="Views\MedicamentOrders\Edit.cshtml" />
+    <Content Include="Views\MedicamentOrders\Index.cshtml" />
+    <Content Include="Views\Medicaments\Create.cshtml" />
+    <Content Include="Views\Medicaments\Delete.cshtml" />
+    <Content Include="Views\Medicaments\Details.cshtml" />
+    <Content Include="Views\Medicaments\Edit.cshtml" />
+    <Content Include="Views\Medicaments\Index.cshtml" />
+    <Content Include="Views\Medicine\AddToCart.cshtml" />
+    <Content Include="Views\Medicine\checkout.cshtml" />
+    <Content Include="Views\Medicine\Index.cshtml" />
+    <Content Include="Views\ProductPurchases\Create.cshtml" />
+    <Content Include="Views\ProductPurchases\Delete.cshtml" />
+    <Content Include="Views\ProductPurchases\Details.cshtml" />
+    <Content Include="Views\ProductPurchases\Edit.cshtml" />
+    <Content Include="Views\ProductPurchases\Index.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Products\SortieStock.cshtml" />
+    <Content Include="Views\Sales\Create.cshtml" />
+    <Content Include="Views\Sales\Delete.cshtml" />
+    <Content Include="Views\Sales\Details.cshtml" />
+    <Content Include="Views\Sales\Edit.cshtml" />
+    <Content Include="Views\Sales\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2494,6 +2520,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010261019151_CreateDb.resx">
       <DependentUpon>202010261019151_CreateDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010271027231_ModificationOrders.resx">
+      <DependentUpon>202010271027231_ModificationOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010271052009_Test.resx">
+      <DependentUpon>202010271052009_Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010271120498_Modifications.resx">
+      <DependentUpon>202010271120498_Modifications.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

@@ -9,17 +9,31 @@
 
 <div class="row">
     <div class="col-lg-10 col-md-10 col-sm-10">
-        @if (TempData["total"] == null)
-        {
+        <div class="row">
+            @if (TempData["NbMed"] == null)
+            {
 
-            <h4>
-                Nombre de produits: 0
-            </h4>
-        }
-        else
-        {
-            <h4>Nombre de produits: @TempData["total"] </h4>
-        }
+                <h4>
+                    Nombre de produits: 0
+                </h4>
+            }
+            else
+            {
+                <h4>Nombre de produits: @TempData["NbMed"] </h4>
+            }
+            @if (TempData["total"] == null)
+            {
+
+                <h4>
+                    Nombre de produits: 0
+                </h4>
+            }
+            else
+            {
+                <h4>Nombre de produits: @TempData["total"] </h4>
+            }
+
+        </div>
 
     </div>
 
@@ -38,11 +52,11 @@
     {
         foreach (var item in Model)
         {
-            <div class="col-lg-4 col-md-4" style="height:200px;margin-top:100px">
+            <div class="col-lg-4 col-md-4" style="height:100px;">
 
-                <img class="img img-responsive cimg" src="@Url.Content(item.pro_image)" style=" height:100%;width:100% ;border-radius:50px 50px 50px 50px" />
-                <h3 style="color:#808080; font-family:'Arial Rounded MT';text-align:center">@item.pro_name <small>@item.Quantity produits</small></h3>
-                <h4 style="color:#808080; font-family:'Arial Rounded MT';text-align:center"> <span class="btn btn-danger">@Html.ActionLink("Add To Cart", "AddToCart", new { id = @item.pro_id })</span></h4>
+                <img class="img img-responsive cimg" src="~/Uploads/@item.pro_image" style=" height:100%;width:100% " />
+                <h4 style="color:#808080; font-family:'Arial Rounded MT';text-align:center">@item.pro_name <small>@item.Quantity produits</small></h4>
+                <h4 style="color:white; font-family:'Arial Rounded MT';text-align:center"> <span class="btn btn-danger">@Html.ActionLink("Add To Cart", "AddToCart", new { id = @item.pro_id })</span></h4>
 
             </div>
 

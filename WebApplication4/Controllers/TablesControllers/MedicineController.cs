@@ -15,6 +15,7 @@ namespace WebApplication4.Controllers.TablesControllers
         public ActionResult Index()
         {
             Session["u_id"] = 1;
+            var Product_count = db.tbl_product.Count();
             if (TempData["cart"] != null)
             {
                 float x = 0;
@@ -26,7 +27,9 @@ namespace WebApplication4.Controllers.TablesControllers
                 }
 
                 TempData["total"] = x;
+               
             }
+            TempData["NbMed"] = Product_count;
             TempData.Keep();
             return View(db.tbl_product.OrderByDescending(x => x.pro_id).ToList());
         }

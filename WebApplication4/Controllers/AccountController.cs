@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using WebApplication4.Models;
+using WebApplication4.Models.Tables;
 
 namespace WebApplication4.Controllers
 {
@@ -72,6 +73,7 @@ namespace WebApplication4.Controllers
         {
             if (!ModelState.IsValid)
             {
+             
                 return View(model);
             }
 
@@ -81,6 +83,7 @@ namespace WebApplication4.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                  
                     return RedirectToAction("Index","Dashboard");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -91,6 +94,8 @@ namespace WebApplication4.Controllers
                     ModelState.AddModelError("", "Tentative de connexion non valide.");
                     return View(model);
             }
+
+            
         }
 
         //
@@ -160,6 +165,7 @@ namespace WebApplication4.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
                     // Pour plus d'informations sur l'activation de la confirmation de compte et de la réinitialisation de mot de passe, visitez https://go.microsoft.com/fwlink/?LinkID=320771
@@ -484,6 +490,7 @@ namespace WebApplication4.Controllers
             base.Dispose(disposing);
         }
         */
+       
         #region Applications auxiliaires
         // Utilisé(e) pour la protection XSRF lors de l'ajout de connexions externes
         private const string XsrfKey = "XsrfId";
