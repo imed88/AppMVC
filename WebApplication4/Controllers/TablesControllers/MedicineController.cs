@@ -16,6 +16,7 @@ namespace WebApplication4.Controllers.TablesControllers
         {
             Session["u_id"] = 1;
             var Product_count = db.tbl_product.Count();
+            var ConsultationID = Session["ConsultationID"];
             if (TempData["cart"] != null)
             {
                 float x = 0;
@@ -30,6 +31,7 @@ namespace WebApplication4.Controllers.TablesControllers
                
             }
             TempData["NbMed"] = Product_count;
+            TempData["ConsultationID"] = ConsultationID;
             TempData.Keep();
             return View(db.tbl_product.OrderByDescending(x => x.pro_id).ToList());
         }
@@ -112,7 +114,6 @@ namespace WebApplication4.Controllers.TablesControllers
             iv.in_totalbill = Convert.ToInt32(TempData["total"]);
             iv.ConsultationID = ConsultationID;
             db.tbl_invoice.Add(iv);
-
             db.SaveChanges();
             foreach (var item in li)
             {
@@ -127,7 +128,7 @@ namespace WebApplication4.Controllers.TablesControllers
                 db.tbl_order.Add(od);
                 db.SaveChanges();
             }
-
+            TempData["ConsultationID"] = ConsultationID;
             TempData.Remove("total");
             TempData.Remove("cart");
 

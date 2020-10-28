@@ -5,8 +5,18 @@
     ViewBag.Title = "checkout";
 }
 
-<h2>checkout</h2>
+<h2>Liste des Medicaments Selectionnés</h2>
+@if (TempData["ConsultationID"] == null)
+{
 
+    <h4>
+        Consultation n°: 0
+    </h4>
+}
+else
+{
+    <h4>Consultation n°: @TempData["ConsultationID"] </h4>
+}
 @if (TempData["cart"] != null)
 {
 

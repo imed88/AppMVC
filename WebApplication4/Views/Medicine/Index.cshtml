@@ -10,36 +10,52 @@
 <div class="row">
     <div class="col-lg-10 col-md-10 col-sm-10">
         <div class="row">
-            @if (TempData["NbMed"] == null)
-            {
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                @if (TempData["ConsultationID"] == null)
+                {
 
-                <h4>
-                    Nombre de produits: 0
-                </h4>
-            }
-            else
-            {
-                <h4>Nombre de produits: @TempData["NbMed"] </h4>
-            }
-            @if (TempData["total"] == null)
-            {
+                    <h4>
+                        Consultation n°: 0
+                    </h4>
+                }
+                else
+                {
+                    <h4>Consultation n°: @TempData["ConsultationID"] </h4>
+                }
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                @if (TempData["NbMed"] == null)
+                {
 
-                <h4>
-                    Nombre de produits: 0
-                </h4>
-            }
-            else
-            {
-                <h4>Nombre de produits: @TempData["total"] </h4>
-            }
+                    <h4>
+                        Nombre de produits: 0
+                    </h4>
+                }
+                else
+                {
+                    <h4>Nombre de produits: @TempData["NbMed"] </h4>
+                }
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                @if (TempData["total"] == null)
+                {
+
+                    <h4>
+                        Nombre de produits: 0
+                    </h4>
+                }
+                else
+                {
+                    <h4>Nombre de produits: @TempData["total"] </h4>
+                }
+
+            </div>
 
         </div>
-
-    </div>
-
+        </div>
 
     <div class="col-lg-2 col-md-2 col-sm-2">
-        <h3 style="color:#808080; font-family:'Arial Rounded MT';text-align:center"> <span class="btn btn-info">@Html.ActionLink("Check Out", "checkout", "Medicine")</span></h3>
+        <h3 style="color:#808080; font-family:'Arial Rounded MT';text-align:center"> <span class="btn btn-default">@Html.ActionLink("Medicaments Selectionnés", "checkout", "Medicine")</span></h3>
     </div>
 
 
@@ -55,8 +71,8 @@
             <div class="col-lg-4 col-md-4" style="height:100px;">
 
                 <img class="img img-responsive cimg" src="~/Uploads/@item.pro_image" style=" height:100%;width:100% " />
-                <h4 style="color:#808080; font-family:'Arial Rounded MT';text-align:center">@item.pro_name <small>@item.Quantity produits</small></h4>
-                <h4 style="color:white; font-family:'Arial Rounded MT';text-align:center"> <span class="btn btn-danger">@Html.ActionLink("Add To Cart", "AddToCart", new { id = @item.pro_id })</span></h4>
+                <h4 style="color:#808080; font-family:'Arial Rounded MT';text-align:center">@item.pro_name</h4>
+                <h4 style="color:white; font-family:'Arial Rounded MT';text-align:center"> <span class="btn btn-default">@Html.ActionLink("Ajouter à la liste", "AddToCart", new { id = @item.pro_id })</span></h4>
 
             </div>
 
