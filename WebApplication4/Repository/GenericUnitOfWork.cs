@@ -11,7 +11,7 @@ namespace WebApplication4.Repository
         public ApplicationDbContext db = new ApplicationDbContext();
 
         public IRepository<Tbl_EntityType> GetRepositoryInstance<Tbl_EntityType>() where Tbl_EntityType : class
-        {
+        { 
             return new GenericRepository<Tbl_EntityType>(db);
         }
 
