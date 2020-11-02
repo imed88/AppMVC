@@ -29,5 +29,7 @@ namespace WebApplication4.Models.Tables.Medicine
     
         public virtual Consultation consultation { get; set; }
         public virtual ICollection<tbl_order> tbl_order { get; set; }
+        public Nullable<int> IdPatients { get; set; }
+        public virtual Patients Patients { get; set; }
     }
 }

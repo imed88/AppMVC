@@ -48,6 +48,7 @@ namespace WebApplication4.Controllers.TablesControllers
         {
             tbl_product p = db.tbl_product.Where(x => x.pro_id == Id).SingleOrDefault();
             var ConsultationID = (int)Session["ConsultationID"];
+         
             cart c = new cart();
             c.productid = p.pro_id;
             //c.price = (float)p.pro_price;
@@ -55,6 +56,7 @@ namespace WebApplication4.Controllers.TablesControllers
             c.bill = c.qty;
             c.productname = p.pro_name;
             c.ConsultationID = ConsultationID;
+           
             if (TempData["cart"] == null)
             {
                 li.Add(c);
@@ -108,11 +110,13 @@ namespace WebApplication4.Controllers.TablesControllers
         {
             List<cart> li = TempData["cart"] as List<cart>;
             var ConsultationID = (int)Session["ConsultationID"];
+            var IdPatients = (int)Session["IdPatients"];
             tbl_invoice iv = new tbl_invoice();
             //iv.in_fk_user = Convert.ToInt32["u_id"].toString();
             iv.in_date = System.DateTime.Now;
             iv.in_totalbill = Convert.ToInt32(TempData["total"]);
             iv.ConsultationID = ConsultationID;
+            iv.IdPatients = IdPatients;
             db.tbl_invoice.Add(iv);
             db.SaveChanges();
             foreach (var item in li)
