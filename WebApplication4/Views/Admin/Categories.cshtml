@@ -1,0 +1,62 @@
+﻿@model List<WebApplication4.Models.Tables.Specialite>
+
+@{
+    ViewBag.Title = "Categories";
+    Layout = "~/Views/Shared/MedicamentsLayout/adminLayout.cshtml";
+}
+
+<link href="css/styles.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+
+
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Specialites</li>
+    </ol>
+    <h2>Specialites</h2>
+    <!-- DataTables Example -->
+    <div class="card mb-3">
+       
+        <form class="pull-right d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0 ">
+            <div class="input-group ">
+                <input class="form-control " type="text" placeholder="Rechercher..." aria-label="Search" aria-describedby="basic-addon2" />
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </form>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Specialite</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SpecialiteName)
+                                </td>
+                            </tr>
+                        }
+
+
+
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
-using WebApplication4.Models.Tables.Medicine;
+//using WebApplication4.Models.Tables.Medicine;
 
 namespace WebApplication4.Models.Tables
 {
