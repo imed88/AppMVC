@@ -369,13 +369,9 @@
     <Compile Include="Controllers\TablesControllers\AppointementModelsController.cs" />
     <Compile Include="Controllers\TablesControllers\ConsultationsController.cs" />
     <Compile Include="Controllers\TablesControllers\MedecinConventionnesController.cs" />
-    <Compile Include="Controllers\TablesControllers\MedicineController.cs" />
     <Compile Include="Controllers\TablesControllers\OrdonnancePDFController.cs" />
     <Compile Include="Controllers\TablesControllers\PatientsController.cs" />
-    <Compile Include="Controllers\TablesControllers\ProductPurchasesController.cs" />
-    <Compile Include="Controllers\TablesControllers\ProductsController.cs" />
     <Compile Include="Controllers\TablesControllers\RolesController.cs" />
-    <Compile Include="Controllers\TablesControllers\SalesController.cs" />
     <Compile Include="Controllers\TablesControllers\SpecialitesController.cs" />
     <Compile Include="Controllers\TablesControllers\UsinesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -397,25 +393,13 @@
     <Compile Include="Migrations\202007291233576_AddTableMedecinConventionne.Designer.cs">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202010261019151_CreateDb.cs" />
-    <Compile Include="Migrations\202010261019151_CreateDb.Designer.cs">
-      <DependentUpon>202010261019151_CreateDb.cs</DependentUpon>
+    <Compile Include="Migrations\202010282335451_CreateDb.cs" />
+    <Compile Include="Migrations\202010282335451_CreateDb.Designer.cs">
+      <DependentUpon>202010282335451_CreateDb.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202010271027231_ModificationOrders.cs" />
-    <Compile Include="Migrations\202010271027231_ModificationOrders.Designer.cs">
-      <DependentUpon>202010271027231_ModificationOrders.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010271052009_Test.cs" />
-    <Compile Include="Migrations\202010271052009_Test.Designer.cs">
-      <DependentUpon>202010271052009_Test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010271120498_Modifications.cs" />
-    <Compile Include="Migrations\202010271120498_Modifications.Designer.cs">
-      <DependentUpon>202010271120498_Modifications.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010281024283_Modifications1.cs" />
-    <Compile Include="Migrations\202010281024283_Modifications1.Designer.cs">
-      <DependentUpon>202010281024283_Modifications1.cs</DependentUpon>
+    <Compile Include="Migrations\202011012337212_addTables.cs" />
+    <Compile Include="Migrations\202011012337212_addTables.Designer.cs">
+      <DependentUpon>202011012337212_addTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202010300905106_modifications2.cs" />
     <Compile Include="Migrations\202010300905106_modifications2.Designer.cs">
@@ -431,18 +415,17 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Tables\Appointement.cs" />
+    <Compile Include="Models\Tables\Cart.cs" />
+    <Compile Include="Models\Tables\CartStatus.cs" />
     <Compile Include="Models\Tables\Consultation.cs" />
     <Compile Include="Models\Tables\ConsultationOrdonnance.cs" />
     <Compile Include="Models\Tables\FileDetail.cs" />
     <Compile Include="Models\Tables\MedecinConventionne.cs" />
     <Compile Include="Models\Tables\Medicaments.cs" />
-    <Compile Include="Models\Tables\Medicine\cart.cs" />
-    <Compile Include="Models\Tables\Medicine\ProductPurchase.cs" />
-    <Compile Include="Models\Tables\Medicine\tbl_invoice.cs" />
-    <Compile Include="Models\Tables\Medicine\tbl_order.cs" />
-    <Compile Include="Models\Tables\Medicine\tbl_product.cs" />
     <Compile Include="Models\Tables\Ordonnance.cs" />
+    <Compile Include="Models\Tables\Ordonnances.cs" />
     <Compile Include="Models\Tables\Patients.cs" />
+    <Compile Include="Models\Tables\Product.cs" />
     <Compile Include="Models\Tables\RDV.cs" />
     <Compile Include="Models\Tables\RoleViewModel.cs" />
     <Compile Include="Models\Tables\Specialite.cs" />
@@ -487,6 +470,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet3.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Repository\GenericRepository.cs" />
+    <Compile Include="Repository\GenericUnitOfWork.cs" />
+    <Compile Include="Repository\IRepository.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Validations\MyAppointmentDateValidation.cs" />
@@ -1385,6 +1371,7 @@
     <Content Include="Content\plugins\timepicker\bootstrap-timepicker.js" />
     <Content Include="Content\plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Content\plugins\timepicker\bootstrap-timepicker.min.js" />
+    <Content Include="Content\style.css" />
     <Content Include="Content\StyleStyleSheet.css" />
     <Content Include="Content\Table.css" />
     <Content Include="Content\tether\tether-theme-arrows-dark.css" />
@@ -2486,25 +2473,6 @@
     <Content Include="Views\MedicamentOrders\Details.cshtml" />
     <Content Include="Views\MedicamentOrders\Edit.cshtml" />
     <Content Include="Views\MedicamentOrders\Index.cshtml" />
-    <Content Include="Views\Medicaments\Create.cshtml" />
-    <Content Include="Views\Medicaments\Delete.cshtml" />
-    <Content Include="Views\Medicaments\Details.cshtml" />
-    <Content Include="Views\Medicaments\Edit.cshtml" />
-    <Content Include="Views\Medicaments\Index.cshtml" />
-    <Content Include="Views\Medicine\AddToCart.cshtml" />
-    <Content Include="Views\Medicine\checkout.cshtml" />
-    <Content Include="Views\Medicine\Index.cshtml" />
-    <Content Include="Views\ProductPurchases\Create.cshtml" />
-    <Content Include="Views\ProductPurchases\Delete.cshtml" />
-    <Content Include="Views\ProductPurchases\Details.cshtml" />
-    <Content Include="Views\ProductPurchases\Edit.cshtml" />
-    <Content Include="Views\ProductPurchases\Index.cshtml" />
-    <Content Include="Views\Products\Create.cshtml" />
-    <Content Include="Views\Products\Delete.cshtml" />
-    <Content Include="Views\Products\Details.cshtml" />
-    <Content Include="Views\Products\Edit.cshtml" />
-    <Content Include="Views\Products\Index.cshtml" />
-    <Content Include="Views\Products\SortieStock.cshtml" />
     <Content Include="Views\Sales\Create.cshtml" />
     <Content Include="Views\Sales\Delete.cshtml" />
     <Content Include="Views\Sales\Details.cshtml" />
@@ -2530,20 +2498,11 @@
     <EmbeddedResource Include="Migrations\202007291233576_AddTableMedecinConventionne.resx">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010261019151_CreateDb.resx">
-      <DependentUpon>202010261019151_CreateDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010282335451_CreateDb.resx">
+      <DependentUpon>202010282335451_CreateDb.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010271027231_ModificationOrders.resx">
-      <DependentUpon>202010271027231_ModificationOrders.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010271052009_Test.resx">
-      <DependentUpon>202010271052009_Test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010271120498_Modifications.resx">
-      <DependentUpon>202010271120498_Modifications.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010281024283_Modifications1.resx">
-      <DependentUpon>202010281024283_Modifications1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202011012337212_addTables.resx">
+      <DependentUpon>202011012337212_addTables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010300905106_modifications2.resx">
       <DependentUpon>202010300905106_modifications2.cs</DependentUpon>

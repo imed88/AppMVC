@@ -169,35 +169,6 @@ namespace WebApplication4.Migrations
                 .Index(t => t.IdPatients);
             
             CreateTable(
-                "dbo.Orders",
-                c => new
-                    {
-                        OrderId = c.Int(nullable: false, identity: true),
-                        IdPatients = c.Int(nullable: false),
-                        Total = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        OrderDate = c.DateTime(nullable: false),
-                    })
-                .PrimaryKey(t => t.OrderId)
-                .ForeignKey("dbo.Patients", t => t.IdPatients, cascadeDelete: true)
-                .Index(t => t.IdPatients);
-            
-            CreateTable(
-                "dbo.OrderDetails",
-                c => new
-                    {
-                        OrderDetailId = c.Int(nullable: false, identity: true),
-                        OrderId = c.Int(nullable: false),
-                        MedID = c.Int(nullable: false),
-                        Quantity = c.Int(nullable: false),
-                        UnitPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
-                    })
-                .PrimaryKey(t => t.OrderDetailId)
-                .ForeignKey("dbo.Medicaments", t => t.MedID, cascadeDelete: true)
-                .ForeignKey("dbo.Orders", t => t.OrderId, cascadeDelete: true)
-                .Index(t => t.OrderId)
-                .Index(t => t.MedID);
-            
-            CreateTable(
                 "dbo.Usines",
                 c => new
                     {
@@ -207,21 +178,65 @@ namespace WebApplication4.Migrations
                 .PrimaryKey(t => t.IdUsine);
             
             CreateTable(
-                "dbo.Carts",
+                "dbo.ProductPurchases",
                 c => new
                     {
-                        RecordId = c.Int(nullable: false, identity: true),
-                        CartId = c.String(),
-                        MedID = c.Int(nullable: false),
-                        Count = c.Int(nullable: false),
-                        DateCreated = c.DateTime(nullable: false),
-                        ShoppingCartViewModel_ShoppingCartID = c.Int(),
+                        PurchaseID = c.Int(nullable: false, identity: true),
+                        PurchaseQuantity = c.String(),
+                        PurchaseDate = c.DateTime(nullable: false),
+                        pro_id = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.RecordId)
-                .ForeignKey("dbo.Medicaments", t => t.MedID, cascadeDelete: true)
-                .ForeignKey("dbo.ShoppingCartViewModels", t => t.ShoppingCartViewModel_ShoppingCartID)
-                .Index(t => t.MedID)
-                .Index(t => t.ShoppingCartViewModel_ShoppingCartID);
+                .PrimaryKey(t => t.PurchaseID)
+                .ForeignKey("dbo.tbl_product", t => t.pro_id, cascadeDelete: true)
+                .Index(t => t.pro_id);
+            
+            CreateTable(
+                "dbo.tbl_product",
+                c => new
+                    {
+                        pro_id = c.Int(nullable: false, identity: true),
+                        pro_name = c.String(),
+                        Quantity = c.Int(),
+                        pro_desc = c.String(),
+                        pro_image = c.String(),
+                    })
+                .PrimaryKey(t => t.pro_id);
+            
+            CreateTable(
+                "dbo.tbl_order",
+                c => new
+                    {
+                        o_id = c.Int(nullable: false, identity: true),
+                        o_fk_pro = c.Int(),
+                        o_fk_invoice = c.Int(),
+                        o_date = c.DateTime(),
+                        o_qty = c.Int(),
+                        o_bill = c.Double(),
+                        o_unitprice = c.Int(),
+                        ConsultationID = c.Int(),
+                        tbl_invoice_in_id = c.Int(),
+                        tbl_product_pro_id = c.Int(),
+                    })
+                .PrimaryKey(t => t.o_id)
+                .ForeignKey("dbo.Consultations", t => t.ConsultationID)
+                .ForeignKey("dbo.tbl_invoice", t => t.tbl_invoice_in_id)
+                .ForeignKey("dbo.tbl_product", t => t.tbl_product_pro_id)
+                .Index(t => t.ConsultationID)
+                .Index(t => t.tbl_invoice_in_id)
+                .Index(t => t.tbl_product_pro_id);
+            
+            CreateTable(
+                "dbo.tbl_invoice",
+                c => new
+                    {
+                        in_id = c.Int(nullable: false, identity: true),
+                        ConsultationID = c.Int(),
+                        in_date = c.DateTime(),
+                        in_totalbill = c.Double(),
+                    })
+                .PrimaryKey(t => t.in_id)
+                .ForeignKey("dbo.Consultations", t => t.ConsultationID)
+                .Index(t => t.ConsultationID);
             
             CreateTable(
                 "dbo.RDVs",
@@ -246,27 +261,18 @@ namespace WebApplication4.Migrations
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.Name, unique: true, name: "RoleNameIndex");
             
-            CreateTable(
-                "dbo.ShoppingCartViewModels",
-                c => new
-                    {
-                        ShoppingCartID = c.Int(nullable: false, identity: true),
-                        CartTotal = c.Decimal(nullable: false, precision: 18, scale: 2),
-                    })
-                .PrimaryKey(t => t.ShoppingCartID);
-            
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Carts", "ShoppingCartViewModel_ShoppingCartID", "dbo.ShoppingCartViewModels");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.RDVs", "ConsultationID", "dbo.Consultations");
-            DropForeignKey("dbo.Carts", "MedID", "dbo.Medicaments");
+            DropForeignKey("dbo.tbl_order", "tbl_product_pro_id", "dbo.tbl_product");
+            DropForeignKey("dbo.tbl_order", "tbl_invoice_in_id", "dbo.tbl_invoice");
+            DropForeignKey("dbo.tbl_invoice", "ConsultationID", "dbo.Consultations");
+            DropForeignKey("dbo.tbl_order", "ConsultationID", "dbo.Consultations");
+            DropForeignKey("dbo.ProductPurchases", "pro_id", "dbo.tbl_product");
             DropForeignKey("dbo.Patients", "IdUsine", "dbo.Usines");
-            DropForeignKey("dbo.Orders", "IdPatients", "dbo.Patients");
-            DropForeignKey("dbo.OrderDetails", "OrderId", "dbo.Orders");
-            DropForeignKey("dbo.OrderDetails", "MedID", "dbo.Medicaments");
             DropForeignKey("dbo.FileDetails", "IdPatients", "dbo.Patients");
             DropForeignKey("dbo.Consultations", "idPatients", "dbo.Patients");
             DropForeignKey("dbo.Consultations", "UserID", "dbo.AspNetUsers");
@@ -279,11 +285,11 @@ namespace WebApplication4.Migrations
             DropForeignKey("dbo.AppointementModels", "idDoctors", "dbo.MedecinConventionnes");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.RDVs", new[] { "ConsultationID" });
-            DropIndex("dbo.Carts", new[] { "ShoppingCartViewModel_ShoppingCartID" });
-            DropIndex("dbo.Carts", new[] { "MedID" });
-            DropIndex("dbo.OrderDetails", new[] { "MedID" });
-            DropIndex("dbo.OrderDetails", new[] { "OrderId" });
-            DropIndex("dbo.Orders", new[] { "IdPatients" });
+            DropIndex("dbo.tbl_invoice", new[] { "ConsultationID" });
+            DropIndex("dbo.tbl_order", new[] { "tbl_product_pro_id" });
+            DropIndex("dbo.tbl_order", new[] { "tbl_invoice_in_id" });
+            DropIndex("dbo.tbl_order", new[] { "ConsultationID" });
+            DropIndex("dbo.ProductPurchases", new[] { "pro_id" });
             DropIndex("dbo.FileDetails", new[] { "IdPatients" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
@@ -297,13 +303,13 @@ namespace WebApplication4.Migrations
             DropIndex("dbo.MedecinConventionnes", new[] { "idSpecialite" });
             DropIndex("dbo.AppointementModels", new[] { "idPatients" });
             DropIndex("dbo.AppointementModels", new[] { "idDoctors" });
-            DropTable("dbo.ShoppingCartViewModels");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.RDVs");
-            DropTable("dbo.Carts");
+            DropTable("dbo.tbl_invoice");
+            DropTable("dbo.tbl_order");
+            DropTable("dbo.tbl_product");
+            DropTable("dbo.ProductPurchases");
             DropTable("dbo.Usines");
-            DropTable("dbo.OrderDetails");
-            DropTable("dbo.Orders");
             DropTable("dbo.FileDetails");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");

@@ -1,0 +1,97 @@
+﻿.olContent {
+    width: 100%;
+}
+
+    .olContent h2 {
+        color: #fff;
+        font-size: 19px;
+        padding: 9px 0 0;
+    }
+
+.olSearch {
+    width: 100%;
+}
+
+    .olSearch .inputComn {
+        margin-bottom: 0;
+    }
+
+.inputComn {
+    color: black;
+    font-size: 14px;
+    height: 44px;
+    width: 100%;
+    cursor: pointer;
+    padding: 0 15px;
+}
+
+.searchIcon {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.searchBtn {
+    background-color: #005faa;
+    border: 0 none;
+    color: #fff;
+    font-size: 16px;
+    padding: 11px 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    height: 44px;
+}
+
+    .searchBtn:hover {
+        background-color: #326987;
+    }
+
+.olSearch {
+    position: relative;
+}
+
+
+    .content .page-header {
+        padding-bottom: 5px;
+        margin: 20px 0 30px;
+        border-bottom: 1px solid #eee;
+    }
+
+        .content .page-header h2 {
+            font-weight: 700;
+        }
+
+.product-item {
+    position: relative;
+}
+
+    .product-item .caption h5 {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        border-top: 2px solid #333;
+        margin-top: 10px;
+        padding-top: 10px;
+    }
+
+    .product-item .caption .product-item-price {
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 400;
+    }
+
+    .product-item .product-item-badge {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        padding: 5px 12px 6px;
+        color: #fff;
+        font-size: 12px;
+        line-height: 14px;
+        font-weight: 600;
+        background: #333;
+        -webkit-border-radius: 4px 0 4px 0;
+        -moz-border-radius: 4px 0 4px 0;
+        -o-border-radius: 4px 0 4px 0;
+        border-radius: 4px 0 4px 0;
+    }

@@ -7,13 +7,13 @@ namespace WebApplication4.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ModificationOrders : IMigrationMetadata
+    public sealed partial class addTables : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ModificationOrders));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addTables));
         
         string IMigrationMetadata.Id
         {
-            get { return "202010271027231_ModificationOrders"; }
+            get { return "202011012337212_addTables"; }
         }
         
         string IMigrationMetadata.Source
