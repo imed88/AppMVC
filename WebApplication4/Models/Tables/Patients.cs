@@ -32,7 +32,9 @@ namespace WebApplication4.Models.Tables
 
         public virtual ICollection<AppointementModel> Appointments { get; set; }
         public virtual ICollection<Consultation> Consultations { get; set; }
-       
+        public virtual ICollection<Cart> Carts { get; set; }
+        public virtual ICollection<Ordonnances> Ordonnances { get; set; }
+
 
 
 

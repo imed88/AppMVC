@@ -2,6 +2,42 @@
 @{
     ViewBag.Title = "Index";
 }
+<link href="~/Content/style.css" rel="stylesheet" />
 
-<h2>Index</h2>
 
+
+<div class="olSearch fr">
+    <input type="text" placeholder="Entrer les mots clés" name="searchKey" class="inputComn houseText form-control"/>
+    <div class="searchIcon">
+        <button type="button" class="searchBtn">
+            Rechercher
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-header">
+            <h2>Medicaments</h2>
+        </div>
+    </div>
+</div>
+
+<div class="row product-container">
+
+    <div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
+        <div class="thumbnail product-item" style="height:300px">
+
+            <img class="img-responsive" title="Click to View Product detail"
+                 style="cursor:pointer;height:160px;width:100%"
+                 src="~/Images/81_12_24_2017_10_26_28.jpg" />
+
+            <div class="caption">
+                <h5>Product Name</h5>
+                <p>500.00 ৳.</p>
+                <p>Available</p>
+                <div class="product-item-badge">New</div>
+            </div>
+        </div>
+    </div>
+</div>
