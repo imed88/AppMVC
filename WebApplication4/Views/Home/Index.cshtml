@@ -23,57 +23,59 @@
         </div>
     </div>
 </div>
+<div class="container">
+    <div class="row product-container">
+        @foreach (var item in Model.ListProducts)
+        {
+            <div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
+                <div class="thumbnail product-item" style="height:300px">
 
-<div class="row product-container">
-    @foreach (var item in Model.ListProducts)
-    {
-        <div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
-            <div class="thumbnail product-item" style="height:300px">
+                    <img class="img-responsive" title="Click to View Product detail"
+                         style="cursor:pointer;height:160px;width:100%"
+                         src="~/Uploads/@item.ProductImage" />
 
-                <img class="img-responsive" title="Click to View Product detail"
-                     style="cursor:pointer;height:160px;width:100%"
-                     src="~/Images/81_12_24_2017_10_26_28.jpg" />
-
-                <div class="caption">
-                    <h5>@item.ProductName</h5>
-                    
-                       
-                        @if (item.Quantity > 0)
+                    <div class="caption">
+                        <h5>@item.ProductName</h5>
+                        <p> <p>
+                            @if (item.Quantity > 0)
+                            {
+                            <p>Available</p>
+                        }
+                        else
                         {
-                        <p>Available</p>
-                    }
-                    else
-                    {
-                        <p>Not Available</p>
-                    }
-                        <div class="product-item-badge">
-                            @if (item.IsFeatured==true)
-                            {
-                                <p>New</p>
-                            }
-                            else
-                            {
-                                <p>Old</p>
-                            }
-
+                            <p>Not Available</p>
+                        }
+                            </p>
+                            <div class="product-item-badge">
+                                <p>
+                                    @if (item.IsFeatured == true)
+                                    {
+                                    <p>New</p>
+                                }
+                                else
+                                {
+                                    <p>Old</p>
+                                }
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-            </div>
-        </div>
-    }
-    @*<div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
-            <div class="thumbnail product-item" style="height:300px">
+                }
+        @*<div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
+                <div class="thumbnail product-item" style="height:300px">
 
-                <img class="img-responsive" title="Click to View Product detail"
-                     style="cursor:pointer;height:160px;width:100%"
-                     src="~/Images/81_12_24_2017_10_26_28.jpg" />
+                    <img class="img-responsive" title="Click to View Product detail"
+                         style="cursor:pointer;height:160px;width:100%"
+                         src="~/Images/81_12_24_2017_10_26_28.jpg" />
 
-                <div class="caption">
-                    <h5>Product Name</h5>
-                    <p>500.00 ৳.</p>
-                    <p>Available</p>
-                    <div class="product-item-badge">New</div>
+                    <div class="caption">
+                        <h5>Product Name</h5>
+                        <p>500.00 ৳.</p>
+                        <p>Available</p>
+                        <div class="product-item-badge">New</div>
+                    </div>
                 </div>
-            </div>
-        </div>*@
+            </div>*@
+    </div>
 </div>
