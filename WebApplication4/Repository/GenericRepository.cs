@@ -117,5 +117,10 @@ namespace WebApplication4.Repository
                 return _dbSet.OrderBy(orderByPredict).ToList();
             }
         }
+
+        public IEnumerable<Tbl_Entity> GetProduct()
+        {
+            return _dbSet.ToList();
+        }
     }
 }

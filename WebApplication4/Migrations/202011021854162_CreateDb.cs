@@ -179,6 +179,26 @@ namespace WebApplication4.Migrations
                 .PrimaryKey(t => t.IdUsine);
             
             CreateTable(
+                "dbo.Products",
+                c => new
+                    {
+                        ProductId = c.Int(nullable: false, identity: true),
+                        ProductName = c.String(),
+                        IdSpecialite = c.Int(nullable: false),
+                        IsActive = c.Boolean(nullable: false),
+                        IsDelete = c.Boolean(nullable: false),
+                        CreatedDate = c.DateTime(nullable: false),
+                        ModifiedDate = c.DateTime(nullable: false),
+                        Description = c.DateTime(nullable: false),
+                        ProductImage = c.String(),
+                        IsFeatured = c.Boolean(nullable: false),
+                        Quantity = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.ProductId)
+                .ForeignKey("dbo.Specialites", t => t.IdSpecialite, cascadeDelete: true)
+                .Index(t => t.IdSpecialite);
+            
+            CreateTable(
                 "dbo.RDVs",
                 c => new
                     {
@@ -207,6 +227,7 @@ namespace WebApplication4.Migrations
         {
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.RDVs", "ConsultationID", "dbo.Consultations");
+            DropForeignKey("dbo.Products", "IdSpecialite", "dbo.Specialites");
             DropForeignKey("dbo.Patients", "IdUsine", "dbo.Usines");
             DropForeignKey("dbo.FileDetails", "IdPatients", "dbo.Patients");
             DropForeignKey("dbo.Consultations", "idPatients", "dbo.Patients");
@@ -220,6 +241,7 @@ namespace WebApplication4.Migrations
             DropForeignKey("dbo.AppointementModels", "idDoctors", "dbo.MedecinConventionnes");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.RDVs", new[] { "ConsultationID" });
+            DropIndex("dbo.Products", new[] { "IdSpecialite" });
             DropIndex("dbo.FileDetails", new[] { "IdPatients" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
@@ -235,6 +257,7 @@ namespace WebApplication4.Migrations
             DropIndex("dbo.AppointementModels", new[] { "idDoctors" });
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.RDVs");
+            DropTable("dbo.Products");
             DropTable("dbo.Usines");
             DropTable("dbo.FileDetails");
             DropTable("dbo.AspNetUserRoles");
