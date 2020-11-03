@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplication4.Models.Tables;
 using WebApplication4.Repository;
-
+using System.Data.Entity;
 namespace WebApplication4.Controllers
 {
     public class AdminController : Controller
@@ -17,6 +17,17 @@ namespace WebApplication4.Controllers
         public ActionResult Dashboard()
         {
             return View();
+        }
+
+        public List<SelectListItem> GetCategory()
+        {
+            List<SelectListItem> list = new List<SelectListItem>();
+            var allcategories = _unitOfWork.GetRepositoryInstance<Specialite>().GetAllRecords();
+            foreach (var item in allcategories)
+            {
+                list.Add(new SelectListItem { Value = item.IdSpecialite.ToString(), Text = item.SpecialiteName });
+            }
+            return list;
         }
 
 
@@ -53,16 +64,30 @@ namespace WebApplication4.Controllers
 
         public ActionResult ProductEdit(int productId)
         {
+            ViewBag.CategoryList = GetCategory();
             return View(_unitOfWork.GetRepositoryInstance<Product>().GetFirstorDefault(productId));
         }
 
         [HttpPost]
         public ActionResult ProductEdit(Product tbl)
         {
+            tbl.ModifiedDate = DateTime.Now;
             _unitOfWork.GetRepositoryInstance<Product>().Update(tbl);
             return RedirectToAction("Product");
         }
 
-
+        public ActionResult ProductAdd()
+        {
+            ViewBag.CategoryList = GetCategory();
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ProductAdd(Product tbl)
+        {
+            tbl.CreatedDate = DateTime.Now;
+            _unitOfWork.GetRepositoryInstance<Product>().Add(tbl);
+            return RedirectToAction("Product");
+        }
     }
+
 }

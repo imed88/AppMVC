@@ -17,7 +17,11 @@ namespace WebApplication4.Models.Tables
 
         public bool IsActive { get; set; }
         public bool IsDelete { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0: dd/MM/yyyy}")]
         public DateTime CreatedDate { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0: dd/MM/yyyy}")]
         public DateTime ModifiedDate { get; set; }
         public string Description { get; set; }
         public string ProductImage { get; set; }

@@ -13,7 +13,8 @@ namespace WebApplication4.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            HomeIndexViewModel model = new HomeIndexViewModel();
+            return View(model.CreateModel());
         }
 
 
