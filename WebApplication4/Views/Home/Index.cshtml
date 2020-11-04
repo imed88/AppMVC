@@ -6,25 +6,24 @@
 <link href="~/Content/style.css" rel="stylesheet" />
 
 
-
-<div class="olSearch fr">
-    <input type="text" placeholder="Entrer les mots clés" name="searchKey" class="inputComn houseText form-control"/>
-    <div class="searchIcon">
-        <button type="button" class="searchBtn">
-            Rechercher
-        </button>
-    </div>
-</div>
-
-<div class="row">
     <div class="col-md-12">
         <div class="page-header">
             <h2>Medicaments</h2>
         </div>
     </div>
-</div>
+
 <div class="container">
-    <div class="row product-container">
+    <form method="post">
+        <div class="olSearch fr">
+            <input type="text" placeholder="Entrer les mots clés" name="search" class="inputComn houseText form-control" />
+            <div class="searchIcon">
+                <button type="button" class="searchBtn">
+                    Rechercher
+                </button>
+            </div>
+        </div>
+    </form>
+    <div class="row product-container" style="margin-top:2%">
         @foreach (var item in Model.ListProducts)
         {
             <div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
