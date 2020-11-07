@@ -11,11 +11,15 @@ namespace WebApplication4.Controllers
     
     public class HomeController : Controller
     {
-        public ActionResult Index(string search )
+        private ApplicationDbContext db = new ApplicationDbContext();
+
+        // GET: TestProducts
+        public ActionResult Index()
         {
-            HomeIndexViewModel model = new HomeIndexViewModel();
-            return View(model.CreateModel(search));
+            //var products = db.Products.Include(p => p.specialite);
+            return View();
         }
+
 
 
     }

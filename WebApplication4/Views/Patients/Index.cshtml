@@ -17,7 +17,7 @@
         <div class="col-sm-2">
             <p>
                 @*@Html.ActionLink("Créer un nouveau Médecin Conventionné", "Create")*@
-                <a href="@Url.Action("Create", "Patients")" class="btn btn-success">
+                <a href="@Url.Action("Create", "Patients")" class="btn btn-danger">
                     <i class="glyphicon glyphicon-plus"></i>
                     <span>
                         <strong>Nouveau patient</strong>
@@ -147,7 +147,7 @@
         </table>
         
     </div>
-    <div class="pagination">
+    <div class="pagination container" >
         Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
         sur @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
     </div>

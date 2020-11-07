@@ -1,4 +1,4 @@
-﻿@model WebApplication4.Models.ViewModels.HomeIndexViewModel
+﻿@model IEnumerable<WebApplication4.Models.Tables.Product>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/MedicamentsLayout/adminLayout.cshtml";
@@ -12,39 +12,40 @@
         </div>
     </div>
 
-<div class="container">
-    <form method="post">
-        <div class="olSearch fr">
-            <input type="text" placeholder="Entrer les mots clés" name="search" class="inputComn houseText form-control" />
-            <div class="searchIcon">
-                <button type="button" class="searchBtn">
-                    Rechercher
-                </button>
+    <div class="container">
+        @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+        { 
+            <div class="olSearch fr">
+                <input type="text" placeholder="Entrer les mots clés" name="search" class="inputComn houseText form-control" />
+                <div class="searchIcon">
+                    <button type="button" class="searchBtn">
+                        Rechercher
+                    </button>
+                </div>
             </div>
-        </div>
-    </form>
-    <div class="row product-container" style="margin-top:2%">
-        @foreach (var item in Model.ListProducts)
-        {
-            <div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
-                <div class="thumbnail product-item" style="height:300px">
+        }
+        <div class="row product-container" style="margin-top:2%">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
+                    <div class="thumbnail product-item" style="height:300px">
 
-                    <img class="img-responsive" title="Click to View Product detail"
-                         style="cursor:pointer;height:160px;width:100%"
-                         src="~/Uploads/@item.ProductImage" />
+                        <img class="img-responsive" title="Click to View Product detail"
+                             style="cursor:pointer;height:160px;width:100%"
+                             src="~/Uploads/@item.ProductImage" />
 
-                    <div class="caption">
-                        <h5>@item.ProductName</h5>
-                        <p> <p>
-                            @if (item.Quantity > 0)
+                        <div class="caption">
+                            <h5>@item.ProductName</h5>
+                            <p> <p>
+                                @if (item.Quantity > 0)
+                                {
+                                <p>Available</p>
+                            }
+                            else
                             {
-                            <p>Available</p>
-                        }
-                        else
-                        {
-                            <p>Not Available</p>
-                        }
-                            </p>
+                                <p>Not Available</p>
+                            }
+                            </div>
                             <div class="product-item-badge">
                                 <p>
                                     @if (item.IsFeatured == true)
@@ -55,13 +56,20 @@
                                 {
                                     <p>Old</p>
                                 }
-                                    </p>
+
                                 </div>
+                            <div class="product-item-badge">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+
                             </div>
-                        </div>
-                    </div>
+                                </div>
+
+                            </div>
+                        
                 }
-        @*<div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
+            @*<div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
                 <div class="thumbnail product-item" style="height:300px">
 
                     <img class="img-responsive" title="Click to View Product detail"
@@ -76,5 +84,5 @@
                     </div>
                 </div>
             </div>*@
+        </div>
     </div>
-</div>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PagedList;
+using PagedList.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -10,18 +12,18 @@ namespace WebApplication4.Models.ViewModels
 {
     public class HomeIndexViewModel
     {
-        public IEnumerable<Product> ListProducts { get; set; }
-        public static GenericUnitOfWork _unitOfWork = new GenericUnitOfWork();
-        ApplicationDbContext db = new ApplicationDbContext();
-        public  HomeIndexViewModel CreateModel(string search)
+        public GenericUnitOfWork _unitOfWork = new GenericUnitOfWork();
+        ApplicationDbContext context = new ApplicationDbContext();
+        public List<Product> ListProducts { get; set; }
+        public HomeIndexViewModel CreateModel(string search)
         {
-            SqlParameter[] parameter = new SqlParameter[]{
-                new SqlParameter("@search", search)
+            SqlParameter[] param = new SqlParameter[]{
+                new SqlParameter("@search",search??(object)DBNull.Value)
             };
-            IEnumerable<Product> data = db.Database.SqlQuery<Product>("GetBySearch", parameter).ToList();
-            return new HomeIndexViewModel()
+            List<Product> data = context.Database.SqlQuery<Product>("GetBySearch @search", param).ToList();
+            return new HomeIndexViewModel
             {
-                ListProducts =data 
+                ListProducts = data
             };
         }
     }
