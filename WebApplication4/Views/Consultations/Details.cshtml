@@ -62,7 +62,7 @@
             </div>
             <p>
                 @*@Html.ActionLink("Ordonnance", "CreateOrdonnance", new { id = Model.ConsultationID }, new { @class = "btn btn-success" })*@
-                <a href="@Url.Action("Index", "Medicine",new { id = Model.ConsultationID, Patient=Model.idPatients })" class="btn btn-primary">
+                <a href="@Url.Action("Index", "TestProducts",new { id = Model.ConsultationID, Model.idPatients })" class="btn btn-primary">
                     <i class="glyphicon glyphicon glyphicon-file"></i>
                     <span>
                         <strong>Ordonnance</strong>

@@ -1,58 +1,25 @@
-﻿@model WebApplication4.Models.Tables.Medicament
+﻿@model WebApplication4.Models.Tables.ShopCart.Product
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "DetailProductCart";
+    Layout = "~/Views/Shared/MedicamentsLayout/adminLayout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>DetailProductCart</h2>
+<div class="product-description row">
+    <div class="product-image">
+        <img src='@Url.Content("~/uploads/"+Model.Image)' style="width:200px;
+            height:200px;
+            " />
+    </div>
+    <div class="product-detail-content" style="float:left; width:50%">
+        <p>Product Name : @Model.ProductName</p>
+        <p>Quantity : @(String.Format("{0}", Model.Quantity))</p>
+        <p>
+            @Html.ActionLink("Add to cart","OrderNow",
+       "ShoppingCart", new {id=Model.ProductID}, null)
+    </p>
 
-<div>
-    <h4>Medicament</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.PID)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UnitPrice)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UnitPrice)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UnitsInStock)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UnitsInStock)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.idSpecialite)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.idSpecialite)
-        </dd>
-
-    </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MedID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+</div>

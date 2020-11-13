@@ -362,7 +362,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -370,12 +369,13 @@
     <Compile Include="Controllers\TablesControllers\AppointementModelsController.cs" />
     <Compile Include="Controllers\TablesControllers\ConsultationsController.cs" />
     <Compile Include="Controllers\TablesControllers\MedecinConventionnesController.cs" />
+    <Compile Include="Controllers\TablesControllers\MedicamentsController.cs" />
     <Compile Include="Controllers\TablesControllers\OrdonnancePDFController.cs" />
     <Compile Include="Controllers\TablesControllers\PatientsController.cs" />
     <Compile Include="Controllers\TablesControllers\RolesController.cs" />
+    <Compile Include="Controllers\TablesControllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\TablesControllers\SpecialitesController.cs" />
     <Compile Include="Controllers\TablesControllers\UsinesController.cs" />
-    <Compile Include="Controllers\TestProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -395,9 +395,13 @@
     <Compile Include="Migrations\202007291233576_AddTableMedecinConventionne.Designer.cs">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011030831307_CreateDb.cs" />
-    <Compile Include="Migrations\202011030831307_CreateDb.Designer.cs">
-      <DependentUpon>202011030831307_CreateDb.cs</DependentUpon>
+    <Compile Include="Migrations\202011121107178_CreateDb.cs" />
+    <Compile Include="Migrations\202011121107178_CreateDb.Designer.cs">
+      <DependentUpon>202011121107178_CreateDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011131003040_Order.cs" />
+    <Compile Include="Migrations\202011131003040_Order.Designer.cs">
+      <DependentUpon>202011131003040_Order.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -405,8 +409,6 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Tables\Appointement.cs" />
-    <Compile Include="Models\Tables\Cart.cs" />
-    <Compile Include="Models\Tables\CartStatus.cs" />
     <Compile Include="Models\Tables\Consultation.cs" />
     <Compile Include="Models\Tables\ConsultationOrdonnance.cs" />
     <Compile Include="Models\Tables\FileDetail.cs" />
@@ -415,13 +417,14 @@
     <Compile Include="Models\Tables\Ordonnance.cs" />
     <Compile Include="Models\Tables\Ordonnances.cs" />
     <Compile Include="Models\Tables\Patients.cs" />
-    <Compile Include="Models\Tables\Product.cs" />
     <Compile Include="Models\Tables\RDV.cs" />
     <Compile Include="Models\Tables\RoleViewModel.cs" />
+    <Compile Include="Models\Tables\ShopCart\Cart.cs" />
+    <Compile Include="Models\Tables\ShopCart\Order.cs" />
+    <Compile Include="Models\Tables\ShopCart\Product.cs" />
     <Compile Include="Models\Tables\Specialite.cs" />
     <Compile Include="Models\Tables\Usine.cs" />
     <Compile Include="Models\ViewModels\DashboardViewModel.cs" />
-    <Compile Include="Models\ViewModels\HomeIndexViewModel.cs" />
     <Compile Include="Models\ViewModels\MedicamentListBox.cs" />
     <Compile Include="Models\ViewModels\MultipleData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -461,9 +464,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet3.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Repository\GenericRepository.cs" />
-    <Compile Include="Repository\GenericUnitOfWork.cs" />
-    <Compile Include="Repository\IRepository.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Validations\MyAppointmentDateValidation.cs" />
@@ -4297,22 +4297,12 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Consultations\CreateRDV.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Sales\Create.cshtml" />
-    <Content Include="Views\Sales\Delete.cshtml" />
-    <Content Include="Views\Sales\Details.cshtml" />
-    <Content Include="Views\Sales\Edit.cshtml" />
-    <Content Include="Views\Sales\Index.cshtml" />
     <Content Include="Views\Shared\MedicamentsLayout\adminLayout.cshtml" />
-    <Content Include="Views\Admin\Dashboard.cshtml" />
-    <Content Include="Views\Admin\Categories.cshtml" />
-    <Content Include="Views\Admin\Product.cshtml" />
-    <Content Include="Views\Admin\ProductEdit.cshtml" />
-    <Content Include="Views\Admin\ProductAdd.cshtml" />
-    <Content Include="Views\TestProducts\Create.cshtml" />
-    <Content Include="Views\TestProducts\Delete.cshtml" />
-    <Content Include="Views\TestProducts\Details.cshtml" />
-    <Content Include="Views\TestProducts\Edit.cshtml" />
-    <Content Include="Views\TestProducts\Index.cshtml" />
+    <Content Include="Views\Medicaments\SpecialitePartial.cshtml" />
+    <Content Include="Views\Medicaments\ProductPartial.cshtml" />
+    <Content Include="Views\Medicaments\ProductIndex.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\Medicaments\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -4333,8 +4323,11 @@
     <EmbeddedResource Include="Migrations\202007291233576_AddTableMedecinConventionne.resx">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011030831307_CreateDb.resx">
-      <DependentUpon>202011030831307_CreateDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202011121107178_CreateDb.resx">
+      <DependentUpon>202011121107178_CreateDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011131003040_Order.resx">
+      <DependentUpon>202011131003040_Order.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

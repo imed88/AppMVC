@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using WebApplication4.Models.Tables;
+using WebApplication4.Models.Tables.ShopCart;
 
 namespace WebApplication4.Models
 {
@@ -16,8 +17,10 @@ namespace WebApplication4.Models
         //public virtual ICollection<AppointementModel> Appointments { get; set; }
         //public virtual ICollection<Medicament> Medicaments { get; set; }
         public virtual ICollection<Consultation> Consultations { get; set; }
-       // public virtual ICollection<ConsultationOrdonnance> Ordonnances { get; set; }
-       
+
+        // public virtual ICollection<ConsultationOrdonnance> Ordonnances { get; set; }
+      
+
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -64,15 +67,8 @@ namespace WebApplication4.Models
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.RDV> RDV { get; set; }
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Medicaments> Medicaments { get; set; }
 
-        public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Product> Products { get; set; }
+        public System.Data.Entity.DbSet<WebApplication4.Models.Tables.ShopCart.Product> Products { get; set; }
 
-
-
-        //public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Medicine.tbl_product> tbl_product { get; set; }
-        //public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Medicine.tbl_invoice> tbl_invoice { get; set; }
-        //public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Medicine.tbl_order> tbl_order { get; set; }
-        //public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Medicine.ProductPurchase> productPurchase { get; set; }
-
-
+       
     }
 }

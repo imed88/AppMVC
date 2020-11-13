@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using WebApplication4.Models.Tables.ShopCart;
 //using WebApplication4.Models.Tables.Medicine;
 
 namespace WebApplication4.Models.Tables
@@ -32,7 +33,9 @@ namespace WebApplication4.Models.Tables
 
         public virtual ICollection<AppointementModel> Appointments { get; set; }
         public virtual ICollection<Consultation> Consultations { get; set; }
-       
+        
+        public virtual ICollection<Order> Orders { get; set; }
+
 
 
 

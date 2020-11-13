@@ -22,7 +22,7 @@ namespace WebApplication4.Controllers
                 Appoint_count = db.AppointementModels.Count(),
                 Usine_count = db.Usines.Count(),
                 Consultations_count = db.Consultations.Count(),
-                //Product_count = db.tbl_product.Count()
+                //Product_count = db.Products.Count()
             };
             return View(dashboard);
         }

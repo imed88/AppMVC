@@ -1,0 +1,29 @@
+﻿@model IEnumerable<WebApplication4.Models.Tables.Specialite>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MedicamentsLayout/adminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        @*<li>
+                @Html.DisplayFor(modelItem => item.SpecialiteName)
+            </li>*@
+
+        <div class="card">
+            <div class="card-body">
+                @Html.DisplayFor(modelItem => item.SpecialiteName)
+            </div>
+        </div>
+
+    }
+</div>
+
+
