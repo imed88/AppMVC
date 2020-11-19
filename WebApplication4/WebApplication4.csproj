@@ -403,6 +403,18 @@
     <Compile Include="Migrations\202011131003040_Order.Designer.cs">
       <DependentUpon>202011131003040_Order.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011131012208_OrderDetail.cs" />
+    <Compile Include="Migrations\202011131012208_OrderDetail.Designer.cs">
+      <DependentUpon>202011131012208_OrderDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011150117322_OrderModif.cs" />
+    <Compile Include="Migrations\202011150117322_OrderModif.Designer.cs">
+      <DependentUpon>202011150117322_OrderModif.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011150122298_OrderModif1.cs" />
+    <Compile Include="Migrations\202011150122298_OrderModif1.Designer.cs">
+      <DependentUpon>202011150122298_OrderModif1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CheckBoxItem.cs" />
@@ -421,6 +433,8 @@
     <Compile Include="Models\Tables\RoleViewModel.cs" />
     <Compile Include="Models\Tables\ShopCart\Cart.cs" />
     <Compile Include="Models\Tables\ShopCart\Order.cs" />
+    <Compile Include="Models\Tables\ShopCart\OrderDetail.cs" />
+    <Compile Include="Models\Tables\ShopCart\PatientsViewModel.cs" />
     <Compile Include="Models\Tables\ShopCart\Product.cs" />
     <Compile Include="Models\Tables\Specialite.cs" />
     <Compile Include="Models\Tables\Usine.cs" />
@@ -4303,6 +4317,8 @@
     <Content Include="Views\Medicaments\ProductIndex.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\Medicaments\Details.cshtml" />
+    <Content Include="Views\ShoppingCart\Checkout.cshtml" />
+    <Content Include="Views\ShoppingCart\ShowPatients.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -4328,6 +4344,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011131003040_Order.resx">
       <DependentUpon>202011131003040_Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011131012208_OrderDetail.resx">
+      <DependentUpon>202011131012208_OrderDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011150117322_OrderModif.resx">
+      <DependentUpon>202011150117322_OrderModif.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011150122298_OrderModif1.resx">
+      <DependentUpon>202011150122298_OrderModif1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

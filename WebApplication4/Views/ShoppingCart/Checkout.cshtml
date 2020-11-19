@@ -1,0 +1,163 @@
+﻿@using WebApplication4.Models;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MedicamentsLayout/adminLayout.cshtml";
+}
+<script src="~/Scripts/jquery-3.5.1.min.js"></script>
+<h2>Check out shopping cart</h2>
+@{
+    if (Session["Cart"] != null)
+    {
+
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                @*<th>SubTotal</th>*@
+            </tr>
+            @foreach (var cart in (List<WebApplication4.Models.Tables.ShopCart.Cart>)Session["Cart"])
+            {
+                <tr>
+                    <td>
+                        @*@cart.Product.ProductName*@
+                        @Html.ActionLink(cart.Product.ProductName, "Details"
+                 , "Medicaments", new { id = cart.Product.ProductID }, null)
+
+                    </td>
+                    <td>
+                        @*@cart.Quantity*@
+                        <input type="text" name="quantity" id="quantity" value="@cart.Quantity" readonly />
+
+                    </td>
+                    @*<td>@(String.Format("{0}", cart.Quantity))</td>*@
+
+
+                </tr>
+
+            }
+
+            <tr>
+                <td>
+                    Total :
+                </td>
+                <td>
+                    @{
+                        List<WebApplication4.Models.Tables.ShopCart.Cart> temp = (List<WebApplication4.Models.Tables.ShopCart.Cart>)Session["Cart"];
+                        var total = String.Format("{0}", temp.Sum(x => x.Quantity));
+                    }
+                    @total
+                </td>
+            </tr>
+        </table>
+        <br />
+
+
+
+    }
+    else
+    {
+        <h4>No items in your cart !!</h4>
+    }
+
+}
+<br />
+@using (Html.BeginForm("Checkout", "ShoppingCart", FormMethod.Post))
+{
+    <div>
+        @Html.Label("Nom du Patient:")
+        @Html.TextBox("searching")
+        @*<input id="submit" type="submit" value="Rechercher" />*@
+        <button type="submit" value="" class="btn btn-warning glyphicon glyphicon-search " />
+    </div>
+}
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Usines.UsineName)*@
+            @Html.ActionLink("Usine", "Index", new { order = ViewBag.UsineNameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.First().MatriculePatients)*@
+            @Html.Label("Matricule du patient", htmlAttributes: new { @class = "control-label col-9" })
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.NomPatient)*@
+            @Html.ActionLink("Nom Patient", "Index", new { order = ViewBag.LastNameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.PrenomPatient)*@
+            @Html.ActionLink("Prenom Patient", "Index", new { order = ViewBag.FirstNameSortParm, currentFilter = ViewBag.CurrentFilter })
+
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.First().Gender)*@
+            @Html.Label("Sexe", htmlAttributes: new { @class = "control-label col-2" })
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.First().PhonePatients)*@
+            @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-2" })
+        </th>
+
+        <th>
+            @*@Html.DisplayNameFor(model => model.First().PhonePatients)*@
+            @Html.Label("Date de naissance", htmlAttributes: new { @class = "control-label col-2" })
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.First().PhonePatients)*@
+            @Html.Label("Lien de parenté", htmlAttributes: new { @class = "control-label col-2" })
+        </th>
+
+    </tr>
+
+    @foreach (var item in ViewBag.Patientable)
+    {
+        <tr>
+            <td>
+                <input type="submit"
+                       formaction="/ShoppingCart/Checkout/@item.CustomerID"
+                       value="Select" />
+            </td>
+            <td>
+                @item.Usines.UsineName
+            </td>
+            <td>
+                @item.MatriculePatients
+            </td>
+            <td>
+                @item.NomPatient
+            </td>
+            <td>
+                @item.PrenomPatient
+            </td>
+            <td>
+                @item.Gender
+            </td>
+            <td>
+                @item.PhonePatients
+            </td>
+            <td>
+                @item.DOB
+            </td>
+            <td>
+                @item.Parente
+            </td>
+
+        </tr>}
+</table>
+<script>
+    $("input[type=checkbox]").on('change', function () {
+        if ($(this).prop('checked')) {
+            $(this).parent().parent().css('background-color', "#ABEBC6");
+            $(this).parent().parent().css('color', "black");
+        }
+        else {
+
+            $(this).parent().parent().css('background-color', "");
+            $(this).parent().parent().css('color', "");
+        }
+
+
+
+    });
+</script>

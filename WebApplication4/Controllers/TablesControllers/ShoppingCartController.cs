@@ -5,6 +5,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication4.Models;
+using WebApplication4.Models.Tables;
 using WebApplication4.Models.Tables.ShopCart;
 
 namespace WebApplication4.Controllers.TablesControllers
@@ -91,7 +92,50 @@ namespace WebApplication4.Controllers.TablesControllers
             return View("Index");
         }
 
-        
+
+        public ActionResult Checkout(string searching)
+        {
+            //var datatable = from s in db.Patients select s;
+            //if(!String.IsNullOrEmpty(searching))
+            //{
+            //    datatable = datatable.Where(s=>s.PrenomPatient.Contains(searching));
+            //}
+            //ViewBag.Patientable = datatable;
+            PatientsViewModel model = new PatientsViewModel();
+            model.Patients = db.Patients.OrderBy(
+                    m => m.IdPatients).Take(5).ToList();
+            model.SelectedCustomer = null;
+            return View(model);
+           
+        }
+
+        [HttpPost]
+        public ActionResult Select(string id)
+        {
+          
+                PatientsViewModel model = new PatientsViewModel();
+                model.Patients = db.Patients.OrderBy(
+                            m => m.IdPatients).Take(5).ToList();
+                model.SelectedCustomer = db.Patients.Find(id);
+                model.DisplayMode = "ReadOnly";
+                return View("Index", model);
+            
+        }
+
+
+        public ActionResult ProcessOrder()
+        {
+            
+
+
+
+
+
+            return RedirectToAction("Index");
+            
+        }
+
+
 
 
     }

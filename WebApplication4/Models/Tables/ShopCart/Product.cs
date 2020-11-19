@@ -23,6 +23,7 @@ namespace WebApplication4.Models.Tables.ShopCart
         public string Image { get; set; }
 
         public bool IsNew { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
     }
 }

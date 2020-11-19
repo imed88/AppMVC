@@ -10,11 +10,13 @@ namespace WebApplication4.Models.Tables.ShopCart
     {
         [Key]
         public int OrderID { get; set; }
-        public string OrderName { get; set; }
+    
         public DateTime OrderDate { get; set; }
-        public bool Status { get; set; }
+       
         public int idPatients { get; set; }
         public virtual Patients Patients { get; set; }
+
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
 
     }

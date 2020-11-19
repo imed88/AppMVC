@@ -1,0 +1,28 @@
+﻿@model WebApplication4.Models.Tables.Patients
+
+<table border="1" cellpadding="10">
+    <tr>
+        <td>Customer ID :</td>
+        <td>@Model.CustomerID</td>
+    </tr>
+    <tr>
+        <td>Company Name :</td>
+        <td>@Model.CompanyName</td>
+    </tr>
+    <tr>
+        <td>Contact Name :</td>
+        <td>@Model.ContactName</td>
+    </tr>
+    <tr>
+        <td>Country :</td>
+        <td>@Model.Country</td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input type="submit" value="Edit"
+                   formaction="/home/edit/@Model.CustomerID" />
+            <input type="submit" value="Cancel"
+                   formaction="/home/index" />
+        </td>
+    </tr>
+</table>

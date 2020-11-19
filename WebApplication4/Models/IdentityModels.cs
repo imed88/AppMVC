@@ -68,7 +68,8 @@ namespace WebApplication4.Models
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Medicaments> Medicaments { get; set; }
 
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.ShopCart.Product> Products { get; set; }
+        public System.Data.Entity.DbSet<WebApplication4.Models.Tables.ShopCart.OrderDetail> OrderDetails { get; set; }
 
-       
+
     }
 }
