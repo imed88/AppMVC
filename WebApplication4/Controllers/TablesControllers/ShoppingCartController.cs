@@ -102,9 +102,12 @@ namespace WebApplication4.Controllers.TablesControllers
             //}
             //ViewBag.Patientable = datatable;
             PatientsViewModel model = new PatientsViewModel();
-            model.Patients = db.Patients.OrderBy(
+            if (!String.IsNullOrEmpty(searching))
+            { 
+                model.Patients = db.Patients.Where(s => s.PrenomPatient.Contains(searching)).OrderBy(
                     m => m.IdPatients).Take(5).ToList();
             model.SelectedCustomer = null;
+                }
             return View(model);
            
         }
