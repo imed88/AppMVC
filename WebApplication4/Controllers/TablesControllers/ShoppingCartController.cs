@@ -100,14 +100,13 @@ namespace WebApplication4.Controllers.TablesControllers
 
         }
 
-
+        [HttpPost]
         public ActionResult ProcessOrder(FormCollection frc)
         {
             List<Cart> lstCart = (List<Cart>)Session[strCart];
             //Save to order
             Order order = new Order()
             {
-              ConsultationID = Convert.ToInt32(frc["Consultation"]),
               OrderDate = DateTime.Now,
             };
             db.Orders.Add(order);
@@ -119,7 +118,9 @@ namespace WebApplication4.Controllers.TablesControllers
                 {
                     OrderID=order.OrderID,
                     ProductID=cart.Product.ProductID,
-                    Quantity = cart.Quantity
+                    Quantity = cart.Quantity,
+                    ConsultationID = Convert.ToInt32(frc["Consultation"]),
+
                 };
 
                 db.OrderDetails.Add(orderDetail);

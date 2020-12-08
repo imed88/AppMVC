@@ -43,7 +43,7 @@ namespace WebApplication4.Models.Tables
         [Display(Name = "Date de consultation")]
         public DateTime DateCreated { get;  set; }
 
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
         //public virtual ICollection<tbl_order> order { get; set; }
         //public virtual ICollection<tbl_invoice> invoice { get; set; }

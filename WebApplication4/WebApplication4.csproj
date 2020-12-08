@@ -395,9 +395,17 @@
     <Compile Include="Migrations\202007291233576_AddTableMedecinConventionne.Designer.cs">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202012081341063_CreateDb.cs" />
-    <Compile Include="Migrations\202012081341063_CreateDb.Designer.cs">
-      <DependentUpon>202012081341063_CreateDb.cs</DependentUpon>
+    <Compile Include="Migrations\202012082054271_CreateDb.cs" />
+    <Compile Include="Migrations\202012082054271_CreateDb.Designer.cs">
+      <DependentUpon>202012082054271_CreateDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012082141260_Modifs1.cs" />
+    <Compile Include="Migrations\202012082141260_Modifs1.Designer.cs">
+      <DependentUpon>202012082141260_Modifs1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012082206283_Modifs2.cs" />
+    <Compile Include="Migrations\202012082206283_Modifs2.Designer.cs">
+      <DependentUpon>202012082206283_Modifs2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -4324,8 +4332,14 @@
     <EmbeddedResource Include="Migrations\202007291233576_AddTableMedecinConventionne.resx">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012081341063_CreateDb.resx">
-      <DependentUpon>202012081341063_CreateDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012082054271_CreateDb.resx">
+      <DependentUpon>202012082054271_CreateDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012082141260_Modifs1.resx">
+      <DependentUpon>202012082141260_Modifs1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012082206283_Modifs2.resx">
+      <DependentUpon>202012082206283_Modifs2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

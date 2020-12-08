@@ -11,7 +11,12 @@ namespace WebApplication4.Models.Tables.ShopCart
         [Key]
         public int OrderDetailID { get; set; }
         public int OrderID { get; set; }
+        public virtual Order Orders { get; set; }
         public int ProductID { get; set; }
+        public virtual Product Products { get; set; }
         public int Quantity { get; set; }
+
+        public int ConsultationID { get; set; }
+        public virtual Consultation Consultation { get; set; }
     }
 }
