@@ -15,5 +15,7 @@ namespace WebApplication4.Models.Tables.ShopCart
             Product = product;
             Quantity = quantity;
         }
+
+
     }
 }

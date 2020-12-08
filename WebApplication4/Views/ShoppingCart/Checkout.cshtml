@@ -21,8 +21,7 @@
                 <tr>
                     <td>
                         @*@cart.Product.ProductName*@
-                        @Html.ActionLink(cart.Product.ProductName, "Details"
-                 , "Medicaments", new { id = cart.Product.ProductID }, null)
+                        @Html.ActionLink(cart.Product.ProductName, "Details", "Medicaments", new { id = cart.Product.ProductID }, null)
 
                     </td>
                     <td>
@@ -62,103 +61,40 @@
 
 }
 <br />
-@using (Html.BeginForm("Checkout", "ShoppingCart", FormMethod.Post))
+@using (Html.BeginForm("ProcessOrder", "ShoppingCart", FormMethod.Post, new {id="customer-form"}))
 {
-    <div>
-        @Html.Label("Nom du Patient:")
-        @Html.TextBox("searching")
-        @*<input id="submit" type="submit" value="Rechercher" />*@
-        <button type="submit" value="" class="btn btn-warning glyphicon glyphicon-search " />
-    </div>
-}
-<table class="table">
+<table>
     <tr>
-        
-        <th>
-            @*@Html.DisplayNameFor(model => model.Usines.UsineName)*@
-            @Html.ActionLink("Usine", "Index", new { order = ViewBag.UsineNameSortParm, currentFilter = ViewBag.CurrentFilter })
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.First().MatriculePatients)*@
-            @Html.Label("Matricule du patient", htmlAttributes: new { @class = "control-label col-9" })
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.NomPatient)*@
-            @Html.ActionLink("Nom Patient", "Index", new { order = ViewBag.LastNameSortParm, currentFilter = ViewBag.CurrentFilter })
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.PrenomPatient)*@
-            @Html.ActionLink("Prenom Patient", "Index", new { order = ViewBag.FirstNameSortParm, currentFilter = ViewBag.CurrentFilter })
-
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.First().Gender)*@
-            @Html.Label("Sexe", htmlAttributes: new { @class = "control-label col-2" })
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.First().PhonePatients)*@
-            @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-2" })
-        </th>
-
-        <th>
-            @*@Html.DisplayNameFor(model => model.First().PhonePatients)*@
-            @Html.Label("Date de naissance", htmlAttributes: new { @class = "control-label col-2" })
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.First().PhonePatients)*@
-            @Html.Label("Lien de parenté", htmlAttributes: new { @class = "control-label col-2" })
-        </th>
-
+        <td colspan="2" style="text-align:center">Information du Patient</td>
+    </tr>
+      <tr>
+        <td>N° Consultation</td>
+        <td>
+            @Html.DropDownList("Consultations", null, htmlAttributes: new { @class = "form-control", @id = "Consultations", @name="Consultations" })
+        </td>
     </tr>
 
-    @foreach (var item in Model.Patients)
-    {
-        <tr>
-            @*<td>
-                <input type="submit"
-                       formaction="/ShoppingCart/Checkout/@item.CustomerID"
-                       value="Select" />
-            </td>*@
-            <td>
-                @item.Usines.UsineName
-            </td>
-            <td>
-                @item.MatriculePatients
-            </td>
-            <td>
-                @item.NomPatient
-            </td>
-            <td>
-                @item.PrenomPatient
-            </td>
-            <td>
-                @item.Gender
-            </td>
-            <td>
-                @item.PhonePatients
-            </td>
-            <td>
-                @item.DOB
-            </td>
-            <td>
-                @item.Parente
-            </td>
-
-        </tr>}
+    <tr>
+        <td colspan="2">
+            <input type="submit" value="Process Order" class="btn btn-info" />
+        </td>
+    </tr>
 </table>
+}
+
 <script>
-    $("input[type=checkbox]").on('change', function () {
-        if ($(this).prop('checked')) {
-            $(this).parent().parent().css('background-color', "#ABEBC6");
-            $(this).parent().parent().css('color', "black");
+    $("#customer-form").validate({
+        rules: {
+            Patients: {
+                required:true
+            },
+            Consultations: {
+                required: true
+            }
+
         }
-        else {
-
-            $(this).parent().parent().css('background-color', "");
-            $(this).parent().parent().css('color', "");
-        }
-
-
-
     });
 </script>
+
+
+

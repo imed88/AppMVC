@@ -7,8 +7,8 @@ namespace WebApplication4.Models.Tables.ShopCart
 {
     public class PatientsViewModel
     {
-        public List<Patients> Patients { get; set; }
-        public Patients SelectedCustomer { get; set; }
-        public string DisplayMode { get; set; }
+        public IEnumerable<Patients> Patients { get; set; }
+        public IEnumerable<Consultation> Consultations { get; set; }
+      
     }
 }

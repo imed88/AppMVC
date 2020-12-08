@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication4.Models.Tables.ShopCart;
 //using WebApplication4.Models.Tables.Medicine;
 
 namespace WebApplication4.Models.Tables
@@ -31,18 +32,18 @@ namespace WebApplication4.Models.Tables
         public int idPatients { get; set; }
         public virtual Patients Patient { get; set; }
 
+
         [Required] //Changes V2
         [DisplayName("Nature de la visite")]
         public string natureVisite { get; set; }
       
 
-
-
-
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0: dd/MM/yyyy}")]
         [Display(Name = "Date de consultation")]
         public DateTime DateCreated { get;  set; }
+
+        public virtual ICollection<Order> Orders { get; set; }
 
         //public virtual ICollection<tbl_order> order { get; set; }
         //public virtual ICollection<tbl_invoice> invoice { get; set; }

@@ -45,6 +45,10 @@
             <tr>
                 <th>
                     @*@Html.DisplayNameFor(model => model.First().DateCreated)*@
+                    @Html.Label("N° consultation", htmlAttributes: new { @class = "control-label col-12" })
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.First().DateCreated)*@
                     @Html.Label("Date de consultation", htmlAttributes: new { @class = "control-label col-12" })
                 </th>
                 <th>
@@ -55,7 +59,7 @@
                     @*@Html.DisplayNameFor(model => model.First().Patient.PrenomPatient)*@
                     @Html.ActionLink("Nom du patient", "Index", new { order = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
                 </th>
-             
+
                 <th>
                     @*@Html.DisplayNameFor(model => model.First().diagnostic)*@
                     @Html.Label("Diagnostic", htmlAttributes: new { @class = "control-label col-5" })
@@ -67,6 +71,7 @@
             @foreach (var item in Model)
             {
             <tr>
+                <td> @Html.DisplayFor(modelItem => item.ConsultationID)</td>
                 <td> @Html.DisplayFor(modelItem => item.DateCreated, new { @value = DateTime.Today, @readonly = "readonly" })</td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)

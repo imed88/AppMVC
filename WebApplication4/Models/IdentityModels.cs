@@ -65,9 +65,11 @@ namespace WebApplication4.Models
         public DbSet<FileDetail> FileDetails { get; set; }
 
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.RDV> RDV { get; set; }
-        public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Medicaments> Medicaments { get; set; }
+       // public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Medicaments> Medicaments { get; set; }
 
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.ShopCart.Product> Products { get; set; }
+        public System.Data.Entity.DbSet<WebApplication4.Models.Tables.ShopCart.Order> Orders { get; set; }
+
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.ShopCart.OrderDetail> OrderDetails { get; set; }
 
 

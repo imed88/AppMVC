@@ -395,25 +395,9 @@
     <Compile Include="Migrations\202007291233576_AddTableMedecinConventionne.Designer.cs">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011121107178_CreateDb.cs" />
-    <Compile Include="Migrations\202011121107178_CreateDb.Designer.cs">
-      <DependentUpon>202011121107178_CreateDb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011131003040_Order.cs" />
-    <Compile Include="Migrations\202011131003040_Order.Designer.cs">
-      <DependentUpon>202011131003040_Order.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011131012208_OrderDetail.cs" />
-    <Compile Include="Migrations\202011131012208_OrderDetail.Designer.cs">
-      <DependentUpon>202011131012208_OrderDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011150117322_OrderModif.cs" />
-    <Compile Include="Migrations\202011150117322_OrderModif.Designer.cs">
-      <DependentUpon>202011150117322_OrderModif.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011150122298_OrderModif1.cs" />
-    <Compile Include="Migrations\202011150122298_OrderModif1.Designer.cs">
-      <DependentUpon>202011150122298_OrderModif1.cs</DependentUpon>
+    <Compile Include="Migrations\202012081341063_CreateDb.cs" />
+    <Compile Include="Migrations\202012081341063_CreateDb.Designer.cs">
+      <DependentUpon>202012081341063_CreateDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -4318,6 +4302,8 @@
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\Medicaments\Details.cshtml" />
     <Content Include="Views\ShoppingCart\Checkout.cshtml" />
+    <Content Include="Views\Medicaments\ShowPatients.cshtml" />
+    <Content Include="Views\ShoppingCart\OrderSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -4338,20 +4324,8 @@
     <EmbeddedResource Include="Migrations\202007291233576_AddTableMedecinConventionne.resx">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011121107178_CreateDb.resx">
-      <DependentUpon>202011121107178_CreateDb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011131003040_Order.resx">
-      <DependentUpon>202011131003040_Order.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011131012208_OrderDetail.resx">
-      <DependentUpon>202011131012208_OrderDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011150117322_OrderModif.resx">
-      <DependentUpon>202011150117322_OrderModif.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011150122298_OrderModif1.resx">
-      <DependentUpon>202011150122298_OrderModif1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012081341063_CreateDb.resx">
+      <DependentUpon>202012081341063_CreateDb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

@@ -93,53 +93,51 @@ namespace WebApplication4.Controllers.TablesControllers
         }
 
 
-        public ActionResult Checkout(string searching)
+        public ActionResult Checkout()
         {
-            //var datatable = from s in db.Patients select s;
-            //if(!String.IsNullOrEmpty(searching))
-            //{
-            //    datatable = datatable.Where(s=>s.PrenomPatient.Contains(searching));
-            //}
-            //ViewBag.Patientable = datatable;
-            PatientsViewModel model = new PatientsViewModel();
-            if (!String.IsNullOrEmpty(searching))
-            { 
-                model.Patients = db.Patients.Where(s => s.PrenomPatient.Contains(searching)).OrderBy(
-                    m => m.IdPatients).Take(5).ToList();
-            model.SelectedCustomer = null;
-                }
-            return View(model);
-           
-        }
+            ViewBag.Consultations = new SelectList(db.Consultations, "ConsultationID", "ConsultationID");
+            return View();
 
-        [HttpPost]
-        public ActionResult Select(string id)
-        {
-          
-                PatientsViewModel model = new PatientsViewModel();
-                model.Patients = db.Patients.OrderBy(
-                            m => m.IdPatients).Take(5).ToList();
-                model.SelectedCustomer = db.Patients.Find(id);
-                model.DisplayMode = "ReadOnly";
-                return View("Index", model);
-            
         }
 
 
-        public ActionResult ProcessOrder()
+        public ActionResult ProcessOrder(FormCollection frc)
         {
-            
+            List<Cart> lstCart = (List<Cart>)Session[strCart];
+            //Save to order
+            Order order = new Order()
+            {
+              ConsultationID = Convert.ToInt32(frc["Consultation"]),
+              OrderDate = DateTime.Now,
+            };
+            db.Orders.Add(order);
+            db.SaveChanges();
+            //save to order detail
+            foreach (Cart cart in lstCart)
+            {
+                OrderDetail orderDetail = new OrderDetail()
+                {
+                    OrderID=order.OrderID,
+                    ProductID=cart.Product.ProductID,
+                    Quantity = cart.Quantity
+                };
 
-
-
-
-
-            return RedirectToAction("Index");
-            
+                db.OrderDetails.Add(orderDetail);
+                db.SaveChanges();
+            }
+            //Remove shopping session
+            Session.Remove(strCart);
+            return View("OrderSuccess");
         }
-
-
 
 
     }
+
+
+
+
+
+
+
+    
 }

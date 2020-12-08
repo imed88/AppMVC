@@ -13,9 +13,10 @@ namespace WebApplication4.Models.Tables.ShopCart
     
         public DateTime OrderDate { get; set; }
        
-        public int idPatients { get; set; }
-        public virtual Patients Patients { get; set; }
+        public int ConsultationID { get; set; }
+        public virtual Consultation Consultations { get; set; }
 
+       
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
 
