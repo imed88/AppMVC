@@ -1,0 +1,62 @@
+﻿@using WebApplication4.Models;
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<WebApplication4.Models.Tables.ShopCart.Order>
+
+@{
+    ViewBag.Title = "Index";
+   
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            OrderID
+        </th>
+        <th>
+           OrderDate
+        </th>
+        <th>
+            MatriculePatients 
+            
+        </th>
+        <th>
+            ConsultationID 
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MatriculePatients)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConsultationID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.OrderID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.OrderID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.OrderID })
+        </td>
+    </tr>
+}
+
+</table>
+
+
+<div class="clear"></div>
+Page@(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+<div class="div-pagination">
+    @Html.PagedListPager(Model, page=>Url.Action("Index", new {page=page}))
+</div>

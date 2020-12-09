@@ -95,19 +95,21 @@ namespace WebApplication4.Controllers.TablesControllers
 
         public ActionResult Checkout()
         {
-            ViewBag.Consultations = new SelectList(db.Consultations, "ConsultationID", "ConsultationID");
             return View();
 
         }
 
         [HttpPost]
-        public ActionResult ProcessOrder(FormCollection frc)
+        public ActionResult ProcessOrder(FormCollection frc )
         {
             List<Cart> lstCart = (List<Cart>)Session[strCart];
             //Save to order
             Order order = new Order()
             {
+              
               OrderDate = DateTime.Now,
+                ConsultationID = Convert.ToInt32(frc["NConsultation"]),
+                MatriculePatients = frc["MatriculePatient"]
             };
             db.Orders.Add(order);
             db.SaveChanges();
@@ -119,13 +121,15 @@ namespace WebApplication4.Controllers.TablesControllers
                     OrderID=order.OrderID,
                     ProductID=cart.Product.ProductID,
                     Quantity = cart.Quantity,
-                    ConsultationID = Convert.ToInt32(frc["Consultation"]),
+                   
 
                 };
 
                 db.OrderDetails.Add(orderDetail);
                 db.SaveChanges();
             }
+            ViewBag.Consultations = new SelectList(db.Consultations, "ConsultationID", "ConsultationID");
+
             //Remove shopping session
             Session.Remove(strCart);
             return View("OrderSuccess");
