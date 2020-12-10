@@ -128,7 +128,44 @@ namespace WebApplication4.Controllers.TablesControllers
                 db.OrderDetails.Add(orderDetail);
                 db.SaveChanges();
             }
-            ViewBag.Consultations = new SelectList(db.Consultations, "ConsultationID", "ConsultationID");
+
+            //Create PDF File
+            var OneBlog = (from e in db.Orders
+                        join p in db.Consultations
+                        on e.ConsultationID equals p.ConsultationID
+                        join s in db.OrderDetails
+                        on e.OrderID equals s.OrderID
+                        join t in db.Products
+                        on s.ProductID equals t.ProductID
+                        where e.ConsultationID ==p.ConsultationID 
+                        select new
+                        {
+                            Message = e.Message,
+                            ApplyDate=e.ApplyDate,
+                            MatriculePatients = s.MatriculePatients,
+                            NomPatient = s.NomPatient,
+                            PrenomPatient = s.PrenomPatient,
+                            UserName = t.UserName
+
+                        }).ToList();
+
+
+
+
+
+
+          ReportDocument rd = new ReportDocument();
+          rd.Load(Path.Combine(Server.MapPath("~/Report"), "CrystalReport2.rpt"));
+          rd.SetDataSource(OneBlog);
+
+          Response.Buffer = false;
+          Response.ClearContent();
+          Response.ClearHeaders();
+
+          Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+          stream.Seek(0, SeekOrigin.Begin);
+          return File(stream, "application/pdf", "BlogList.pdf");
+          
 
             //Remove shopping session
             Session.Remove(strCart);

@@ -279,9 +279,9 @@ namespace WebApplication4.Report {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class DataTable1DataTable : global::System.Data.TypedTableBase<DataTable1Row> {
             
-            private global::System.Data.DataColumn columnMessage;
+            private global::System.Data.DataColumn columnProductName;
             
-            private global::System.Data.DataColumn columnApplyDate;
+            private global::System.Data.DataColumn columnConsultationID;
             
             private global::System.Data.DataColumn columnMatriculePatients;
             
@@ -289,7 +289,11 @@ namespace WebApplication4.Report {
             
             private global::System.Data.DataColumn columnPrenomPatient;
             
-            private global::System.Data.DataColumn columnUserName;
+            private global::System.Data.DataColumn columnDateCreated;
+            
+            private global::System.Data.DataColumn columnOrderDate;
+            
+            private global::System.Data.DataColumn columnQuantity;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -326,17 +330,17 @@ namespace WebApplication4.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn MessageColumn {
+            public global::System.Data.DataColumn ProductNameColumn {
                 get {
-                    return this.columnMessage;
+                    return this.columnProductName;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ApplyDateColumn {
+            public global::System.Data.DataColumn ConsultationIDColumn {
                 get {
-                    return this.columnApplyDate;
+                    return this.columnConsultationID;
                 }
             }
             
@@ -366,9 +370,25 @@ namespace WebApplication4.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn UserNameColumn {
+            public global::System.Data.DataColumn DateCreatedColumn {
                 get {
-                    return this.columnUserName;
+                    return this.columnDateCreated;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn OrderDateColumn {
+                get {
+                    return this.columnOrderDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn QuantityColumn {
+                get {
+                    return this.columnQuantity;
                 }
             }
             
@@ -409,18 +429,27 @@ namespace WebApplication4.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string Message, System.DateTime ApplyDate, string MatriculePatients, string NomPatient, string PrenomPatient, string UserName) {
+            public DataTable1Row AddDataTable1Row(string ProductName, string MatriculePatients, string NomPatient, string PrenomPatient, System.DateTime DateCreated, System.DateTime OrderDate, int Quantity) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Message,
-                        ApplyDate,
+                        ProductName,
+                        null,
                         MatriculePatients,
                         NomPatient,
                         PrenomPatient,
-                        UserName};
+                        DateCreated,
+                        OrderDate,
+                        Quantity};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DataTable1Row FindByConsultationID(int ConsultationID) {
+                return ((DataTable1Row)(this.Rows.Find(new object[] {
+                            ConsultationID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -440,36 +469,50 @@ namespace WebApplication4.Report {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
-                this.columnMessage = base.Columns["Message"];
-                this.columnApplyDate = base.Columns["ApplyDate"];
+                this.columnProductName = base.Columns["ProductName"];
+                this.columnConsultationID = base.Columns["ConsultationID"];
                 this.columnMatriculePatients = base.Columns["MatriculePatients"];
                 this.columnNomPatient = base.Columns["NomPatient"];
                 this.columnPrenomPatient = base.Columns["PrenomPatient"];
-                this.columnUserName = base.Columns["UserName"];
+                this.columnDateCreated = base.Columns["DateCreated"];
+                this.columnOrderDate = base.Columns["OrderDate"];
+                this.columnQuantity = base.Columns["Quantity"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columnMessage = new global::System.Data.DataColumn("Message", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMessage);
-                this.columnApplyDate = new global::System.Data.DataColumn("ApplyDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnApplyDate);
+                this.columnProductName = new global::System.Data.DataColumn("ProductName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProductName);
+                this.columnConsultationID = new global::System.Data.DataColumn("ConsultationID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConsultationID);
                 this.columnMatriculePatients = new global::System.Data.DataColumn("MatriculePatients", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMatriculePatients);
                 this.columnNomPatient = new global::System.Data.DataColumn("NomPatient", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNomPatient);
                 this.columnPrenomPatient = new global::System.Data.DataColumn("PrenomPatient", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrenomPatient);
-                this.columnUserName = new global::System.Data.DataColumn("UserName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUserName);
-                this.columnMessage.MaxLength = 2147483647;
-                this.columnApplyDate.AllowDBNull = false;
+                this.columnDateCreated = new global::System.Data.DataColumn("DateCreated", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateCreated);
+                this.columnOrderDate = new global::System.Data.DataColumn("OrderDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOrderDate);
+                this.columnQuantity = new global::System.Data.DataColumn("Quantity", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQuantity);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnConsultationID}, true));
+                this.columnProductName.MaxLength = 2147483647;
+                this.columnConsultationID.AutoIncrement = true;
+                this.columnConsultationID.AutoIncrementSeed = -1;
+                this.columnConsultationID.AutoIncrementStep = -1;
+                this.columnConsultationID.AllowDBNull = false;
+                this.columnConsultationID.ReadOnly = true;
+                this.columnConsultationID.Unique = true;
                 this.columnMatriculePatients.MaxLength = 2147483647;
                 this.columnNomPatient.MaxLength = 2147483647;
                 this.columnPrenomPatient.MaxLength = 2147483647;
-                this.columnUserName.AllowDBNull = false;
-                this.columnUserName.MaxLength = 256;
+                this.columnDateCreated.AllowDBNull = false;
+                this.columnOrderDate.AllowDBNull = false;
+                this.columnQuantity.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -612,28 +655,28 @@ namespace WebApplication4.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Message {
+            public string ProductName {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.MessageColumn]));
+                        return ((string)(this[this.tableDataTable1.ProductNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Message\' dans la table \'DataTable1\' est DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'ProductName\' dans la table \'DataTable1\' est DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.MessageColumn] = value;
+                    this[this.tableDataTable1.ProductNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public System.DateTime ApplyDate {
+            public int ConsultationID {
                 get {
-                    return ((global::System.DateTime)(this[this.tableDataTable1.ApplyDateColumn]));
+                    return ((int)(this[this.tableDataTable1.ConsultationIDColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.ApplyDateColumn] = value;
+                    this[this.tableDataTable1.ConsultationIDColumn] = value;
                 }
             }
             
@@ -688,25 +731,47 @@ namespace WebApplication4.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string UserName {
+            public System.DateTime DateCreated {
                 get {
-                    return ((string)(this[this.tableDataTable1.UserNameColumn]));
+                    return ((global::System.DateTime)(this[this.tableDataTable1.DateCreatedColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.UserNameColumn] = value;
+                    this[this.tableDataTable1.DateCreatedColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsMessageNull() {
-                return this.IsNull(this.tableDataTable1.MessageColumn);
+            public System.DateTime OrderDate {
+                get {
+                    return ((global::System.DateTime)(this[this.tableDataTable1.OrderDateColumn]));
+                }
+                set {
+                    this[this.tableDataTable1.OrderDateColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetMessageNull() {
-                this[this.tableDataTable1.MessageColumn] = global::System.Convert.DBNull;
+            public int Quantity {
+                get {
+                    return ((int)(this[this.tableDataTable1.QuantityColumn]));
+                }
+                set {
+                    this[this.tableDataTable1.QuantityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsProductNameNull() {
+                return this.IsNull(this.tableDataTable1.ProductNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetProductNameNull() {
+                this[this.tableDataTable1.ProductNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -905,12 +970,14 @@ namespace WebApplication4.Report.DataSet2TableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "DataTable1";
-            tableMapping.ColumnMappings.Add("Message", "Message");
-            tableMapping.ColumnMappings.Add("ApplyDate", "ApplyDate");
+            tableMapping.ColumnMappings.Add("ProductName", "ProductName");
+            tableMapping.ColumnMappings.Add("ConsultationID", "ConsultationID");
             tableMapping.ColumnMappings.Add("MatriculePatients", "MatriculePatients");
             tableMapping.ColumnMappings.Add("NomPatient", "NomPatient");
             tableMapping.ColumnMappings.Add("PrenomPatient", "PrenomPatient");
-            tableMapping.ColumnMappings.Add("UserName", "UserName");
+            tableMapping.ColumnMappings.Add("DateCreated", "DateCreated");
+            tableMapping.ColumnMappings.Add("OrderDate", "OrderDate");
+            tableMapping.ColumnMappings.Add("Quantity", "Quantity");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -927,11 +994,12 @@ namespace WebApplication4.Report.DataSet2TableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Ordonnances.Message, Ordonnances.ApplyDate, Patients.MatriculePatients, Patients.NomPatient, Patients.PrenomPatient, AspNetUsers.UserName
+            this._commandCollection[0].CommandText = @"SELECT        Products.ProductName, Consultations.ConsultationID, Patients.MatriculePatients, Patients.NomPatient, Patients.PrenomPatient, Consultations.DateCreated, Orders.OrderDate, OrderDetails.Quantity
 FROM            Consultations INNER JOIN
-                         Ordonnances ON Consultations.ConsultationID = Ordonnances.ConsultationID INNER JOIN
+                         Orders ON Consultations.ConsultationID = Orders.ConsultationID INNER JOIN
+                         OrderDetails ON Orders.OrderID = OrderDetails.OrderID INNER JOIN
                          Patients ON Consultations.idPatients = Patients.IdPatients INNER JOIN
-                         AspNetUsers ON Consultations.UserID = AspNetUsers.Id";
+                         Products ON OrderDetails.ProductID = Products.ProductID";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

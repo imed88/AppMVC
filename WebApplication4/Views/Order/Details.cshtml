@@ -1,0 +1,69 @@
+﻿@model WebApplication4.Models.Tables.ShopCart.Order
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Order</h4>
+    Order : @Html.DisplayFor(model => model.OrderID)
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MatriculePatients)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatriculePatients)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Consultations.diagnostic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Consultations.diagnostic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Consultations.traitement)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Consultations.traitement)
+        </dd>
+
+
+
+
+    </dl>
+</div>
+
+<table class="table">
+    <tr>
+        <th>Product Name</th>
+        <th>Quantity</th>
+    </tr>
+    @foreach (var item in Model.OrderDetails)
+    {
+    <tr>
+        <td>@item.Products.ProductName</td>
+        <td>@item.Quantity</td>
+    </tr>
+    }
+</table>
+
+
+<p>
+    
+    @Html.ActionLink("Back to List", "Index")
+</p>

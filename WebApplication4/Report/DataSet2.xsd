@@ -12,23 +12,26 @@
               <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Ordonnances.Message, Ordonnances.ApplyDate, Patients.MatriculePatients, Patients.NomPatient, Patients.PrenomPatient, AspNetUsers.UserName
+                    <CommandText>SELECT        Products.ProductName, Consultations.ConsultationID, Patients.MatriculePatients, Patients.NomPatient, Patients.PrenomPatient, Consultations.DateCreated, Orders.OrderDate, OrderDetails.Quantity
 FROM            Consultations INNER JOIN
-                         Ordonnances ON Consultations.ConsultationID = Ordonnances.ConsultationID INNER JOIN
+                         Orders ON Consultations.ConsultationID = Orders.ConsultationID INNER JOIN
+                         OrderDetails ON Orders.OrderID = OrderDetails.OrderID INNER JOIN
                          Patients ON Consultations.idPatients = Patients.IdPatients INNER JOIN
-                         AspNetUsers ON Consultations.UserID = AspNetUsers.Id</CommandText>
+                         Products ON OrderDetails.ProductID = Products.ProductID</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="Message" DataSetColumn="Message" />
-              <Mapping SourceColumn="ApplyDate" DataSetColumn="ApplyDate" />
+              <Mapping SourceColumn="ProductName" DataSetColumn="ProductName" />
+              <Mapping SourceColumn="ConsultationID" DataSetColumn="ConsultationID" />
               <Mapping SourceColumn="MatriculePatients" DataSetColumn="MatriculePatients" />
               <Mapping SourceColumn="NomPatient" DataSetColumn="NomPatient" />
               <Mapping SourceColumn="PrenomPatient" DataSetColumn="PrenomPatient" />
-              <Mapping SourceColumn="UserName" DataSetColumn="UserName" />
+              <Mapping SourceColumn="DateCreated" DataSetColumn="DateCreated" />
+              <Mapping SourceColumn="OrderDate" DataSetColumn="OrderDate" />
+              <Mapping SourceColumn="Quantity" DataSetColumn="Quantity" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -40,17 +43,17 @@ FROM            Consultations INNER JOIN
   <xs:element name="DataSet2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet2" msprop:Generator_UserDSName="DataSet2">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Message" msprop:Generator_ColumnVarNameInTable="columnMessage" msprop:Generator_ColumnPropNameInRow="Message" msprop:Generator_ColumnPropNameInTable="MessageColumn" msprop:Generator_UserColumnName="Message" minOccurs="0">
+              <xs:element name="ProductName" msprop:Generator_ColumnVarNameInTable="columnProductName" msprop:Generator_ColumnPropNameInRow="ProductName" msprop:Generator_ColumnPropNameInTable="ProductNameColumn" msprop:Generator_UserColumnName="ProductName" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ApplyDate" msprop:Generator_ColumnVarNameInTable="columnApplyDate" msprop:Generator_ColumnPropNameInRow="ApplyDate" msprop:Generator_ColumnPropNameInTable="ApplyDateColumn" msprop:Generator_UserColumnName="ApplyDate" type="xs:dateTime" />
+              <xs:element name="ConsultationID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnConsultationID" msprop:Generator_ColumnPropNameInRow="ConsultationID" msprop:Generator_ColumnPropNameInTable="ConsultationIDColumn" msprop:Generator_UserColumnName="ConsultationID" type="xs:int" />
               <xs:element name="MatriculePatients" msprop:Generator_ColumnVarNameInTable="columnMatriculePatients" msprop:Generator_ColumnPropNameInRow="MatriculePatients" msprop:Generator_ColumnPropNameInTable="MatriculePatientsColumn" msprop:Generator_UserColumnName="MatriculePatients" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -72,17 +75,17 @@ FROM            Consultations INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="UserName" msprop:Generator_ColumnVarNameInTable="columnUserName" msprop:Generator_ColumnPropNameInRow="UserName" msprop:Generator_ColumnPropNameInTable="UserNameColumn" msprop:Generator_UserColumnName="UserName">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="256" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
+              <xs:element name="DateCreated" msprop:Generator_ColumnVarNameInTable="columnDateCreated" msprop:Generator_ColumnPropNameInRow="DateCreated" msprop:Generator_ColumnPropNameInTable="DateCreatedColumn" msprop:Generator_UserColumnName="DateCreated" type="xs:dateTime" />
+              <xs:element name="OrderDate" msprop:Generator_ColumnVarNameInTable="columnOrderDate" msprop:Generator_ColumnPropNameInRow="OrderDate" msprop:Generator_ColumnPropNameInTable="OrderDateColumn" msprop:Generator_UserColumnName="OrderDate" type="xs:dateTime" />
+              <xs:element name="Quantity" msprop:Generator_ColumnVarNameInTable="columnQuantity" msprop:Generator_ColumnPropNameInRow="Quantity" msprop:Generator_ColumnPropNameInTable="QuantityColumn" msprop:Generator_UserColumnName="Quantity" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>
     </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable1" />
+      <xs:field xpath="mstns:ConsultationID" />
+    </xs:unique>
   </xs:element>
 </xs:schema>
