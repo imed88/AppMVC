@@ -306,7 +306,7 @@ desired effect
     color: #660000; "><i class="fa fa-stethoscope"></i><span>Consultations</span></a>
                     </li>
                     <li class="treeview">
-                        <a href="@Url.Action("SpecialitePartial", "Medicaments")" class="shadow " style="background-color: #ffffff;
+                        <a href="@Url.Action("Index", "Produits")" class="shadow " style="background-color: #ffffff;
     color: #660000; ">
                             <i class="fa fa-shield"></i><span>Medicaments</span>
 
@@ -314,11 +314,25 @@ desired effect
 
                     </li>
                     <li class="treeview">
-                        <a href="@Url.Action("Index", "Order")" class="shadow " style="background-color: #ffffff;
-    color: #660000; ">
-                            <i class="fa fa-shield"></i><span>Ordonnances</span>
+                        @*<a href="@Url.Action("ProductIndex", "Medicaments")" class="shadow " style="background-color: #ffffff;
+        color: #660000; ">
+                                <i class="fa fa-shield"></i><span>Ordonnances</span>
 
+                            </a>*@
+
+                        <a href="#" class="shadow " style="background-color: #ffffff;
+    color: #660000; ">
+                            <i class="fa fa-cog"></i><span>Préscription</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
                         </a>
+                        <ul class="treeview-menu">
+                            <li><a href="@Url.Action("ProductIndex", "Medicaments")" class="textChange shadow navbar-user" id="TextColor">Nouvelle Ordonnance</a></li>
+                            <li><a href="@Url.Action("Index","Order")" class="textChange shadow" id="TextColor">Liste des ordonnances</a></li>
+                        </ul>
+
+
 
                     </li>
                     <li class="treeview">

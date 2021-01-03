@@ -3,41 +3,50 @@
 @using PagedList.Mvc
 @{
     ViewBag.Title = "ProductPartial";
-    Layout = "~/Views/Shared/MedicamentsLayout/adminLayout.cshtml";
+    Layout = "~/Views/Shared/adminlte/_mainLayout.cshtml";
 }
 
-<h2>ProductPartial</h2>
+<section class="content-header">
+    <h1>
+        Infirmerie
+        <small>Nouvelle ordonnance</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
+        <li class="active">Nouvelle Ordonnance</li>
+    </ol>
+</section>
+<section class="content">
+    @{
 
-@{
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="main-content col-sm-2">
+                    <div class="content-image">
+                        <a href='@Url.Action("Details", "Medicaments",new {id=item.ProductID}, null)'>
+                            <img src="@Url.Content("~/uploads/"+item.Image)" width="50" height="50" />
+                        </a>
+                    </div>
+                    <div class="content-title">
+                        Medicament : @*@item.ProductName*@
+                        @Html.ActionLink(item.ProductName,"Details", "Medicaments",
+                       new {id=item.ProductID}, null)
+                    </div>
 
-<div class="row">
-    @foreach (var item in Model)
-    {
-    <div class="main-content ">
-        <div class="content-image">
-            <a href='@Url.Action("Details", "Medicaments",new {id=item.ProductID}, null)'>
-            <img src="@Url.Content("~/uploads/"+item.Image)" width="50" height="50" /></a>
+                    <div class="content-quantity">
+                        @Html.ActionLink("Add to cart", "OrderNow", "ShoppingCart", new { id = item.ProductID }, null)
+                    </div>
+                </div>
+            }
         </div>
-        <div class="content-title">
-            Medicament : @*@item.ProductName*@
-            @Html.ActionLink(item.ProductName,"Details", "Medicaments", 
-           new {id=item.ProductID}, null)
-        </div>
-        <div class="content-quantity">
-            Quantité : @item.Quantity
-        </div>
-        <div class="content-quantity">
-           @Html.ActionLink("Add to cart","OrderNow","ShoppingCart", new { id = item.ProductID },null)
-        </div>
-    </div>
+
     }
-</div>
 
-}
+    <div class="clear"></div>
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount
 
-<div class="clear"></div>
-  Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount
-
-<div style="display:inline; padding:3">
-    @Html.PagedListPager(Model, page=>Url.Action("Index", new {page=page}))
-</div>
+    <div style="display:inline; padding:3">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </div>
+    </section>

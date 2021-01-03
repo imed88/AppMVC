@@ -47,39 +47,22 @@ namespace WebApplication4.Migrations
                 .PrimaryKey(t => t.IdSpecialite);
             
             CreateTable(
-                "dbo.Products",
+                "dbo.Patients",
                 c => new
                     {
-                        ProductID = c.Int(nullable: false, identity: true),
-                        ProductName = c.String(),
-                        IdSpecialite = c.Int(nullable: false),
-                        Quantity = c.Int(nullable: false),
-                        SellStartDate = c.DateTime(nullable: false),
-                        SellEndDate = c.DateTime(nullable: false),
-                        Image = c.String(),
-                        IsNew = c.Boolean(nullable: false),
+                        IdPatients = c.Int(nullable: false, identity: true),
+                        MatriculePatients = c.String(),
+                        NomPatient = c.String(),
+                        PrenomPatient = c.String(),
+                        Gender = c.String(),
+                        PhonePatients = c.String(),
+                        DOB = c.DateTime(nullable: false),
+                        Parente = c.String(),
+                        IdUsine = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.ProductID)
-                .ForeignKey("dbo.Specialites", t => t.IdSpecialite, cascadeDelete: true)
-                .Index(t => t.IdSpecialite);
-            
-            CreateTable(
-                "dbo.OrderDetails",
-                c => new
-                    {
-                        OrderDetailID = c.Int(nullable: false, identity: true),
-                        OrderID = c.Int(nullable: false),
-                        ProductID = c.Int(nullable: false),
-                        Quantity = c.Int(nullable: false),
-                        ConsultationID = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.OrderDetailID)
-                .ForeignKey("dbo.Consultations", t => t.ConsultationID, cascadeDelete: true)
-                .ForeignKey("dbo.Orders", t => t.OrderID, cascadeDelete: true)
-                .ForeignKey("dbo.Products", t => t.ProductID, cascadeDelete: true)
-                .Index(t => t.OrderID)
-                .Index(t => t.ProductID)
-                .Index(t => t.ConsultationID);
+                .PrimaryKey(t => t.IdPatients)
+                .ForeignKey("dbo.Usines", t => t.IdUsine, cascadeDelete: true)
+                .Index(t => t.IdUsine);
             
             CreateTable(
                 "dbo.Consultations",
@@ -159,24 +142,6 @@ namespace WebApplication4.Migrations
                 .Index(t => t.RoleId);
             
             CreateTable(
-                "dbo.Patients",
-                c => new
-                    {
-                        IdPatients = c.Int(nullable: false, identity: true),
-                        MatriculePatients = c.String(),
-                        NomPatient = c.String(),
-                        PrenomPatient = c.String(),
-                        Gender = c.String(),
-                        PhonePatients = c.String(),
-                        DOB = c.DateTime(nullable: false),
-                        Parente = c.String(),
-                        IdUsine = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.IdPatients)
-                .ForeignKey("dbo.Usines", t => t.IdUsine, cascadeDelete: true)
-                .Index(t => t.IdUsine);
-            
-            CreateTable(
                 "dbo.FileDetails",
                 c => new
                     {
@@ -199,13 +164,46 @@ namespace WebApplication4.Migrations
                 .PrimaryKey(t => t.IdUsine);
             
             CreateTable(
+                "dbo.OrderDetails",
+                c => new
+                    {
+                        OrderDetailID = c.Int(nullable: false, identity: true),
+                        OrderID = c.Int(nullable: false),
+                        ProductID = c.Int(nullable: false),
+                        Quantity = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.OrderDetailID)
+                .ForeignKey("dbo.Orders", t => t.OrderID, cascadeDelete: true)
+                .ForeignKey("dbo.Products", t => t.ProductID, cascadeDelete: true)
+                .Index(t => t.OrderID)
+                .Index(t => t.ProductID);
+            
+            CreateTable(
                 "dbo.Orders",
                 c => new
                     {
                         OrderID = c.Int(nullable: false, identity: true),
                         OrderDate = c.DateTime(nullable: false),
+                        MatriculePatients = c.String(),
+                        ConsultationID = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.OrderID);
+                .PrimaryKey(t => t.OrderID)
+                .ForeignKey("dbo.Consultations", t => t.ConsultationID, cascadeDelete: true)
+                .Index(t => t.ConsultationID);
+            
+            CreateTable(
+                "dbo.Products",
+                c => new
+                    {
+                        ProductID = c.Int(nullable: false, identity: true),
+                        ProductName = c.String(),
+                        CodePCT = c.String(),
+                        Categorie = c.String(),
+                        DenominationCI = c.String(),
+                        AP = c.String(),
+                        Image = c.String(),
+                    })
+                .PrimaryKey(t => t.ProductID);
             
             CreateTable(
                 "dbo.RDVs",
@@ -236,24 +234,25 @@ namespace WebApplication4.Migrations
         {
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.RDVs", "ConsultationID", "dbo.Consultations");
-            DropForeignKey("dbo.Products", "IdSpecialite", "dbo.Specialites");
             DropForeignKey("dbo.OrderDetails", "ProductID", "dbo.Products");
             DropForeignKey("dbo.OrderDetails", "OrderID", "dbo.Orders");
+            DropForeignKey("dbo.Orders", "ConsultationID", "dbo.Consultations");
             DropForeignKey("dbo.Patients", "IdUsine", "dbo.Usines");
             DropForeignKey("dbo.FileDetails", "IdPatients", "dbo.Patients");
             DropForeignKey("dbo.Consultations", "idPatients", "dbo.Patients");
-            DropForeignKey("dbo.AppointementModels", "idPatients", "dbo.Patients");
-            DropForeignKey("dbo.OrderDetails", "ConsultationID", "dbo.Consultations");
             DropForeignKey("dbo.Consultations", "UserID", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AppointementModels", "idPatients", "dbo.Patients");
             DropForeignKey("dbo.MedecinConventionnes", "idSpecialite", "dbo.Specialites");
             DropForeignKey("dbo.AppointementModels", "idDoctors", "dbo.MedecinConventionnes");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.RDVs", new[] { "ConsultationID" });
+            DropIndex("dbo.Orders", new[] { "ConsultationID" });
+            DropIndex("dbo.OrderDetails", new[] { "ProductID" });
+            DropIndex("dbo.OrderDetails", new[] { "OrderID" });
             DropIndex("dbo.FileDetails", new[] { "IdPatients" });
-            DropIndex("dbo.Patients", new[] { "IdUsine" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
@@ -261,26 +260,23 @@ namespace WebApplication4.Migrations
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.Consultations", new[] { "idPatients" });
             DropIndex("dbo.Consultations", new[] { "UserID" });
-            DropIndex("dbo.OrderDetails", new[] { "ConsultationID" });
-            DropIndex("dbo.OrderDetails", new[] { "ProductID" });
-            DropIndex("dbo.OrderDetails", new[] { "OrderID" });
-            DropIndex("dbo.Products", new[] { "IdSpecialite" });
+            DropIndex("dbo.Patients", new[] { "IdUsine" });
             DropIndex("dbo.MedecinConventionnes", new[] { "idSpecialite" });
             DropIndex("dbo.AppointementModels", new[] { "idPatients" });
             DropIndex("dbo.AppointementModels", new[] { "idDoctors" });
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.RDVs");
+            DropTable("dbo.Products");
             DropTable("dbo.Orders");
+            DropTable("dbo.OrderDetails");
             DropTable("dbo.Usines");
             DropTable("dbo.FileDetails");
-            DropTable("dbo.Patients");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.Consultations");
-            DropTable("dbo.OrderDetails");
-            DropTable("dbo.Products");
+            DropTable("dbo.Patients");
             DropTable("dbo.Specialites");
             DropTable("dbo.MedecinConventionnes");
             DropTable("dbo.AppointementModels");

@@ -9,10 +9,7 @@ namespace WebApplication4.Models.Tables
 {
     public class Specialite
     {
-        public Specialite()
-        {
-            this.Products = new HashSet<Product>();
-        }
+       
 
         [Key]
         public int IdSpecialite { get; set; }
@@ -22,11 +19,7 @@ namespace WebApplication4.Models.Tables
         public string SpecialiteName { get; set; }
         public bool IsDelete { get; set; }
         public virtual ICollection<MedecinConventionne> medConv { get; set; }
-        public virtual ICollection<Product> Products { get; set; }
-
-
-
-
+        
 
 
     }

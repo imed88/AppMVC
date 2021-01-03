@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -140,12 +142,12 @@ namespace WebApplication4.Controllers.TablesControllers
                         where e.ConsultationID ==p.ConsultationID 
                         select new
                         {
-                            Message = e.Message,
-                            ApplyDate=e.ApplyDate,
-                            MatriculePatients = s.MatriculePatients,
-                            NomPatient = s.NomPatient,
-                            PrenomPatient = s.PrenomPatient,
-                            UserName = t.UserName
+                            //Message = e.Message,
+                            //ApplyDate=e.ApplyDate,
+                            //MatriculePatients = s.MatriculePatients,
+                            //NomPatient = s.NomPatient,
+                            //PrenomPatient = s.PrenomPatient,
+                            //UserName = t.UserName
 
                         }).ToList();
 
@@ -168,8 +170,8 @@ namespace WebApplication4.Controllers.TablesControllers
           
 
             //Remove shopping session
-            Session.Remove(strCart);
-            return View("OrderSuccess");
+            //Session.Remove(strCart);
+            //return View("OrderSuccess");
         }
 
 

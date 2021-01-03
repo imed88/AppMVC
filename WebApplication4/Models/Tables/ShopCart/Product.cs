@@ -12,17 +12,16 @@ namespace WebApplication4.Models.Tables.ShopCart
         public int ProductID { get; set; }
         public string ProductName { get; set; }
 
-        public int IdSpecialite { get; set; }
-        public virtual Specialite Specialites { get; set; } 
+        public string CodePCT { get; set; }
+        public string Categorie  { get; set; } 
+        public string DenominationCI { get; set; }
+        public string AP { get; set; }
 
-        public int Quantity { get; set; }
-      
-        public DateTime SellStartDate { get; set; }
-        public DateTime SellEndDate { get; set; }
+        
 
-        public string Image { get; set; }
-
-        public bool IsNew { get; set; }
+        public string ImageFile { get; set; }
+        public HttpPostedFileBase UploadFile { get; set; }
+        
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
     }
