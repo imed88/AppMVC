@@ -18,9 +18,9 @@ namespace WebApplication4.Models.Tables.ShopCart
         public string AP { get; set; }
 
         
-
+        [DataType(DataType.ImageUrl)]
         public string ImageFile { get; set; }
-        public HttpPostedFileBase UploadFile { get; set; }
+        
         
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 

@@ -48,14 +48,13 @@ namespace WebApplication4.Controllers.TablesControllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Product product)
+        public ActionResult Create([Bind(Include = "ProductID,ProductName,CodePCT,Categorie,DenominationCI,AP,ImageFile")] Product product, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
-                string fileName = Path.(product.ImageFile.FileName);
-                string filePath = "~/Uploads/" + fileName;
-                file.SaveAs(Server.MapPath(filePath));
-
+                string path = Path.Combine(Server.MapPath("~/Uploads/"), upload.FileName);
+                upload.SaveAs(path);
+                product.ImageFile = upload.FileName;
                 db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -37,7 +37,7 @@
                 @Html.DisplayNameFor(model => model.AP)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Image)
+                @Html.DisplayNameFor(model => model.ImageFile)
             </th>
             <th></th>
         </tr>
@@ -61,7 +61,8 @@
                     @Html.DisplayFor(modelItem => item.AP)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Image)
+                    @*@Html.DisplayFor(modelItem => item.ImageFile)*@
+                    <img src="@Url.Content("~/Uploads/"+item.ImageFile)" class="thumbnail" style="width:100px; height:100px" />
                 </td>
                 <td>
                     @*@Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
