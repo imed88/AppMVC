@@ -1,8 +1,10 @@
-﻿@model IEnumerable<WebApplication4.Models.Tables.ShopCart.Product>
-
+﻿@model PagedList.IPagedList<WebApplication4.Models.Tables.ShopCart.Product>
+@using PagedList.Mvc;
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/adminlte/_mainLayout.cshtml";
+                /**/
+
+                ViewBag.Title = "Index";
+                Layout = "~/Views/Shared/adminlte/_mainLayout.cshtml";
 }
 
 <section class="content-header">
@@ -16,61 +18,101 @@
     </ol>
 </section>
 <section class="content">
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CodePCT)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Categorie)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DenominationCI)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AP)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageFile)
-            </th>
-            <th></th>
-        </tr>
+    <div class="row">
+        <div class="col-sm-2">
+            <p>
+                @*@Html.ActionLink("Create New", "Create")*@
+                <a href="@Url.Action("Create", "Produits")" class="btn btn-success">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    <span>
+                        <strong>Nouveau medicament</strong>
+                    </span>
+                </a>
+            </p>
+        </div>
+        <div class="col-sm-8">
 
-        @foreach (var item in Model)
-        {
+            @using (Html.BeginForm("Index", "Produits", FormMethod.Post))
+            {
+                <div>
+                    @Html.Label("Nom du produit:")
+                    @Html.TextBox("searching")
+                    @*<input id="submit" type="submit" value="Rechercher" />*@
+                    <button type="submit" value="" class="btn btn-warning glyphicon glyphicon-search " />
+                </div>
+            }
+        </div>
+
+    </div>
+    <div class="table-responsive">
+        <table class="table">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProductName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CodePCT)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Categorie)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DenominationCI)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AP)
-                </td>
-                <td>
-                    @*@Html.DisplayFor(modelItem => item.ImageFile)*@
-                    <img src="@Url.Content("~/Uploads/"+item.ImageFile)" class="thumbnail" style="width:100px; height:100px" />
-                </td>
-                <td>
-                    @*@Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
-                        @Html.ActionLink("Details", "Details", new { id=item.ProductID })|*@
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
-                </td>
-            </tr>
-        }
+                <th>
+                    @*@Html.DisplayNameFor(model => model.ProductName)*@
+                    @Html.Label("Nom du produit")
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.CodePCT)*@
+                    @Html.Label("Code Pharmaceutique")
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Categorie)*@
+                    @Html.Label("Categorie V/I/E")
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.DenominationCI)*@
+                    @Html.Label("Denomination Commune Internationale")
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.AP)*@
+                    @Html.Label("AP N/O")
+                </th>
+                <th>
 
-    </table>
-    </section>
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CodePCT)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Categorie)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DenominationCI)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AP)
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.ImageFile)*@
+                        <img src="@Url.Content("~/Uploads/"+item.ImageFile)" class="thumbnail" style="width:50px; height:50px" />
+                    </td>
+                    <td>
+                        @*@Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |*@
+                        @*@Html.ActionLink("Details", "Details", new { id=item.ProductID })|*@
+                        @*@Html.ActionLink("Delete", "Delete", new { id = item.ProductID })*@
+                        <a href="@Url.Action("Delete", "Produits",new { id = item.ProductID })" class="btn btn-danger">
+                            <i class="glyphicon glyphicon-trash"></i>
+                            <span>
+                                <strong></strong>
+                            </span>
+                        </a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+        </div>
+        <div class="pagination container">
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+            sur @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+        </div>
+</section>

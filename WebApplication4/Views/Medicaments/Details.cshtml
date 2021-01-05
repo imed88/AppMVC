@@ -8,18 +8,19 @@
 <h2>DetailProductCart</h2>
 <div class="product-description row">
     <div class="product-image">
-        <img src='@Url.Content("~/uploads/"+Model.Image)' style="width:200px;
+        <img src='@Url.Content("~/Uploads/"+Model.ImageFile)' style="width:200px;
             height:200px;
             " />
     </div>
     <div class="product-detail-content" style="float:left; width:50%">
         <p>Product Name : @Model.ProductName</p>
-        <p>Quantity : @(String.Format("{0}", Model.Quantity))</p>
+        <p>Product Name : @Model.ProductName</p>
+
         <p>
             @Html.ActionLink("Add to cart","OrderNow",
        "ShoppingCart", new {id=Model.ProductID}, null)
-    </p>
+        </p>
 
 
-</div>
+    </div>
 </div>

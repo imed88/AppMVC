@@ -15,22 +15,61 @@ namespace WebApplication4.Controllers.TablesControllers
     {
         ApplicationDbContext db = new ApplicationDbContext();
         // GET: Medicaments
-        public PartialViewResult SpecialitePartial()
-        {
-            var specialites = db.Specialites.OrderBy(x=>x.SpecialiteName).ToList();
-            return PartialView(specialites);
-        }
+       
 
-        public PartialViewResult ProductPartial(int? page)
+        public PartialViewResult ProductPartial(string order, string currentFilter, string searching, int? page)
         {
-            var pageNumber = page ?? 1;
-            var pageSize = 10;
-            //var products = db.Products.OrderBy(x => x.ProductName).ToList();
-            var products = db.Products.OrderBy(x => x.ProductName).ToPagedList(pageNumber, pageSize);
-            return PartialView(products);
-          
-        }
+            //var pageNumber = page ?? 1;
+            //var pageSize = 10;
+            ////var products = db.Products.OrderBy(x => x.ProductName).ToList();
+            //var products = db.Products.OrderBy(x => x.ProductName).ToPagedList(pageNumber, pageSize);
+            //return PartialView(products);
 
+            
+                if (searching != null)
+                {
+                    page = 1;
+                }
+                else
+                {
+                    searching = currentFilter;
+                }
+
+                ViewBag.CurrentFilter = searching;
+
+
+                //var Patient = from c in db.Patients select c;
+                var patients = from c in db.Products select c;
+
+            if (!String.IsNullOrEmpty(searching))
+                {
+                    patients = patients.Where(s => s.ProductName.Contains(searching));
+
+                }
+
+                ViewBag.LastNameSortParm = String.IsNullOrEmpty(order) ? "NomPatient_desc" : "";
+                ViewBag.FirstNameSortParm = String.IsNullOrEmpty(order) ? "PrenomPatient_desc" : "";
+                ViewBag.UsineNameSortParm = String.IsNullOrEmpty(order) ? "UsinePatient_desc" : "";
+
+
+                switch (order)
+                {
+                    case "NomPatient_desc":
+                        patients = patients.OrderByDescending(s => s.ProductName);
+                        break;
+                  
+                    
+                    default:
+                        patients = patients.OrderBy(s => s.ProductID);
+                        break;
+                }
+
+                // return View(usines.ToList());
+
+                int pageSize = 5;
+                int pageNumber = (page ?? 1);
+                return PartialView(patients.ToPagedList(pageNumber, pageSize));
+            }
         public ActionResult ProductIndex()
         {
             return View();
@@ -48,12 +87,16 @@ namespace WebApplication4.Controllers.TablesControllers
             {
                 return HttpNotFound();
             }
-           
+
             return View(product);
         }
+
+    }
+
+       
 
 
 
 
     }
-}
+

@@ -4,64 +4,90 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/adminlte/_mainLayout.cshtml";
 }
+<section class="content-header">
+    <h1>
+        Infirmerie
+        <small>Medicaments</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
+        <li>Medicaments</li>
+        <li class="active">Details</li>
+    </ol>
+</section>
 
-<h2>Details</h2>
+<!-- Main content -->
+<div class="container-fluid">
+    <section class="content">
+        <div class="row">
+            <h2>Informations sur le medicament </h2>
 
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ProductName)
-        </dt>
+            <div >
 
-        <dd>
-            @Html.DisplayFor(model => model.ProductName)
-        </dd>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.Label("Nom du produit", new { @class = "control-label col-md-60" })
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CodePCT)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ProductName)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CodePCT)
-        </dd>
+                    <dt>
+                        @Html.Label("Code Pharmaceutique", new { @class = "control-label col-md-30" })
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Categorie)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.CodePCT)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Categorie)
-        </dd>
+                    <dt>
+                        @Html.Label("Categorie V/I/E", new { @class = "control-label col-md-60" })
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DenominationCI)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Categorie)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.DenominationCI)
-        </dd>
+                    <dt>
+                        @Html.Label("Denomination Commune Internationale", new { @class = "control-label col-md-60" })
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AP)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.DenominationCI)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.AP)
-        </dd>
+                    <dt>
+                        @Html.Label("AP N/O", new { @class = "control-label col-md-30" })
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.AP)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Image)
-        </dd>
+                    <dt>
+                        @Html.Label("Image", new { @class = "control-label col-md-30" })
+                    </dt>
 
-    </dl>
+                    <dd>
+                        @*@Html.DisplayFor(model => model.ImageFile)*@
+                        <img src="@Url.Content("~/Uploads/"+@Model.ImageFile)" class="thumbnail" style="width:150px; height:150px" />
+                    </dd>
+
+                </dl>
+            </div>
+            <p>
+                @*@Html.ActionLink("Modifier", "Edit", new { id = Model.IdPatients })*@
+
+                <a href="@Url.Action("ProductIndex", "Medicaments")" class="btn btn-default">
+                    <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
+                    <span>
+                        <strong>Retour</strong>
+                    </span>
+                </a>
+                @*@Html.ActionLink("Rendez-vous", "Appointements", new { id = Model.IdPatients })*@
+            </p>
+        </div>
+    </section>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

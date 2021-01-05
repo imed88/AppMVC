@@ -9,34 +9,55 @@
 <section class="content-header">
     <h1>
         Infirmerie
-        <small>Nouvelle ordonnance</small>
+        <small>Nouvelle ordonnance - Liste des medicaments</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
         <li class="active">Nouvelle Ordonnance</li>
     </ol>
 </section>
+
 <section class="content">
     @{
-
         <div class="row">
+            <div class="col-sm-4" style="padding-bottom:10px">
+
+                @using (Html.BeginForm("ProductPartial", "Medicaments", FormMethod.Post))
+                {
+                    <div>
+                        @Html.Label("Nom du medicament:")
+                        @Html.TextBox("searching")
+                        @*<input id="submit" type="submit" value="Rechercher" />*@
+                        <button type="submit" value="" class="btn btn-warning glyphicon glyphicon-search "  />
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="row">
+
             @foreach (var item in Model)
             {
-                <div class="main-content col-sm-2">
+                <div class="main-content col-sm-2" style="padding-bottom:10px">
                     <div class="content-image">
-                        <a href='@Url.Action("Details", "Medicaments",new {id=item.ProductID}, null)'>
-                            <img src="@Url.Content("~/uploads/"+item.Image)" width="50" height="50" />
-                        </a>
+                        @*<a href='@Url.Action("Details", "Medicaments",new {id=item.ProductID}, null)'>*@
+                        <img src="@Url.Content("~/uploads/"+item.ImageFile)" width="200" height="200" />
+                        @*</a>*@
                     </div>
                     <div class="content-title">
-                        Medicament : @*@item.ProductName*@
-                        @Html.ActionLink(item.ProductName,"Details", "Medicaments",
+
+                        @Html.ActionLink(item.ProductName,"Details", "Produits",
                        new {id=item.ProductID}, null)
                     </div>
 
-                    <div class="content-quantity">
-                        @Html.ActionLink("Add to cart", "OrderNow", "ShoppingCart", new { id = item.ProductID }, null)
-                    </div>
+                    @*<div class="content-quantity">
+                            @Html.ActionLink("Ajouter au panier ", "OrderNow", "ShoppingCart", new { id = item.ProductID }, new { @class = "btn btn-danger" })
+                        </div>*@
+                    <a href="@Url.Action("OrderNow", "ShoppingCart", new { id = item.ProductID })" class="btn btn-danger">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        <span>
+                            <strong> Ajouter à la liste </strong>
+                        </span>
+                    </a>
                 </div>
             }
         </div>
@@ -49,4 +70,4 @@
     <div style="display:inline; padding:3">
         @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
     </div>
-    </section>
+</section>

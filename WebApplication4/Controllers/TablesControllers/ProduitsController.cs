@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -17,9 +18,52 @@ namespace WebApplication4.Controllers.TablesControllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Produits
-        public ActionResult Index()
+        public System.Web.Mvc.ActionResult Index(string order, string currentFilter, string searching, int? page)
         {
-            return View(db.Products.ToList());
+            if (searching != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searching = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searching;
+
+
+            //var Patient = from c in db.Patients select c;
+            var patients = from c in db.Products select c;
+
+            if (!String.IsNullOrEmpty(searching))
+            {
+                patients = patients.Where(s => s.ProductName.Contains(searching));
+
+            }
+
+            ViewBag.LastNameSortParm = String.IsNullOrEmpty(order) ? "NomPatient_desc" : "";
+            ViewBag.UsineNameSortParm = String.IsNullOrEmpty(order) ? "UsinePatient_desc" : "";
+
+
+            switch (order)
+            {
+                case "NomPatient_desc":
+                    patients = patients.OrderByDescending(s => s.ProductName);
+                    break;
+             
+                case "UsinePatient_desc":
+                    patients = patients.OrderByDescending(s => s.ProductID);
+                    break;
+                default:
+                    patients = patients.OrderBy(s => s.ProductID);
+                    break;
+            }
+
+            // return View(usines.ToList());
+
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(patients.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Produits/Details/5

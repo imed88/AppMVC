@@ -45,10 +45,7 @@ namespace WebApplication4.Controllers.TablesControllers
                 {
                     lsCart.Add(new Cart(db.Products.Find(id), 1));
                 }
-                else
-                {
-                    lsCart[check].Quantity++;
-                }
+               
                 //lsCart.Add(new Cart(db.Products.Find(id), 1));
                 Session[strCart] = lsCart;
             }

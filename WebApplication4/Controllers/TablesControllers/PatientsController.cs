@@ -1,4 +1,5 @@
-﻿using PagedList;
+﻿using Microsoft.AspNetCore.Mvc;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -26,7 +27,7 @@ namespace WebApplication4.Controllers.TablesControllers
         //}
 
         // GET: Patients/Details/5
-        public ActionResult Details(int? id)
+        public System.Web.Mvc.ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -41,7 +42,7 @@ namespace WebApplication4.Controllers.TablesControllers
         }
 
         // GET: Patients/Create
-        public ActionResult Create()
+        public System.Web.Mvc.ActionResult Create()
         {
             ViewBag.IdUsine = new SelectList(db.Usines, "IdUsine", "UsineName");
             return View();
@@ -50,9 +51,9 @@ namespace WebApplication4.Controllers.TablesControllers
         // POST: Patients/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [System.Web.Mvc.HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdPatients,MatriculePatients,NomPatient,PrenomPatient,Gender,PhonePatients,DOB,Parente,IdUsine")] Patients patients)
+        public System.Web.Mvc.ActionResult Create([System.Web.Mvc.Bind(Include = "IdPatients,MatriculePatients,NomPatient,PrenomPatient,Gender,PhonePatients,DOB,Parente,IdUsine")] Patients patients)
         {
             if (ModelState.IsValid)
             {
@@ -102,7 +103,7 @@ namespace WebApplication4.Controllers.TablesControllers
         }
 
         // GET: Patients/Edit/5
-        public ActionResult Edit(int? id)
+        public System.Web.Mvc.ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -120,9 +121,9 @@ namespace WebApplication4.Controllers.TablesControllers
         // POST: Patients/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [System.Web.Mvc.HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdPatients,MatriculePatients,NomPatient,PrenomPatient,Gender,PhonePatients,DOB,Parente,IdUsine")] Patients patients)
+        public System.Web.Mvc.ActionResult Edit([System.Web.Mvc.Bind(Include = "IdPatients,MatriculePatients,NomPatient,PrenomPatient,Gender,PhonePatients,DOB,Parente,IdUsine")] Patients patients)
         {
             if (ModelState.IsValid)
             {
@@ -135,7 +136,7 @@ namespace WebApplication4.Controllers.TablesControllers
         }
 
         // GET: Patients/Delete/5
-        public ActionResult Delete(int? id)
+        public System.Web.Mvc.ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -150,9 +151,9 @@ namespace WebApplication4.Controllers.TablesControllers
         }
 
         // POST: Patients/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [System.Web.Mvc.HttpPost, System.Web.Mvc.ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public System.Web.Mvc.ActionResult DeleteConfirmed(int id)
         {
             Patients patients = db.Patients.Find(id);
             db.Patients.Remove(patients);
@@ -185,7 +186,7 @@ namespace WebApplication4.Controllers.TablesControllers
         //    return RedirectToAction("Index/"+id, "AppointementModels");
         //}
 
-        public ActionResult Index(string order, string currentFilter, string searching, int? page)
+        public System.Web.Mvc.ActionResult Index(string order, string currentFilter, string searching, int? page)
         {
             if (searching != null)
             {
