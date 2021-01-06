@@ -336,6 +336,37 @@ namespace WebApplication4.Controllers.TablesControllers
 
         }
 
+        public ActionResult Attestation(string order)
+        {
+            var attestation = from c in db.Patients select c;
+
+            ViewBag.LastNameSortParm = String.IsNullOrEmpty(order) ? "Embauche_desc" : "";
+            ViewBag.FirstNameSortParm = String.IsNullOrEmpty(order) ? "Periodique_desc" : "";
+            ViewBag.UsineNameSortParm = String.IsNullOrEmpty(order) ? "Reprisetravail_desc" : "";
+            ViewBag.UsineNameSortParm = String.IsNullOrEmpty(order) ? "Spontanne_desc" : "";
+
+
+            switch (order)
+            {
+                case "Embauche_desc":
+                    
+                    break;
+                case "Periodique_desc":
+                    
+                    break;
+                case "Reprisetravail_desc":
+                    
+                    break;
+                case "Spontanne_desc":
+
+                    break;
+                default:
+                    
+                    break;
+            }
+            return View();
+        }
+
 
 
 

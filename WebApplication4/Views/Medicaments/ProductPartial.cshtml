@@ -37,16 +37,15 @@
 
             @foreach (var item in Model)
             {
-                <div class="main-content col-sm-2" style="padding-bottom:10px">
+                <div class="main-content col-sm-2" style="padding-bottom:10px; text-align:center">
                     <div class="content-image">
                         @*<a href='@Url.Action("Details", "Medicaments",new {id=item.ProductID}, null)'>*@
                         <img src="@Url.Content("~/uploads/"+item.ImageFile)" width="200" height="200" />
                         @*</a>*@
                     </div>
-                    <div class="content-title">
+                    <div class="content-title" style="font-family:'Arial Rounded MT'; font-size:20px; text-align:center" >
 
-                        @Html.ActionLink(item.ProductName,"Details", "Produits",
-                       new {id=item.ProductID}, null)
+                        @item.ProductName
                     </div>
 
                     @*<div class="content-quantity">
@@ -67,7 +66,7 @@
     <div class="clear"></div>
     Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount
 
-    <div style="display:inline; padding:3">
+    <div style="display:inline; padding:3px">
         @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
     </div>
 </section>

@@ -401,9 +401,9 @@
     <Compile Include="Migrations\202101022236039_CreateDb.Designer.cs">
       <DependentUpon>202101022236039_CreateDb.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202101042040454_ImageUrl.cs" />
-    <Compile Include="Migrations\202101042040454_ImageUrl.Designer.cs">
-      <DependentUpon>202101042040454_ImageUrl.cs</DependentUpon>
+    <Compile Include="Migrations\202101061232441_LieuTravailModification.cs" />
+    <Compile Include="Migrations\202101061232441_LieuTravailModification.Designer.cs">
+      <DependentUpon>202101061232441_LieuTravailModification.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -414,6 +414,7 @@
     <Compile Include="Models\Tables\Consultation.cs" />
     <Compile Include="Models\Tables\ConsultationOrdonnance.cs" />
     <Compile Include="Models\Tables\FileDetail.cs" />
+    <Compile Include="Models\Tables\LieuTravail.cs" />
     <Compile Include="Models\Tables\MedecinConventionne.cs" />
     <Compile Include="Models\Tables\Medicaments.cs" />
     <Compile Include="Models\Tables\Ordonnance.cs" />
@@ -432,6 +433,9 @@
     <Compile Include="Models\ViewModels\MedicamentListBox.cs" />
     <Compile Include="Models\ViewModels\MultipleData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\DataSet2.cs">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Report\DataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -4308,8 +4312,8 @@
     <EmbeddedResource Include="Migrations\202101022236039_CreateDb.resx">
       <DependentUpon>202101022236039_CreateDb.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101042040454_ImageUrl.resx">
-      <DependentUpon>202101042040454_ImageUrl.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101061232441_LieuTravailModification.resx">
+      <DependentUpon>202101061232441_LieuTravailModification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\Ordonnance.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

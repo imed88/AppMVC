@@ -15,6 +15,7 @@ namespace WebApplication4.Models.Tables
         public string UsineName { get; set; }
 
         public virtual ICollection<Patients> Patients { get; set; }
-       
+        public virtual ICollection<LieuTravail> LieuTravails { get; set; }
+
     }
 }

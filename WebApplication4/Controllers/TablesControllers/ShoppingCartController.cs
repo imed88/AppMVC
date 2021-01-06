@@ -45,7 +45,10 @@ namespace WebApplication4.Controllers.TablesControllers
                 {
                     lsCart.Add(new Cart(db.Products.Find(id), 1));
                 }
-               
+                else
+                {
+                    lsCart[check].Quantity++;
+                }
                 //lsCart.Add(new Cart(db.Products.Find(id), 1));
                 Session[strCart] = lsCart;
             }
@@ -139,22 +142,21 @@ namespace WebApplication4.Controllers.TablesControllers
                         where e.ConsultationID ==p.ConsultationID 
                         select new
                         {
-                            //Message = e.Message,
-                            //ApplyDate=e.ApplyDate,
-                            //MatriculePatients = s.MatriculePatients,
-                            //NomPatient = s.NomPatient,
-                            //PrenomPatient = s.PrenomPatient,
-                            //UserName = t.UserName
+                          t.ProductID,
+                          t.ProductName,
+                          p.ConsultationID,
+                          p.Patient.MatriculePatients,
+                          p.Patient.NomPatient,
+                          p.Patient.PrenomPatient,
+                          p.DateCreated,
+                          e.OrderDate,
+                          s.Quantity
+                            
 
                         }).ToList();
 
-
-
-
-
-
           ReportDocument rd = new ReportDocument();
-          rd.Load(Path.Combine(Server.MapPath("~/Report"), "CrystalReport2.rpt"));
+          rd.Load(Path.Combine(Server.MapPath("~/Report"), "Ordonnance.rpt"));
           rd.SetDataSource(OneBlog);
 
           Response.Buffer = false;

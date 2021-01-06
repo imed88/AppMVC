@@ -4,66 +4,127 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<section class="content-header">
+    <h1>
+        Infirmerie
+        <small>Ordonnances</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
+        <li>Ordonnances</li>
+        <li class="active">Details</li>
+    </ol>
+</section>
 
-<div>
-    <h4>Order</h4>
-    Order : @Html.DisplayFor(model => model.OrderID)
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MatriculePatients)
-        </dt>
+<!-- Main content -->
+<section class="content">
+    <div>
+        <h2>Details de l'ordonnance</h2>
+        <h4><strong>N° de l'ordonnance : @Html.DisplayFor(model => model.OrderID)</strong></h4>
+        <hr />
+        <h4>Informations du patient :</h4>
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th>@Html.DisplayName("Matricule du patient")</th>
+                    <th>@Html.DisplayName("Nom du patient")</th>
+                    <th>@Html.DisplayName("Prenom du patient")</th>
+                    <th>@Html.DisplayName("Date de l'ordonnance")</th>
+                    <th>@Html.DisplayName("Diagnostic")</th>
+                    <th>@Html.DisplayName("Traitement")</th>
 
-        <dd>
-            @Html.DisplayFor(model => model.MatriculePatients)
-        </dd>
+                </tr>
+                @foreach (var item in Model.OrderDetails)
+                {
+                    @*<tr>
+                            <td>@item.Products.ProductName</td>
+                            <td>@item.Quantity</td>
+                        </tr>*@
+                    <tr>
+                        <td>@Html.DisplayFor(model => model.MatriculePatients)</td>
+                        <td>@Html.DisplayFor(model => model.Consultations.Patient.NomPatient)</td>
+                        <td>@Html.DisplayFor(model => model.Consultations.Patient.PrenomPatient)</td>
+                        <td>@Html.DisplayFor(model => model.OrderDate)</td>
+                        <td>@Html.DisplayFor(model => model.Consultations.diagnostic)</td>
+                        <td>@Html.DisplayFor(model => model.Consultations.traitement)</td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.OrderDate)
-        </dt>
+                    </tr>
+                }
+            </table>
+        </div>
+        @*<dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.MatriculePatients)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.OrderDate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Consultations.diagnostic)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.MatriculePatients)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Consultations.Patient.NomPatient)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Consultations.diagnostic)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Consultations.Patient.NomPatient)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Consultations.Patient.PrenomPatient)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Consultations.traitement)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Consultations.Patient.PrenomPatient)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Consultations.traitement)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.OrderDate)
+                </dt>
 
+                <dd>
+                    @Html.DisplayFor(model => model.OrderDate)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Consultations.diagnostic)
+                </dt>
 
+                <dd>
+                    @Html.DisplayFor(model => model.Consultations.diagnostic)
+                </dd>
 
+                <dt>
+                    @Html.DisplayNameFor(model => model.Consultations.traitement)
+                </dt>
 
-    </dl>
-</div>
+                <dd>
+                    @Html.DisplayFor(model => model.Consultations.traitement)
+                </dd>
+            </dl>*@
 
-<table class="table">
-    <tr>
-        <th>Product Name</th>
-        <th>Quantity</th>
-    </tr>
-    @foreach (var item in Model.OrderDetails)
-    {
-    <tr>
-        <td>@item.Products.ProductName</td>
-        <td>@item.Quantity</td>
-    </tr>
-    }
-</table>
+    </div>
+    <h4>Medicaments Attribués :</h4>
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th>Nom du produit</th>
+                <th>Quantité</th>
+            </tr>
+            @foreach (var item in Model.OrderDetails)
+            {
+                <tr>
+                    <td>@item.Products.ProductName</td>
+                    <td>@item.Quantity</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <p>
 
-
-<p>
-    
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        @*@Html.ActionLink("Back to List", "Index")*@
+        <a href="@Url.Action("Index", "Order")" class="btn btn-default">
+            <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
+            <span>
+                <strong>Retour</strong>
+            </span>
+        </a>
+    </p>
+</section>
+   
