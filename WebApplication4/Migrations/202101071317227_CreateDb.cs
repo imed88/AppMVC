@@ -196,12 +196,12 @@ namespace WebApplication4.Migrations
                 c => new
                     {
                         ProductID = c.Int(nullable: false, identity: true),
-                        ProductName = c.String(),
-                        CodePCT = c.String(),
+                        Code = c.String(),
+                        NameProduct = c.String(),
                         Categorie = c.String(),
                         DenominationCI = c.String(),
                         AP = c.String(),
-                        Image = c.String(),
+                        ImageFile = c.String(),
                     })
                 .PrimaryKey(t => t.ProductID);
             

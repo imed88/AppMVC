@@ -1,5 +1,4 @@
 ﻿@model PagedList.IPagedList<WebApplication4.Models.Tables.ShopCart.Product>
-@using PagedList
 @using PagedList.Mvc
 @{
     ViewBag.Title = "ProductPartial";
@@ -40,12 +39,12 @@
                 <div class="main-content col-sm-2" style="padding-bottom:10px; text-align:center">
                     <div class="content-image">
                         @*<a href='@Url.Action("Details", "Medicaments",new {id=item.ProductID}, null)'>*@
-                        <img src="@Url.Content("~/uploads/"+item.ImageFile)" width="200" height="200" />
+                        <img src="@Url.Content("~/uploads/"+item.ImageFile)" width="100" height="100" />
                         @*</a>*@
                     </div>
-                    <div class="content-title" style="font-family:'Arial Rounded MT'; font-size:20px; text-align:center" >
+                    <div class="content-title" style="font-family:Britannic; font-size:10px; text-align:center" >
 
-                        @item.ProductName
+                        @item.NameProduct
                     </div>
 
                     @*<div class="content-quantity">

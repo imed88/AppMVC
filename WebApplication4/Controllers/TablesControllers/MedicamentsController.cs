@@ -43,7 +43,7 @@ namespace WebApplication4.Controllers.TablesControllers
 
             if (!String.IsNullOrEmpty(searching))
                 {
-                    patients = patients.Where(s => s.ProductName.Contains(searching));
+                    patients = patients.Where(s => s.NameProduct.Contains(searching));
 
                 }
 
@@ -55,7 +55,7 @@ namespace WebApplication4.Controllers.TablesControllers
                 switch (order)
                 {
                     case "NomPatient_desc":
-                        patients = patients.OrderByDescending(s => s.ProductName);
+                        patients = patients.OrderByDescending(s => s.NameProduct);
                         break;
                   
                     

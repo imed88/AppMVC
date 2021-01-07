@@ -143,7 +143,7 @@ namespace WebApplication4.Controllers.TablesControllers
                         select new
                         {
                           t.ProductID,
-                          t.ProductName,
+                          t.NameProduct,
                           p.ConsultationID,
                           p.Patient.MatriculePatients,
                           p.Patient.NomPatient,

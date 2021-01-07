@@ -44,7 +44,6 @@ namespace WebApplication4.Controllers.TablesControllers
         // GET: Patients/Create
         public System.Web.Mvc.ActionResult Create()
         {
-            ViewBag.LieuTravailId = new SelectList(db.LieuTravails, "LieuTravailId", "NomLieuTravail");
             ViewBag.IdUsine = new SelectList(db.Usines, "IdUsine", "UsineName");
             return View();
         }
@@ -98,7 +97,7 @@ namespace WebApplication4.Controllers.TablesControllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.LieuTravailId = new SelectList(db.LieuTravails, "LieuTravailId", "NomLieuTravail");
+
             ViewBag.IdUsine = new SelectList(db.Usines, "IdUsine", "UsineName", patients.IdUsine);
             return View(patients);
         }
@@ -236,12 +235,6 @@ namespace WebApplication4.Controllers.TablesControllers
             int pageSize = 5;
             int pageNumber = (page ?? 1);
             return View(patients.ToPagedList(pageNumber, pageSize));
-        }
-
-        public JsonResult LoadLieuTravail(int id)
-        {
-            var lieutravail = db.LieuTravails.Where(z => z.IdUsine == id).ToList();
-            return Json(new SelectList(lieutravail, "LieuTravailId", "NomLieuTravail"));
         }
 
     }

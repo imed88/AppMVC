@@ -397,13 +397,9 @@
     <Compile Include="Migrations\202007291233576_AddTableMedecinConventionne.Designer.cs">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202101022236039_CreateDb.cs" />
-    <Compile Include="Migrations\202101022236039_CreateDb.Designer.cs">
-      <DependentUpon>202101022236039_CreateDb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101061232441_LieuTravailModification.cs" />
-    <Compile Include="Migrations\202101061232441_LieuTravailModification.Designer.cs">
-      <DependentUpon>202101061232441_LieuTravailModification.cs</DependentUpon>
+    <Compile Include="Migrations\202101071317227_CreateDb.cs" />
+    <Compile Include="Migrations\202101071317227_CreateDb.Designer.cs">
+      <DependentUpon>202101071317227_CreateDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -414,7 +410,6 @@
     <Compile Include="Models\Tables\Consultation.cs" />
     <Compile Include="Models\Tables\ConsultationOrdonnance.cs" />
     <Compile Include="Models\Tables\FileDetail.cs" />
-    <Compile Include="Models\Tables\LieuTravail.cs" />
     <Compile Include="Models\Tables\MedecinConventionne.cs" />
     <Compile Include="Models\Tables\Medicaments.cs" />
     <Compile Include="Models\Tables\Ordonnance.cs" />
@@ -4189,6 +4184,15 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="Uploads\20200923_075117.jpg" />
+    <Content Include="Uploads\47a286648570cb3859d5f804875be96f-1400.jpg" />
+    <Content Include="Uploads\8.jpg" />
+    <Content Include="Uploads\aaaa\dc782045-b949-4a1d-99b9-de67695985e0.jpg" />
+    <Content Include="Uploads\cult_10.jpg" />
+    <Content Include="Uploads\image.gif" />
+    <Content Include="Uploads\image.jpg" />
+    <Content Include="Uploads\logo.gif" />
+    <Content Include="Uploads\Webp.net-gifmaker.gif" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -4309,11 +4313,8 @@
     <EmbeddedResource Include="Migrations\202007291233576_AddTableMedecinConventionne.resx">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101022236039_CreateDb.resx">
-      <DependentUpon>202101022236039_CreateDb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101061232441_LieuTravailModification.resx">
-      <DependentUpon>202101061232441_LieuTravailModification.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101071317227_CreateDb.resx">
+      <DependentUpon>202101071317227_CreateDb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\Ordonnance.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

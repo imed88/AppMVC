@@ -37,7 +37,7 @@ namespace WebApplication4.Controllers.TablesControllers
 
             if (!String.IsNullOrEmpty(searching))
             {
-                patients = patients.Where(s => s.ProductName.Contains(searching));
+                patients = patients.Where(s => s.NameProduct.Contains(searching));
 
             }
 
@@ -48,7 +48,7 @@ namespace WebApplication4.Controllers.TablesControllers
             switch (order)
             {
                 case "NomPatient_desc":
-                    patients = patients.OrderByDescending(s => s.ProductName);
+                    patients = patients.OrderByDescending(s => s.NameProduct);
                     break;
              
                 case "UsinePatient_desc":
@@ -61,7 +61,7 @@ namespace WebApplication4.Controllers.TablesControllers
 
             // return View(usines.ToList());
 
-            int pageSize = 5;
+            int pageSize = 7;
             int pageNumber = (page ?? 1);
             return View(patients.ToPagedList(pageNumber, pageSize));
         }
@@ -98,7 +98,7 @@ namespace WebApplication4.Controllers.TablesControllers
             {
                 string path = Path.Combine(Server.MapPath("~/Uploads/"), upload.FileName);
                 upload.SaveAs(path);
-                product.ImageFile = upload.FileName;
+                //product.ImageFile = upload.FileName;
                 db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
