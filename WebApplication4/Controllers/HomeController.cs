@@ -8,7 +8,7 @@ using WebApplication4.Models.ViewModels;
 
 namespace WebApplication4.Controllers
 {
-    
+    [Authorize(Roles = "Administrateur")]
     public class HomeController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

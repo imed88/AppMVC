@@ -11,6 +11,7 @@ using System.Net;
 
 namespace WebApplication4.Controllers.TablesControllers
 {
+    [Authorize(Roles = "Administrateur")]
     public class MedicamentsController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();

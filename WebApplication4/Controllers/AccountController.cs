@@ -13,7 +13,7 @@ using WebApplication4.Models.Tables;
 
 namespace WebApplication4.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Administrateur")]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;

@@ -11,6 +11,7 @@ using WebApplication4.Models;
 
 namespace WebApplication4.Controllers.TablesControllers
 {
+    [Authorize(Roles = "Administrateur")]
     public class OrderController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();

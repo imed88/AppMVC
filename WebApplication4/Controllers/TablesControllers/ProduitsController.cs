@@ -13,6 +13,7 @@ using WebApplication4.Models.Tables.ShopCart;
 
 namespace WebApplication4.Controllers.TablesControllers
 {
+    [Authorize(Roles = "Administrateur")]
     public class ProduitsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

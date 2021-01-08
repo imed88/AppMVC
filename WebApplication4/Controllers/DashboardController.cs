@@ -8,6 +8,7 @@ using WebApplication4.Models.ViewModels;
 
 namespace WebApplication4.Controllers
 {
+    [Authorize(Roles = "Administrateur")]
     public class DashboardController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
