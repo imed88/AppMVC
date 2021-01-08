@@ -66,7 +66,7 @@ namespace WebApplication4.Controllers.TablesControllers
 
                 // return View(usines.ToList());
 
-                int pageSize = 5;
+                int pageSize = 15;
                 int pageNumber = (page ?? 1);
                 return PartialView(patients.ToPagedList(pageNumber, pageSize));
             }

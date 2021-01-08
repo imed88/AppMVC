@@ -165,7 +165,7 @@ namespace WebApplication4.Controllers.TablesControllers
 
           Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
           stream.Seek(0, SeekOrigin.Begin);
-          return File(stream, "application/pdf", "BlogList.pdf");
+          return File(stream, "application/pdf", "Ordonnance.pdf");
           
 
             //Remove shopping session

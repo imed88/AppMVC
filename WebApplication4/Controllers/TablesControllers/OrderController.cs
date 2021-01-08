@@ -1,6 +1,8 @@
-﻿using PagedList;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using PagedList;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -140,6 +142,57 @@ namespace WebApplication4.Controllers.TablesControllers
             {
                 return View();
             }
+        }
+
+        public HttpResponseBase PrintPDF()
+        {
+            try
+            {
+                var OneBlog = (from e in db.Orders
+                               join p in db.Consultations
+                               on e.ConsultationID equals p.ConsultationID
+                               join s in db.OrderDetails
+                               on e.OrderID equals s.OrderID
+                               join t in db.Products
+                               on s.ProductID equals t.ProductID
+                               where e.ConsultationID == p.ConsultationID
+                               select new
+                               {
+                                   t.ProductID,
+                                   t.NameProduct,
+                                   p.ConsultationID,
+                                   p.Patient.MatriculePatients,
+                                   p.Patient.NomPatient,
+                                   p.Patient.PrenomPatient,
+                                   p.DateCreated,
+                                   e.OrderDate,
+                                   s.Quantity
+
+
+                               }).ToList();
+
+                ReportDocument rd = new ReportDocument();
+                rd.Load(Path.Combine(Server.MapPath("~/Report"), "Ordonnance.rpt"));
+                rd.SetDataSource(OneBlog);
+                var stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                var pdfbytearray = new byte[stream.Length - 1];
+                stream.Position = 0;
+                stream.Read(pdfbytearray, 0, Convert.ToInt32(stream.Length - 1));
+                Response.ClearContent();
+                Response.ClearHeaders();
+                Response.AddHeader("content-disposition", "filename-Test.pdf");
+                Response.ContentType = "application/pdf";
+                Response.AddHeader("content-length", pdfbytearray.Length.ToString());
+                Response.BinaryWrite(pdfbytearray);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return Response;
+
         }
     }
 }
