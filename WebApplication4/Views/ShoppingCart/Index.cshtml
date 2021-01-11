@@ -16,7 +16,7 @@
     </ol>
 </section>
 <section class="content">
-    <div style="text-align:center;">
+ 
         @{
             if (Session["Cart"] != null)
             {
@@ -46,17 +46,17 @@
 
                     }
                     
-                        <table border="1" align="center">
+                        <table class="table" border="1">
                             <tr>
                                 <th></th>
-                                <th style="font-family:'Arial Rounded MT'; font-size:20px">Nom du produit</th>
-                                <th style="font-family:'Arial Rounded MT'; font-size:20px">Quantité</th>
-                                @*<th>SubTotal</th>*@
+                                <th>Nom du produit</th>
+                                <th>Quantité</th>
+                                <th></th>
                             </tr>
                             @foreach (var cart in (List<WebApplication4.Models.Tables.ShopCart.Cart>)Session["Cart"])
                             {
                                 <tr>
-                                    <td>  <img src="@Url.Content("~/Uploads/"+cart.Product.ImageFile)" width="150" height="150" /></td>
+                                    <td>  <img src="@Url.Content("~/Uploads/"+cart.Product.ImageFile)" width="80" height="80" /></td>
                                     <td>
                                         <strong style="font-family:'Arial Rounded MT'; font-size:20px">@cart.Product.NameProduct</strong>
 
@@ -70,8 +70,8 @@
                                     @*<td>@(String.Format("{0}", cart.Quantity))</td>*@
                                     <td>
                                         @*@Html.ActionLink("Delete", "Delete", "ShoppingCart",
-                                            new { id = cart.Product.ProductID },
-                                            new { onclick = "return confirm ('Are you sure you want to delete this ?');" })*@
+                    new { id = cart.Product.ProductID },
+                    new { onclick = "return confirm ('Are you sure you want to delete this ?');" })*@
                                         <a href="@Url.Action("Delete", "ShoppingCart",new { id = @cart.Product.ProductID })" class="btn btn-danger">
                                             <i class="glyphicon glyphicon-trash"></i>
                                             <span>
@@ -96,11 +96,11 @@
             }
             else
             {
-                <h4>No items in your cart !!</h4>
+                <h4>Pas de médicaments selectionnés !!</h4>
             }
 
         }
-         </div>
+         
 </section>
 
     <script>

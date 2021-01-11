@@ -134,31 +134,30 @@ namespace WebApplication4.Controllers.TablesControllers
 
             //Create PDF File
             var OneBlog = (from e in db.Orders
-                        join p in db.Consultations
-                        on e.ConsultationID equals p.ConsultationID
-                        join s in db.OrderDetails
-                        on e.OrderID equals s.OrderID
-                        join t in db.Products
-                        on s.ProductID equals t.ProductID
-                        where e.ConsultationID ==p.ConsultationID 
-                        select new
-                        {
-                          t.ProductID,
-                          t.NameProduct,
-                          p.ConsultationID,
-                          p.Patient.MatriculePatients,
-                          p.Patient.NomPatient,
-                          p.Patient.PrenomPatient,
-                          p.DateCreated,
-                          e.OrderDate,
-                          s.Quantity
-                            
+                           join p in db.Consultations
+                           on e.ConsultationID equals p.ConsultationID
+                           join s in db.OrderDetails
+                           on e.OrderID equals s.OrderID
+                           join t in db.Products
+                           on s.ProductID equals t.ProductID
+                           where e.MatriculePatients == p.Patient.MatriculePatients
+                           select new
+                           {
+                               t.ProductID,
+                               t.NameProduct,
+                               p.ConsultationID,
+                               p.Patient.MatriculePatients,
+                               p.Patient.NomPatient,
+                               p.Patient.PrenomPatient,
+                               p.DateCreated,
+                               e.OrderDate,
+                               s.Quantity
 
-                        }).ToList();
-
-          ReportDocument rd = new ReportDocument();
+                           });
+                        var item = OneBlog.First();
+            ReportDocument rd = new ReportDocument();
           rd.Load(Path.Combine(Server.MapPath("~/Report"), "Ordonnance.rpt"));
-          rd.SetDataSource(OneBlog);
+          rd.SetDataSource(new[] {item });
 
           Response.Buffer = false;
           Response.ClearContent();
