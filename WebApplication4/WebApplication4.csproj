@@ -400,9 +400,9 @@
     <Compile Include="Migrations\202007291233576_AddTableMedecinConventionne.Designer.cs">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202101071317227_CreateDb.cs" />
-    <Compile Include="Migrations\202101071317227_CreateDb.Designer.cs">
-      <DependentUpon>202101071317227_CreateDb.cs</DependentUpon>
+    <Compile Include="Migrations\202101141819495_CreateDb.cs" />
+    <Compile Include="Migrations\202101141819495_CreateDb.Designer.cs">
+      <DependentUpon>202101141819495_CreateDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -2116,6 +2116,10 @@
     <Content Include="AdminStyle\vendor\jquery\jquery.min.js" />
     <Content Include="AdminStyle\vendor\jquery\jquery.slim.js" />
     <Content Include="AdminStyle\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="App_Data\AppsDB.mdf" />
+    <Content Include="App_Data\AppsDB_log.ldf">
+      <DependentUpon>AppsDB.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-chosen.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -4300,7 +4304,6 @@
     <Content Include="Views\Produits\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="SqlServerTypes\x64\" />
     <Folder Include="SqlServerTypes\x86\" />
   </ItemGroup>
@@ -4317,8 +4320,8 @@
     <EmbeddedResource Include="Migrations\202007291233576_AddTableMedecinConventionne.resx">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101071317227_CreateDb.resx">
-      <DependentUpon>202101071317227_CreateDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101141819495_CreateDb.resx">
+      <DependentUpon>202101141819495_CreateDb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\Ordonnance.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

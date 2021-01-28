@@ -93,7 +93,7 @@ namespace WebApplication4.Controllers.TablesControllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductID,ProductName,CodePCT,Categorie,DenominationCI,AP,ImageFile")] Product product, HttpPostedFileBase upload)
+        public ActionResult Create([Bind(Include = "ProductID,NameProduct,Code,Categorie,DenominationCI,AP,ImageFile")] Product product, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
@@ -128,7 +128,7 @@ namespace WebApplication4.Controllers.TablesControllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductID,ProductName,CodePCT,Categorie,DenominationCI,AP,Image")] Product product)
+        public ActionResult Edit([Bind(Include = "ProductID,NameProduct,Code,Categorie,DenominationCI,AP,ImageFile")] Product product)
         {
             if (ModelState.IsValid)
             {

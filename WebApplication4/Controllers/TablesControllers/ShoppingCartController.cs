@@ -149,6 +149,7 @@ namespace WebApplication4.Controllers.TablesControllers
                                    where e.MatriculePatients == p.Patient.MatriculePatients
                                    && e.MatriculePatients == MatriculePatients
                                    && e.ConsultationID == ConsultationID
+                                   && s.ProductID==t.ProductID
                                    select new
                                    {
                                        t.ProductID,
@@ -165,7 +166,7 @@ namespace WebApplication4.Controllers.TablesControllers
                     var item = OneBlog.ToList();
                     ReportDocument rd = new ReportDocument();
                     rd.Load(Path.Combine(Server.MapPath("~/Report"), "Ordonnance.rpt"));
-                    rd.SetDataSource(new[] { item });
+                    rd.SetDataSource(item);
 
                     Response.Buffer = false;
                     Response.ClearContent();

@@ -12,8 +12,8 @@
               <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Products.NameProduct, Consultations.ConsultationID, Patients.MatriculePatients, Patients.NomPatient, Patients.PrenomPatient, Consultations.DateCreated, Orders.OrderDate, OrderDetails.Quantity, 
-                         Orders.MatriculePatients
+                    <CommandText>SELECT        Products.NameProduct, Consultations.ConsultationID, Patients.MatriculePatients, Patients.NomPatient, Patients.PrenomPatient, Consultations.DateCreated, Orders.OrderDate, OrderDetails.Quantity, Orders.MatriculePatients, 
+                         Products.ProductID, OrderDetails.ProductID
 FROM            Consultations INNER JOIN
                          Orders ON Consultations.ConsultationID = Orders.ConsultationID INNER JOIN
                          OrderDetails ON Orders.OrderID = OrderDetails.OrderID INNER JOIN
@@ -34,6 +34,8 @@ FROM            Consultations INNER JOIN
               <Mapping SourceColumn="Quantity" DataSetColumn="Quantity" />
               <Mapping SourceColumn="NameProduct" DataSetColumn="NameProduct" />
               <Mapping SourceColumn="MatriculePatients1" DataSetColumn="MatriculePatients1" />
+              <Mapping SourceColumn="ProductID" DataSetColumn="ProductID" />
+              <Mapping SourceColumn="ProductID1" DataSetColumn="ProductID1" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -45,7 +47,7 @@ FROM            Consultations INNER JOIN
   <xs:element name="DataSet2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet2" msprop:Generator_UserDSName="DataSet2">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ConsultationID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnConsultationID" msprop:Generator_ColumnPropNameInRow="ConsultationID" msprop:Generator_ColumnPropNameInTable="ConsultationIDColumn" msprop:Generator_UserColumnName="ConsultationID" type="xs:int" />
@@ -87,6 +89,8 @@ FROM            Consultations INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="ProductID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnProductID" msprop:Generator_ColumnPropNameInRow="ProductID" msprop:Generator_ColumnPropNameInTable="ProductIDColumn" msprop:Generator_UserColumnName="ProductID" type="xs:int" />
+              <xs:element name="ProductID1" msprop:Generator_ColumnVarNameInTable="columnProductID1" msprop:Generator_ColumnPropNameInRow="ProductID1" msprop:Generator_ColumnPropNameInTable="ProductID1Column" msprop:Generator_UserColumnName="ProductID1" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
