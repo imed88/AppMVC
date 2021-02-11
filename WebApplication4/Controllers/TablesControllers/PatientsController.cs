@@ -53,7 +53,7 @@ namespace WebApplication4.Controllers.TablesControllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [System.Web.Mvc.HttpPost]
         [ValidateAntiForgeryToken]
-        public System.Web.Mvc.ActionResult Create([System.Web.Mvc.Bind(Include = "IdPatients,MatriculePatients,NomPatient,PrenomPatient,Gender,PhonePatients,DOB,Parente,IdUsine")] Patients patients)
+        public System.Web.Mvc.ActionResult Create([System.Web.Mvc.Bind(Include = "IdPatients,MatriculePatients,NomPatient,PrenomPatient,Gender,PhonePatients,DOB,Parente,MaladieChronique,APCI,IdUsine")] Patients patients)
         {
             if (ModelState.IsValid)
             {
@@ -123,7 +123,7 @@ namespace WebApplication4.Controllers.TablesControllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [System.Web.Mvc.HttpPost]
         [ValidateAntiForgeryToken]
-        public System.Web.Mvc.ActionResult Edit([System.Web.Mvc.Bind(Include = "IdPatients,MatriculePatients,NomPatient,PrenomPatient,Gender,PhonePatients,DOB,Parente,IdUsine")] Patients patients)
+        public System.Web.Mvc.ActionResult Edit([System.Web.Mvc.Bind(Include = "IdPatients,MatriculePatients,NomPatient,PrenomPatient,Gender,PhonePatients,DOB,Parente,MaladieChronique,APCI,IdUsine")] Patients patients)
         {
             if (ModelState.IsValid)
             {

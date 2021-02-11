@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Log in</title>
+    <title>RNTA - Infirmerie</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -31,13 +31,15 @@
 </head>
 <body class="hold-transition login-page">
     <div class="login-box">
-        
+
         <!-- /.login-logo -->
-        <div class="login-box-body"><div class="login-logo">
-    <a href="#"> <img src="~/Content/logo-transparent.png" width="250" alt="" class="d-inline-block align-middle mr-2 "></a>
-</div>
-        <hr />
-            <p class="login-box-msg">Utilisez un compte local pour vous connecter.</p>
+        <div class="login-box-body">
+            <div class="login-logo">
+                <a href="#"> <img src="~/Content/logo-transparent.png" width="250" alt="" class="d-inline-block align-middle mr-2 "></a>
+            </div>
+            <hr style="border-top: 1px solid black" />
+            <p class="login-box-msg" style="color:black">Utilisez un compte local pour vous connecter.</p>
+            <hr style="border-top: 1px solid black" />
             @*<form action="../../index2.html" method="post">
                 <div class="form-group has-feedback">
                     <input type="email" class="form-control" placeholder="Email">
@@ -66,19 +68,19 @@
                 @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                 {
                     @Html.AntiForgeryToken()
-                  
+
                     <hr />
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="form-group has-feedback">
                         <div class="col-md-12">
-                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Nom d'utilisateur" })
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Nom d'utilisateur", @style = "color:black" })
                             @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
-                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                            <span class="glyphicon glyphicon-user form-control-feedback"></span>
                         </div>
                     </div>
                     <div class="form-group has-feedback">
                         <div class="col-md-12">
-                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Mot de passe" })
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Mot de passe", @style = "color:black" })
                             @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                         </div>
@@ -92,33 +94,44 @@
                         </div>
                     </div>*@
                     <div class="form-group">
-                        <div class="col-md-offset-2 col-md-12">
-                            <input type="submit" value="Connexion" class="btn btn-default" />
+                        <div class="col-md-12 ">
+
+                            <input type="submit" value="Connexion" class="btn btn-success btn-instagram btn-block" />
+
+                            <a href="@Url.Action("PasswordForgot", "Account")" class="btn btn-primary btn-dropbox btn-block">
+
+                                Mot de passe oublié ?
+
+                            </a>
                         </div>
                     </div>
-                    <hr />
-                    <p>
+                    <hr style="border-top: 1px solid black" />
+                    
                         @*@Html.ActionLink("S'inscrire comme nouvel utilisateur", "Register")*@
-                    </p>
-                    //Activer ceci une fois que la confirmation de votre compte est activée pour la fonctionnalité de réinitialisation du mot de passe
-                    <p>
-                        @Html.ActionLink("Vous avez oublié votre mot de passe ?", "PasswordForgot")
-                    </p>
-                }
-            </section>
-        </div>
+                       
+                    <p style="color:black">&copy; @DateTime.Now.Year - La Régie Nationale des Tabacs et des Allumettes
+
+          
+            </p>
+            //Activer ceci une fois que la confirmation de votre compte est activée pour la fonctionnalité de réinitialisation du mot de passe
+            @*<p>
+                @Html.ActionLink("Mot de passe oublié?", "PasswordForgot")
+            </p>*@
+        }
+                </section>
+            </div>
         <div class="col-md-4">
-                  @*<div class="social-auth-links text-center">
-                <p>- OR -</p>
-                <a href="#" class="btn btn-block btn-social btn-facebook btn-flat">
-                    <i class="fa fa-facebook"></i> Sign in using
-                    Facebook
-                </a>
-                <a href="#" class="btn btn-block btn-social btn-google btn-flat">
-                    <i class="fa fa-google-plus"></i> Sign in using
-                    Google+
-                </a>
-            </div>*@
+            @*<div class="social-auth-links text-center">
+            <p>- OR -</p>
+            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat">
+                <i class="fa fa-facebook"></i> Sign in using
+                Facebook
+            </a>
+            <a href="#" class="btn btn-block btn-social btn-google btn-flat">
+                <i class="fa fa-google-plus"></i> Sign in using
+                Google+
+            </a>
+        </div>*@
             <!-- /.social-auth-links -->
            
         </div>
@@ -131,12 +144,6 @@
     <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
     <!-- iCheck -->
     <script src="~/Content/plugins/iCheck/icheck.min.js"></script>
-    <script>$(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' // optional
-    });
-  });</script>
+   
 </body>
 </html>

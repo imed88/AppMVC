@@ -78,6 +78,13 @@
                     <dd>
                         @Html.DisplayFor(model => model.Parente)
                     </dd>
+                    <dt>
+                        @*Html.DisplayNameFor(model => model.PhonePatients)*@
+                        @Html.Label("Maladie Chronique", htmlAttributes: new { @class = "control-label col-md-15" })
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.MaladieChronique)
+                    </dd>
                 </dl>
                 @using (Html.BeginForm())
                 {

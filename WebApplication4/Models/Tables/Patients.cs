@@ -25,7 +25,9 @@ namespace WebApplication4.Models.Tables
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DOB { get; set; }
         public string Parente { get; set; }
-             
+        public string MaladieChronique { get; set; }
+        public string APCI { get; set; }
+
         public int IdUsine { get; set; }
         public virtual ICollection<FileDetail> FileDetails { get; set; }
 

@@ -76,6 +76,20 @@
                         @Html.DisplayFor(model => model.Parente)
                     </dd>
                     <dt>
+                        @*Html.DisplayNameFor(model => model.PhonePatients)*@
+                        @Html.Label("Maladie Chronique", htmlAttributes: new { @class = "control-label col-md-30" })
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.MaladieChronique)
+                    </dd>
+                    <dt>
+                        @*Html.DisplayNameFor(model => model.PhonePatients)*@
+                        @Html.Label("APCI", htmlAttributes: new { @class = "control-label col-md-30" })
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.APCI)
+                    </dd>
+                    <dt>
                         @*@Html.DisplayNameFor(model => model.FileDetails)*@
                         @Html.Label("Compléments du dossier", htmlAttributes: new { @class = "control-label col-md-30" })
                     </dt>
