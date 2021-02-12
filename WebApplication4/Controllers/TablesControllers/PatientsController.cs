@@ -53,7 +53,7 @@ namespace WebApplication4.Controllers.TablesControllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [System.Web.Mvc.HttpPost]
         [ValidateAntiForgeryToken]
-        public System.Web.Mvc.ActionResult Create([System.Web.Mvc.Bind(Include = "IdPatients,MatriculePatients,NomPatient,PrenomPatient,Gender,PhonePatients,DOB,Parente,MaladieChronique,APCI,IdUsine")] Patients patients)
+        public System.Web.Mvc.ActionResult Create([System.Web.Mvc.Bind(Include = "IdPatients,MatriculePatients,NomPatient,PrenomPatient,Gender,PhonePatients,DOB,Parente,MaladieChronique,CodeAPCI,APCI,IdUsine")] Patients patients)
         {
             if (ModelState.IsValid)
             {
@@ -91,8 +91,9 @@ namespace WebApplication4.Controllers.TablesControllers
                         file.SaveAs(path);
                     }
                 }
-
+               
                 patients.FileDetails = fileDetails;
+              
                 db.Patients.Add(patients);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -234,8 +235,11 @@ namespace WebApplication4.Controllers.TablesControllers
 
             int pageSize = 5;
             int pageNumber = (page ?? 1);
+            
             return View(patients.ToPagedList(pageNumber, pageSize));
         }
+
+     
 
     }
 }

@@ -49,14 +49,7 @@
                         @*@Html.DisplayFor(model => model.diagnostic)*@
                         @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(model => model.diagnostic).ToString()))
                     </dd>
-                    <dt>
-                        @*@Html.DisplayNameFor(model => model.diagnostic)*@
-                        @Html.Label("Traitement", htmlAttributes: new { @class = "control-label col-md-15" })
-                    </dt>
-                    <dd>
-                        @*@Html.DisplayFor(model => model.traitement)*@
-                        @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(model => model.traitement).ToString()))
-                    </dd>
+                   
 
                 </dl>
             </div>

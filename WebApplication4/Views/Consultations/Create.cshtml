@@ -79,14 +79,7 @@
                         @Html.ValidationMessageFor(model => model.diagnostic, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                <div class="form-group">
-                    @*Html.LabelFor(model => model.diagnostic, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                    @Html.Label("Traitement", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextAreaFor(model => model.traitement, 10, 83, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "traitement" } })
-                        @Html.ValidationMessageFor(model => model.traitement, "", new { @class = "text-danger" })
-                    </div>
-                </div>
+               
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">

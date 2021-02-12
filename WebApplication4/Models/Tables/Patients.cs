@@ -27,6 +27,7 @@ namespace WebApplication4.Models.Tables
         public string Parente { get; set; }
         public string MaladieChronique { get; set; }
         public string APCI { get; set; }
+        public string CodeAPCI { get; set; }
 
         public int IdUsine { get; set; }
         public virtual ICollection<FileDetail> FileDetails { get; set; }

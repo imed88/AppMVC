@@ -412,6 +412,14 @@
     <Compile Include="Migrations\202102111005279_APCI.Designer.cs">
       <DependentUpon>202102111005279_APCI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102120715030_CodeAPCI.cs" />
+    <Compile Include="Migrations\202102120715030_CodeAPCI.Designer.cs">
+      <DependentUpon>202102120715030_CodeAPCI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102121013552_SupprConsultTraitement.cs" />
+    <Compile Include="Migrations\202102121013552_SupprConsultTraitement.Designer.cs">
+      <DependentUpon>202102121013552_SupprConsultTraitement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CheckBoxItem.cs" />
@@ -447,11 +455,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Report\FicheRDV.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FicheRDV.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Report\Ordonnance.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Ordonnance.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\RDV.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RDV.xsd</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Startup.cs" />
@@ -4010,6 +4029,17 @@
     <Content Include="Report\DataSet2.xss">
       <DependentUpon>DataSet2.xsd</DependentUpon>
     </Content>
+    <Content Include="Report\RDV.xsc">
+      <DependentUpon>RDV.xsd</DependentUpon>
+    </Content>
+    <None Include="Report\RDV.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RDV.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Report\RDV.xss">
+      <DependentUpon>RDV.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.min.map" />
     <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
@@ -4333,6 +4363,16 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102111005279_APCI.resx">
       <DependentUpon>202102111005279_APCI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102120715030_CodeAPCI.resx">
+      <DependentUpon>202102120715030_CodeAPCI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102121013552_SupprConsultTraitement.resx">
+      <DependentUpon>202102121013552_SupprConsultTraitement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FicheRDV.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FicheRDV.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\Ordonnance.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
