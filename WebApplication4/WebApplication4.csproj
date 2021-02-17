@@ -371,6 +371,7 @@
     <Compile Include="Controllers\PatientFileController.cs" />
     <Compile Include="Controllers\TablesControllers\AppointementModelsController.cs" />
     <Compile Include="Controllers\TablesControllers\ConsultationsController.cs" />
+    <Compile Include="Controllers\TablesControllers\EventsController.cs" />
     <Compile Include="Controllers\TablesControllers\MedecinConventionnesController.cs" />
     <Compile Include="Controllers\TablesControllers\MedicamentsController.cs" />
     <Compile Include="Controllers\TablesControllers\OrderController.cs" />
@@ -420,6 +421,26 @@
     <Compile Include="Migrations\202102121013552_SupprConsultTraitement.Designer.cs">
       <DependentUpon>202102121013552_SupprConsultTraitement.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102160621403_modifs.cs" />
+    <Compile Include="Migrations\202102160621403_modifs.Designer.cs">
+      <DependentUpon>202102160621403_modifs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102170800332_Events.cs" />
+    <Compile Include="Migrations\202102170800332_Events.Designer.cs">
+      <DependentUpon>202102170800332_Events.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102171111054_SupprIsFullyDay.cs" />
+    <Compile Include="Migrations\202102171111054_SupprIsFullyDay.Designer.cs">
+      <DependentUpon>202102171111054_SupprIsFullyDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102171121136_SupprEndDate.cs" />
+    <Compile Include="Migrations\202102171121136_SupprEndDate.Designer.cs">
+      <DependentUpon>202102171121136_SupprEndDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102171255239_Specialite.cs" />
+    <Compile Include="Migrations\202102171255239_Specialite.Designer.cs">
+      <DependentUpon>202102171255239_Specialite.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CheckBoxItem.cs" />
@@ -428,6 +449,7 @@
     <Compile Include="Models\Tables\Appointement.cs" />
     <Compile Include="Models\Tables\Consultation.cs" />
     <Compile Include="Models\Tables\ConsultationOrdonnance.cs" />
+    <Compile Include="Models\Tables\Events.cs" />
     <Compile Include="Models\Tables\FileDetail.cs" />
     <Compile Include="Models\Tables\MedecinConventionne.cs" />
     <Compile Include="Models\Tables\Medicaments.cs" />
@@ -4336,6 +4358,8 @@
     <Content Include="Views\Produits\Edit.cshtml" />
     <Content Include="Views\Produits\Index.cshtml" />
     <Content Include="Views\Produits\Details.cshtml" />
+    <Content Include="Views\Calendrier.cshtml" />
+    <Content Include="Views\Events\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -4369,6 +4393,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102121013552_SupprConsultTraitement.resx">
       <DependentUpon>202102121013552_SupprConsultTraitement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102160621403_modifs.resx">
+      <DependentUpon>202102160621403_modifs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102170800332_Events.resx">
+      <DependentUpon>202102170800332_Events.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102171111054_SupprIsFullyDay.resx">
+      <DependentUpon>202102171111054_SupprIsFullyDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102171121136_SupprEndDate.resx">
+      <DependentUpon>202102171121136_SupprEndDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102171255239_Specialite.resx">
+      <DependentUpon>202102171255239_Specialite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\FicheRDV.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

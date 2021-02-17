@@ -51,7 +51,7 @@ namespace WebApplication4.Controllers.TablesControllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdSpecialite,SpecialiteName")] Specialite specialite)
+        public ActionResult Create([Bind(Include = "IdSpecialite,SpecialiteName, Color")] Specialite specialite)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace WebApplication4.Controllers.TablesControllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdSpecialite,SpecialiteName")] Specialite specialite)
+        public ActionResult Edit([Bind(Include = "IdSpecialite,SpecialiteName, Color")] Specialite specialite)
         {
             if (ModelState.IsValid)
             {
