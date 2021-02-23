@@ -15,17 +15,30 @@ namespace WebApplication4.Controllers.TablesControllers
         // GET: Events
         public ActionResult Index()
         {
+            ViewBag.idDoctors = new SelectList(db.MedecinConventionnes, "idDoctors", "nameDoctors");
+
             return View();
         }
-
+      
         public JsonResult GetEvents()
         {
                 var events = db.Events.ToList();
                 return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
          }
+
+        public JsonResult SaveEvent()
+        {
+            var status = false;
+            ViewBag.idDoctors = new SelectList(db.MedecinConventionnes, "idDoctors", "nameDoctors");
+            return new JsonResult { Data = new { status = status } };
+        }
+
+
+
         [HttpPost]
         public JsonResult SaveEvent(Events e)
         {
+      
             var status = false;
            
                 if (e.EventID > 0)
@@ -37,19 +50,20 @@ namespace WebApplication4.Controllers.TablesControllers
 
                         v.Subject = e.Subject;
                         v.DateStart = e.DateStart;
-                       
                         v.Description = e.Description;
-                       
                         v.ThemeColor = e.ThemeColor;
+                        v.idDoctors = e.idDoctors;
                     }
                 }
                 else
                 {
+
                     db.Events.Add(e);
                 }
                 db.SaveChanges();
                 status = true;
-            
+        
+
             return new JsonResult { Data = new { status = status } };
         }
 

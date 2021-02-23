@@ -28,6 +28,8 @@ namespace WebApplication4.Models.Tables
         //[Required] //Changes V2
         //[DisplayName("Full Day")]
         //public bool IsFullDay { get; set; }
+       public int idDoctors { get; set; }
+        public virtual MedecinConventionne Medecin { get; set; }
 
     }
 }

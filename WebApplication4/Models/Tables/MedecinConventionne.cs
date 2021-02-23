@@ -31,11 +31,8 @@ namespace WebApplication4.Models.Tables
         [DisplayName("Spécialiste")]
         public int idSpecialite { get; set; }
         public virtual Specialite specialite { get; set; }
+       public virtual ICollection<AppointementModel> Appointments { get; set; }
+        public virtual ICollection<Events> Event { get; set; }
 
-        
-
-
-        public virtual ICollection<AppointementModel> Appointments { get; set; }
-        
     }
 }

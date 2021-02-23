@@ -1,0 +1,36 @@
+﻿@model WebApplication4.Models.ViewModels.SpecialiteMedecinViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/adminlte/_mainLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<br /><br />
+<div class="container">
+    <div class="form-group">
+        @if (ViewBag.CountryList != null)
+        {
+            @Html.DropDownListFor(model => model.IdSpecialite, ViewBag.CountryList as SelectList, "--Select Country--", new { @class = "form-control", id= "IdSpecialite" })
+        }
+    </div>
+    <div class="form-group">
+        @Html.DropDownListFor(model => model.idDoctors, new SelectList(" "), "--Select State--", new { @class = "form-control", id= "idDoctors" })
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.5.1.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#IdSpecialite").change(function () {
+            $.get("/SpecialiteDoctors/GetMedecinList", { IdSpecialite: $("#IdSpecialite").val() }, function (data) {
+                $("#idDoctors").empty();
+                $.each(data, function (index, row) {
+                    $("#idDoctors").append("<option value='" + row.idDoctors + "'>" + row.nameDoctors + "</option>")
+                });
+            });
+        })
+    });
+</script>
+
