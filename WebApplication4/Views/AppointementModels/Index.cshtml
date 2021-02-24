@@ -31,29 +31,30 @@
                 </p>
             </div>
             <div class="col-sm-8">
-                @using (Html.BeginForm("Index", "Products", FormMethod.Post))
+                @using (Html.BeginForm("Index", "AppointementModels", FormMethod.Post))
                 {
-                    <div>
-                        @Html.Label("Matricule du Patient:")
-                        @Html.TextBox("searching")
-                        @*<input id="submit" type="submit" value="Rechercher" />*@
-                        <button type="submit" value="" class="btn btn-warning glyphicon glyphicon-search " />
-                    </div>
+                <div>
+                    @Html.Label("Matricule du Patient:")
+                    @Html.TextBox("searching")
+                    @Html.Label("Date du Rendez Vous", htmlAttributes: new { @class = "control-label col-md-15" })
+                    <input type="Date" name="start" />
+
+                    @*<input id="submit" type="submit" value="Rechercher" />*@
+                    <button type="submit" value="" class="btn btn-warning glyphicon glyphicon-search " />
+                </div>
                 }
             </div>
         </div>
-
-
-
 
         <div class="table-responsive">
             <table id="table_id" class="table">
                 <tr>
                     <th>
-                        @Html.Label("Date de Prise de Rendez Vous", htmlAttributes: new { @class = "control-label col-md-15" })
-
+                        @Html.Label("Date de Prise du Rendez Vous", htmlAttributes: new { @class = "control-label col-md-15" })
                     </th>
-                  
+                    <th>
+                        @Html.Label("Heure du Rendez Vous", htmlAttributes: new { @class = "control-label col-md-15" })
+                    </th>
                     <th>
                         @*@Html.DisplayNameFor(model => model.Doctor.specialite.SpecialiteName)*@
                         @Html.Label("Spécialité", htmlAttributes: new { @class = "control-label col-md-15" })
@@ -76,7 +77,7 @@
                         @Html.Label("Prénom du patient", htmlAttributes: new { @class = "control-label col-md-15" })
                     </th>
 
-                   
+
 
 
                     <th>
@@ -84,54 +85,64 @@
                 </tr>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(model => item.DtEdit)
-                        </td>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => item.DtEdit)
+                    </td>
 
-                      
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Doctor.specialite.SpecialiteName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Doctor.nameDoctors)
-                        </td>
+                    <td>
+                        @Html.DisplayFor(model => item.dateTime)
+                    </td>
 
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Patient.MatriculePatients)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Patient.NomPatient)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Patient.PrenomPatient)
-                        </td>
-                       
 
-                        <td>
-                            @*@Html.ActionLink("Modifier", "Edit", new { id = item.AppointmentID },htmlAttributes: new { @class = "glyphicon glyphicon-pencil btn btn-primary" })
-                                @Html.ActionLink(" Details", "Details", new { id = item.AppointmentID }, htmlAttributes: new { @class = "glyphicon glyphicon-info-sign btn btn-info" })
-                                @Html.ActionLink(" Supprimer", "Delete", new { id = item.AppointmentID }, htmlAttributes: new { @class = "glyphicon glyphicon-trash btn btn-danger" })*@
-                            <a href="@Url.Action("Edit", "AppointementModels",new { id = item.AppointmentID })" class="btn btn-warning">
-                                <i class="glyphicon glyphicon-pencil"></i>
-                                <span>
-                                    <strong></strong>
-                                </span>
-                            </a>
-                            <a href="@Url.Action("Details", "AppointementModels",new { id = item.AppointmentID })" class="btn btn-info">
-                                <i class="glyphicon glyphicon-info-sign"></i>
-                                <span>
-                                    <strong></strong>
-                                </span>
-                            </a>
-                            <a href="@Url.Action("Delete", "AppointementModels",new { id = item.AppointmentID })" class="btn btn-danger">
-                                <i class="glyphicon glyphicon-trash"></i>
-                                <span>
-                                    <strong></strong>
-                                </span>
-                            </a>
-                        </td>
-                    </tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Doctor.specialite.SpecialiteName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Doctor.nameDoctors)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Patient.MatriculePatients)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Patient.NomPatient)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Patient.PrenomPatient)
+                    </td>
+
+
+                    <td>
+                        @*@Html.ActionLink("Modifier", "Edit", new { id = item.AppointmentID },htmlAttributes: new { @class = "glyphicon glyphicon-pencil btn btn-primary" })
+        @Html.ActionLink(" Details", "Details", new { id = item.AppointmentID }, htmlAttributes: new { @class = "glyphicon glyphicon-info-sign btn btn-info" })
+        @Html.ActionLink(" Supprimer", "Delete", new { id = item.AppointmentID }, htmlAttributes: new { @class = "glyphicon glyphicon-trash btn btn-danger" })*@
+                        <a href="@Url.Action("Edit", "AppointementModels",new { id = item.AppointmentID })" class="btn btn-warning">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                            <span>
+                                <strong></strong>
+                            </span>
+                        </a>
+                        <a href="@Url.Action("Details", "AppointementModels",new { id = item.AppointmentID })" class="btn btn-info">
+                            <i class="glyphicon glyphicon-info-sign"></i>
+                            <span>
+                                <strong></strong>
+                            </span>
+                        </a>
+                        <a href="@Url.Action("Delete", "AppointementModels",new { id = item.AppointmentID })" class="btn btn-danger">
+                            <i class="glyphicon glyphicon-trash"></i>
+                            <span>
+                                <strong></strong>
+                            </span>
+                        </a>
+                        <a href="@Url.Action("PassRDV", "AppointementModels",new { id = item.AppointmentID })" class="btn btn-danger">
+                            <i class="glyphicon glyphicon-print"></i>
+                            <span>
+                                <strong></strong>
+                            </span>
+                        </a>
+                    </td>
+                </tr>
                 }
             </table>
         </div>

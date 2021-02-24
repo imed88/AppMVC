@@ -33,16 +33,20 @@ namespace WebApplication4.Models.Tables
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DtEdit { get; set; }
 
+        [DataType(DataType.Time)]
+        [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
+        public DateTime dateTime { get; set; }
+
 
         [Required] //Changes V2
         [DisplayName("Patient")]
         public int idPatients { get; set; }
+        public virtual Patients Patient { get; set; }
 
-        
         public virtual MedecinConventionne Doctor { get; set; }
 
        
-        public virtual Patients Patient { get; set; }
+       
        
 
 

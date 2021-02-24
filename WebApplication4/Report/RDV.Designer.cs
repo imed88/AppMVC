@@ -279,17 +279,19 @@ namespace WebApplication4.Report {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class DataTable1DataTable : global::System.Data.TypedTableBase<DataTable1Row> {
             
-            private global::System.Data.DataColumn columnAppointmentID;
-            
-            private global::System.Data.DataColumn columnidDoctors;
-            
-            private global::System.Data.DataColumn columnDtEdit;
-            
-            private global::System.Data.DataColumn columnidPatients;
-            
-            private global::System.Data.DataColumn columnidDoctors1;
+            private global::System.Data.DataColumn columndateTime;
             
             private global::System.Data.DataColumn columnnameDoctors;
+            
+            private global::System.Data.DataColumn columnMatriculePatients;
+            
+            private global::System.Data.DataColumn columnNomPatient;
+            
+            private global::System.Data.DataColumn columnPrenomPatient;
+            
+            private global::System.Data.DataColumn columnSpecialiteName;
+            
+            private global::System.Data.DataColumn columnidDoctors;
             
             private global::System.Data.DataColumn columnemailDoctors;
             
@@ -297,13 +299,15 @@ namespace WebApplication4.Report {
             
             private global::System.Data.DataColumn columnidSpecialite;
             
+            private global::System.Data.DataColumn columnAppointmentID;
+            
+            private global::System.Data.DataColumn columnidDoctors1;
+            
+            private global::System.Data.DataColumn columnDtEdit;
+            
+            private global::System.Data.DataColumn columnidPatients;
+            
             private global::System.Data.DataColumn columnIdPatients1;
-            
-            private global::System.Data.DataColumn columnMatriculePatients;
-            
-            private global::System.Data.DataColumn columnNomPatient;
-            
-            private global::System.Data.DataColumn columnPrenomPatient;
             
             private global::System.Data.DataColumn columnGender;
             
@@ -320,6 +324,10 @@ namespace WebApplication4.Report {
             private global::System.Data.DataColumn columnAPCI;
             
             private global::System.Data.DataColumn columnCodeAPCI;
+            
+            private global::System.Data.DataColumn columnIdSpecialite1;
+            
+            private global::System.Data.DataColumn columnColor;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -356,41 +364,9 @@ namespace WebApplication4.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn AppointmentIDColumn {
+            public global::System.Data.DataColumn dateTimeColumn {
                 get {
-                    return this.columnAppointmentID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn idDoctorsColumn {
-                get {
-                    return this.columnidDoctors;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn DtEditColumn {
-                get {
-                    return this.columnDtEdit;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn idPatientsColumn {
-                get {
-                    return this.columnidPatients;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn idDoctors1Column {
-                get {
-                    return this.columnidDoctors1;
+                    return this.columndateTime;
                 }
             }
             
@@ -399,6 +375,46 @@ namespace WebApplication4.Report {
             public global::System.Data.DataColumn nameDoctorsColumn {
                 get {
                     return this.columnnameDoctors;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn MatriculePatientsColumn {
+                get {
+                    return this.columnMatriculePatients;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn NomPatientColumn {
+                get {
+                    return this.columnNomPatient;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn PrenomPatientColumn {
+                get {
+                    return this.columnPrenomPatient;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn SpecialiteNameColumn {
+                get {
+                    return this.columnSpecialiteName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn idDoctorsColumn {
+                get {
+                    return this.columnidDoctors;
                 }
             }
             
@@ -428,33 +444,41 @@ namespace WebApplication4.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn AppointmentIDColumn {
+                get {
+                    return this.columnAppointmentID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn idDoctors1Column {
+                get {
+                    return this.columnidDoctors1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DtEditColumn {
+                get {
+                    return this.columnDtEdit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn idPatientsColumn {
+                get {
+                    return this.columnidPatients;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn IdPatients1Column {
                 get {
                     return this.columnIdPatients1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn MatriculePatientsColumn {
-                get {
-                    return this.columnMatriculePatients;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn NomPatientColumn {
-                get {
-                    return this.columnNomPatient;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn PrenomPatientColumn {
-                get {
-                    return this.columnPrenomPatient;
                 }
             }
             
@@ -524,6 +548,22 @@ namespace WebApplication4.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn IdSpecialite1Column {
+                get {
+                    return this.columnIdSpecialite1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ColorColumn {
+                get {
+                    return this.columnColor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -560,16 +600,18 @@ namespace WebApplication4.Report {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public DataTable1Row AddDataTable1Row(
-                        int idDoctors, 
-                        System.DateTime DtEdit, 
-                        int idPatients, 
+                        System.DateTime dateTime, 
                         string nameDoctors, 
-                        string emailDoctors, 
-                        string phoneDoctors, 
-                        int idSpecialite, 
                         string MatriculePatients, 
                         string NomPatient, 
                         string PrenomPatient, 
+                        string SpecialiteName, 
+                        string emailDoctors, 
+                        string phoneDoctors, 
+                        int idSpecialite, 
+                        int idDoctors1, 
+                        System.DateTime DtEdit, 
+                        int idPatients, 
                         string Gender, 
                         string PhonePatients, 
                         System.DateTime DOB, 
@@ -577,22 +619,25 @@ namespace WebApplication4.Report {
                         int IdUsine, 
                         string MaladieChronique, 
                         string APCI, 
-                        string CodeAPCI) {
+                        string CodeAPCI, 
+                        string Color) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
-                        idDoctors,
-                        DtEdit,
-                        idPatients,
-                        null,
+                        dateTime,
                         nameDoctors,
+                        MatriculePatients,
+                        NomPatient,
+                        PrenomPatient,
+                        SpecialiteName,
+                        null,
                         emailDoctors,
                         phoneDoctors,
                         idSpecialite,
                         null,
-                        MatriculePatients,
-                        NomPatient,
-                        PrenomPatient,
+                        idDoctors1,
+                        DtEdit,
+                        idPatients,
+                        null,
                         Gender,
                         PhonePatients,
                         DOB,
@@ -600,7 +645,9 @@ namespace WebApplication4.Report {
                         IdUsine,
                         MaladieChronique,
                         APCI,
-                        CodeAPCI};
+                        CodeAPCI,
+                        null,
+                        Color};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -608,11 +655,12 @@ namespace WebApplication4.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DataTable1Row FindByAppointmentIDidDoctors1IdPatients1(int AppointmentID, int idDoctors1, int IdPatients1) {
+            public DataTable1Row FindByidDoctorsAppointmentIDIdPatients1IdSpecialite1(int idDoctors, int AppointmentID, int IdPatients1, int IdSpecialite1) {
                 return ((DataTable1Row)(this.Rows.Find(new object[] {
+                            idDoctors,
                             AppointmentID,
-                            idDoctors1,
-                            IdPatients1})));
+                            IdPatients1,
+                            IdSpecialite1})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -632,19 +680,21 @@ namespace WebApplication4.Report {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
-                this.columnAppointmentID = base.Columns["AppointmentID"];
-                this.columnidDoctors = base.Columns["idDoctors"];
-                this.columnDtEdit = base.Columns["DtEdit"];
-                this.columnidPatients = base.Columns["idPatients"];
-                this.columnidDoctors1 = base.Columns["idDoctors1"];
+                this.columndateTime = base.Columns["dateTime"];
                 this.columnnameDoctors = base.Columns["nameDoctors"];
-                this.columnemailDoctors = base.Columns["emailDoctors"];
-                this.columnphoneDoctors = base.Columns["phoneDoctors"];
-                this.columnidSpecialite = base.Columns["idSpecialite"];
-                this.columnIdPatients1 = base.Columns["IdPatients1"];
                 this.columnMatriculePatients = base.Columns["MatriculePatients"];
                 this.columnNomPatient = base.Columns["NomPatient"];
                 this.columnPrenomPatient = base.Columns["PrenomPatient"];
+                this.columnSpecialiteName = base.Columns["SpecialiteName"];
+                this.columnidDoctors = base.Columns["idDoctors"];
+                this.columnemailDoctors = base.Columns["emailDoctors"];
+                this.columnphoneDoctors = base.Columns["phoneDoctors"];
+                this.columnidSpecialite = base.Columns["idSpecialite"];
+                this.columnAppointmentID = base.Columns["AppointmentID"];
+                this.columnidDoctors1 = base.Columns["idDoctors1"];
+                this.columnDtEdit = base.Columns["DtEdit"];
+                this.columnidPatients = base.Columns["idPatients"];
+                this.columnIdPatients1 = base.Columns["IdPatients1"];
                 this.columnGender = base.Columns["Gender"];
                 this.columnPhonePatients = base.Columns["PhonePatients"];
                 this.columnDOB = base.Columns["DOB"];
@@ -653,37 +703,43 @@ namespace WebApplication4.Report {
                 this.columnMaladieChronique = base.Columns["MaladieChronique"];
                 this.columnAPCI = base.Columns["APCI"];
                 this.columnCodeAPCI = base.Columns["CodeAPCI"];
+                this.columnIdSpecialite1 = base.Columns["IdSpecialite1"];
+                this.columnColor = base.Columns["Color"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columnAppointmentID = new global::System.Data.DataColumn("AppointmentID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAppointmentID);
-                this.columnidDoctors = new global::System.Data.DataColumn("idDoctors", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnidDoctors);
-                this.columnDtEdit = new global::System.Data.DataColumn("DtEdit", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDtEdit);
-                this.columnidPatients = new global::System.Data.DataColumn("idPatients", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnidPatients);
-                this.columnidDoctors1 = new global::System.Data.DataColumn("idDoctors1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnidDoctors1);
+                this.columndateTime = new global::System.Data.DataColumn("dateTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndateTime);
                 this.columnnameDoctors = new global::System.Data.DataColumn("nameDoctors", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnameDoctors);
-                this.columnemailDoctors = new global::System.Data.DataColumn("emailDoctors", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnemailDoctors);
-                this.columnphoneDoctors = new global::System.Data.DataColumn("phoneDoctors", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnphoneDoctors);
-                this.columnidSpecialite = new global::System.Data.DataColumn("idSpecialite", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnidSpecialite);
-                this.columnIdPatients1 = new global::System.Data.DataColumn("IdPatients1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIdPatients1);
                 this.columnMatriculePatients = new global::System.Data.DataColumn("MatriculePatients", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMatriculePatients);
                 this.columnNomPatient = new global::System.Data.DataColumn("NomPatient", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNomPatient);
                 this.columnPrenomPatient = new global::System.Data.DataColumn("PrenomPatient", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrenomPatient);
+                this.columnSpecialiteName = new global::System.Data.DataColumn("SpecialiteName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSpecialiteName);
+                this.columnidDoctors = new global::System.Data.DataColumn("idDoctors", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidDoctors);
+                this.columnemailDoctors = new global::System.Data.DataColumn("emailDoctors", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnemailDoctors);
+                this.columnphoneDoctors = new global::System.Data.DataColumn("phoneDoctors", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnphoneDoctors);
+                this.columnidSpecialite = new global::System.Data.DataColumn("idSpecialite", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidSpecialite);
+                this.columnAppointmentID = new global::System.Data.DataColumn("AppointmentID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAppointmentID);
+                this.columnidDoctors1 = new global::System.Data.DataColumn("idDoctors1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidDoctors1);
+                this.columnDtEdit = new global::System.Data.DataColumn("DtEdit", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDtEdit);
+                this.columnidPatients = new global::System.Data.DataColumn("idPatients", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidPatients);
+                this.columnIdPatients1 = new global::System.Data.DataColumn("IdPatients1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIdPatients1);
                 this.columnGender = new global::System.Data.DataColumn("Gender", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGender);
                 this.columnPhonePatients = new global::System.Data.DataColumn("PhonePatients", typeof(string), null, global::System.Data.MappingType.Element);
@@ -700,35 +756,43 @@ namespace WebApplication4.Report {
                 base.Columns.Add(this.columnAPCI);
                 this.columnCodeAPCI = new global::System.Data.DataColumn("CodeAPCI", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCodeAPCI);
+                this.columnIdSpecialite1 = new global::System.Data.DataColumn("IdSpecialite1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIdSpecialite1);
+                this.columnColor = new global::System.Data.DataColumn("Color", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnColor);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnidDoctors,
                                 this.columnAppointmentID,
-                                this.columnidDoctors1,
-                                this.columnIdPatients1}, true));
+                                this.columnIdPatients1,
+                                this.columnIdSpecialite1}, true));
+                this.columndateTime.AllowDBNull = false;
+                this.columnnameDoctors.MaxLength = 2147483647;
+                this.columnMatriculePatients.MaxLength = 2147483647;
+                this.columnNomPatient.MaxLength = 2147483647;
+                this.columnPrenomPatient.MaxLength = 2147483647;
+                this.columnSpecialiteName.AllowDBNull = false;
+                this.columnSpecialiteName.MaxLength = 2147483647;
+                this.columnidDoctors.AutoIncrement = true;
+                this.columnidDoctors.AutoIncrementSeed = -1;
+                this.columnidDoctors.AutoIncrementStep = -1;
+                this.columnidDoctors.AllowDBNull = false;
+                this.columnidDoctors.ReadOnly = true;
+                this.columnemailDoctors.MaxLength = 2147483647;
+                this.columnphoneDoctors.MaxLength = 2147483647;
+                this.columnidSpecialite.AllowDBNull = false;
                 this.columnAppointmentID.AutoIncrement = true;
                 this.columnAppointmentID.AutoIncrementSeed = -1;
                 this.columnAppointmentID.AutoIncrementStep = -1;
                 this.columnAppointmentID.AllowDBNull = false;
                 this.columnAppointmentID.ReadOnly = true;
-                this.columnidDoctors.AllowDBNull = false;
+                this.columnidDoctors1.AllowDBNull = false;
                 this.columnDtEdit.AllowDBNull = false;
                 this.columnidPatients.AllowDBNull = false;
-                this.columnidDoctors1.AutoIncrement = true;
-                this.columnidDoctors1.AutoIncrementSeed = -1;
-                this.columnidDoctors1.AutoIncrementStep = -1;
-                this.columnidDoctors1.AllowDBNull = false;
-                this.columnidDoctors1.ReadOnly = true;
-                this.columnnameDoctors.MaxLength = 2147483647;
-                this.columnemailDoctors.MaxLength = 2147483647;
-                this.columnphoneDoctors.MaxLength = 2147483647;
-                this.columnidSpecialite.AllowDBNull = false;
                 this.columnIdPatients1.AutoIncrement = true;
                 this.columnIdPatients1.AutoIncrementSeed = -1;
                 this.columnIdPatients1.AutoIncrementStep = -1;
                 this.columnIdPatients1.AllowDBNull = false;
                 this.columnIdPatients1.ReadOnly = true;
-                this.columnMatriculePatients.MaxLength = 2147483647;
-                this.columnNomPatient.MaxLength = 2147483647;
-                this.columnPrenomPatient.MaxLength = 2147483647;
                 this.columnGender.MaxLength = 2147483647;
                 this.columnPhonePatients.MaxLength = 2147483647;
                 this.columnDOB.AllowDBNull = false;
@@ -737,6 +801,12 @@ namespace WebApplication4.Report {
                 this.columnMaladieChronique.MaxLength = 2147483647;
                 this.columnAPCI.MaxLength = 2147483647;
                 this.columnCodeAPCI.MaxLength = 2147483647;
+                this.columnIdSpecialite1.AutoIncrement = true;
+                this.columnIdSpecialite1.AutoIncrementSeed = -1;
+                this.columnIdSpecialite1.AutoIncrementStep = -1;
+                this.columnIdSpecialite1.AllowDBNull = false;
+                this.columnIdSpecialite1.ReadOnly = true;
+                this.columnColor.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -879,56 +949,12 @@ namespace WebApplication4.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int AppointmentID {
+            public System.DateTime dateTime {
                 get {
-                    return ((int)(this[this.tableDataTable1.AppointmentIDColumn]));
+                    return ((global::System.DateTime)(this[this.tableDataTable1.dateTimeColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.AppointmentIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int idDoctors {
-                get {
-                    return ((int)(this[this.tableDataTable1.idDoctorsColumn]));
-                }
-                set {
-                    this[this.tableDataTable1.idDoctorsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public System.DateTime DtEdit {
-                get {
-                    return ((global::System.DateTime)(this[this.tableDataTable1.DtEditColumn]));
-                }
-                set {
-                    this[this.tableDataTable1.DtEditColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int idPatients {
-                get {
-                    return ((int)(this[this.tableDataTable1.idPatientsColumn]));
-                }
-                set {
-                    this[this.tableDataTable1.idPatientsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int idDoctors1 {
-                get {
-                    return ((int)(this[this.tableDataTable1.idDoctors1Column]));
-                }
-                set {
-                    this[this.tableDataTable1.idDoctors1Column] = value;
+                    this[this.tableDataTable1.dateTimeColumn] = value;
                 }
             }
             
@@ -945,60 +971,6 @@ namespace WebApplication4.Report {
                 }
                 set {
                     this[this.tableDataTable1.nameDoctorsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string emailDoctors {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable1.emailDoctorsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'emailDoctors\' dans la table \'DataTable1\' est DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.emailDoctorsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string phoneDoctors {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable1.phoneDoctorsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'phoneDoctors\' dans la table \'DataTable1\' est DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.phoneDoctorsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int idSpecialite {
-                get {
-                    return ((int)(this[this.tableDataTable1.idSpecialiteColumn]));
-                }
-                set {
-                    this[this.tableDataTable1.idSpecialiteColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int IdPatients1 {
-                get {
-                    return ((int)(this[this.tableDataTable1.IdPatients1Column]));
-                }
-                set {
-                    this[this.tableDataTable1.IdPatients1Column] = value;
                 }
             }
             
@@ -1048,6 +1020,126 @@ namespace WebApplication4.Report {
                 }
                 set {
                     this[this.tableDataTable1.PrenomPatientColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string SpecialiteName {
+                get {
+                    return ((string)(this[this.tableDataTable1.SpecialiteNameColumn]));
+                }
+                set {
+                    this[this.tableDataTable1.SpecialiteNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int idDoctors {
+                get {
+                    return ((int)(this[this.tableDataTable1.idDoctorsColumn]));
+                }
+                set {
+                    this[this.tableDataTable1.idDoctorsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string emailDoctors {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.emailDoctorsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'emailDoctors\' dans la table \'DataTable1\' est DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.emailDoctorsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string phoneDoctors {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.phoneDoctorsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'phoneDoctors\' dans la table \'DataTable1\' est DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.phoneDoctorsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int idSpecialite {
+                get {
+                    return ((int)(this[this.tableDataTable1.idSpecialiteColumn]));
+                }
+                set {
+                    this[this.tableDataTable1.idSpecialiteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int AppointmentID {
+                get {
+                    return ((int)(this[this.tableDataTable1.AppointmentIDColumn]));
+                }
+                set {
+                    this[this.tableDataTable1.AppointmentIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int idDoctors1 {
+                get {
+                    return ((int)(this[this.tableDataTable1.idDoctors1Column]));
+                }
+                set {
+                    this[this.tableDataTable1.idDoctors1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime DtEdit {
+                get {
+                    return ((global::System.DateTime)(this[this.tableDataTable1.DtEditColumn]));
+                }
+                set {
+                    this[this.tableDataTable1.DtEditColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int idPatients {
+                get {
+                    return ((int)(this[this.tableDataTable1.idPatientsColumn]));
+                }
+                set {
+                    this[this.tableDataTable1.idPatientsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int IdPatients1 {
+                get {
+                    return ((int)(this[this.tableDataTable1.IdPatients1Column]));
+                }
+                set {
+                    this[this.tableDataTable1.IdPatients1Column] = value;
                 }
             }
             
@@ -1172,6 +1264,33 @@ namespace WebApplication4.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int IdSpecialite1 {
+                get {
+                    return ((int)(this[this.tableDataTable1.IdSpecialite1Column]));
+                }
+                set {
+                    this[this.tableDataTable1.IdSpecialite1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Color {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.ColorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Color\' dans la table \'DataTable1\' est DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.ColorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsnameDoctorsNull() {
                 return this.IsNull(this.tableDataTable1.nameDoctorsColumn);
             }
@@ -1180,30 +1299,6 @@ namespace WebApplication4.Report {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnameDoctorsNull() {
                 this[this.tableDataTable1.nameDoctorsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsemailDoctorsNull() {
-                return this.IsNull(this.tableDataTable1.emailDoctorsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetemailDoctorsNull() {
-                this[this.tableDataTable1.emailDoctorsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsphoneDoctorsNull() {
-                return this.IsNull(this.tableDataTable1.phoneDoctorsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetphoneDoctorsNull() {
-                this[this.tableDataTable1.phoneDoctorsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1240,6 +1335,30 @@ namespace WebApplication4.Report {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetPrenomPatientNull() {
                 this[this.tableDataTable1.PrenomPatientColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsemailDoctorsNull() {
+                return this.IsNull(this.tableDataTable1.emailDoctorsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetemailDoctorsNull() {
+                this[this.tableDataTable1.emailDoctorsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsphoneDoctorsNull() {
+                return this.IsNull(this.tableDataTable1.phoneDoctorsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetphoneDoctorsNull() {
+                this[this.tableDataTable1.phoneDoctorsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1312,6 +1431,18 @@ namespace WebApplication4.Report {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetCodeAPCINull() {
                 this[this.tableDataTable1.CodeAPCIColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsColorNull() {
+                return this.IsNull(this.tableDataTable1.ColorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetColorNull() {
+                this[this.tableDataTable1.ColorColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1474,19 +1605,21 @@ namespace WebApplication4.Report.RDVTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "DataTable1";
-            tableMapping.ColumnMappings.Add("AppointmentID", "AppointmentID");
-            tableMapping.ColumnMappings.Add("idDoctors", "idDoctors");
-            tableMapping.ColumnMappings.Add("DtEdit", "DtEdit");
-            tableMapping.ColumnMappings.Add("idPatients", "idPatients");
-            tableMapping.ColumnMappings.Add("idDoctors1", "idDoctors1");
+            tableMapping.ColumnMappings.Add("dateTime", "dateTime");
             tableMapping.ColumnMappings.Add("nameDoctors", "nameDoctors");
-            tableMapping.ColumnMappings.Add("emailDoctors", "emailDoctors");
-            tableMapping.ColumnMappings.Add("phoneDoctors", "phoneDoctors");
-            tableMapping.ColumnMappings.Add("idSpecialite", "idSpecialite");
-            tableMapping.ColumnMappings.Add("IdPatients1", "IdPatients1");
             tableMapping.ColumnMappings.Add("MatriculePatients", "MatriculePatients");
             tableMapping.ColumnMappings.Add("NomPatient", "NomPatient");
             tableMapping.ColumnMappings.Add("PrenomPatient", "PrenomPatient");
+            tableMapping.ColumnMappings.Add("SpecialiteName", "SpecialiteName");
+            tableMapping.ColumnMappings.Add("idDoctors", "idDoctors");
+            tableMapping.ColumnMappings.Add("emailDoctors", "emailDoctors");
+            tableMapping.ColumnMappings.Add("phoneDoctors", "phoneDoctors");
+            tableMapping.ColumnMappings.Add("idSpecialite", "idSpecialite");
+            tableMapping.ColumnMappings.Add("AppointmentID", "AppointmentID");
+            tableMapping.ColumnMappings.Add("idDoctors1", "idDoctors1");
+            tableMapping.ColumnMappings.Add("DtEdit", "DtEdit");
+            tableMapping.ColumnMappings.Add("idPatients", "idPatients");
+            tableMapping.ColumnMappings.Add("IdPatients1", "IdPatients1");
             tableMapping.ColumnMappings.Add("Gender", "Gender");
             tableMapping.ColumnMappings.Add("PhonePatients", "PhonePatients");
             tableMapping.ColumnMappings.Add("DOB", "DOB");
@@ -1495,6 +1628,8 @@ namespace WebApplication4.Report.RDVTableAdapters {
             tableMapping.ColumnMappings.Add("MaladieChronique", "MaladieChronique");
             tableMapping.ColumnMappings.Add("APCI", "APCI");
             tableMapping.ColumnMappings.Add("CodeAPCI", "CodeAPCI");
+            tableMapping.ColumnMappings.Add("IdSpecialite1", "IdSpecialite1");
+            tableMapping.ColumnMappings.Add("Color", "Color");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1511,10 +1646,11 @@ namespace WebApplication4.Report.RDVTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        AppointementModels.*, MedecinConventionnes.*, Patients.*
+            this._commandCollection[0].CommandText = @"SELECT        MedecinConventionnes.*, AppointementModels.*, Patients.*, Specialites.*
 FROM            AppointementModels INNER JOIN
                          MedecinConventionnes ON AppointementModels.idDoctors = MedecinConventionnes.idDoctors INNER JOIN
-                         Patients ON AppointementModels.idPatients = Patients.IdPatients";
+                         Patients ON AppointementModels.idPatients = Patients.IdPatients INNER JOIN
+                         Specialites ON MedecinConventionnes.idSpecialite = Specialites.IdSpecialite";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

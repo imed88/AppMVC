@@ -34,6 +34,15 @@
                     </div>
                 </div>
 
+                  <div class="form-group">
+                    @*@Html.LabelFor(model => model.DateCreated, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    @Html.Label("Heure de consultation", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.dateTime, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DtEdit, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
                
                 <div class="form-group">
                     @*@Html.LabelFor(model => model.idPatients, "idPatients", htmlAttributes: new { @class = "control-label col-md-2" })*@
