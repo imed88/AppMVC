@@ -206,30 +206,33 @@ namespace WebApplication4.Controllers.TablesControllers
             base.Dispose(disposing);
         }
 
-        [HttpPost]
-        public ActionResult PassRDV(int id)
+       
+        public ActionResult PassRDV()
         {
-            
-                //Create PDF File
-                var OneBlog = (from am in db.AppointementModels
-                               join mc in db.MedecinConventionnes
-                               on am.idDoctors equals mc.idDoctors
-                               join pat in db.Patients
-                               on am.idPatients equals pat.IdPatients
-                               join spec in db.Specialites
-                               on mc.idSpecialite equals spec.IdSpecialite
-                               where am.AppointmentID == id
-                               select new
-                               {
-                              am.dateTime,
-                              mc.nameDoctors,
-                              pat.MatriculePatients,
-                              pat.NomPatient,
-                              pat.PrenomPatient,
-                              spec.SpecialiteName
 
-                               });
-          
+            var OneBlog = (from am in db.AppointementModels
+                           join mc in db.MedecinConventionnes
+                           on am.idDoctors equals mc.idDoctors
+                           join pat in db.Patients
+                           on am.idPatients equals pat.IdPatients
+                           join spec in db.Specialites
+                           on mc.idSpecialite equals spec.IdSpecialite
+                           select new
+                           {
+                               am.dateTime,
+                               am.DtEdit,
+                               mc.nameDoctors,
+                               pat.MatriculePatients,
+                               pat.NomPatient,
+                               pat.PrenomPatient,
+                               spec.SpecialiteName
+
+                           }).Where(am=>am.MatriculePatients== "563698");
+
+
+
+
+
             ReportDocument rd = new ReportDocument();
             rd.Load(Path.Combine(Server.MapPath("~/Report"), "FicheRDV.rpt"));
             rd.SetDataSource(OneBlog);
@@ -240,17 +243,7 @@ namespace WebApplication4.Controllers.TablesControllers
 
             Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
             stream.Seek(0, SeekOrigin.Begin);
-            return File(stream, "application/pdf", "RDV.pdf");
-
-
-
-            // return View();
-
-
-
-            //Remove shopping session
-            //Session.Remove(strCart);
-            //return View("OrderSuccess");
+            return File(stream, "application/pdf", "BlogList.pdf");
         }
 
     }

@@ -135,11 +135,14 @@
                                 <strong></strong>
                             </span>
                         </a>
-                        <a href="@Url.Action("PassRDV", "AppointementModels",new { id = item.AppointmentID })" class="btn btn-danger">
+                        @*<a href="@Url.Action("PassRDV", "AppointementModels",new { id = item.AppointmentID })" class="btn btn-danger">
+            <i class="glyphicon glyphicon-print"></i>
+            <span>
+                <strong></strong>
+            </span>
+        </a>*@
+                        <a href="@Url.Action("PassRDV", "AppointementModels", new {id = item.AppointmentID})" class="btn btn-linkedin">
                             <i class="glyphicon glyphicon-print"></i>
-                            <span>
-                                <strong></strong>
-                            </span>
                         </a>
                     </td>
                 </tr>
