@@ -12,42 +12,29 @@
               <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        MedecinConventionnes.*, AppointementModels.*, Patients.*, Specialites.*
+                    <CommandText>SELECT        Usines.UsineName, Patients.MatriculePatients, Patients.NomPatient, Patients.PrenomPatient, AppointementModels.DtEdit, AppointementModels.dateTime, MedecinConventionnes.nameDoctors, Specialites.SpecialiteName, 
+                         Usines.IdUsine, AppointementModels.AppointmentID
 FROM            AppointementModels INNER JOIN
                          MedecinConventionnes ON AppointementModels.idDoctors = MedecinConventionnes.idDoctors INNER JOIN
                          Patients ON AppointementModels.idPatients = Patients.IdPatients INNER JOIN
-                         Specialites ON MedecinConventionnes.idSpecialite = Specialites.IdSpecialite</CommandText>
+                         Specialites ON MedecinConventionnes.idSpecialite = Specialites.IdSpecialite INNER JOIN
+                         Usines ON Patients.IdUsine = Usines.IdUsine</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="dateTime" DataSetColumn="dateTime" />
-              <Mapping SourceColumn="nameDoctors" DataSetColumn="nameDoctors" />
+              <Mapping SourceColumn="UsineName" DataSetColumn="UsineName" />
               <Mapping SourceColumn="MatriculePatients" DataSetColumn="MatriculePatients" />
               <Mapping SourceColumn="NomPatient" DataSetColumn="NomPatient" />
               <Mapping SourceColumn="PrenomPatient" DataSetColumn="PrenomPatient" />
-              <Mapping SourceColumn="SpecialiteName" DataSetColumn="SpecialiteName" />
-              <Mapping SourceColumn="idDoctors" DataSetColumn="idDoctors" />
-              <Mapping SourceColumn="emailDoctors" DataSetColumn="emailDoctors" />
-              <Mapping SourceColumn="phoneDoctors" DataSetColumn="phoneDoctors" />
-              <Mapping SourceColumn="idSpecialite" DataSetColumn="idSpecialite" />
-              <Mapping SourceColumn="AppointmentID" DataSetColumn="AppointmentID" />
-              <Mapping SourceColumn="idDoctors1" DataSetColumn="idDoctors1" />
               <Mapping SourceColumn="DtEdit" DataSetColumn="DtEdit" />
-              <Mapping SourceColumn="idPatients" DataSetColumn="idPatients" />
-              <Mapping SourceColumn="IdPatients1" DataSetColumn="IdPatients1" />
-              <Mapping SourceColumn="Gender" DataSetColumn="Gender" />
-              <Mapping SourceColumn="PhonePatients" DataSetColumn="PhonePatients" />
-              <Mapping SourceColumn="DOB" DataSetColumn="DOB" />
-              <Mapping SourceColumn="Parente" DataSetColumn="Parente" />
+              <Mapping SourceColumn="dateTime" DataSetColumn="dateTime" />
+              <Mapping SourceColumn="nameDoctors" DataSetColumn="nameDoctors" />
+              <Mapping SourceColumn="SpecialiteName" DataSetColumn="SpecialiteName" />
               <Mapping SourceColumn="IdUsine" DataSetColumn="IdUsine" />
-              <Mapping SourceColumn="MaladieChronique" DataSetColumn="MaladieChronique" />
-              <Mapping SourceColumn="APCI" DataSetColumn="APCI" />
-              <Mapping SourceColumn="CodeAPCI" DataSetColumn="CodeAPCI" />
-              <Mapping SourceColumn="IdSpecialite1" DataSetColumn="IdSpecialite1" />
-              <Mapping SourceColumn="Color" DataSetColumn="Color" />
+              <Mapping SourceColumn="AppointmentID" DataSetColumn="AppointmentID" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -59,11 +46,10 @@ FROM            AppointementModels INNER JOIN
   <xs:element name="RDV" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="RDV" msprop:Generator_UserDSName="RDV">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="dateTime" msprop:Generator_ColumnVarNameInTable="columndateTime" msprop:Generator_ColumnPropNameInRow="dateTime" msprop:Generator_ColumnPropNameInTable="dateTimeColumn" msprop:Generator_UserColumnName="dateTime" type="xs:dateTime" />
-              <xs:element name="nameDoctors" msprop:Generator_ColumnVarNameInTable="columnnameDoctors" msprop:Generator_ColumnPropNameInRow="nameDoctors" msprop:Generator_ColumnPropNameInTable="nameDoctorsColumn" msprop:Generator_UserColumnName="nameDoctors" minOccurs="0">
+              <xs:element name="UsineName" msprop:Generator_ColumnVarNameInTable="columnUsineName" msprop:Generator_ColumnPropNameInRow="UsineName" msprop:Generator_ColumnPropNameInTable="UsineNameColumn" msprop:Generator_UserColumnName="UsineName" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
@@ -91,6 +77,15 @@ FROM            AppointementModels INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="DtEdit" msprop:Generator_ColumnVarNameInTable="columnDtEdit" msprop:Generator_ColumnPropNameInRow="DtEdit" msprop:Generator_ColumnPropNameInTable="DtEditColumn" msprop:Generator_UserColumnName="DtEdit" type="xs:dateTime" />
+              <xs:element name="dateTime" msprop:Generator_ColumnVarNameInTable="columndateTime" msprop:Generator_ColumnPropNameInRow="dateTime" msprop:Generator_ColumnPropNameInTable="dateTimeColumn" msprop:Generator_UserColumnName="dateTime" type="xs:dateTime" />
+              <xs:element name="nameDoctors" msprop:Generator_ColumnVarNameInTable="columnnameDoctors" msprop:Generator_ColumnPropNameInRow="nameDoctors" msprop:Generator_ColumnPropNameInTable="nameDoctorsColumn" msprop:Generator_UserColumnName="nameDoctors" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="SpecialiteName" msprop:Generator_ColumnVarNameInTable="columnSpecialiteName" msprop:Generator_ColumnPropNameInRow="SpecialiteName" msprop:Generator_ColumnPropNameInTable="SpecialiteNameColumn" msprop:Generator_UserColumnName="SpecialiteName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -98,79 +93,8 @@ FROM            AppointementModels INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="idDoctors" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidDoctors" msprop:Generator_ColumnPropNameInRow="idDoctors" msprop:Generator_ColumnPropNameInTable="idDoctorsColumn" msprop:Generator_UserColumnName="idDoctors" type="xs:int" />
-              <xs:element name="emailDoctors" msprop:Generator_ColumnVarNameInTable="columnemailDoctors" msprop:Generator_ColumnPropNameInRow="emailDoctors" msprop:Generator_ColumnPropNameInTable="emailDoctorsColumn" msprop:Generator_UserColumnName="emailDoctors" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="phoneDoctors" msprop:Generator_ColumnVarNameInTable="columnphoneDoctors" msprop:Generator_ColumnPropNameInRow="phoneDoctors" msprop:Generator_ColumnPropNameInTable="phoneDoctorsColumn" msprop:Generator_UserColumnName="phoneDoctors" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="idSpecialite" msprop:Generator_ColumnVarNameInTable="columnidSpecialite" msprop:Generator_ColumnPropNameInRow="idSpecialite" msprop:Generator_ColumnPropNameInTable="idSpecialiteColumn" msprop:Generator_UserColumnName="idSpecialite" type="xs:int" />
+              <xs:element name="IdUsine" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdUsine" msprop:Generator_ColumnPropNameInRow="IdUsine" msprop:Generator_ColumnPropNameInTable="IdUsineColumn" msprop:Generator_UserColumnName="IdUsine" type="xs:int" />
               <xs:element name="AppointmentID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnAppointmentID" msprop:Generator_ColumnPropNameInRow="AppointmentID" msprop:Generator_ColumnPropNameInTable="AppointmentIDColumn" msprop:Generator_UserColumnName="AppointmentID" type="xs:int" />
-              <xs:element name="idDoctors1" msprop:Generator_ColumnVarNameInTable="columnidDoctors1" msprop:Generator_ColumnPropNameInRow="idDoctors1" msprop:Generator_ColumnPropNameInTable="idDoctors1Column" msprop:Generator_UserColumnName="idDoctors1" type="xs:int" />
-              <xs:element name="DtEdit" msprop:Generator_ColumnVarNameInTable="columnDtEdit" msprop:Generator_ColumnPropNameInRow="DtEdit" msprop:Generator_ColumnPropNameInTable="DtEditColumn" msprop:Generator_UserColumnName="DtEdit" type="xs:dateTime" />
-              <xs:element name="idPatients" msprop:Generator_ColumnVarNameInTable="columnidPatients" msprop:Generator_ColumnPropNameInRow="idPatients" msprop:Generator_ColumnPropNameInTable="idPatientsColumn" msprop:Generator_UserColumnName="idPatients" type="xs:int" />
-              <xs:element name="IdPatients1" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdPatients1" msprop:Generator_ColumnPropNameInRow="IdPatients1" msprop:Generator_ColumnPropNameInTable="IdPatients1Column" msprop:Generator_UserColumnName="IdPatients1" type="xs:int" />
-              <xs:element name="Gender" msprop:Generator_ColumnVarNameInTable="columnGender" msprop:Generator_ColumnPropNameInRow="Gender" msprop:Generator_ColumnPropNameInTable="GenderColumn" msprop:Generator_UserColumnName="Gender" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="PhonePatients" msprop:Generator_ColumnVarNameInTable="columnPhonePatients" msprop:Generator_ColumnPropNameInRow="PhonePatients" msprop:Generator_ColumnPropNameInTable="PhonePatientsColumn" msprop:Generator_UserColumnName="PhonePatients" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="DOB" msprop:Generator_ColumnVarNameInTable="columnDOB" msprop:Generator_ColumnPropNameInRow="DOB" msprop:Generator_ColumnPropNameInTable="DOBColumn" msprop:Generator_UserColumnName="DOB" type="xs:dateTime" />
-              <xs:element name="Parente" msprop:Generator_ColumnVarNameInTable="columnParente" msprop:Generator_ColumnPropNameInRow="Parente" msprop:Generator_ColumnPropNameInTable="ParenteColumn" msprop:Generator_UserColumnName="Parente" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="IdUsine" msprop:Generator_ColumnVarNameInTable="columnIdUsine" msprop:Generator_ColumnPropNameInRow="IdUsine" msprop:Generator_ColumnPropNameInTable="IdUsineColumn" msprop:Generator_UserColumnName="IdUsine" type="xs:int" />
-              <xs:element name="MaladieChronique" msprop:Generator_ColumnVarNameInTable="columnMaladieChronique" msprop:Generator_ColumnPropNameInRow="MaladieChronique" msprop:Generator_ColumnPropNameInTable="MaladieChroniqueColumn" msprop:Generator_UserColumnName="MaladieChronique" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="APCI" msprop:Generator_ColumnVarNameInTable="columnAPCI" msprop:Generator_ColumnPropNameInRow="APCI" msprop:Generator_ColumnPropNameInTable="APCIColumn" msprop:Generator_UserColumnName="APCI" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="CodeAPCI" msprop:Generator_ColumnVarNameInTable="columnCodeAPCI" msprop:Generator_ColumnPropNameInRow="CodeAPCI" msprop:Generator_ColumnPropNameInTable="CodeAPCIColumn" msprop:Generator_UserColumnName="CodeAPCI" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="IdSpecialite1" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdSpecialite1" msprop:Generator_ColumnPropNameInRow="IdSpecialite1" msprop:Generator_ColumnPropNameInTable="IdSpecialite1Column" msprop:Generator_UserColumnName="IdSpecialite1" type="xs:int" />
-              <xs:element name="Color" msprop:Generator_ColumnVarNameInTable="columnColor" msprop:Generator_ColumnPropNameInRow="Color" msprop:Generator_ColumnPropNameInTable="ColorColumn" msprop:Generator_UserColumnName="Color" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -178,10 +102,7 @@ FROM            AppointementModels INNER JOIN
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:DataTable1" />
-      <xs:field xpath="mstns:idDoctors" />
-      <xs:field xpath="mstns:AppointmentID" />
-      <xs:field xpath="mstns:IdPatients1" />
-      <xs:field xpath="mstns:IdSpecialite1" />
+      <xs:field xpath="mstns:IdUsine" />
     </xs:unique>
   </xs:element>
 </xs:schema>

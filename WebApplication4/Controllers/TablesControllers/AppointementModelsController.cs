@@ -217,17 +217,24 @@ namespace WebApplication4.Controllers.TablesControllers
                            on am.idPatients equals pat.IdPatients
                            join spec in db.Specialites
                            on mc.idSpecialite equals spec.IdSpecialite
+                           join aaa in db.Usines
+                           on pat.IdUsine equals aaa.IdUsine
+
                            select new
                            {
+                               am.AppointmentID,
                                am.dateTime,
                                am.DtEdit,
                                mc.nameDoctors,
                                pat.MatriculePatients,
                                pat.NomPatient,
                                pat.PrenomPatient,
-                               spec.SpecialiteName
+                               spec.SpecialiteName,
+                               aaa.UsineName,
+                               aaa.IdUsine
 
-                           }).Where(am=>am.MatriculePatients== "563698");
+                           }).OrderBy(am=>am.AppointmentID);
+                           
 
 
 
