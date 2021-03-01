@@ -207,7 +207,7 @@ namespace WebApplication4.Controllers.TablesControllers
         }
 
        
-        public ActionResult PassRDV()
+        public ActionResult PassRDV(int? id)
         {
 
             var OneBlog = (from am in db.AppointementModels
@@ -233,7 +233,8 @@ namespace WebApplication4.Controllers.TablesControllers
                                aaa.UsineName,
                                aaa.IdUsine
 
-                           }).OrderBy(am=>am.AppointmentID);
+                           }).OrderBy(am=>am.AppointmentID)
+                           .Where(am=>am.AppointmentID==id);
                            
 
 
