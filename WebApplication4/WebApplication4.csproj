@@ -400,6 +400,30 @@
     <Compile Include="Migrations\202007291233576_AddTableMedecinConventionne.Designer.cs">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103030735583_CreateDb.cs" />
+    <Compile Include="Migrations\202103030735583_CreateDb.Designer.cs">
+      <DependentUpon>202103030735583_CreateDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103030752337_modifProduct.cs" />
+    <Compile Include="Migrations\202103030752337_modifProduct.Designer.cs">
+      <DependentUpon>202103030752337_modifProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103030805587_modifProduct1.cs" />
+    <Compile Include="Migrations\202103030805587_modifProduct1.Designer.cs">
+      <DependentUpon>202103030805587_modifProduct1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103030813478_modifProduct2.cs" />
+    <Compile Include="Migrations\202103030813478_modifProduct2.Designer.cs">
+      <DependentUpon>202103030813478_modifProduct2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103030859152_modifProduct3.cs" />
+    <Compile Include="Migrations\202103030859152_modifProduct3.Designer.cs">
+      <DependentUpon>202103030859152_modifProduct3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103041208298_ConsultationConduiteTenir.cs" />
+    <Compile Include="Migrations\202103041208298_ConsultationConduiteTenir.Designer.cs">
+      <DependentUpon>202103041208298_ConsultationConduiteTenir.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CheckBoxItem.cs" />
@@ -4199,6 +4223,10 @@
     <Content Include="Uploads\image.jpg" />
     <Content Include="Uploads\logo.gif" />
     <Content Include="Uploads\Webp.net-gifmaker.gif" />
+    <Content Include="Views\Produits\Create.cshtml" />
+    <Content Include="Views\Produits\Delete.cshtml" />
+    <Content Include="Views\Produits\Details.cshtml" />
+    <Content Include="Views\Produits\Edit.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -4295,12 +4323,9 @@
     <Content Include="Views\ShoppingCart\OrderSuccess.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\Details.cshtml" />
-    <Content Include="Views\Produits\Create.cshtml" />
-    <Content Include="Views\Produits\Delete.cshtml" />
-    <Content Include="Views\Produits\Edit.cshtml" />
     <Content Include="Views\Produits\Index.cshtml" />
-    <Content Include="Views\Produits\Details.cshtml" />
     <Content Include="Views\Calendrier.cshtml" />
+    <Content Include="Views\Produits\SearchIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -4319,6 +4344,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007291233576_AddTableMedecinConventionne.resx">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103030735583_CreateDb.resx">
+      <DependentUpon>202103030735583_CreateDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103030752337_modifProduct.resx">
+      <DependentUpon>202103030752337_modifProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103030805587_modifProduct1.resx">
+      <DependentUpon>202103030805587_modifProduct1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103030813478_modifProduct2.resx">
+      <DependentUpon>202103030813478_modifProduct2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103030859152_modifProduct3.resx">
+      <DependentUpon>202103030859152_modifProduct3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103041208298_ConsultationConduiteTenir.resx">
+      <DependentUpon>202103041208298_ConsultationConduiteTenir.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\FicheRDV.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

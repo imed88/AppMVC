@@ -14,11 +14,11 @@ namespace WebApplication4.Models.Tables.ShopCart
         public string NameProduct { get; set; }
         public string Categorie  { get; set; } 
         public string DenominationCI { get; set; }
-        public string AP { get; set; }
+       
 
         
-        [DataType(DataType.ImageUrl)]
-        public string ImageFile { get; set; }
+        //[DataType(DataType.ImageUrl)]
+        //public string ImageFile { get; set; }
         
         
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }

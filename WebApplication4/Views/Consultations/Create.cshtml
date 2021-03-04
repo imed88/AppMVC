@@ -81,108 +81,120 @@
                 </div>
 
                 <div class="container">
-
-                    <div class="form-group">
+                        <div class="form-group">
                         @Html.Label("Conduite à tenir", htmlAttributes: new { @class = "control-label col-md-2" })
 
                         <div class="col-md-10">
                             
-                            <div class="form-group bg-primary" >
-                               
-                                <label data-toggle="collapse" data-target="#collapseOne"  aria-controls="collapseOne">
-                                    <i class="fa fa-plus-circle"></i> Préscription Médicale
-                                </label>
-                             </div>
-                            <div id="collapseOne" aria-expanded="false" class="collapse">
-                                <div class="well" > Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe ut molestias eius, nam neque esse eos modi corrupti harum fugit, hic recusandae praesentium, minima ipsa eligendi architecto at! Culpa, explicabo.</div>
-                            </div>
-
-                            <div class="form-group bg-primary" >
-                                <label data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                                   <i class="fa fa-plus-circle"></i>  Exploration Radiologique
-                                </label>
-                            </div>
-                            <div id="collapseTwo" aria-expanded="false" class="collapse">
-                                <div class="well " >
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe ut molestias eius, nam neque esse eos modi corrupti harum fugit, hic recusandae praesentium, minima ipsa eligendi architecto at! Culpa, explicabo.
+                            <div class="form-group bg-primary">
+                                <div class="checkbox">
+                                    <label data-toggle="collapse" data-target="#collapseOne" aria-controls="collapseOne">
+                                        <input type="checkbox" value="Prescription Medicale"/> Préscription Médicale
+                                    </label>
                                 </div>
+                                </div>
+                                <div id="collapseOne" aria-expanded="false" class="collapse">
+                                    <div class="well"> @Html.Action("SearchIndex", "Produits")</div>
                                 </div>
 
-                            <div class="form-group bg-primary">
-                                <label data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseTwo">
-                                   <i class="fa fa-plus-circle"></i>   Exploration Biologique
-                                </label>
-                                
-                            </div>
-                            <div id="collapseThree" aria-expanded="true" class="collapse in">
-                                <div class="well">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe ut molestias eius, nam neque esse eos modi corrupti harum fugit, hic recusandae praesentium, minima ipsa eligendi architecto at! Culpa, explicabo.
-                                </div>
-                                </div>
-                            <div class="form-group bg-primary">
-                                <label data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseTwo">
-                                   <i class="fa fa-plus-circle"></i>   Transfert (Lettre de liaison)
-                                </label>
-                                
-                            </div>
-                            <div id="collapseFour" aria-expanded="true" class="collapse in">
-                                <div class="well">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe ut molestias eius, nam neque esse eos modi corrupti harum fugit, hic recusandae praesentium, minima ipsa eligendi architecto at! Culpa, explicabo.
-                                </div>
-                                </div>
-
-                            <div class="form-group bg-primary">
-                                <label data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseTwo">
-                                   <i class="fa fa-plus-circle"></i>   Hospitalisation
-                                </label>
-                                
-                            </div>
-                            <div id="collapseFive" aria-expanded="true" class="collapse in">
-                                <div class="well">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe ut molestias eius, nam neque esse eos modi corrupti harum fugit, hic recusandae praesentium, minima ipsa eligendi architecto at! Culpa, explicabo.
-                                </div>
-                                </div>
-                            <div class="form-group bg-primary">
-                                <label data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseTwo">
-                                   <i class="fa fa-plus-circle"></i>  Imprimés CNAM
-                                </label>
-                                
-                            </div>
-                            <div id="collapseSix" aria-expanded="true" class="collapse in">
-                                <div class="well">
-                                    <div class="form-group">
-                                        @*@Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                                        @Html.Label("Sexe", htmlAttributes: new { @class = "control-label col-md-2" })
-                                        <div class="col-md-6">
-                                            @*@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })*@
-                                            <div class="editor-field">
-                                                @Html.DropDownList("CNAM", new List<SelectListItem>
-                                                   {
-                                                       new SelectListItem{ Text="BS", Value="BS"},
-                                                       new SelectListItem{ Text="AP1", Value="AP1"},
-                                                       new SelectListItem{ Text="AP2", Value="AP2"},
-                                                       new SelectListItem{ Text="AP3", Value="AP3"},
-                                                       new SelectListItem{ Text="AP4", Value="AP4"},
-                                                       new SelectListItem{ Text="AP5", Value="AP5"},
-                                                       new SelectListItem{ Text="AP6", Value="AP6"},
-                                                       new SelectListItem{ Text="AP7", Value="AP7"},
-                                                       new SelectListItem{ Text="AP8", Value="AP8"},
-                                                       new SelectListItem{ Text="AP9", Value="AP9"},
-                                                       new SelectListItem{ Text="AP10", Value="AP10"},
-                                                       new SelectListItem{ Text="AP11", Value="AP11"},
-                                                       new SelectListItem{ Text="AP12", Value="AP12"},
-                                                       new SelectListItem{ Text="AP13", Value="AP13"},
-                                                       new SelectListItem{ Text="APCI", Value="APCI"}
-                                                   }, "--- Séléctionner un element ---", new { @class = "form-control" })
-                                            </div>
+                                <div class="form-group bg-primary">
+                                    <div class="checkbox">
+                                        <label data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                            <input type="checkbox" value="Exploration Radiologique" /> Exploration Radiologique
+                                        </label>
+                                    </div>
+                                    </div>
+                                    <div id="collapseTwo" aria-expanded="false" class="collapse">
+                                        <div class="well ">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe ut molestias eius, nam neque esse eos modi corrupti harum fugit, hic recusandae praesentium, minima ipsa eligendi architecto at! Culpa, explicabo.
                                         </div>
                                     </div>
 
-                                </div>
-                                </div>
-                            </div>
+                                    <div class="form-group bg-primary">
+                                        <div class="checkbox">
+                                            <label data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseTwo">
+                                                <input type="checkbox" value="Exploration Biologique"/>   Exploration Biologique
+                                            </label>
+                                            </div>
+                                        </div>
+                                        <div id="collapseThree" aria-expanded="true" class="collapse in">
+                                            <div class="well">
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe ut molestias eius, nam neque esse eos modi corrupti harum fugit, hic recusandae praesentium, minima ipsa eligendi architecto at! Culpa, explicabo.
+                                            </div>
+                                        </div>
+                                        <div class="form-group bg-primary">
+                                            <div class="checkbox">
+                                                <label data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseTwo">
+                                                    <input type="checkbox" value="Transfert" />   Transfert (Lettre de liaison)
+                                                </label>
+                                                </div>
+                                            </div>
+                                            <div id="collapseFour" aria-expanded="true" class="collapse in">
+                                                <div class="well">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe ut molestias eius, nam neque esse eos modi corrupti harum fugit, hic recusandae praesentium, minima ipsa eligendi architecto at! Culpa, explicabo.
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group bg-primary">
+                                                <div class="checkbox">
+                                                    <label data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseTwo">
+                                                        <input type="checkbox" value="Hospitalisation" />   Hospitalisation
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <div id="collapseFive" aria-expanded="true" class="collapse in">
+                                                    <div class="well">
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe ut molestias eius, nam neque esse eos modi corrupti harum fugit, hic recusandae praesentium, minima ipsa eligendi architecto at! Culpa, explicabo.
+                                                    </div>
+                                                </div>
+                                                <div class="form-group bg-primary">
+                                                    <div class="checkbox">
+                                                        <label data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseTwo">
+                                                            <input type="checkbox" value="Imprimes CNAM" />  Imprimés CNAM
+                                                        </label>
+                                                        </div>
+
+                                                    </div>
+                                                    <div id="collapseSix" aria-expanded="true" class="collapse in">
+                                                        <div class="well">
+                                                            <div class="form-group">
+                                                                @*@Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                                                @Html.Label("Sexe", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                                <div class="col-md-6">
+                                                                    @*@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })*@
+                                                                    <div class="editor-field">
+                                                                        @Html.DropDownList("CNAM", new List<SelectListItem>
+                                                                           {
+
+                                                                               new SelectListItem{ Text="BS", Value="BS"},
+                                                                               new SelectListItem{ Text="AP1", Value="AP1"},
+                                                                               new SelectListItem{ Text="AP2", Value="AP2"},
+                                                                               new SelectListItem{ Text="AP3", Value="AP3"},
+                                                                               new SelectListItem{ Text="AP4", Value="AP4"},
+                                                                               new SelectListItem{ Text="AP5", Value="AP5"},
+                                                                               new SelectListItem{ Text="AP6", Value="AP6"},
+                                                                               new SelectListItem{ Text="AP7", Value="AP7"},
+                                                                               new SelectListItem{ Text="AP8", Value="AP8"},
+                                                                               new SelectListItem{ Text="AP9", Value="AP9"},
+                                                                               new SelectListItem{ Text="AP10", Value="AP10"},
+                                                                               new SelectListItem{ Text="AP11", Value="AP11"},
+                                                                               new SelectListItem{ Text="AP12", Value="AP12"},
+                                                                               new SelectListItem{ Text="AP13", Value="AP13"},
+                                                                               new SelectListItem{ Text="APCI", Value="APCI"}
+                                                                           }, "--- Séléctionner un element ---", new { @class = "form-control" })
+                                                                    </div>
+
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
                         </div>
+
                     </div>
 
 

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<WebApplication4.Models.Tables.ShopCart.Product>
+
+@{
+    ViewBag.Title = "SearchIndex";
+    Layout = null;
+}
+
+
+@using (@Html.BeginForm("SearchIndex", "Produits", FormMethod.Get))
+{     <p>
+    DCI : @Html.DropDownList("movieGenre", "Tout")
+    Produit: @Html.TextBox("SearchString")
+    <input type="submit" value="Filter" />
+</p>
+}
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-auto col-xs-5 ">
+            <!-- small box -->
+            <div class="card">
+                <div class="inner">
+                    <div class="content-title" style="font-family:'Agency FB'; font-size:14px; font-weight:bold;  text-align:center">
+
+                        @item.NameProduct
+                    </div>
+                    <div class="content-body" style="text-align:center">
+                        @item.DenominationCI
+                    </div>
+                </div>
+
+                @*<a href="@Url.Action("Index", "MedecinConventionnes")" class="small-box-footer">Plus d'informations<i class="fa fa-arrow-circle-right"></i></a>*@
+                <div style="text-align:center">
+
+                </div>
+            </div>
+        </div>
+    }
+</div>

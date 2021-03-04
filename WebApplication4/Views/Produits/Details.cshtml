@@ -58,22 +58,9 @@
                         @Html.DisplayFor(model => model.DenominationCI)
                     </dd>
 
-                    <dt>
-                        @Html.Label("AP N/O", new { @class = "control-label col-md-30" })
-                    </dt>
+                   
 
-                    <dd>
-                        @Html.DisplayFor(model => model.AP)
-                    </dd>
-
-                    <dt>
-                        @Html.Label("Image", new { @class = "control-label col-md-30" })
-                    </dt>
-
-                    <dd>
-                        @*@Html.DisplayFor(model => model.ImageFile)*@
-                        <img src="@Url.Content("~/Uploads/"+@Model.ImageFile)" class="thumbnail" style="width:150px; height:150px" />
-                    </dd>
+                    
 
                 </dl>
             </div>

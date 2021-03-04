@@ -35,6 +35,7 @@
             @using (Html.BeginForm("Index", "Produits", FormMethod.Post))
             {
                 <div>
+                 
                     @Html.Label("Nom du produit:")
                     @Html.TextBox("searching")
                     @*<input id="submit" type="submit" value="Rechercher" />*@
@@ -42,7 +43,7 @@
                 </div>
             }
         </div>
-
+      
     </div>
     <div class="table-responsive">
         <table class="table">
@@ -63,13 +64,7 @@
                     @*@Html.DisplayNameFor(model => model.DenominationCI)*@
                     @Html.Label("Denomination Commune Internationale")
                 </th>
-                <th>
-                    @*@Html.DisplayNameFor(model => model.AP)*@
-                    @Html.Label("AP N/O")
-                </th>
-                <th>
-
-                </th>
+              
                 <th></th>
             </tr>
 
@@ -88,13 +83,7 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.DenominationCI)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.AP)
-                    </td>
-                    <td>
-                        @*@Html.DisplayFor(modelItem => item.ImageFile)*@
-                        <img src="@Url.Content("~/Uploads/"+item.ImageFile)" class="thumbnail" style="width:50px; height:50px" />
-                    </td>
+                   
                     <td>
                         @*@Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |*@
                         @*@Html.ActionLink("Details", "Details", new { id=item.ProductID })|*@

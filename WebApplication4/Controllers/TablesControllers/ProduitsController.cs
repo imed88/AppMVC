@@ -173,5 +173,32 @@ namespace WebApplication4.Controllers.TablesControllers
             }
             base.Dispose(disposing);
         }
+
+        public PartialViewResult SearchIndex(string movieGenre, string searchString)
+        {
+            var GenreLst = new List<string>();
+
+            var GenreQry = from d in db.Products
+                           orderby d.DenominationCI
+                           select d.DenominationCI;
+
+            GenreLst.AddRange(GenreQry.Distinct());
+            ViewBag.movieGenre = new SelectList(GenreLst);
+
+            var movies = from m in db.Products
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                movies = movies.Where(s => s.NameProduct.Contains(searchString));
+            }
+
+            if (!string.IsNullOrEmpty(movieGenre))
+            {
+                movies = movies.Where(x => x.DenominationCI == movieGenre);
+            }
+
+            return PartialView(movies);
+        }
     }
 }
