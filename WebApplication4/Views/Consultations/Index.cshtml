@@ -64,8 +64,8 @@
                     @*@Html.DisplayNameFor(model => model.First().diagnostic)*@
                     @Html.Label("Diagnostic", htmlAttributes: new { @class = "control-label col-5" })
                 </th>
-                <th> @Html.Label("Traitement", htmlAttributes: new { @class = "control-label col-5" })</th>
                 <th> @Html.Label("Nature de la visite", htmlAttributes: new { @class = "control-label col-5" })</th>
+                <th> @Html.Label("Conduite à tenir", htmlAttributes: new { @class = "control-label col-5" })</th>
             </tr>
 
             @foreach (var item in Model)
@@ -83,10 +83,14 @@
                     @*@Html.DisplayFor(modelItem => item.diagnostic)*@
                     @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => item.diagnostic).ToString()))
                 </td>
-              
+
                 <td>
                     @*@Html.DisplayFor(modelItem => item.diagnostic)*@
                     @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => item.natureVisite).ToString()))
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.diagnostic)*@
+                    @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => item.ConduiteTenir).ToString()))
                 </td>
                 <td>
                     @*@Html.ActionLink("Edit", "Edit", new { id = item.ConsultationID }) |

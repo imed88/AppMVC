@@ -21,78 +21,81 @@
             {
                 @Html.AntiForgeryToken()
 
-            <div class="form-horizontal">
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-horizontal">
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                <div class="form-group">
-                    @*@Html.LabelFor(model => model.UserID, "UserID", htmlAttributes: new { @class = "control-label col-md-2" })*@
-                    @Html.Label("Administrateur", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DropDownList("UserID", null, htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @*@Html.LabelFor(model => model.DateCreated, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                    @Html.Label("Date de consultation", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.DateCreated, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.DateCreated, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @*@Html.LabelFor(model => model.idPatients, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                    @Html.Label("Patient", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @*@Html.EditorFor(model => model.IdPatients, new { htmlAttributes = new { @class = "form-control" } })*@
-                        @Html.DropDownList("idPatients", null, htmlAttributes: new { @class = "form-control", @id = "Patients" })
-                        @Html.ValidationMessageFor(model => model.idPatients, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @*@Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                    @Html.Label("Nautre de la visite", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-6">
-                        @*@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })*@
-                        <div class="editor-field">
-                            @Html.DropDownList("natureVisite", new List<SelectListItem>
-                               {
-                                   new SelectListItem{ Text="Visite d'embauche", Value="Visite d'embauche"},
-                                   new SelectListItem{ Text="Visite Périodique", Value="Visite Périodique"},
-                                   new SelectListItem{ Text="Visite de reprise du travail", Value="Visite de reprise du travail"},
-                                   new SelectListItem{ Text="Visite Spontannée", Value="Visite spontannée"},
-
-                               }, "--- Séléctionner un élément ---", new { @class = "form-control" })
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.UserID, "UserID", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        @Html.Label("Administrateur", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("UserID", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    @*Html.LabelFor(model => model.diagnostic, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                    @Html.Label("Diagnostic", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextAreaFor(model => model.diagnostic, 10, 83, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "diagnostic" } })
-                        @Html.ValidationMessageFor(model => model.diagnostic, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="container">
-                        <div class="form-group">
-                        @Html.Label("Conduite à tenir", htmlAttributes: new { @class = "control-label col-md-2" })
-
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.DateCreated, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        @Html.Label("Date de consultation", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            
-                            <div class="form-group bg-primary">
-                                <div class="checkbox">
-                                    <label data-toggle="collapse" data-target="#collapseOne" aria-controls="collapseOne">
-                                        <input type="checkbox" value="Prescription Medicale"/> Préscription Médicale
-                                    </label>
+                            @Html.EditorFor(model => model.DateCreated, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DateCreated, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.idPatients, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        @Html.Label("Patient", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @*@Html.EditorFor(model => model.IdPatients, new { htmlAttributes = new { @class = "form-control" } })*@
+                            @Html.DropDownList("idPatients", null, htmlAttributes: new { @class = "form-control", @id = "Patients" })
+                            @Html.ValidationMessageFor(model => model.idPatients, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        @Html.Label("Nautre de la visite", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-6">
+                            @*@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })*@
+                            <div class="editor-field">
+                                @Html.DropDownList("natureVisite", new List<SelectListItem>
+                                   {
+                                       new SelectListItem{ Text="Visite d'embauche", Value="Visite d'embauche"},
+                                       new SelectListItem{ Text="Visite Périodique", Value="Visite Périodique"},
+                                       new SelectListItem{ Text="Visite de reprise du travail", Value="Visite de reprise du travail"},
+                                       new SelectListItem{ Text="Visite Spontannée", Value="Visite spontannée"},
+
+                                   }, "--- Séléctionner un élément ---", new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @*Html.LabelFor(model => model.diagnostic, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        @Html.Label("Diagnostic", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(model => model.diagnostic, 10, 83, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "diagnostic" } })
+                            @Html.ValidationMessageFor(model => model.diagnostic, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <div class="form-group">
+                            @Html.Label("Conduite à tenir", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                            <div class="col-md-10">
+
+                                <div class="form-group bg-primary">
+                                    <div class="checkbox" data-toggle="collapse" data-target="#collapseOne" aria-controls="collapseOne">
+                                        <label>
+                                            @Html.RadioButtonFor(model => model.ConduiteTenir, "PrescriptionMedicale", new { id = "btn_Prescription" }) Préscription Médicale
+                                        </label>
+                                    </div>
                                 </div>
-                                </div>
+
+                               
+
                                 <div id="collapseOne" aria-expanded="false" class="collapse">
                                     <div class="well"> @Html.Action("SearchIndex", "Produits")</div>
                                 </div>
@@ -100,115 +103,134 @@
                                 <div class="form-group bg-primary">
                                     <div class="checkbox">
                                         <label data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                                            <input type="checkbox" value="Exploration Radiologique" /> Exploration Radiologique
+                                            @Html.RadioButtonFor(model => model.ConduiteTenir, "ExplorationMedicale", new { id = "btn_ExplorMed" }) Exploration Radiologique
                                         </label>
                                     </div>
-                                    </div>
-                                    <div id="collapseTwo" aria-expanded="false" class="collapse">
-                                        <div class="well ">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe ut molestias eius, nam neque esse eos modi corrupti harum fugit, hic recusandae praesentium, minima ipsa eligendi architecto at! Culpa, explicabo.
+                                </div>
+                                <div id="collapseTwo" aria-expanded="false" class="collapse">
+                                    <div class="well ">
+                                        <div class="form-outline">
+                                            <textarea class="form-control" id="textAreaExample" rows="10"></textarea>
+                                            <label class="form-label" for="textAreaExample">Message</label>
+                                            <input type="submit" value="Créer" class="btn btn-success " style="float:right" />
                                         </div>
                                     </div>
+                                </div>
 
-                                    <div class="form-group bg-primary">
-                                        <div class="checkbox">
-                                            <label data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseTwo">
-                                                <input type="checkbox" value="Exploration Biologique"/>   Exploration Biologique
-                                            </label>
+                                <div class="form-group bg-primary">
+                                    <div class="checkbox">
+                                        <label data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseTwo">
+                                            @Html.RadioButtonFor(model => model.ConduiteTenir, "ExplorationBiologique", new { id = "btn_ExplorBio" })   Exploration Biologique
+                                        </label>
+                                    </div>
+                                </div>
+                                <div id="collapseThree" aria-expanded="true" class="collapse in">
+                                    <div class="well">
+                                        <div class="form-outline">
+                                            <textarea class="form-control" id="textAreaExample" rows="10"></textarea>
+                                            <label class="form-label" for="textAreaExample">Message</label>
+                                            <input type="submit" value="Créer" class="btn btn-success " style="float:right" />
+                                        </div>                                    </div>
+                                </div>
+                                <div class="form-group bg-primary">
+                                    <div class="checkbox">
+                                        <label data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseTwo">
+                                            @Html.RadioButtonFor(model => model.ConduiteTenir, "Transfert", new { id = "btn_Transfert" })   Transfert (Lettre de liaison)
+                                        </label>
+                                    </div>
+                                </div>
+                                <div id="collapseFour" aria-expanded="true" class="collapse in">
+                                    <div class="well">
+                                        <div class="form-outline">
+                                            <textarea class="form-control" id="textAreaExample" rows="10"></textarea>
+                                            <label class="form-label" for="textAreaExample">Message</label>
+                                            <input type="submit" value="Créer" class="btn btn-success " style="float:right" />
+                                        </div>                                    </div>
+                                </div>
+
+                                <div class="form-group bg-primary">
+                                    <div class="checkbox">
+                                        <label data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseTwo">
+                                            @Html.RadioButtonFor(model => model.ConduiteTenir, "Hospitalisation", new { id = "btn_hospital" })   Hospitalisation
+                                        </label>
+                                    </div>
+                                </div>
+                                <div id="collapseFive" aria-expanded="true" class="collapse in">
+                                    <div class="well">
+                                        <div class="form-outline">
+                                            <textarea class="form-control" id="textAreaExample" rows="10"></textarea>
+                                            <label class="form-label" for="textAreaExample">Message</label>
+                                            <input type="submit" value="Créer" class="btn btn-success " style="float:right" />
+                                        </div>                                    </div>
+                                </div>
+                                <div class="form-group bg-primary">
+                                    <div class="checkbox">
+                                        <label data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseTwo">
+                                            @*<input type="checkbox" value="Imprimes CNAM" />*@
+                                            @Html.RadioButtonFor(model => model.ConduiteTenir, "ImprimesCNAM", new { id = "btn_imprimCNAM" })Imprimés CNAM
+                                        </label>
+                                    </div>
+
+                                </div>
+                                <div id="collapseSix" aria-expanded="true" class="collapse in">
+                                    <div class="well ">
+                                        <div class="form-group ">
+                                            @*@Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                            <div>
+                                                @Html.Label("Imprimés", htmlAttributes: new { @class = "control-label col-md-2" })
                                             </div>
+                                            <div class="col-md-6">
+                                                @*@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })*@
+                                                <div class="editor-field">
+                                                    @Html.DropDownList("CNAM", new List<SelectListItem>
+                                                       {
+
+                                                           new SelectListItem{ Text="BS", Value="BS"},
+                                                           new SelectListItem{ Text="AP1", Value="AP1"},
+                                                           new SelectListItem{ Text="AP2", Value="AP2"},
+                                                           new SelectListItem{ Text="AP3", Value="AP3"},
+                                                           new SelectListItem{ Text="AP4", Value="AP4"},
+                                                           new SelectListItem{ Text="AP5", Value="AP5"},
+                                                           new SelectListItem{ Text="AP6", Value="AP6"},
+                                                           new SelectListItem{ Text="AP7", Value="AP7"},
+                                                           new SelectListItem{ Text="AP8", Value="AP8"},
+                                                           new SelectListItem{ Text="AP9", Value="AP9"},
+                                                           new SelectListItem{ Text="AP10", Value="AP10"},
+                                                           new SelectListItem{ Text="AP11", Value="AP11"},
+                                                           new SelectListItem{ Text="AP12", Value="AP12"},
+                                                           new SelectListItem{ Text="AP13", Value="AP13"},
+                                                           new SelectListItem{ Text="APCI", Value="APCI"}
+                                                       }, "--- Séléctionner un element ---", new { @class = "form-control" })
+
+                                                </div>
+
+
+
+                                            </div>
+                                            <input type="submit" value="Créer" class="btn btn-success " style="float:right" />
                                         </div>
-                                        <div id="collapseThree" aria-expanded="true" class="collapse in">
-                                            <div class="well">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe ut molestias eius, nam neque esse eos modi corrupti harum fugit, hic recusandae praesentium, minima ipsa eligendi architecto at! Culpa, explicabo.
-                                            </div>
-                                        </div>
-                                        <div class="form-group bg-primary">
-                                            <div class="checkbox">
-                                                <label data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseTwo">
-                                                    <input type="checkbox" value="Transfert" />   Transfert (Lettre de liaison)
-                                                </label>
-                                                </div>
-                                            </div>
-                                            <div id="collapseFour" aria-expanded="true" class="collapse in">
-                                                <div class="well">
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe ut molestias eius, nam neque esse eos modi corrupti harum fugit, hic recusandae praesentium, minima ipsa eligendi architecto at! Culpa, explicabo.
-                                                </div>
-                                            </div>
 
-                                            <div class="form-group bg-primary">
-                                                <div class="checkbox">
-                                                    <label data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseTwo">
-                                                        <input type="checkbox" value="Hospitalisation" />   Hospitalisation
-                                                    </label>
-                                                    </div>
-                                                </div>
-                                                <div id="collapseFive" aria-expanded="true" class="collapse in">
-                                                    <div class="well">
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe ut molestias eius, nam neque esse eos modi corrupti harum fugit, hic recusandae praesentium, minima ipsa eligendi architecto at! Culpa, explicabo.
-                                                    </div>
-                                                </div>
-                                                <div class="form-group bg-primary">
-                                                    <div class="checkbox">
-                                                        <label data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseTwo">
-                                                            <input type="checkbox" value="Imprimes CNAM" />  Imprimés CNAM
-                                                        </label>
-                                                        </div>
+                                    </div>
 
-                                                    </div>
-                                                    <div id="collapseSix" aria-expanded="true" class="collapse in">
-                                                        <div class="well">
-                                                            <div class="form-group">
-                                                                @*@Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                                                                @Html.Label("Sexe", htmlAttributes: new { @class = "control-label col-md-2" })
-                                                                <div class="col-md-6">
-                                                                    @*@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })*@
-                                                                    <div class="editor-field">
-                                                                        @Html.DropDownList("CNAM", new List<SelectListItem>
-                                                                           {
-
-                                                                               new SelectListItem{ Text="BS", Value="BS"},
-                                                                               new SelectListItem{ Text="AP1", Value="AP1"},
-                                                                               new SelectListItem{ Text="AP2", Value="AP2"},
-                                                                               new SelectListItem{ Text="AP3", Value="AP3"},
-                                                                               new SelectListItem{ Text="AP4", Value="AP4"},
-                                                                               new SelectListItem{ Text="AP5", Value="AP5"},
-                                                                               new SelectListItem{ Text="AP6", Value="AP6"},
-                                                                               new SelectListItem{ Text="AP7", Value="AP7"},
-                                                                               new SelectListItem{ Text="AP8", Value="AP8"},
-                                                                               new SelectListItem{ Text="AP9", Value="AP9"},
-                                                                               new SelectListItem{ Text="AP10", Value="AP10"},
-                                                                               new SelectListItem{ Text="AP11", Value="AP11"},
-                                                                               new SelectListItem{ Text="AP12", Value="AP12"},
-                                                                               new SelectListItem{ Text="AP13", Value="AP13"},
-                                                                               new SelectListItem{ Text="APCI", Value="APCI"}
-                                                                           }, "--- Séléctionner un element ---", new { @class = "form-control" })
-                                                                    </div>
-
-
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-
-                                                    </div>
-                                                </div>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
 
 
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Créer" class="btn btn-success" /> |  <a href="@Url.Action("Index", "Consultations")" class="btn btn-default">
-                            <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
-                            <span>
-                                <strong>Retour</strong>
-                            </span>
-                        </a>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Créer" class="btn btn-success" /> |  <a href="@Url.Action("Index", "Consultations")" class="btn btn-default">
+                                <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
+                                <span>
+                                    <strong>Retour</strong>
+                                </span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
             }
             @*<div>
                     @Html.ActionLink("Retour", "Index")
@@ -218,12 +240,16 @@
 </div>
 
 @section scripts{
-    <script>
-        $(function () {
-
-
-                       $("#Patients").chosen();
-        });
-
+    <script type="text/javascript">
+        //$(document).ready(function () {
+        //    $('input[id=RadioYes]').click(function () {
+        //        if ($('input[name=RadioYes]:checked').val() === "Non") {
+        //            $('#Code').hide();
+        //        } else {
+        //            $('#Code').show();
+        //        }
+        //    });
+        //});
+       
     </script>
 }
