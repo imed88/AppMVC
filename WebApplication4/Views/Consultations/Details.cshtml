@@ -49,7 +49,16 @@
                         @*@Html.DisplayFor(model => model.diagnostic)*@
                         @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(model => model.diagnostic).ToString()))
                     </dd>
-                   
+                    <dt>
+                        @*@Html.DisplayNameFor(model => model.diagnostic)*@
+                        @Html.Label("Conduite à Tenir", htmlAttributes: new { @class = "control-label col-md-15" })
+                    </dt>
+                    <dd>
+                        @*@Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(model => model.ConduiteTenir).ToString()))*@
+                        @Html.DropDownList("ConduiteTenir", null, htmlAttributes: new { @class = "form-control", @id = "Patients" })
+
+                    </dd>
+
 
                 </dl>
             </div>

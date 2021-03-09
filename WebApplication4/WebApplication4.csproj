@@ -424,6 +424,14 @@
     <Compile Include="Migrations\202103041208298_ConsultationConduiteTenir.Designer.cs">
       <DependentUpon>202103041208298_ConsultationConduiteTenir.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103091039373_RadioBios.cs" />
+    <Compile Include="Migrations\202103091039373_RadioBios.Designer.cs">
+      <DependentUpon>202103091039373_RadioBios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103091223407_RadioBios1.cs" />
+    <Compile Include="Migrations\202103091223407_RadioBios1.Designer.cs">
+      <DependentUpon>202103091223407_RadioBios1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CheckBoxItem.cs" />
@@ -439,6 +447,8 @@
     <Compile Include="Models\Tables\Ordonnance.cs" />
     <Compile Include="Models\Tables\Ordonnances.cs" />
     <Compile Include="Models\Tables\Patients.cs" />
+    <Compile Include="Models\Tables\RadioBio.cs" />
+    <Compile Include="Models\Tables\RadioBioCart.cs" />
     <Compile Include="Models\Tables\RDV.cs" />
     <Compile Include="Models\Tables\RoleViewModel.cs" />
     <Compile Include="Models\Tables\ShopCart\Cart.cs" />
@@ -471,6 +481,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Ordonnance.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\RadioBio.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RadioBio.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\RadioBioSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RadioBioSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Report\RDV.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -4020,6 +4041,17 @@
     <Content Include="Report\RDV.xsc">
       <DependentUpon>RDV.xsd</DependentUpon>
     </Content>
+    <Content Include="Report\RadioBioSet.xsc">
+      <DependentUpon>RadioBioSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Report\RadioBioSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RadioBioSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Report\RadioBioSet.xss">
+      <DependentUpon>RadioBioSet.xsd</DependentUpon>
+    </Content>
     <None Include="Report\RDV.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -4363,6 +4395,12 @@
     <EmbeddedResource Include="Migrations\202103041208298_ConsultationConduiteTenir.resx">
       <DependentUpon>202103041208298_ConsultationConduiteTenir.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103091039373_RadioBios.resx">
+      <DependentUpon>202103091039373_RadioBios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103091223407_RadioBios1.resx">
+      <DependentUpon>202103091223407_RadioBios1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\FicheRDV.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>FicheRDV.cs</LastGenOutput>
@@ -4370,6 +4408,10 @@
     <EmbeddedResource Include="Report\Ordonnance.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Ordonnance.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\RadioBio.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RadioBio.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

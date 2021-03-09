@@ -19,6 +19,7 @@ namespace WebApplication4.Models.Tables.ShopCart
         public virtual Consultation Consultations { get; set; }
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+       
 
 
     }
