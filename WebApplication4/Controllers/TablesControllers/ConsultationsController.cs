@@ -90,8 +90,7 @@ namespace WebApplication4.Controllers.TablesControllers
                 return HttpNotFound();
             }
             Session["ConsultationID"] = id;
-            ViewBag.ConduiteTenir = new SelectList(db.Consultations, "ConsultationID", "ConduiteTenir");
-           
+            
             return View(consultation);
         }
 

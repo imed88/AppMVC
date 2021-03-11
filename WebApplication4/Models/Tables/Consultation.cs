@@ -45,7 +45,12 @@ namespace WebApplication4.Models.Tables
         [Required] //Changes V2
         [DisplayName("Conduite à tenir")]
         public string ConduiteTenir { get; set; }
-        public virtual ICollection<RadioBio> RadioBios { get; set; }
+
+        [Required] //Changes V2
+        [DisplayName("Commentaire")]
+        public string Comment { get; set; }
+
+
         //public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
         //public virtual ICollection<tbl_order> order { get; set; }

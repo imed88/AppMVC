@@ -377,6 +377,7 @@
     <Compile Include="Controllers\TablesControllers\OrdonnancePDFController.cs" />
     <Compile Include="Controllers\TablesControllers\PatientsController.cs" />
     <Compile Include="Controllers\TablesControllers\ProduitsController.cs" />
+    <Compile Include="Controllers\TablesControllers\RadioBiosController.cs" />
     <Compile Include="Controllers\TablesControllers\RolesController.cs" />
     <Compile Include="Controllers\TablesControllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\TablesControllers\SpecialitesController.cs" />
@@ -432,6 +433,10 @@
     <Compile Include="Migrations\202103091223407_RadioBios1.Designer.cs">
       <DependentUpon>202103091223407_RadioBios1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103111336175_ConsultationComment.cs" />
+    <Compile Include="Migrations\202103111336175_ConsultationComment.Designer.cs">
+      <DependentUpon>202103111336175_ConsultationComment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CheckBoxItem.cs" />
@@ -480,12 +485,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Ordonnance.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Report\RadioBio.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RadioBio.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Report\RadioBioSet.Designer.cs">
@@ -4358,6 +4357,11 @@
     <Content Include="Views\Produits\Index.cshtml" />
     <Content Include="Views\Calendrier.cshtml" />
     <Content Include="Views\Produits\SearchIndex.cshtml" />
+    <Content Include="Views\RadioBios\Create.cshtml" />
+    <Content Include="Views\RadioBios\Delete.cshtml" />
+    <Content Include="Views\RadioBios\Details.cshtml" />
+    <Content Include="Views\RadioBios\Edit.cshtml" />
+    <Content Include="Views\RadioBios\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -4401,6 +4405,9 @@
     <EmbeddedResource Include="Migrations\202103091223407_RadioBios1.resx">
       <DependentUpon>202103091223407_RadioBios1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103111336175_ConsultationComment.resx">
+      <DependentUpon>202103111336175_ConsultationComment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\FicheRDV.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>FicheRDV.cs</LastGenOutput>
@@ -4408,10 +4415,6 @@
     <EmbeddedResource Include="Report\Ordonnance.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Ordonnance.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Report\RadioBio.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>RadioBio.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

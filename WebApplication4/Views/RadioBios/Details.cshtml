@@ -1,0 +1,35 @@
+﻿@model WebApplication4.Models.Tables.RadioBio
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/adminlte/_mainLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RadioBio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Consultation.diagnostic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Consultation.diagnostic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RadioBioID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

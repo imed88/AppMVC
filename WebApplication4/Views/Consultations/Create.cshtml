@@ -75,7 +75,7 @@
                         @*Html.LabelFor(model => model.diagnostic, htmlAttributes: new { @class = "control-label col-md-2" })*@
                         @Html.Label("Diagnostic", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.TextAreaFor(model => model.diagnostic, 10, 83, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "diagnostic" } })
+                            @Html.TextAreaFor(model => model.diagnostic, 5, 50, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "diagnostic" } })
                             @Html.ValidationMessageFor(model => model.diagnostic, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -84,51 +84,79 @@
                         <div class="form-group">
                             @Html.Label("Conduite à tenir", htmlAttributes: new { @class = "control-label col-md-2" })
 
-                            <div class="col-md-10">
+                            <div class="col-md-5">
 
-                              
-                                    <div class="checkbox">
-                                        <label>
-                                            @Html.RadioButtonFor(model => model.ConduiteTenir, "PrescriptionMedicale", new { id = "btn_Prescription" }) Préscription Médicale
-                                        </label>
-                                    </div>
-                             
 
-                               
+                                <div class="checkbox">
+                                    <label>
+                                        @Html.RadioButtonFor(model => model.ConduiteTenir, "Prescription Medicale", new { id = "btn_Prescription" }) Préscription Médicale
+                                    </label>
+                                                                    </div>
 
-                              
-                                    <div class="checkbox">
-                                        <label>
-                                            @Html.RadioButtonFor(model => model.ConduiteTenir, "ExplorationMedicale", new { id = "btn_ExplorMed" }) Exploration Radiologique
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label >
-                                            @Html.RadioButtonFor(model => model.ConduiteTenir, "ExplorationBiologique", new { id = "btn_ExplorBio" })   Exploration Biologique
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label >
-                                            @Html.RadioButtonFor(model => model.ConduiteTenir, "Transfert", new { id = "btn_Transfert" })   Transfert (Lettre de liaison)
-                                        </label>
-                                    </div>
-                                
-                                    <div class="checkbox">
-                                        <label >
-                                            @Html.RadioButtonFor(model => model.ConduiteTenir, "Hospitalisation", new { id = "btn_hospital" })   Hospitalisation
-                                        </label>
-                                    </div>
-                              
-                                    <div class="checkbox">
-                                        <label>
-                                            @*<input type="checkbox" value="Imprimes CNAM" />*@
-                                            @Html.RadioButtonFor(model => model.ConduiteTenir, "ImprimesCNAM", new { id = "btn_imprimCNAM" })Imprimés CNAM
-                                        </label>
-                                
+
+
+
+
+                                <div class="checkbox">
+                                    <label>
+                                        @Html.RadioButtonFor(model => model.ConduiteTenir, "Exploration Medicale", new { id = "btn_ExplorMed" }) Exploration Radiologique
+                                    </label>
+                                    @Html.TextAreaFor(model => model.Comment, 6, 70, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "diagnostic" } })
+                                    @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
 
                                 </div>
-                               
+
+                                <div class="checkbox">
+                                    <label>
+                                        @Html.RadioButtonFor(model => model.ConduiteTenir, "Exploration Biologique", new { id = "btn_ExplorBio" })   Exploration Biologique
+                                    </label>
+                                    @Html.TextAreaFor(model => model.Comment, 6, 70, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "diagnostic" } })
+                                    @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+
+                                </div>
                             </div>
+                            <div class="col-md-3">
+                                <div class="checkbox">
+                                    <label>
+                                        @Html.RadioButtonFor(model => model.ConduiteTenir, "Transfert", new { id = "btn_Transfert" })   Transfert (Lettre de liaison)
+                                    </label>
+                                    @Html.TextAreaFor(model => model.Comment, 6, 70, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "diagnostic" } })
+                                    @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+
+                                <div class="checkbox">
+                                    <label>
+                                        @Html.RadioButtonFor(model => model.ConduiteTenir, "Hospitalisation", new { id = "btn_hospital" })   Hospitalisation
+                                    </label>
+                                    @Html.TextAreaFor(model => model.Comment, 6, 70, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "diagnostic" } })
+                                    @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+
+                                </div>
+
+                                <div class="checkbox">
+                                    <label>
+                                        @*<input type="checkbox" value="Imprimes CNAM" />*@
+                                        @Html.RadioButtonFor(model => model.ConduiteTenir, "Imprimes CNAM", new { id = "btn_imprimCNAM" })Imprimés CNAM
+                                    </label>
+                                    <div class="editor-field">
+                                        @Html.DropDownList("Comment", new List<SelectListItem>
+                                           {
+                                               new SelectListItem{ Text="BS", Value="BS"},
+                                               new SelectListItem{ Text="N01", Value="N01"},
+                                               new SelectListItem{ Text="N02", Value="N02"},
+                                               new SelectListItem{ Text="APCI", Value="APCI"},
+
+                                           }, "--- Séléctionner un élément ---", new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
                         </div>
 
                     </div>
@@ -144,7 +172,7 @@
                             </a>
                         </div>
                     </div>
-                </div>
+               
             }
             @*<div>
                     @Html.ActionLink("Retour", "Index")
