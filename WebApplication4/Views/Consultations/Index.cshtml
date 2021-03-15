@@ -66,6 +66,7 @@
                 </th>
                 <th> @Html.Label("Nature de la visite", htmlAttributes: new { @class = "control-label col-5" })</th>
                 <th> @Html.Label("Conduite à tenir", htmlAttributes: new { @class = "control-label col-5" })</th>
+                <th> @Html.Label("Imprimés CNAM", htmlAttributes: new { @class = "control-label col-5" })</th>
             </tr>
 
             @foreach (var item in Model)
@@ -91,6 +92,10 @@
                 <td>
                     @*@Html.DisplayFor(modelItem => item.diagnostic)*@
                     @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => item.ConduiteTenir).ToString()))
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.diagnostic)*@
+                    @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => item.CNAM).ToString()))
                 </td>
                 <td>
                     @*@Html.ActionLink("Edit", "Edit", new { id = item.ConsultationID }) |

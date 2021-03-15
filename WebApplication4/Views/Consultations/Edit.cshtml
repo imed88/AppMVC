@@ -45,6 +45,14 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    @*@Html.LabelFor(model => model.DateCreated, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    @Html.Label("Date de consultation", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DateCreated, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DateCreated, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
                     @*@Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })*@
                     @Html.Label("Nature de la visite", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-6">
@@ -70,7 +78,84 @@
                         @Html.ValidationMessageFor(model => model.diagnostic, "", new { @class = "text-danger" })
                     </div>
                 </div>
-              
+                <div class="container">
+                    <div class="form-group">
+                        @Html.Label("Conduite à tenir", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                        <div class="col-md-5">
+
+
+                            <div>
+                                <label class="checkbox-inline">
+                                    @*   @Html.RadioButtonFor(model => model.ConduiteTenir, "Prescription Medicale", new { id = "btn_Prescription" }) Préscription Médicale*@
+                                    @Html.CheckBox("PrescMed", false) Préscription Médicale
+                                </label>
+                            </div>
+
+                            <label class="checkbox-inline">
+                                @*   @Html.RadioButtonFor(model => model.ConduiteTenir, "Exploration Medicale", new { id = "btn_ExplorMed" }) Exploration Radiologique*@
+                                @Html.CheckBox("ExplorRadio", false) Exploration Radiologique
+
+
+                            </label>
+                            @Html.TextAreaFor(model => model.Comment, 6, 70, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "diagnostic" } })
+                            @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+
+
+
+                            <label class="checkbox-inline">
+                                @*@Html.RadioButtonFor(model => model.ConduiteTenir, "Exploration Biologique", new { id = "btn_ExplorBio" })   Exploration Biologique*@
+                                @Html.CheckBox("ExplorBio", false) Exploration Biologique
+                            </label>
+                            @Html.TextAreaFor(model => model.Comment, 6, 70, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "diagnostic" } })
+                            @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <label class="checkbox-inline">
+                                @*@Html.RadioButtonFor(model => model.ConduiteTenir,"Transfert", new { id = "btn_Transfert" })   Transfert (Lettre de liaison)*@
+                                @Html.CheckBox("Transfert", false) Transfert (Lettre de liaision)
+                            </label>
+                            @Html.TextAreaFor(model => model.Comment, 6, 70, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "diagnostic" } })
+                            @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+
+
+                        </div>
+                        <div class="col-md-3">
+
+
+                            <label>
+                                @*@Html.RadioButtonFor(model => model.ConduiteTenir, "Hospitalisation", new { id = "btn_hospital" })   Hospitalisation*@
+                                @Html.CheckBox("Hopitalisation", false) Hospitalisation
+                            </label>
+                            @Html.TextAreaFor(model => model.Comment, 6, 70, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "diagnostic" } })
+                            @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+
+
+                            <div class="checkbox">
+                                <label>
+                                    @*<input type="checkbox" value="Imprimes CNAM" />*@
+                                    @Html.RadioButtonFor(model => model.ConduiteTenir, "Imprimes CNAM", new { id = "btn_imprimCNAM" })Imprimés CNAM
+                                </label>
+                                <div class="editor-field">
+                                    @Html.DropDownList("CNAM", new List<SelectListItem>
+                                       {
+                                           new SelectListItem{ Text="BS", Value="BS"},
+                                           new SelectListItem{ Text="N01", Value="N01"},
+                                           new SelectListItem{ Text="N02", Value="N02"},
+                                           new SelectListItem{ Text="APCI", Value="APCI"},
+
+                                       }, "--- Séléctionner un élément ---", new { @class = "form-control" })
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <input type="submit" value="Modifier" class="btn btn-warning" /> |   @*@Html.ActionLink("Retour", "Index")*@

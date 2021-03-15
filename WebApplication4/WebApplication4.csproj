@@ -437,6 +437,22 @@
     <Compile Include="Migrations\202103111336175_ConsultationComment.Designer.cs">
       <DependentUpon>202103111336175_ConsultationComment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103121126144_ConsultationOrder.cs" />
+    <Compile Include="Migrations\202103121126144_ConsultationOrder.Designer.cs">
+      <DependentUpon>202103121126144_ConsultationOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103121130096_ConsultationOrder1.cs" />
+    <Compile Include="Migrations\202103121130096_ConsultationOrder1.Designer.cs">
+      <DependentUpon>202103121130096_ConsultationOrder1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103150826450_ModifConsultation.cs" />
+    <Compile Include="Migrations\202103150826450_ModifConsultation.Designer.cs">
+      <DependentUpon>202103150826450_ModifConsultation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103150841133_ModifConsultation1.cs" />
+    <Compile Include="Migrations\202103150841133_ModifConsultation1.Designer.cs">
+      <DependentUpon>202103150841133_ModifConsultation1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CheckBoxItem.cs" />
@@ -444,6 +460,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Tables\Appointement.cs" />
     <Compile Include="Models\Tables\Consultation.cs" />
+    <Compile Include="Models\Tables\ConsultationDetail.cs" />
     <Compile Include="Models\Tables\ConsultationOrdonnance.cs" />
     <Compile Include="Models\Tables\Events.cs" />
     <Compile Include="Models\Tables\FileDetail.cs" />
@@ -4407,6 +4424,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103111336175_ConsultationComment.resx">
       <DependentUpon>202103111336175_ConsultationComment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103121126144_ConsultationOrder.resx">
+      <DependentUpon>202103121126144_ConsultationOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103121130096_ConsultationOrder1.resx">
+      <DependentUpon>202103121130096_ConsultationOrder1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103150826450_ModifConsultation.resx">
+      <DependentUpon>202103150826450_ModifConsultation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103150841133_ModifConsultation1.resx">
+      <DependentUpon>202103150841133_ModifConsultation1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\FicheRDV.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

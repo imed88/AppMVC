@@ -72,7 +72,7 @@ namespace WebApplication4.Controllers.TablesControllers
 
             // return View(usines.ToList());
 
-            int pageSize = 5;
+            int pageSize = 7;
             int pageNumber = (page ?? 1);
             return View(consultations.ToPagedList(pageNumber, pageSize));
         }
@@ -112,14 +112,62 @@ namespace WebApplication4.Controllers.TablesControllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Consultation consultation)
+        public ActionResult Create(Consultation consultation, string PrescMed, string ExplorRadio, string ExplorBio, string Transfert, string Hospitalisation)
         {
             if (ModelState.IsValid)
             {
+              
+                if (PrescMed == "true")
+                {
+                    consultation.PrescMed = true;
+                    
+                    consultation.ConduiteTenir = "Préscription Médicale";
+                }
+                else if (ExplorRadio == "true")
+                {
+                    consultation.ExplorRadio = true;
+                    
+                    consultation.ConduiteTenir = "Exploration Radiologique";
+                }
+                else if (ExplorBio == "true")
+                {
+                    consultation.ExplorBio = true;
+                    
+                    consultation.ConduiteTenir = "Exploration Biologique";
+                }
+                else if (Transfert == "true")
+                {
+                    consultation.Transfert = true;
+
+                    consultation.ConduiteTenir = "Transfert";
+                }
+                else if (Hospitalisation == "true")
+                {
+                    consultation.Hospitalisation = true;
+
+                    consultation.ConduiteTenir = "Hospitalisation"; 
+                }
+                else
+                {
+                    consultation.PrescMed = false;
+                    consultation.ExplorRadio = false;
+                    consultation.ExplorBio = false;
+                    consultation.Transfert = false;
+                   
+                    consultation.Hospitalisation = false;
+                }
+
+
+
+
                 db.Consultations.Add(consultation);
+                //db.SaveChanges();
+             
+                //db.ConsultationDetail.Add(orderDetail);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
 
             ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", consultation.UserID);
             ViewBag.idPatients = new SelectList(db.Patients, "IdPatients", "PrenomPatient");

@@ -50,6 +50,18 @@ namespace WebApplication4.Models.Tables
         [DisplayName("Commentaire")]
         public string Comment { get; set; }
 
+        [Required] //Changes V2
+        [DisplayName("CNAM")]
+        public string CNAM { get; set; }
+
+       public bool PrescMed { get; set; }
+       public bool ExplorRadio { get; set; }
+       public bool ExplorBio { get; set; }
+       public bool Transfert { get; set; }
+       public bool Hospitalisation { get; set; }
+
+
+        public virtual ICollection<ConsultationDetail> ConsultationDetails { get; set; }
 
         //public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
