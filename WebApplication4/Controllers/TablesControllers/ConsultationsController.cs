@@ -112,7 +112,7 @@ namespace WebApplication4.Controllers.TablesControllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Consultation consultation, string PrescMed, string ExplorRadio, string ExplorBio, string Transfert, string Hospitalisation)
+        public ActionResult Create(Consultation consultation, string PrescMed, string ExplorRadio, string ExplorBio, string Transfert, string Hospitalisation, int? id)
         {
             if (ModelState.IsValid)
             {
@@ -122,6 +122,7 @@ namespace WebApplication4.Controllers.TablesControllers
                     consultation.PrescMed = true;
                     
                     consultation.ConduiteTenir = "Préscription Médicale";
+                   
                 }
                 else if (ExplorRadio == "true")
                 {
@@ -132,13 +133,12 @@ namespace WebApplication4.Controllers.TablesControllers
                 else if (ExplorBio == "true")
                 {
                     consultation.ExplorBio = true;
-                    
                     consultation.ConduiteTenir = "Exploration Biologique";
+
                 }
                 else if (Transfert == "true")
                 {
                     consultation.Transfert = true;
-
                     consultation.ConduiteTenir = "Transfert";
                 }
                 else if (Hospitalisation == "true")
@@ -160,6 +160,8 @@ namespace WebApplication4.Controllers.TablesControllers
 
 
 
+
+
                 db.Consultations.Add(consultation);
                 //db.SaveChanges();
              
@@ -172,6 +174,47 @@ namespace WebApplication4.Controllers.TablesControllers
             ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", consultation.UserID);
             ViewBag.idPatients = new SelectList(db.Patients, "IdPatients", "PrenomPatient");
             return View(consultation);
+        }
+
+
+        public ActionResult PassFicheConsultaion(int? id)
+        {
+          
+                var OneBlog = (from c in db.Consultations
+                               join p in db.Patients
+                               on c.idPatients equals p.IdPatients
+
+                               select new
+                               {
+                                   c.diagnostic,
+                                   p.NomPatient,
+                                   p.PrenomPatient,
+                                   p.MaladieChronique,
+                                   c.ConduiteTenir,
+                                   c.HospitalComment,
+                                   c.ExplorRadioComment,
+                                   c.ExplorBioComment,
+                                   c.TransfertComment,
+                                   p.Parente,
+                                   c.ConsultationID
+
+                               }).OrderBy(c => c.ConsultationID)
+                            .Where(c => c.ConsultationID == id);
+
+                ReportDocument rd = new ReportDocument();
+                rd.Load(Path.Combine(Server.MapPath("~/Report"), "FicheExplorBio.rpt"));
+                rd.SetDataSource(OneBlog);
+
+                Response.Buffer = false;
+                Response.ClearContent();
+                Response.ClearHeaders();
+
+                Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                stream.Seek(0, SeekOrigin.Begin);
+                return File(stream, "application/pdf", "BlogList.pdf");
+           
+          
+           
         }
 
         // GET: Consultations/Edit/5

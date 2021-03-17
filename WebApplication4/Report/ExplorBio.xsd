@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="RadioBioSet" targetNamespace="http://tempuri.org/RadioBioSet.xsd" xmlns:mstns="http://tempuri.org/RadioBioSet.xsd" xmlns="http://tempuri.org/RadioBioSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="ExplorBio" targetNamespace="http://tempuri.org/ExplorBio.xsd" xmlns:mstns="http://tempuri.org/ExplorBio.xsd" xmlns="http://tempuri.org/ExplorBio.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -12,7 +12,8 @@
               <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Consultations.DateCreated, Consultations.ConduiteTenir, Patients.MatriculePatients, Patients.NomPatient, Patients.PrenomPatient, Patients.MaladieChronique, Consultations.ConsultationID
+                    <CommandText>SELECT        Consultations.diagnostic, Consultations.ConsultationID, Consultations.ConduiteTenir, Consultations.ExplorRadioComment, Consultations.ExplorBioComment, Consultations.TransfertComment, Consultations.HospitalComment, 
+                         Patients.NomPatient, Patients.PrenomPatient, Patients.MaladieChronique
 FROM            Consultations INNER JOIN
                          Patients ON Consultations.idPatients = Patients.IdPatients</CommandText>
                     <Parameters />
@@ -21,13 +22,16 @@ FROM            Consultations INNER JOIN
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="DateCreated" DataSetColumn="DateCreated" />
+              <Mapping SourceColumn="diagnostic" DataSetColumn="diagnostic" />
+              <Mapping SourceColumn="ConsultationID" DataSetColumn="ConsultationID" />
               <Mapping SourceColumn="ConduiteTenir" DataSetColumn="ConduiteTenir" />
-              <Mapping SourceColumn="MatriculePatients" DataSetColumn="MatriculePatients" />
+              <Mapping SourceColumn="ExplorRadioComment" DataSetColumn="ExplorRadioComment" />
+              <Mapping SourceColumn="ExplorBioComment" DataSetColumn="ExplorBioComment" />
+              <Mapping SourceColumn="TransfertComment" DataSetColumn="TransfertComment" />
+              <Mapping SourceColumn="HospitalComment" DataSetColumn="HospitalComment" />
               <Mapping SourceColumn="NomPatient" DataSetColumn="NomPatient" />
               <Mapping SourceColumn="PrenomPatient" DataSetColumn="PrenomPatient" />
               <Mapping SourceColumn="MaladieChronique" DataSetColumn="MaladieChronique" />
-              <Mapping SourceColumn="ConsultationID" DataSetColumn="ConsultationID" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -36,13 +40,20 @@ FROM            Consultations INNER JOIN
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="RadioBioSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="RadioBioSet" msprop:Generator_UserDSName="RadioBioSet">
+  <xs:element name="ExplorBio" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ExplorBio" msprop:Generator_UserDSName="ExplorBio">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="DateCreated" msprop:Generator_ColumnVarNameInTable="columnDateCreated" msprop:Generator_ColumnPropNameInRow="DateCreated" msprop:Generator_ColumnPropNameInTable="DateCreatedColumn" msprop:Generator_UserColumnName="DateCreated" type="xs:dateTime" />
+              <xs:element name="diagnostic" msprop:Generator_ColumnVarNameInTable="columndiagnostic" msprop:Generator_ColumnPropNameInRow="diagnostic" msprop:Generator_ColumnPropNameInTable="diagnosticColumn" msprop:Generator_UserColumnName="diagnostic" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ConsultationID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnConsultationID" msprop:Generator_ColumnPropNameInRow="ConsultationID" msprop:Generator_ColumnPropNameInTable="ConsultationIDColumn" msprop:Generator_UserColumnName="ConsultationID" type="xs:int" />
               <xs:element name="ConduiteTenir" msprop:Generator_ColumnVarNameInTable="columnConduiteTenir" msprop:Generator_ColumnPropNameInRow="ConduiteTenir" msprop:Generator_ColumnPropNameInTable="ConduiteTenirColumn" msprop:Generator_UserColumnName="ConduiteTenir">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -50,7 +61,28 @@ FROM            Consultations INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MatriculePatients" msprop:Generator_ColumnVarNameInTable="columnMatriculePatients" msprop:Generator_ColumnPropNameInRow="MatriculePatients" msprop:Generator_ColumnPropNameInTable="MatriculePatientsColumn" msprop:Generator_UserColumnName="MatriculePatients" minOccurs="0">
+              <xs:element name="ExplorRadioComment" msprop:Generator_ColumnVarNameInTable="columnExplorRadioComment" msprop:Generator_ColumnPropNameInRow="ExplorRadioComment" msprop:Generator_ColumnPropNameInTable="ExplorRadioCommentColumn" msprop:Generator_UserColumnName="ExplorRadioComment" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ExplorBioComment" msprop:Generator_ColumnVarNameInTable="columnExplorBioComment" msprop:Generator_ColumnPropNameInRow="ExplorBioComment" msprop:Generator_ColumnPropNameInTable="ExplorBioCommentColumn" msprop:Generator_UserColumnName="ExplorBioComment" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TransfertComment" msprop:Generator_ColumnVarNameInTable="columnTransfertComment" msprop:Generator_ColumnPropNameInRow="TransfertComment" msprop:Generator_ColumnPropNameInTable="TransfertCommentColumn" msprop:Generator_UserColumnName="TransfertComment" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HospitalComment" msprop:Generator_ColumnVarNameInTable="columnHospitalComment" msprop:Generator_ColumnPropNameInRow="HospitalComment" msprop:Generator_ColumnPropNameInTable="HospitalCommentColumn" msprop:Generator_UserColumnName="HospitalComment" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
@@ -78,7 +110,6 @@ FROM            Consultations INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ConsultationID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnConsultationID" msprop:Generator_ColumnPropNameInRow="ConsultationID" msprop:Generator_ColumnPropNameInTable="ConsultationIDColumn" msprop:Generator_UserColumnName="ConsultationID" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

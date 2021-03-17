@@ -100,8 +100,8 @@
 
 
                                 </label>
-                                    @Html.TextAreaFor(model => model.Comment, 6, 70, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "diagnostic" } })
-                                    @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+                                    @Html.TextAreaFor(model => model.ExplorRadioComment, 6, 70, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "diagnostic" } })
+                                    @Html.ValidationMessageFor(model => model.ExplorRadioComment, "", new { @class = "text-danger" })
 
                                 
 
@@ -109,8 +109,8 @@
                                     @*@Html.RadioButtonFor(model => model.ConduiteTenir, "Exploration Biologique", new { id = "btn_ExplorBio" })   Exploration Biologique*@
                                     @Html.CheckBox("ExplorBio", false) Exploration Biologique
                                 </label>
-                                    @Html.TextAreaFor(model => model.Comment, 6, 70, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "diagnostic" } })
-                                    @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+                                    @Html.TextAreaFor(model => model.ExplorBioComment, 6, 70, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "diagnostic" } })
+                                    @Html.ValidationMessageFor(model => model.ExplorBioComment, "", new { @class = "text-danger" })
 
                                 
                             </div>
@@ -120,8 +120,8 @@
                                     @*@Html.RadioButtonFor(model => model.ConduiteTenir,"Transfert", new { id = "btn_Transfert" })   Transfert (Lettre de liaison)*@
                                     @Html.CheckBox("Transfert", false) Transfert (Lettre de liaision)
                                 </label>
-                                    @Html.TextAreaFor(model => model.Comment, 6, 70, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "diagnostic" } })
-                                    @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+                                    @Html.TextAreaFor(model => model.TransfertComment, 6, 70, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "diagnostic" } })
+                                    @Html.ValidationMessageFor(model => model.TransfertComment, "", new { @class = "text-danger" })
 
                                 
                             </div>
@@ -132,8 +132,8 @@
                                         @*@Html.RadioButtonFor(model => model.ConduiteTenir, "Hospitalisation", new { id = "btn_hospital" })   Hospitalisation*@
                                       @Html.CheckBox("Hopitalisation", false) Hospitalisation
                                         </label>
-                                    @Html.TextAreaFor(model => model.Comment, 6, 70, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "diagnostic" } })
-                                    @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+                                    @Html.TextAreaFor(model => model.HospitalComment, 6, 70, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "diagnostic" } })
+                                    @Html.ValidationMessageFor(model => model.HospitalComment, "", new { @class = "text-danger" })
 
                                
                                 <div class="checkbox">

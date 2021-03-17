@@ -20,9 +20,9 @@ namespace WebApplication4.Report {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("RadioBioSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("ExplorBio")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class RadioBioSet : global::System.Data.DataSet {
+    public partial class ExplorBio : global::System.Data.DataSet {
         
         private DataTable1DataTable tableDataTable1;
         
@@ -30,7 +30,7 @@ namespace WebApplication4.Report {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public RadioBioSet() {
+        public ExplorBio() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace WebApplication4.Report {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected RadioBioSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected ExplorBio(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace WebApplication4.Report {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            RadioBioSet cln = ((RadioBioSet)(base.Clone()));
+            ExplorBio cln = ((ExplorBio)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace WebApplication4.Report {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "RadioBioSet";
+            this.DataSetName = "ExplorBio";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/RadioBioSet.xsd";
+            this.Namespace = "http://tempuri.org/ExplorBio.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableDataTable1 = new DataTable1DataTable();
@@ -225,7 +225,7 @@ namespace WebApplication4.Report {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            RadioBioSet ds = new RadioBioSet();
+            ExplorBio ds = new ExplorBio();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -279,19 +279,25 @@ namespace WebApplication4.Report {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class DataTable1DataTable : global::System.Data.TypedTableBase<DataTable1Row> {
             
-            private global::System.Data.DataColumn columnDateCreated;
+            private global::System.Data.DataColumn columndiagnostic;
+            
+            private global::System.Data.DataColumn columnConsultationID;
             
             private global::System.Data.DataColumn columnConduiteTenir;
             
-            private global::System.Data.DataColumn columnMatriculePatients;
+            private global::System.Data.DataColumn columnExplorRadioComment;
+            
+            private global::System.Data.DataColumn columnExplorBioComment;
+            
+            private global::System.Data.DataColumn columnTransfertComment;
+            
+            private global::System.Data.DataColumn columnHospitalComment;
             
             private global::System.Data.DataColumn columnNomPatient;
             
             private global::System.Data.DataColumn columnPrenomPatient;
             
             private global::System.Data.DataColumn columnMaladieChronique;
-            
-            private global::System.Data.DataColumn columnConsultationID;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -328,9 +334,17 @@ namespace WebApplication4.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn DateCreatedColumn {
+            public global::System.Data.DataColumn diagnosticColumn {
                 get {
-                    return this.columnDateCreated;
+                    return this.columndiagnostic;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ConsultationIDColumn {
+                get {
+                    return this.columnConsultationID;
                 }
             }
             
@@ -344,9 +358,33 @@ namespace WebApplication4.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn MatriculePatientsColumn {
+            public global::System.Data.DataColumn ExplorRadioCommentColumn {
                 get {
-                    return this.columnMatriculePatients;
+                    return this.columnExplorRadioComment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ExplorBioCommentColumn {
+                get {
+                    return this.columnExplorBioComment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn TransfertCommentColumn {
+                get {
+                    return this.columnTransfertComment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn HospitalCommentColumn {
+                get {
+                    return this.columnHospitalComment;
                 }
             }
             
@@ -371,14 +409,6 @@ namespace WebApplication4.Report {
             public global::System.Data.DataColumn MaladieChroniqueColumn {
                 get {
                     return this.columnMaladieChronique;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ConsultationIDColumn {
-                get {
-                    return this.columnConsultationID;
                 }
             }
             
@@ -419,16 +449,19 @@ namespace WebApplication4.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DataTable1Row AddDataTable1Row(System.DateTime DateCreated, string ConduiteTenir, string MatriculePatients, string NomPatient, string PrenomPatient, string MaladieChronique) {
+            public DataTable1Row AddDataTable1Row(string diagnostic, string ConduiteTenir, string ExplorRadioComment, string ExplorBioComment, string TransfertComment, string HospitalComment, string NomPatient, string PrenomPatient, string MaladieChronique) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        DateCreated,
+                        diagnostic,
+                        null,
                         ConduiteTenir,
-                        MatriculePatients,
+                        ExplorRadioComment,
+                        ExplorBioComment,
+                        TransfertComment,
+                        HospitalComment,
                         NomPatient,
                         PrenomPatient,
-                        MaladieChronique,
-                        null};
+                        MaladieChronique};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -458,47 +491,59 @@ namespace WebApplication4.Report {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
-                this.columnDateCreated = base.Columns["DateCreated"];
+                this.columndiagnostic = base.Columns["diagnostic"];
+                this.columnConsultationID = base.Columns["ConsultationID"];
                 this.columnConduiteTenir = base.Columns["ConduiteTenir"];
-                this.columnMatriculePatients = base.Columns["MatriculePatients"];
+                this.columnExplorRadioComment = base.Columns["ExplorRadioComment"];
+                this.columnExplorBioComment = base.Columns["ExplorBioComment"];
+                this.columnTransfertComment = base.Columns["TransfertComment"];
+                this.columnHospitalComment = base.Columns["HospitalComment"];
                 this.columnNomPatient = base.Columns["NomPatient"];
                 this.columnPrenomPatient = base.Columns["PrenomPatient"];
                 this.columnMaladieChronique = base.Columns["MaladieChronique"];
-                this.columnConsultationID = base.Columns["ConsultationID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columnDateCreated = new global::System.Data.DataColumn("DateCreated", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDateCreated);
+                this.columndiagnostic = new global::System.Data.DataColumn("diagnostic", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndiagnostic);
+                this.columnConsultationID = new global::System.Data.DataColumn("ConsultationID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConsultationID);
                 this.columnConduiteTenir = new global::System.Data.DataColumn("ConduiteTenir", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnConduiteTenir);
-                this.columnMatriculePatients = new global::System.Data.DataColumn("MatriculePatients", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMatriculePatients);
+                this.columnExplorRadioComment = new global::System.Data.DataColumn("ExplorRadioComment", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnExplorRadioComment);
+                this.columnExplorBioComment = new global::System.Data.DataColumn("ExplorBioComment", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnExplorBioComment);
+                this.columnTransfertComment = new global::System.Data.DataColumn("TransfertComment", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTransfertComment);
+                this.columnHospitalComment = new global::System.Data.DataColumn("HospitalComment", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHospitalComment);
                 this.columnNomPatient = new global::System.Data.DataColumn("NomPatient", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNomPatient);
                 this.columnPrenomPatient = new global::System.Data.DataColumn("PrenomPatient", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrenomPatient);
                 this.columnMaladieChronique = new global::System.Data.DataColumn("MaladieChronique", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMaladieChronique);
-                this.columnConsultationID = new global::System.Data.DataColumn("ConsultationID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnConsultationID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnConsultationID}, true));
-                this.columnDateCreated.AllowDBNull = false;
-                this.columnConduiteTenir.AllowDBNull = false;
-                this.columnConduiteTenir.MaxLength = 2147483647;
-                this.columnMatriculePatients.MaxLength = 2147483647;
-                this.columnNomPatient.MaxLength = 2147483647;
-                this.columnPrenomPatient.MaxLength = 2147483647;
-                this.columnMaladieChronique.MaxLength = 2147483647;
+                this.columndiagnostic.MaxLength = 2147483647;
                 this.columnConsultationID.AutoIncrement = true;
                 this.columnConsultationID.AutoIncrementSeed = -1;
                 this.columnConsultationID.AutoIncrementStep = -1;
                 this.columnConsultationID.AllowDBNull = false;
                 this.columnConsultationID.ReadOnly = true;
                 this.columnConsultationID.Unique = true;
+                this.columnConduiteTenir.AllowDBNull = false;
+                this.columnConduiteTenir.MaxLength = 2147483647;
+                this.columnExplorRadioComment.MaxLength = 2147483647;
+                this.columnExplorBioComment.MaxLength = 2147483647;
+                this.columnTransfertComment.MaxLength = 2147483647;
+                this.columnHospitalComment.MaxLength = 2147483647;
+                this.columnNomPatient.MaxLength = 2147483647;
+                this.columnPrenomPatient.MaxLength = 2147483647;
+                this.columnMaladieChronique.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -566,7 +611,7 @@ namespace WebApplication4.Report {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                RadioBioSet ds = new RadioBioSet();
+                ExplorBio ds = new ExplorBio();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -641,12 +686,28 @@ namespace WebApplication4.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public System.DateTime DateCreated {
+            public string diagnostic {
                 get {
-                    return ((global::System.DateTime)(this[this.tableDataTable1.DateCreatedColumn]));
+                    try {
+                        return ((string)(this[this.tableDataTable1.diagnosticColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'diagnostic\' dans la table \'DataTable1\' est DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tableDataTable1.DateCreatedColumn] = value;
+                    this[this.tableDataTable1.diagnosticColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int ConsultationID {
+                get {
+                    return ((int)(this[this.tableDataTable1.ConsultationIDColumn]));
+                }
+                set {
+                    this[this.tableDataTable1.ConsultationIDColumn] = value;
                 }
             }
             
@@ -663,18 +724,69 @@ namespace WebApplication4.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string MatriculePatients {
+            public string ExplorRadioComment {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.MatriculePatientsColumn]));
+                        return ((string)(this[this.tableDataTable1.ExplorRadioCommentColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'MatriculePatients\' dans la table \'DataTable1\' est DBNu" +
-                                "ll.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'ExplorRadioComment\' dans la table \'DataTable1\' est DBN" +
+                                "ull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.MatriculePatientsColumn] = value;
+                    this[this.tableDataTable1.ExplorRadioCommentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string ExplorBioComment {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.ExplorBioCommentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'ExplorBioComment\' dans la table \'DataTable1\' est DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.ExplorBioCommentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string TransfertComment {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.TransfertCommentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'TransfertComment\' dans la table \'DataTable1\' est DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.TransfertCommentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string HospitalComment {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.HospitalCommentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'HospitalComment\' dans la table \'DataTable1\' est DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.HospitalCommentColumn] = value;
                 }
             }
             
@@ -729,25 +841,62 @@ namespace WebApplication4.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int ConsultationID {
-                get {
-                    return ((int)(this[this.tableDataTable1.ConsultationIDColumn]));
-                }
-                set {
-                    this[this.tableDataTable1.ConsultationIDColumn] = value;
-                }
+            public bool IsdiagnosticNull() {
+                return this.IsNull(this.tableDataTable1.diagnosticColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsMatriculePatientsNull() {
-                return this.IsNull(this.tableDataTable1.MatriculePatientsColumn);
+            public void SetdiagnosticNull() {
+                this[this.tableDataTable1.diagnosticColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetMatriculePatientsNull() {
-                this[this.tableDataTable1.MatriculePatientsColumn] = global::System.Convert.DBNull;
+            public bool IsExplorRadioCommentNull() {
+                return this.IsNull(this.tableDataTable1.ExplorRadioCommentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetExplorRadioCommentNull() {
+                this[this.tableDataTable1.ExplorRadioCommentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsExplorBioCommentNull() {
+                return this.IsNull(this.tableDataTable1.ExplorBioCommentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetExplorBioCommentNull() {
+                this[this.tableDataTable1.ExplorBioCommentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsTransfertCommentNull() {
+                return this.IsNull(this.tableDataTable1.TransfertCommentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetTransfertCommentNull() {
+                this[this.tableDataTable1.TransfertCommentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsHospitalCommentNull() {
+                return this.IsNull(this.tableDataTable1.HospitalCommentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetHospitalCommentNull() {
+                this[this.tableDataTable1.HospitalCommentColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -822,7 +971,7 @@ namespace WebApplication4.Report {
         }
     }
 }
-namespace WebApplication4.Report.RadioBioSetTableAdapters {
+namespace WebApplication4.Report.ExplorBioTableAdapters {
     
     
     /// <summary>
@@ -946,13 +1095,16 @@ namespace WebApplication4.Report.RadioBioSetTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "DataTable1";
-            tableMapping.ColumnMappings.Add("DateCreated", "DateCreated");
+            tableMapping.ColumnMappings.Add("diagnostic", "diagnostic");
+            tableMapping.ColumnMappings.Add("ConsultationID", "ConsultationID");
             tableMapping.ColumnMappings.Add("ConduiteTenir", "ConduiteTenir");
-            tableMapping.ColumnMappings.Add("MatriculePatients", "MatriculePatients");
+            tableMapping.ColumnMappings.Add("ExplorRadioComment", "ExplorRadioComment");
+            tableMapping.ColumnMappings.Add("ExplorBioComment", "ExplorBioComment");
+            tableMapping.ColumnMappings.Add("TransfertComment", "TransfertComment");
+            tableMapping.ColumnMappings.Add("HospitalComment", "HospitalComment");
             tableMapping.ColumnMappings.Add("NomPatient", "NomPatient");
             tableMapping.ColumnMappings.Add("PrenomPatient", "PrenomPatient");
             tableMapping.ColumnMappings.Add("MaladieChronique", "MaladieChronique");
-            tableMapping.ColumnMappings.Add("ConsultationID", "ConsultationID");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -969,7 +1121,8 @@ namespace WebApplication4.Report.RadioBioSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Consultations.DateCreated, Consultations.ConduiteTenir, Patients.MatriculePatients, Patients.NomPatient, Patients.PrenomPatient, Patients.MaladieChronique, Consultations.ConsultationID
+            this._commandCollection[0].CommandText = @"SELECT        Consultations.diagnostic, Consultations.ConsultationID, Consultations.ConduiteTenir, Consultations.ExplorRadioComment, Consultations.ExplorBioComment, Consultations.TransfertComment, Consultations.HospitalComment, 
+                         Patients.NomPatient, Patients.PrenomPatient, Patients.MaladieChronique
 FROM            Consultations INNER JOIN
                          Patients ON Consultations.idPatients = Patients.IdPatients";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
@@ -979,7 +1132,7 @@ FROM            Consultations INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(RadioBioSet.DataTable1DataTable dataTable) {
+        public virtual int Fill(ExplorBio.DataTable1DataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -992,9 +1145,9 @@ FROM            Consultations INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual RadioBioSet.DataTable1DataTable GetData() {
+        public virtual ExplorBio.DataTable1DataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            RadioBioSet.DataTable1DataTable dataTable = new RadioBioSet.DataTable1DataTable();
+            ExplorBio.DataTable1DataTable dataTable = new ExplorBio.DataTable1DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1068,7 +1221,7 @@ FROM            Consultations INNER JOIN
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateUpdatedRows(RadioBioSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(ExplorBio dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1078,7 +1231,7 @@ FROM            Consultations INNER JOIN
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateInsertedRows(RadioBioSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(ExplorBio dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1088,7 +1241,7 @@ FROM            Consultations INNER JOIN
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateDeletedRows(RadioBioSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(ExplorBio dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1122,7 +1275,7 @@ FROM            Consultations INNER JOIN
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public virtual int UpdateAll(RadioBioSet dataSet) {
+        public virtual int UpdateAll(ExplorBio dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

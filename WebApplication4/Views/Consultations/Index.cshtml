@@ -99,9 +99,9 @@
                 </td>
                 <td>
                     @*@Html.ActionLink("Edit", "Edit", new { id = item.ConsultationID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ConsultationID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ConsultationID })
-            @Html.ActionLink("Medicaments", "Medication", new { id = item.ConsultationID })*@
+        @Html.ActionLink("Details", "Details", new { id = item.ConsultationID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ConsultationID })
+        @Html.ActionLink("Medicaments", "Medication", new { id = item.ConsultationID })*@
                     <a href="@Url.Action("Edit", "Consultations",new { id = item.ConsultationID })" class="btn btn-warning">
                         <i class="glyphicon glyphicon-wrench"></i>
                         <span>
@@ -119,6 +119,9 @@
                         <span>
                             <strong></strong>
                         </span>
+                    </a>
+                    <a href="@Url.Action("PassFicheConsultaion", "Consultations", new {id = item.ConsultationID})" class="btn btn-linkedin">
+                        <i class="glyphicon glyphicon-print"></i>
                     </a>
                 </td>
             </tr>

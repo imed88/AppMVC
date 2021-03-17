@@ -453,6 +453,10 @@
     <Compile Include="Migrations\202103150841133_ModifConsultation1.Designer.cs">
       <DependentUpon>202103150841133_ModifConsultation1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103170958272_ConsultationFin.cs" />
+    <Compile Include="Migrations\202103170958272_ConsultationFin.Designer.cs">
+      <DependentUpon>202103170958272_ConsultationFin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CheckBoxItem.cs" />
@@ -492,6 +496,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Report\ExplorBio.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExplorBio.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FicheExplorBio.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FicheExplorBio.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Report\FicheRDV.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -503,11 +518,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Ordonnance.rpt</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Report\RadioBioSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RadioBioSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Report\RDV.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -4057,16 +4067,16 @@
     <Content Include="Report\RDV.xsc">
       <DependentUpon>RDV.xsd</DependentUpon>
     </Content>
-    <Content Include="Report\RadioBioSet.xsc">
-      <DependentUpon>RadioBioSet.xsd</DependentUpon>
+    <Content Include="Report\ExplorBio.xsc">
+      <DependentUpon>ExplorBio.xsd</DependentUpon>
     </Content>
-    <None Include="Report\RadioBioSet.xsd">
+    <None Include="Report\ExplorBio.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>RadioBioSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>ExplorBio.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="Report\RadioBioSet.xss">
-      <DependentUpon>RadioBioSet.xsd</DependentUpon>
+    <Content Include="Report\ExplorBio.xss">
+      <DependentUpon>ExplorBio.xsd</DependentUpon>
     </Content>
     <None Include="Report\RDV.xsd">
       <SubType>Designer</SubType>
@@ -4436,6 +4446,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103150841133_ModifConsultation1.resx">
       <DependentUpon>202103150841133_ModifConsultation1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103170958272_ConsultationFin.resx">
+      <DependentUpon>202103170958272_ConsultationFin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FicheExplorBio.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FicheExplorBio.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\FicheRDV.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

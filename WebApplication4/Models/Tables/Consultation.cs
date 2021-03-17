@@ -46,20 +46,21 @@ namespace WebApplication4.Models.Tables
         [DisplayName("Conduite à tenir")]
         public string ConduiteTenir { get; set; }
 
-        [Required] //Changes V2
-        [DisplayName("Commentaire")]
-        public string Comment { get; set; }
-
+     
         [Required] //Changes V2
         [DisplayName("CNAM")]
         public string CNAM { get; set; }
 
        public bool PrescMed { get; set; }
+       
        public bool ExplorRadio { get; set; }
-       public bool ExplorBio { get; set; }
-       public bool Transfert { get; set; }
-       public bool Hospitalisation { get; set; }
-
+        public string ExplorRadioComment { get; set; }
+        public bool ExplorBio { get; set; }
+        public string ExplorBioComment { get; set; }
+        public bool Transfert { get; set; }
+        public string TransfertComment { get; set; }
+        public bool Hospitalisation { get; set; }
+        public string HospitalComment { get; set; }
 
         public virtual ICollection<ConsultationDetail> ConsultationDetails { get; set; }
 
