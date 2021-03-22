@@ -45,12 +45,9 @@ namespace WebApplication4.Controllers.TablesControllers
                 int check = IsExistingCheck(id);
                 if(check==-1)
                 {
-                    lsCart.Add(new Cart(db.Products.Find(id), 1));
+                    lsCart.Add(new Cart(db.Products.Find(id),1));
                 }
-                else
-                {
-                    lsCart[check].Quantity++;
-                }
+               
                 //lsCart.Add(new Cart(db.Products.Find(id), 1));
                 Session[strCart] = lsCart;
             }
@@ -104,7 +101,7 @@ namespace WebApplication4.Controllers.TablesControllers
         }
 
         [HttpPost]
-        public ActionResult ProcessOrder(FormCollection frc)
+        public ActionResult ProcessOrder(FormCollection frc, int? id)
         {
             List<Cart> lstCart = (List<Cart>)Session[strCart];
             var ConsultationID = Convert.ToInt32(frc["NConsultation"]);
@@ -130,7 +127,7 @@ namespace WebApplication4.Controllers.TablesControllers
                             OrderID = order.OrderID,
                             ProductID = cart.Product.ProductID,
                             Quantity = cart.Quantity,
-
+                            Comment = orderDetail.Comment
 
                         };
 
@@ -161,8 +158,10 @@ namespace WebApplication4.Controllers.TablesControllers
                                        p.DateCreated,
                                        e.OrderDate,
                                        s.Quantity
+                                      
 
-                                   });
+                                   }).OrderBy(p => p.ConsultationID)
+                           .Where(p =>p.ConsultationID == id); ;
                     var item = OneBlog.ToList();
                     ReportDocument rd = new ReportDocument();
                     rd.Load(Path.Combine(Server.MapPath("~/Report"), "Ordonnance.rpt"));

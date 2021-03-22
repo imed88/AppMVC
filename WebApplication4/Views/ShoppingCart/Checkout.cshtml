@@ -36,40 +36,40 @@
                             <div class="table-responsive">
                                 <table class="table" border="1">
                                     <tr>
-                                        <th></th>
+                                       <th></th>
                                         <th>Nom du produit</th>
                                         <th>Quantité</th>
-
+                                        <th>Indications</th>
                                     </tr>
                                     @foreach (var cart in (List<WebApplication4.Models.Tables.ShopCart.Cart>)Session["Cart"])
                                     {
-                                        <tr>
-                                            <td><img src="@Url.Content("~/Uploads/"+cart.Product.ImageFile)" width="50" height="50" /></td>
-                                            <td>
-                                                <strong style="font-family:'Arial Rounded MT'; font-size:20px">@cart.Product.NameProduct</strong>
+                                    <tr>
+                                        <td>@*<img src="@Url.Content("~/Uploads/"+cart.Product.ImageFile)" width="50" height="50" />*@</td>
+                                        <td>
+                                            <strong style="font-family:'Arial Rounded MT'; font-size:20px">@cart.Product.NameProduct</strong>
 
-                                                @*@Html.ActionLink(cart.Product.ProductName, "Details", "Medicaments", new { id = cart.Product.ProductID }, null)*@
+                                            @*@Html.ActionLink(cart.Product.ProductName, "Details", "Medicaments", new { id = cart.Product.ProductID }, null)*@
 
-                                            </td>
-                                            <td style="padding-right:50px">
-                                                @*@cart.Quantity*@
-                                                <input type="text" name="quantity" id="quantity" value="@cart.Quantity" readonly />
+                                        </td>
+                                        <td style="padding-right:50px">
+                                            @*@cart.Quantity*@
+                                            <input type="text" name="quantity" id="quantity" value="@cart.Quantity" readonly />
 
-                                            </td>
-                                            @*<td>@(String.Format("{0}", cart.Quantity))</td>*@
+                                        </td>
+                                        <td >
+                                            @*@cart.Quantity*@
+                                           @* <input type="text" name="quantity" id="quantity" value="@cart.Quantity" readonly />*@
+                                            <textarea cols="40" rows="5" name="Comment" id="comment" ></textarea>
+                                        </td>
+                                        @*<td>@(String.Format("{0}", cart.Quantity))</td>*@
 
-
-                                        </tr>
+                                    </tr>
 
                                     }
-
-
+                                    
                                 </table>
                             </div>
-                            <br />
-
-
-
+                          
                         }
                         else
                         {

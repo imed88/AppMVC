@@ -72,6 +72,6 @@ namespace WebApplication4.Models
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.ShopCart.OrderDetail> OrderDetails { get; set; }
 
         public System.Data.Entity.DbSet<WebApplication4.Models.Tables.Events> Events { get; set; }
-        public System.Data.Entity.DbSet<WebApplication4.Models.Tables.RadioBio> RadioBios { get; set; }
+        //public System.Data.Entity.DbSet<WebApplication4.Models.Tables.RadioBio> RadioBios { get; set; }
     }
 }

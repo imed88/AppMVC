@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "SearchIndex";
-    Layout = null;
+    Layout = "~/Views/Shared/adminlte/_mainLayout.cshtml";
 }
 
 
@@ -17,7 +17,7 @@
 <div class="row">
     @foreach (var item in Model)
     {
-        <div class="col-lg-auto col-xs-5 ">
+        <div class="col-lg-auto col-xs-3 ">
             <!-- small box -->
             <div class="card">
                 <div class="inner">
@@ -27,6 +27,14 @@
                     </div>
                     <div class="content-body" style="text-align:center">
                         @item.DenominationCI
+                    </div>
+                    <div style="text-align:center">
+                        <a href="@Url.Action("OrderNow", "ShoppingCart", new { id = item.ProductID})" class="btn btn-danger">
+                            <i class="fa fa-arrow-circle-right"></i>
+                            <span>
+                                <strong> Ajouter à la liste </strong>
+                            </span>
+                        </a>
                     </div>
                 </div>
 

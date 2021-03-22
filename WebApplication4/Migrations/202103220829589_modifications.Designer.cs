@@ -7,13 +7,13 @@ namespace WebApplication4.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class RadioBios : IMigrationMetadata
+    public sealed partial class modifications : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RadioBios));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(modifications));
         
         string IMigrationMetadata.Id
         {
-            get { return "202103091039373_RadioBios"; }
+            get { return "202103220829589_modifications"; }
         }
         
         string IMigrationMetadata.Source

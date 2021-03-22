@@ -18,7 +18,7 @@ namespace WebApplication4.Controllers.TablesControllers
         // GET: Medicaments
        
 
-        public PartialViewResult ProductPartial(string order, string currentFilter, string searching, int? page)
+        public PartialViewResult ProductPartial(string order, string currentFilter, int? page, string movieGenre, string searchString)
         {
             //var pageNumber = page ?? 1;
             //var pageSize = 10;
@@ -27,28 +27,40 @@ namespace WebApplication4.Controllers.TablesControllers
             //return PartialView(products);
 
             
-                if (searching != null)
+                if (searchString != null)
                 {
                     page = 1;
                 }
                 else
                 {
-                    searching = currentFilter;
+                searchString = currentFilter;
                 }
 
-                ViewBag.CurrentFilter = searching;
+                ViewBag.CurrentFilter = searchString;
 
 
-                //var Patient = from c in db.Patients select c;
-                var patients = from c in db.Products select c;
+            //var Patient = from c in db.Patients select c;
+            var GenreLst = new List<string>();
 
-            if (!String.IsNullOrEmpty(searching))
+            var GenreQry = from d in db.Products
+                           orderby d.DenominationCI
+                           select d.DenominationCI;
+
+            GenreLst.AddRange(GenreQry.Distinct());
+            ViewBag.movieGenre = new SelectList(GenreLst);
+            var patients = from c in db.Products select c;
+
+            if (!String.IsNullOrEmpty(searchString))
                 {
-                    patients = patients.Where(s => s.NameProduct.Contains(searching));
+                    patients = patients.Where(s => s.NameProduct.Contains(searchString));
 
                 }
+            if (!string.IsNullOrEmpty(movieGenre))
+            {
+                patients = patients.Where(x => x.DenominationCI == movieGenre);
+            }
 
-                ViewBag.LastNameSortParm = String.IsNullOrEmpty(order) ? "NomPatient_desc" : "";
+            ViewBag.LastNameSortParm = String.IsNullOrEmpty(order) ? "NomPatient_desc" : "";
                 ViewBag.FirstNameSortParm = String.IsNullOrEmpty(order) ? "PrenomPatient_desc" : "";
                 ViewBag.UsineNameSortParm = String.IsNullOrEmpty(order) ? "UsinePatient_desc" : "";
 

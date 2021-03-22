@@ -126,32 +126,30 @@
                                 
                             </div>
                             <div class="col-md-3">
-
-                               
-                                    <label>
+                              <label class="checkbox-inline">
                                         @*@Html.RadioButtonFor(model => model.ConduiteTenir, "Hospitalisation", new { id = "btn_hospital" })   Hospitalisation*@
-                                      @Html.CheckBox("Hopitalisation", false) Hospitalisation
-                                        </label>
+                                      @Html.CheckBoxFor(model=>model.Hospitalisation, false) Hospitalisation
+                              </label>
                                     @Html.TextAreaFor(model => model.HospitalComment, 6, 70, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "diagnostic" } })
                                     @Html.ValidationMessageFor(model => model.HospitalComment, "", new { @class = "text-danger" })
+                            </div> 
 
-                               
-                                <div class="checkbox">
-                                    <label>
-                                        @*<input type="checkbox" value="Imprimes CNAM" />*@
-                                        @Html.RadioButtonFor(model => model.ConduiteTenir, "Imprimes CNAM", new { id = "btn_imprimCNAM" })Imprimés CNAM
-                                    </label>
-                                    <div class="editor-field">
-                                        @Html.DropDownList("CNAM", new List<SelectListItem>
-                                           {
-                                               new SelectListItem{ Text="BS", Value="BS"},
-                                               new SelectListItem{ Text="N01", Value="N01"},
-                                               new SelectListItem{ Text="N02", Value="N02"},
-                                               new SelectListItem{ Text="APCI", Value="APCI"},
+                            <div class="col-md-3">
+                                <label class="checkbox-inline">
+                                    @*<input type="checkbox" value="Imprimes CNAM" />*@
+                                    @Html.RadioButtonFor(model => model.ConduiteTenir, "Imprimes CNAM", new { id = "btn_imprimCNAM" })Imprimés CNAM
+                                </label>
+                                <div class="editor-field">
+                                    @Html.DropDownList("CNAM", new List<SelectListItem>
+                                       {
+                                           new SelectListItem{ Text="BS", Value="BS"},
+                                           new SelectListItem{ Text="N01", Value="N01"},
+                                           new SelectListItem{ Text="N02", Value="N02"},
+                                           new SelectListItem{ Text="APCI", Value="APCI"},
 
-                                           }, "--- Séléctionner un élément ---", new { @class = "form-control" })
-                                    </div>
+                                       }, "--- Séléctionner un élément ---", new { @class = "form-control" })
                                 </div>
+                            </div>
 
 
                             </div>
@@ -159,7 +157,7 @@
                         </div>
                         </div>
 
-                    </div>
+                  
 
 
                     <div class="form-group">

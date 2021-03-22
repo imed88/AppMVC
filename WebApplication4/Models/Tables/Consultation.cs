@@ -55,10 +55,13 @@ namespace WebApplication4.Models.Tables
        
        public bool ExplorRadio { get; set; }
         public string ExplorRadioComment { get; set; }
+
         public bool ExplorBio { get; set; }
         public string ExplorBioComment { get; set; }
+
         public bool Transfert { get; set; }
         public string TransfertComment { get; set; }
+
         public bool Hospitalisation { get; set; }
         public string HospitalComment { get; set; }
 

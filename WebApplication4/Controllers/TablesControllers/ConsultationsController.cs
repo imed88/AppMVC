@@ -144,7 +144,6 @@ namespace WebApplication4.Controllers.TablesControllers
                 else if (Hospitalisation == "true")
                 {
                     consultation.Hospitalisation = true;
-
                     consultation.ConduiteTenir = "Hospitalisation"; 
                 }
                 else
@@ -153,7 +152,6 @@ namespace WebApplication4.Controllers.TablesControllers
                     consultation.ExplorRadio = false;
                     consultation.ExplorBio = false;
                     consultation.Transfert = false;
-                   
                     consultation.Hospitalisation = false;
                 }
 

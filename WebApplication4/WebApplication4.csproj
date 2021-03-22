@@ -377,7 +377,6 @@
     <Compile Include="Controllers\TablesControllers\OrdonnancePDFController.cs" />
     <Compile Include="Controllers\TablesControllers\PatientsController.cs" />
     <Compile Include="Controllers\TablesControllers\ProduitsController.cs" />
-    <Compile Include="Controllers\TablesControllers\RadioBiosController.cs" />
     <Compile Include="Controllers\TablesControllers\RolesController.cs" />
     <Compile Include="Controllers\TablesControllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\TablesControllers\SpecialitesController.cs" />
@@ -401,61 +400,17 @@
     <Compile Include="Migrations\202007291233576_AddTableMedecinConventionne.Designer.cs">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202103030735583_CreateDb.cs" />
-    <Compile Include="Migrations\202103030735583_CreateDb.Designer.cs">
-      <DependentUpon>202103030735583_CreateDb.cs</DependentUpon>
+    <Compile Include="Migrations\202103220658492_CreateDb.cs" />
+    <Compile Include="Migrations\202103220658492_CreateDb.Designer.cs">
+      <DependentUpon>202103220658492_CreateDb.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202103030752337_modifProduct.cs" />
-    <Compile Include="Migrations\202103030752337_modifProduct.Designer.cs">
-      <DependentUpon>202103030752337_modifProduct.cs</DependentUpon>
+    <Compile Include="Migrations\202103220829589_modifications.cs" />
+    <Compile Include="Migrations\202103220829589_modifications.Designer.cs">
+      <DependentUpon>202103220829589_modifications.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202103030805587_modifProduct1.cs" />
-    <Compile Include="Migrations\202103030805587_modifProduct1.Designer.cs">
-      <DependentUpon>202103030805587_modifProduct1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103030813478_modifProduct2.cs" />
-    <Compile Include="Migrations\202103030813478_modifProduct2.Designer.cs">
-      <DependentUpon>202103030813478_modifProduct2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103030859152_modifProduct3.cs" />
-    <Compile Include="Migrations\202103030859152_modifProduct3.Designer.cs">
-      <DependentUpon>202103030859152_modifProduct3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103041208298_ConsultationConduiteTenir.cs" />
-    <Compile Include="Migrations\202103041208298_ConsultationConduiteTenir.Designer.cs">
-      <DependentUpon>202103041208298_ConsultationConduiteTenir.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103091039373_RadioBios.cs" />
-    <Compile Include="Migrations\202103091039373_RadioBios.Designer.cs">
-      <DependentUpon>202103091039373_RadioBios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103091223407_RadioBios1.cs" />
-    <Compile Include="Migrations\202103091223407_RadioBios1.Designer.cs">
-      <DependentUpon>202103091223407_RadioBios1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103111336175_ConsultationComment.cs" />
-    <Compile Include="Migrations\202103111336175_ConsultationComment.Designer.cs">
-      <DependentUpon>202103111336175_ConsultationComment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103121126144_ConsultationOrder.cs" />
-    <Compile Include="Migrations\202103121126144_ConsultationOrder.Designer.cs">
-      <DependentUpon>202103121126144_ConsultationOrder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103121130096_ConsultationOrder1.cs" />
-    <Compile Include="Migrations\202103121130096_ConsultationOrder1.Designer.cs">
-      <DependentUpon>202103121130096_ConsultationOrder1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103150826450_ModifConsultation.cs" />
-    <Compile Include="Migrations\202103150826450_ModifConsultation.Designer.cs">
-      <DependentUpon>202103150826450_ModifConsultation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103150841133_ModifConsultation1.cs" />
-    <Compile Include="Migrations\202103150841133_ModifConsultation1.Designer.cs">
-      <DependentUpon>202103150841133_ModifConsultation1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103170958272_ConsultationFin.cs" />
-    <Compile Include="Migrations\202103170958272_ConsultationFin.Designer.cs">
-      <DependentUpon>202103170958272_ConsultationFin.cs</DependentUpon>
+    <Compile Include="Migrations\202103221023496_modifOrderDetail.cs" />
+    <Compile Include="Migrations\202103221023496_modifOrderDetail.Designer.cs">
+      <DependentUpon>202103221023496_modifOrderDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -473,8 +428,6 @@
     <Compile Include="Models\Tables\Ordonnance.cs" />
     <Compile Include="Models\Tables\Ordonnances.cs" />
     <Compile Include="Models\Tables\Patients.cs" />
-    <Compile Include="Models\Tables\RadioBio.cs" />
-    <Compile Include="Models\Tables\RadioBioCart.cs" />
     <Compile Include="Models\Tables\RDV.cs" />
     <Compile Include="Models\Tables\RoleViewModel.cs" />
     <Compile Include="Models\Tables\ShopCart\Cart.cs" />
@@ -4408,47 +4361,14 @@
     <EmbeddedResource Include="Migrations\202007291233576_AddTableMedecinConventionne.resx">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103030735583_CreateDb.resx">
-      <DependentUpon>202103030735583_CreateDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202103220658492_CreateDb.resx">
+      <DependentUpon>202103220658492_CreateDb.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103030752337_modifProduct.resx">
-      <DependentUpon>202103030752337_modifProduct.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202103220829589_modifications.resx">
+      <DependentUpon>202103220829589_modifications.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103030805587_modifProduct1.resx">
-      <DependentUpon>202103030805587_modifProduct1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103030813478_modifProduct2.resx">
-      <DependentUpon>202103030813478_modifProduct2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103030859152_modifProduct3.resx">
-      <DependentUpon>202103030859152_modifProduct3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103041208298_ConsultationConduiteTenir.resx">
-      <DependentUpon>202103041208298_ConsultationConduiteTenir.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103091039373_RadioBios.resx">
-      <DependentUpon>202103091039373_RadioBios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103091223407_RadioBios1.resx">
-      <DependentUpon>202103091223407_RadioBios1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103111336175_ConsultationComment.resx">
-      <DependentUpon>202103111336175_ConsultationComment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103121126144_ConsultationOrder.resx">
-      <DependentUpon>202103121126144_ConsultationOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103121130096_ConsultationOrder1.resx">
-      <DependentUpon>202103121130096_ConsultationOrder1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103150826450_ModifConsultation.resx">
-      <DependentUpon>202103150826450_ModifConsultation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103150841133_ModifConsultation1.resx">
-      <DependentUpon>202103150841133_ModifConsultation1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103170958272_ConsultationFin.resx">
-      <DependentUpon>202103170958272_ConsultationFin.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202103221023496_modifOrderDetail.resx">
+      <DependentUpon>202103221023496_modifOrderDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\FicheExplorBio.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
