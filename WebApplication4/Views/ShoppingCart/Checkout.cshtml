@@ -39,7 +39,7 @@
                                        <th></th>
                                         <th>Nom du produit</th>
                                         <th>Quantité</th>
-                                        <th>Indications</th>
+                                        
                                     </tr>
                                     @foreach (var cart in (List<WebApplication4.Models.Tables.ShopCart.Cart>)Session["Cart"])
                                     {
@@ -56,11 +56,7 @@
                                             <input type="text" name="quantity" id="quantity" value="@cart.Quantity" readonly />
 
                                         </td>
-                                        <td >
-                                            @*@cart.Quantity*@
-                                           @* <input type="text" name="quantity" id="quantity" value="@cart.Quantity" readonly />*@
-                                            <textarea cols="40" rows="5" name="Comment" id="comment" ></textarea>
-                                        </td>
+                                       
                                         @*<td>@(String.Format("{0}", cart.Quantity))</td>*@
 
                                     </tr>
@@ -100,6 +96,12 @@
                 <td>
                     <strong><input type="text" name="NConsultation" /></strong>
                 </td>
+                <td>
+
+                    <textarea cols="40" rows="5" name="Comment"></textarea>
+                </td>
+            </tr>
+            <tr>
                 <td>
                     <input type="submit" value="Créer une ordonnance" class="btn btn-info" />
                 </td>

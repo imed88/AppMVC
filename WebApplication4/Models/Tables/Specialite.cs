@@ -17,8 +17,7 @@ namespace WebApplication4.Models.Tables
         [Required]
         [Display(Name = "Spécialité")]
         public string SpecialiteName { get; set; }
-        [UIHint("Color")]
-        public string Color { get; set; }
+       
         public virtual ICollection<MedecinConventionne> medConv { get; set; }
         
 

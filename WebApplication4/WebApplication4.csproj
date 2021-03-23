@@ -412,6 +412,14 @@
     <Compile Include="Migrations\202103221023496_modifOrderDetail.Designer.cs">
       <DependentUpon>202103221023496_modifOrderDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103230757193_modifOrderDetails.cs" />
+    <Compile Include="Migrations\202103230757193_modifOrderDetails.Designer.cs">
+      <DependentUpon>202103230757193_modifOrderDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103231339406_SpecialiteModif.cs" />
+    <Compile Include="Migrations\202103231339406_SpecialiteModif.Designer.cs">
+      <DependentUpon>202103231339406_SpecialiteModif.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CheckBoxItem.cs" />
@@ -4369,6 +4377,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103221023496_modifOrderDetail.resx">
       <DependentUpon>202103221023496_modifOrderDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103230757193_modifOrderDetails.resx">
+      <DependentUpon>202103230757193_modifOrderDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103231339406_SpecialiteModif.resx">
+      <DependentUpon>202103231339406_SpecialiteModif.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\FicheExplorBio.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

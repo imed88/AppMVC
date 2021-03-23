@@ -15,7 +15,7 @@ namespace WebApplication4.Models.Tables.ShopCart
         public int ProductID { get; set; }
         public virtual Product Products { get; set; }
         public int Quantity { get; set; }
-        public string Comment { get; set; }
+        public string Comments { get; set; }
 
     }
 }

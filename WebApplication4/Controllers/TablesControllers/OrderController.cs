@@ -145,7 +145,7 @@ namespace WebApplication4.Controllers.TablesControllers
             }
         }
 
-        public HttpResponseBase PrintPDF()
+        public ActionResult PrintPDF( int? id)
         {
             try
             {
@@ -167,24 +167,25 @@ namespace WebApplication4.Controllers.TablesControllers
                                    p.Patient.PrenomPatient,
                                    p.DateCreated,
                                    e.OrderDate,
-                                   s.Quantity
+                                   s.Quantity,
+                                   s.Comments
 
 
-                               }).ToList();
+                               }).OrderBy(p => p.ConsultationID)
+                            .Where(p =>p.ConsultationID == id);
 
+                var item = OneBlog.ToList();
                 ReportDocument rd = new ReportDocument();
                 rd.Load(Path.Combine(Server.MapPath("~/Report"), "Ordonnance.rpt"));
-                rd.SetDataSource(OneBlog);
-                var stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
-                var pdfbytearray = new byte[stream.Length - 1];
-                stream.Position = 0;
-                stream.Read(pdfbytearray, 0, Convert.ToInt32(stream.Length - 1));
+                rd.SetDataSource(item);
+
+                Response.Buffer = false;
                 Response.ClearContent();
                 Response.ClearHeaders();
-                Response.AddHeader("content-disposition", "filename-Test.pdf");
-                Response.ContentType = "application/pdf";
-                Response.AddHeader("content-length", pdfbytearray.Length.ToString());
-                Response.BinaryWrite(pdfbytearray);
+
+                Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                stream.Seek(0, SeekOrigin.Begin);
+                return File(stream, "application/pdf", "Ordonnance.pdf");
 
             }
             catch (Exception ex)
@@ -192,8 +193,7 @@ namespace WebApplication4.Controllers.TablesControllers
                 throw ex;
             }
 
-            return Response;
-
+           
         }
     }
 }

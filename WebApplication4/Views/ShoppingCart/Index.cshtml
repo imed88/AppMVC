@@ -31,13 +31,7 @@
                         <div style="font-family:'Arial Rounded MT'; font-size:20px; padding-top:30px; padding-bottom:30px;">
                             TOTAL : @total |
                             @*@Html.ActionLink("Autre produit ", "ProductIndex", "Medicaments", new { @class = "btn btn-primary" })*@
-                            <a href="@Url.Action("ProductIndex", "Medicaments")" class="btn btn-primary">
-
-                                <span>
-                                    <strong>Autre produit</strong>
-                                </span>
-                            </a>
-                            |
+                           
                             <input type="submit" value="Mise A jour" class="btn btn-primary" />
                             |
                             @Html.ActionLink("Liste Final", "CheckOut", "ShoppingCart", new { @class = "btn btn-primary" })

@@ -106,11 +106,12 @@ namespace WebApplication4.Controllers.TablesControllers
             List<Cart> lstCart = (List<Cart>)Session[strCart];
             var ConsultationID = Convert.ToInt32(frc["NConsultation"]);
             var MatriculePatients = frc["MatriculePatient"];
+            var Indication = frc["Comment"];
             //Save to order
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-               
-                    Order order = new Order()
+                
+                Order order = new Order()
                     {
 
                         OrderDate = DateTime.Now,
@@ -127,53 +128,54 @@ namespace WebApplication4.Controllers.TablesControllers
                             OrderID = order.OrderID,
                             ProductID = cart.Product.ProductID,
                             Quantity = cart.Quantity,
-                            Comment = orderDetail.Comment
+                           Comments = Indication
 
                         };
-
+                    
                         db.OrderDetails.Add(orderDetail);
                         db.SaveChanges();
                     }
 
                     //Create PDF File
-                    var OneBlog = (from e in db.Orders
-                                   join p in db.Consultations
-                                   on e.ConsultationID equals p.ConsultationID
-                                   join s in db.OrderDetails
-                                   on e.OrderID equals s.OrderID
-                                   join t in db.Products
-                                   on s.ProductID equals t.ProductID
-                                   where e.MatriculePatients == p.Patient.MatriculePatients
-                                   && e.MatriculePatients == MatriculePatients
-                                   && e.ConsultationID == ConsultationID
-                                   && s.ProductID==t.ProductID
-                                   select new
-                                   {
-                                       t.ProductID,
-                                       t.NameProduct,
-                                       p.ConsultationID,
-                                       p.Patient.MatriculePatients,
-                                       p.Patient.NomPatient,
-                                       p.Patient.PrenomPatient,
-                                       p.DateCreated,
-                                       e.OrderDate,
-                                       s.Quantity
+                    //var OneBlog = (from e in db.Orders
+                    //               join p in db.Consultations
+                    //               on e.ConsultationID equals p.ConsultationID
+                    //               join s in db.OrderDetails
+                    //               on e.OrderID equals s.OrderID
+                    //               join t in db.Products
+                    //               on s.ProductID equals t.ProductID
+                    //               where e.MatriculePatients == p.Patient.MatriculePatients
+                    //               && e.MatriculePatients == MatriculePatients
+                    //               && e.ConsultationID == ConsultationID
+                    //               && s.ProductID==t.ProductID
+                    //               select new
+                    //               {
+                    //                   t.ProductID,
+                    //                   t.NameProduct,
+                    //                   p.ConsultationID,
+                    //                   p.Patient.MatriculePatients,
+                    //                   p.Patient.NomPatient,
+                    //                   p.Patient.PrenomPatient,
+                    //                   p.DateCreated,
+                    //                   e.OrderDate,
+                    //                   s.Quantity,
+                    //                   s.Comments
                                       
 
-                                   }).OrderBy(p => p.ConsultationID)
-                           .Where(p =>p.ConsultationID == id); ;
-                    var item = OneBlog.ToList();
-                    ReportDocument rd = new ReportDocument();
-                    rd.Load(Path.Combine(Server.MapPath("~/Report"), "Ordonnance.rpt"));
-                    rd.SetDataSource(item);
+                    //               }).OrderBy(p => p.ConsultationID)
+                    //       .Where(p =>p.ConsultationID == id); ;
+                    //var item = OneBlog.ToList();
+                    //ReportDocument rd = new ReportDocument();
+                    //rd.Load(Path.Combine(Server.MapPath("~/Report"), "Ordonnance.rpt"));
+                    //rd.SetDataSource(item);
 
-                    Response.Buffer = false;
-                    Response.ClearContent();
-                    Response.ClearHeaders();
+                    //Response.Buffer = false;
+                    //Response.ClearContent();
+                    //Response.ClearHeaders();
 
-                    Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
-                    stream.Seek(0, SeekOrigin.Begin);
-                    return File(stream, "application/pdf", "Ordonnance.pdf");
+                    //Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                    //stream.Seek(0, SeekOrigin.Begin);
+                    //return File(stream, "application/pdf", "Ordonnance.pdf");
                 
                
             }
@@ -181,7 +183,7 @@ namespace WebApplication4.Controllers.TablesControllers
             {
                 //ModelState.AddModelErrors();
             }
-            return View();
+            return RedirectToAction("Index","Order");
           
           
 
