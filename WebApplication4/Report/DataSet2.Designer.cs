@@ -295,13 +295,15 @@ namespace WebApplication4.Report {
             
             private global::System.Data.DataColumn columnNameProduct;
             
-            private global::System.Data.DataColumn columnMatriculePatients1;
-            
             private global::System.Data.DataColumn columnProductID;
             
-            private global::System.Data.DataColumn columnProductID1;
-            
             private global::System.Data.DataColumn columnComments;
+            
+            private global::System.Data.DataColumn columnOrderID;
+            
+            private global::System.Data.DataColumn columnMatriculePatients1;
+            
+            private global::System.Data.DataColumn columnProductID1;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -402,14 +404,6 @@ namespace WebApplication4.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn MatriculePatients1Column {
-                get {
-                    return this.columnMatriculePatients1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn ProductIDColumn {
                 get {
                     return this.columnProductID;
@@ -418,17 +412,33 @@ namespace WebApplication4.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ProductID1Column {
+            public global::System.Data.DataColumn CommentsColumn {
                 get {
-                    return this.columnProductID1;
+                    return this.columnComments;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn CommentsColumn {
+            public global::System.Data.DataColumn OrderIDColumn {
                 get {
-                    return this.columnComments;
+                    return this.columnOrderID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn MatriculePatients1Column {
+                get {
+                    return this.columnMatriculePatients1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ProductID1Column {
+                get {
+                    return this.columnProductID1;
                 }
             }
             
@@ -469,7 +479,7 @@ namespace WebApplication4.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string MatriculePatients, string NomPatient, string PrenomPatient, System.DateTime DateCreated, System.DateTime OrderDate, int Quantity, string NameProduct, string MatriculePatients1, int ProductID1, string Comments) {
+            public DataTable1Row AddDataTable1Row(string MatriculePatients, string NomPatient, string PrenomPatient, System.DateTime DateCreated, System.DateTime OrderDate, int Quantity, string NameProduct, string Comments, string MatriculePatients1, int ProductID1) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -480,10 +490,11 @@ namespace WebApplication4.Report {
                         OrderDate,
                         Quantity,
                         NameProduct,
-                        MatriculePatients1,
                         null,
-                        ProductID1,
-                        Comments};
+                        Comments,
+                        null,
+                        MatriculePatients1,
+                        ProductID1};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -521,10 +532,11 @@ namespace WebApplication4.Report {
                 this.columnOrderDate = base.Columns["OrderDate"];
                 this.columnQuantity = base.Columns["Quantity"];
                 this.columnNameProduct = base.Columns["NameProduct"];
-                this.columnMatriculePatients1 = base.Columns["MatriculePatients1"];
                 this.columnProductID = base.Columns["ProductID"];
-                this.columnProductID1 = base.Columns["ProductID1"];
                 this.columnComments = base.Columns["Comments"];
+                this.columnOrderID = base.Columns["OrderID"];
+                this.columnMatriculePatients1 = base.Columns["MatriculePatients1"];
+                this.columnProductID1 = base.Columns["ProductID1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -546,14 +558,16 @@ namespace WebApplication4.Report {
                 base.Columns.Add(this.columnQuantity);
                 this.columnNameProduct = new global::System.Data.DataColumn("NameProduct", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNameProduct);
-                this.columnMatriculePatients1 = new global::System.Data.DataColumn("MatriculePatients1", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMatriculePatients1);
                 this.columnProductID = new global::System.Data.DataColumn("ProductID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProductID);
-                this.columnProductID1 = new global::System.Data.DataColumn("ProductID1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProductID1);
                 this.columnComments = new global::System.Data.DataColumn("Comments", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnComments);
+                this.columnOrderID = new global::System.Data.DataColumn("OrderID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOrderID);
+                this.columnMatriculePatients1 = new global::System.Data.DataColumn("MatriculePatients1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMatriculePatients1);
+                this.columnProductID1 = new global::System.Data.DataColumn("ProductID1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProductID1);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnConsultationID}, true));
                 this.columnConsultationID.AutoIncrement = true;
@@ -569,14 +583,19 @@ namespace WebApplication4.Report {
                 this.columnOrderDate.AllowDBNull = false;
                 this.columnQuantity.AllowDBNull = false;
                 this.columnNameProduct.MaxLength = 2147483647;
-                this.columnMatriculePatients1.MaxLength = 2147483647;
                 this.columnProductID.AutoIncrement = true;
                 this.columnProductID.AutoIncrementSeed = -1;
                 this.columnProductID.AutoIncrementStep = -1;
                 this.columnProductID.AllowDBNull = false;
                 this.columnProductID.ReadOnly = true;
-                this.columnProductID1.AllowDBNull = false;
                 this.columnComments.MaxLength = 2147483647;
+                this.columnOrderID.AutoIncrement = true;
+                this.columnOrderID.AutoIncrementSeed = -1;
+                this.columnOrderID.AutoIncrementStep = -1;
+                this.columnOrderID.AllowDBNull = false;
+                this.columnOrderID.ReadOnly = true;
+                this.columnMatriculePatients1.MaxLength = 2147483647;
+                this.columnProductID1.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -828,6 +847,44 @@ namespace WebApplication4.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int ProductID {
+                get {
+                    return ((int)(this[this.tableDataTable1.ProductIDColumn]));
+                }
+                set {
+                    this[this.tableDataTable1.ProductIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Comments {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.CommentsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Comments\' dans la table \'DataTable1\' est DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.CommentsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int OrderID {
+                get {
+                    return ((int)(this[this.tableDataTable1.OrderIDColumn]));
+                }
+                set {
+                    this[this.tableDataTable1.OrderIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string MatriculePatients1 {
                 get {
                     try {
@@ -845,39 +902,12 @@ namespace WebApplication4.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int ProductID {
-                get {
-                    return ((int)(this[this.tableDataTable1.ProductIDColumn]));
-                }
-                set {
-                    this[this.tableDataTable1.ProductIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int ProductID1 {
                 get {
                     return ((int)(this[this.tableDataTable1.ProductID1Column]));
                 }
                 set {
                     this[this.tableDataTable1.ProductID1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Comments {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable1.CommentsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Comments\' dans la table \'DataTable1\' est DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.CommentsColumn] = value;
                 }
             }
             
@@ -931,18 +961,6 @@ namespace WebApplication4.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsMatriculePatients1Null() {
-                return this.IsNull(this.tableDataTable1.MatriculePatients1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetMatriculePatients1Null() {
-                this[this.tableDataTable1.MatriculePatients1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsCommentsNull() {
                 return this.IsNull(this.tableDataTable1.CommentsColumn);
             }
@@ -951,6 +969,18 @@ namespace WebApplication4.Report {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetCommentsNull() {
                 this[this.tableDataTable1.CommentsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsMatriculePatients1Null() {
+                return this.IsNull(this.tableDataTable1.MatriculePatients1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetMatriculePatients1Null() {
+                this[this.tableDataTable1.MatriculePatients1Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -1121,10 +1151,11 @@ namespace WebApplication4.Report.DataSet2TableAdapters {
             tableMapping.ColumnMappings.Add("OrderDate", "OrderDate");
             tableMapping.ColumnMappings.Add("Quantity", "Quantity");
             tableMapping.ColumnMappings.Add("NameProduct", "NameProduct");
-            tableMapping.ColumnMappings.Add("MatriculePatients1", "MatriculePatients1");
             tableMapping.ColumnMappings.Add("ProductID", "ProductID");
-            tableMapping.ColumnMappings.Add("ProductID1", "ProductID1");
             tableMapping.ColumnMappings.Add("Comments", "Comments");
+            tableMapping.ColumnMappings.Add("OrderID", "OrderID");
+            tableMapping.ColumnMappings.Add("MatriculePatients1", "MatriculePatients1");
+            tableMapping.ColumnMappings.Add("ProductID1", "ProductID1");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1142,7 +1173,7 @@ namespace WebApplication4.Report.DataSet2TableAdapters {
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        Products.NameProduct, Consultations.ConsultationID, Patients.MatriculePatients, Patients.NomPatient, Patients.PrenomPatient, Consultations.DateCreated, Orders.OrderDate, OrderDetails.Quantity, Orders.MatriculePatients, 
-                         Products.ProductID, OrderDetails.ProductID, OrderDetails.Comments
+                         Products.ProductID, OrderDetails.ProductID, OrderDetails.Comments, Orders.OrderID
 FROM            Consultations INNER JOIN
                          Orders ON Consultations.ConsultationID = Orders.ConsultationID INNER JOIN
                          OrderDetails ON Orders.OrderID = OrderDetails.OrderID INNER JOIN

@@ -145,7 +145,7 @@ namespace WebApplication4.Controllers.TablesControllers
             }
         }
 
-        public ActionResult PrintPDF( int? id)
+        public ActionResult PrintPDF(int? id )
         {
             try
             {
@@ -156,7 +156,7 @@ namespace WebApplication4.Controllers.TablesControllers
                                on e.OrderID equals s.OrderID
                                join t in db.Products
                                on s.ProductID equals t.ProductID
-                               where e.ConsultationID == p.ConsultationID
+                               where e.OrderID == id
                                select new
                                {
                                    t.ProductID,
@@ -168,11 +168,11 @@ namespace WebApplication4.Controllers.TablesControllers
                                    p.DateCreated,
                                    e.OrderDate,
                                    s.Quantity,
+                                   e.OrderID,
                                    s.Comments
 
-
-                               }).OrderBy(p => p.ConsultationID)
-                            .Where(p =>p.ConsultationID == id);
+                               }).OrderBy(p => p.ConsultationID);
+                              
 
                 var item = OneBlog.ToList();
                 ReportDocument rd = new ReportDocument();

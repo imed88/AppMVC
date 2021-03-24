@@ -11,7 +11,7 @@ namespace WebApplication4.Models.Tables.ShopCart
         [Key]
         public int OrderID { get; set; }
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0: dd/MM/yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0: dd/MM/yyyy HH:mm}")]
         public DateTime OrderDate { get; set; }
 
         public string MatriculePatients { get; set; }

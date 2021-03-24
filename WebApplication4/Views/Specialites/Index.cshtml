@@ -55,17 +55,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.SpecialiteName)
                 </td>
-                <td>
-                    <script type="text/javascript">
-                        window.onload = function () {
-                            document.getElementById("colorpicker").onchange = function () {
-                                document.getElementById("showcolor").style.backgroundColor = document.getElementById("colorpicker").value;
-                            }
-                        }
-                    </script>
-                    <input type="color" id="colorpicker" value=@Html.DisplayFor(modelItem => item.Color)><br />
-                    <div id="showcolor"></div>
-                </td>
+               
                 <td>
                     @*@Html.ActionLink("Edit", "Edit", new { id = item.IdSpecialite }) |
             @Html.ActionLink("Details", "Details", new { id = item.IdSpecialite }) |
