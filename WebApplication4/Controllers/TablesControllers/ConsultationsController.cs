@@ -102,7 +102,6 @@ namespace WebApplication4.Controllers.TablesControllers
         public ActionResult Create()
         {
             //ViewBag.UserID = new SelectList(db.Users, "Id", "UserName");
-            var uname = User.Identity.GetUserName();
             ViewBag.idPatients = new SelectList(db.Patients, "idPatients", "PrenomPatient");
             ViewBag.natureVisite = new SelectList(db.Consultations, "ConsultationID", "natureVisite");
             return View();
@@ -158,7 +157,8 @@ namespace WebApplication4.Controllers.TablesControllers
 
 
 
-
+                string userid = HttpContext.User.Identity.Name;
+                consultation.Username = userid;
 
 
                 db.Consultations.Add(consultation);

@@ -75,7 +75,7 @@
                 <td> @Html.DisplayFor(modelItem => item.ConsultationID)</td>
                 <td> @Html.DisplayFor(modelItem => item.DateCreated, new { @value = DateTime.Today, @readonly = "readonly" })</td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
+                    @Html.DisplayFor(modelItem => item.Username)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Patient.PrenomPatient)

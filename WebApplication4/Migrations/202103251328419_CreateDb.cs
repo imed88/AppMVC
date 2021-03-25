@@ -58,7 +58,6 @@ namespace WebApplication4.Migrations
                     {
                         IdSpecialite = c.Int(nullable: false, identity: true),
                         SpecialiteName = c.String(nullable: false),
-                        Color = c.String(),
                     })
                 .PrimaryKey(t => t.IdSpecialite);
             
@@ -90,6 +89,7 @@ namespace WebApplication4.Migrations
                         ConsultationID = c.Int(nullable: false, identity: true),
                         diagnostic = c.String(),
                         UserID = c.String(maxLength: 128),
+                        Username = c.String(),
                         idPatients = c.Int(nullable: false),
                         natureVisite = c.String(nullable: false),
                         DateCreated = c.DateTime(nullable: false),
@@ -213,6 +213,7 @@ namespace WebApplication4.Migrations
                         OrderID = c.Int(nullable: false),
                         ProductID = c.Int(nullable: false),
                         Quantity = c.Int(nullable: false),
+                        Comments = c.String(),
                     })
                 .PrimaryKey(t => t.OrderDetailID)
                 .ForeignKey("dbo.Orders", t => t.OrderID, cascadeDelete: true)
@@ -246,18 +247,6 @@ namespace WebApplication4.Migrations
                 .PrimaryKey(t => t.ProductID);
             
             CreateTable(
-                "dbo.RadioBios",
-                c => new
-                    {
-                        RadioBioID = c.Int(nullable: false, identity: true),
-                        ConsultationID = c.Int(nullable: false),
-                        Comment = c.String(),
-                    })
-                .PrimaryKey(t => t.RadioBioID)
-                .ForeignKey("dbo.Consultations", t => t.ConsultationID, cascadeDelete: true)
-                .Index(t => t.ConsultationID);
-            
-            CreateTable(
                 "dbo.RDVs",
                 c => new
                     {
@@ -286,7 +275,6 @@ namespace WebApplication4.Migrations
         {
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.RDVs", "ConsultationID", "dbo.Consultations");
-            DropForeignKey("dbo.RadioBios", "ConsultationID", "dbo.Consultations");
             DropForeignKey("dbo.OrderDetails", "ProductID", "dbo.Products");
             DropForeignKey("dbo.OrderDetails", "OrderID", "dbo.Orders");
             DropForeignKey("dbo.Orders", "ConsultationID", "dbo.Consultations");
@@ -304,7 +292,6 @@ namespace WebApplication4.Migrations
             DropForeignKey("dbo.AppointementModels", "idDoctors", "dbo.MedecinConventionnes");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.RDVs", new[] { "ConsultationID" });
-            DropIndex("dbo.RadioBios", new[] { "ConsultationID" });
             DropIndex("dbo.Orders", new[] { "ConsultationID" });
             DropIndex("dbo.OrderDetails", new[] { "ProductID" });
             DropIndex("dbo.OrderDetails", new[] { "OrderID" });
@@ -324,7 +311,6 @@ namespace WebApplication4.Migrations
             DropIndex("dbo.AppointementModels", new[] { "idDoctors" });
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.RDVs");
-            DropTable("dbo.RadioBios");
             DropTable("dbo.Products");
             DropTable("dbo.Orders");
             DropTable("dbo.OrderDetails");

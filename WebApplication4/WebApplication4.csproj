@@ -400,25 +400,9 @@
     <Compile Include="Migrations\202007291233576_AddTableMedecinConventionne.Designer.cs">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202103220658492_CreateDb.cs" />
-    <Compile Include="Migrations\202103220658492_CreateDb.Designer.cs">
-      <DependentUpon>202103220658492_CreateDb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103220829589_modifications.cs" />
-    <Compile Include="Migrations\202103220829589_modifications.Designer.cs">
-      <DependentUpon>202103220829589_modifications.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103221023496_modifOrderDetail.cs" />
-    <Compile Include="Migrations\202103221023496_modifOrderDetail.Designer.cs">
-      <DependentUpon>202103221023496_modifOrderDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103230757193_modifOrderDetails.cs" />
-    <Compile Include="Migrations\202103230757193_modifOrderDetails.Designer.cs">
-      <DependentUpon>202103230757193_modifOrderDetails.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103231339406_SpecialiteModif.cs" />
-    <Compile Include="Migrations\202103231339406_SpecialiteModif.Designer.cs">
-      <DependentUpon>202103231339406_SpecialiteModif.cs</DependentUpon>
+    <Compile Include="Migrations\202103251328419_CreateDb.cs" />
+    <Compile Include="Migrations\202103251328419_CreateDb.Designer.cs">
+      <DependentUpon>202103251328419_CreateDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -4369,20 +4353,8 @@
     <EmbeddedResource Include="Migrations\202007291233576_AddTableMedecinConventionne.resx">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103220658492_CreateDb.resx">
-      <DependentUpon>202103220658492_CreateDb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103220829589_modifications.resx">
-      <DependentUpon>202103220829589_modifications.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103221023496_modifOrderDetail.resx">
-      <DependentUpon>202103221023496_modifOrderDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103230757193_modifOrderDetails.resx">
-      <DependentUpon>202103230757193_modifOrderDetails.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103231339406_SpecialiteModif.resx">
-      <DependentUpon>202103231339406_SpecialiteModif.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202103251328419_CreateDb.resx">
+      <DependentUpon>202103251328419_CreateDb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\FicheExplorBio.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

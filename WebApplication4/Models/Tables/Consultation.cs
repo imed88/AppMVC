@@ -23,7 +23,7 @@ namespace WebApplication4.Models.Tables
 
         [ForeignKey("ApplicationUser")]
         public string UserID { get; set; }
-
+        public string Username { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
 
         [Required] //Changes V2
