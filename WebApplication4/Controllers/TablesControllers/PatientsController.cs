@@ -103,6 +103,24 @@ namespace WebApplication4.Controllers.TablesControllers
             return View(patients);
         }
 
+        public System.Web.Mvc.ActionResult DeleteFile(Patients patients, string filename)
+        {
+            string foldername = "Uploads";
+
+            string subfoldername = foldername + "/" + patients.NomPatient + patients.PrenomPatient;
+
+            string subcreatefolder = Server.MapPath(string.Format("~/{0}/", subfoldername));
+            filename = Path.Combine(subcreatefolder,foldername,filename);
+            FileInfo info = new FileInfo(filename);
+            if (info == null)
+            {
+                System.IO.File.Delete(filename);
+                info.Delete();
+            }
+            return RedirectToAction("Index");
+
+        }
+
         // GET: Patients/Edit/5
         public System.Web.Mvc.ActionResult Edit(int? id)
         {
@@ -150,6 +168,8 @@ namespace WebApplication4.Controllers.TablesControllers
             }
             return View(patients);
         }
+
+       
 
         // POST: Patients/Delete/5
         [System.Web.Mvc.HttpPost, System.Web.Mvc.ActionName("Delete")]
@@ -238,6 +258,8 @@ namespace WebApplication4.Controllers.TablesControllers
             
             return View(patients.ToPagedList(pageNumber, pageSize));
         }
+
+
 
      
 

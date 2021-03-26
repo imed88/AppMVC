@@ -160,11 +160,10 @@ namespace WebApplication4.Controllers
             if (ModelState.IsValid)
             {
 
-                //ViewBag.UserType = new SelectList(db.Roles, "Id", "Name");
-               var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-               model.UserType = role.Name;
+                ViewBag.UserType = new SelectList(db.Roles, "Name", "Name");
+              
 
-                var user = new ApplicationUser { UserName = model.Username, Email = model.Email, UserType=model.UserType};
+                var user = new ApplicationUser { UserName = model.Username, Email = model.Email};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

@@ -4217,15 +4217,6 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="Uploads\20200923_075117.jpg" />
-    <Content Include="Uploads\47a286648570cb3859d5f804875be96f-1400.jpg" />
-    <Content Include="Uploads\8.jpg" />
-    <Content Include="Uploads\aaaa\dc782045-b949-4a1d-99b9-de67695985e0.jpg" />
-    <Content Include="Uploads\cult_10.jpg" />
-    <Content Include="Uploads\image.gif" />
-    <Content Include="Uploads\image.jpg" />
-    <Content Include="Uploads\logo.gif" />
-    <Content Include="Uploads\Webp.net-gifmaker.gif" />
     <Content Include="Views\Produits\Create.cshtml" />
     <Content Include="Views\Produits\Delete.cshtml" />
     <Content Include="Views\Produits\Details.cshtml" />
@@ -4329,16 +4320,12 @@
     <Content Include="Views\Produits\Index.cshtml" />
     <Content Include="Views\Calendrier.cshtml" />
     <Content Include="Views\Produits\SearchIndex.cshtml" />
-    <Content Include="Views\RadioBios\Create.cshtml" />
-    <Content Include="Views\RadioBios\Delete.cshtml" />
-    <Content Include="Views\RadioBios\Details.cshtml" />
-    <Content Include="Views\RadioBios\Edit.cshtml" />
-    <Content Include="Views\RadioBios\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="SqlServerTypes\x64\" />
     <Folder Include="SqlServerTypes\x86\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202007291126243_AddUsername.resx">
