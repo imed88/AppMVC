@@ -31,6 +31,10 @@ namespace WebApplication4.Migrations
                         nameDoctors = c.String(),
                         emailDoctors = c.String(),
                         phoneDoctors = c.String(),
+                        JourTravail1 = c.String(),
+                        TimeTravail1 = c.DateTime(nullable: false),
+                        JourTravail2 = c.String(),
+                        TimeTravail2 = c.DateTime(nullable: false),
                         idSpecialite = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.idDoctors)

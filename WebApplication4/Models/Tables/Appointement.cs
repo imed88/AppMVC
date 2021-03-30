@@ -26,9 +26,10 @@ namespace WebApplication4.Models.Tables
         [Required] //Changes V2
         [DisplayName("Docteur")]
         public int idDoctors { get; set; }
+        public virtual MedecinConventionne Doctor { get; set; }
 
 
-        
+
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DtEdit { get; set; }
@@ -43,12 +44,6 @@ namespace WebApplication4.Models.Tables
         public int idPatients { get; set; }
         public virtual Patients Patient { get; set; }
 
-        public virtual MedecinConventionne Doctor { get; set; }
-
-       
-       
-       
-
-
+      
     }
 }

@@ -107,6 +107,7 @@ namespace WebApplication2.Controllers.TablesControllers
                 //string path = Path.Combine(Server.MapPath("~/Uploads/"), upload.FileName);
                 //upload.SaveAs(path);
                 //medecinConventionne.picDoctor = upload.FileName;
+                
                 db.MedecinConventionnes.Add(medecinConventionne);
                 db.SaveChanges();
                 return RedirectToAction("Index");

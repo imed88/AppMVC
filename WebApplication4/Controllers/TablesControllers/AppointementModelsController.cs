@@ -31,7 +31,7 @@ namespace WebApplication4.Controllers.TablesControllers
 
       
 
-       [Authorize(Roles ="Administrateur, Infirmier")]
+       [Authorize(Roles ="Administrateur")]
         public ActionResult Index(string searching, 
                                 string order, 
                                 string currentFilter, 
@@ -98,12 +98,10 @@ namespace WebApplication4.Controllers.TablesControllers
         // GET: AppointementModels/Create
         public ActionResult Create()
         {
-            //ViewBag.UserID = new SelectList(db.Users, "Id", "UserName");
+            ViewBag.idSpecialite = new SelectList(db.Specialites, "idSpecialite", "SpecialiteName");
             ViewBag.idDoctors = new SelectList(db.MedecinConventionnes, "idDoctors", "nameDoctors");
             ViewBag.idPatients = new SelectList(db.Patients, "idPatients", "PrenomPatient");
             
-
-          
             return View();
         }
 
@@ -131,6 +129,8 @@ namespace WebApplication4.Controllers.TablesControllers
            
             return View(appointementModel);
         }
+
+       
 
         // GET: AppointementModels/Edit/5
         public ActionResult Edit(int? id)

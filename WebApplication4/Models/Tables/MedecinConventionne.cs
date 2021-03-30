@@ -25,7 +25,18 @@ namespace WebApplication4.Models.Tables
         [Phone]
         public string phoneDoctors { get; set; }
 
-      
+
+        public string JourTravail1 { get; set; }
+
+        [DataType(DataType.Time)]
+        [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
+        public DateTime TimeTravail1 { get; set; }
+
+        public string JourTravail2 { get; set; }
+
+        [DataType(DataType.Time)]
+        [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
+        public DateTime TimeTravail2 { get; set; }
 
 
         [DisplayName("Spécialiste")]

@@ -19,6 +19,7 @@ namespace WebApplication4.Models.Tables
         public string SpecialiteName { get; set; }
        
         public virtual ICollection<MedecinConventionne> medConv { get; set; }
+       
         
 
 

@@ -53,7 +53,7 @@
                     </div>
                 </div>
 
-              
+
 
 
 
@@ -63,6 +63,61 @@
                     <div class="col-md-10">
                         @Html.DropDownList("IdSpecialite", null, htmlAttributes: new { @class = "form-control", @id = "Specialite" })
                         @Html.ValidationMessageFor(model => model.idSpecialite, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.IdSpecialite, "IdSpecialite", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    @Html.Label("Jour de Travail 1", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="editor-field">
+                            @Html.DropDownList("JourTravail1", new List<SelectListItem>
+                               {
+                                   new SelectListItem{ Text="Lundi", Value="Lundi"},
+                                   new SelectListItem{ Text="Mardi", Value="Mardi"},
+                                   new SelectListItem{ Text="Mercredi", Value="Mercredi"},
+                                   new SelectListItem{ Text="Jeudi", Value="Jeudi"},
+                                   new SelectListItem{ Text="Vendredi", Value="Vendredi"},
+                                   new SelectListItem{ Text="Samedi", Value="Samedi"}
+                               }, "--- Séléctionner un jour ---", new { @class = "form-control" })
+                        </div>                    </div>
+                </div>
+
+                
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.DateCreated, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    @Html.Label("Heure de travail 1", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.TimeTravail1, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TimeTravail1, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.IdSpecialite, "IdSpecialite", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    @Html.Label("Jour de Travail 2", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="editor-field">
+                            @Html.DropDownList("JourTravail2", new List<SelectListItem>
+                               {
+                                   new SelectListItem{ Text="Lundi", Value="Lundi"},
+                                   new SelectListItem{ Text="Mardi", Value="Mardi"},
+                                   new SelectListItem{ Text="Mercredi", Value="Mercredi"},
+                                   new SelectListItem{ Text="Jeudi", Value="Jeudi"},
+                                   new SelectListItem{ Text="Vendredi", Value="Vendredi"},
+                                   new SelectListItem{ Text="Samedi", Value="Samedi"}
+                               }, "--- Séléctionner un jour ---", new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.DateCreated, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    @Html.Label("Heure de travail 2", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.TimeTravail2, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TimeTravail2, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
