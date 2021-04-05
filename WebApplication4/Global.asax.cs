@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gnostice.StarDocsSDK;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace WebApplication4
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();

@@ -22,171 +22,133 @@
             {
                 @Html.AntiForgeryToken()
 
-                <div class="form-horizontal">
-                    @*<h4>Patients</h4>*@
-                    <hr />
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        @*@Html.LabelFor(model => model.MatriculePatients, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                        @Html.Label("Matricule du patient", htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.MatriculePatients, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MatriculePatients, "", new { @class = "text-danger" })
-                        </div>
+                
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        @Html.Label("Matricule du patient", htmlAttributes: new { @class = "control-label " })
+
+                        @Html.EditorFor(model => model.MatriculePatients, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MatriculePatients, "", new { @class = "text-danger" })
                     </div>
-                    <div class="form-group">
-                        @*@Html.LabelFor(model => model.NomPatient, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                        @Html.Label("Nom de patient", htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.NomPatient, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.NomPatient, "", new { @class = "text-danger" })
-                        </div>
+                    <div class="form-group col-md-6">
+                        @Html.Label("Nom de patient", htmlAttributes: new { @class = "control-label " })
+                        @Html.EditorFor(model => model.NomPatient, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NomPatient, "", new { @class = "text-danger" })
                     </div>
-                    <div class="form-group">
-                        @*@Html.LabelFor(model => model.PrenomPatient, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                        @Html.Label("Prénom du patient", htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.PrenomPatient, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.PrenomPatient, "", new { @class = "text-danger" })
-                        </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        @Html.Label("Prénom du patient", htmlAttributes: new { @class = "control-label " })
+                        @Html.EditorFor(model => model.PrenomPatient, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PrenomPatient, "", new { @class = "text-danger" })
                     </div>
-                    <div class="form-group">
-                        @*@Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                        @Html.Label("Sexe", htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-6">
-                            @*@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })*@
-                            <div class="editor-field">
-                                @Html.DropDownList("Gender", new List<SelectListItem>
-                                   {
-                                       new SelectListItem{ Text="Masculin", Value="Masculin"},
-                                       new SelectListItem{ Text="Feminin", Value="Féminin"}
-                                   }, "--- Séléctionner un element ---", new { @class = "form-control" })
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @*Html.LabelFor(model => model.PhonePatients, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                        @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.PhonePatients, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.PhonePatients, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @*@Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                        @Html.Label("Date de naissance", htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @*@Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                        @Html.Label("Lien de parenté", htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-6">
-                            @*@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })*@
-                            <div class="editor-field">
-                                @Html.DropDownList("Parente", new List<SelectListItem>
-                                   {
-                                       new SelectListItem{ Text="Ascendant", Value="Ascendant"},
-                                       new SelectListItem{ Text="Descendant", Value="Descendant"},
-
-                                   }, "--- Séléctionner un element ---", new { @class = "form-control" })
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        @*@Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                        @Html.Label("Maladie Chronique", htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-6">
-                            @*@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })*@
-                            Oui
-                            @Html.RadioButtonFor(model => model.MaladieChronique, "Oui")
-                            Non
-                            @Html.RadioButtonFor(model => model.MaladieChronique, "Non")
-                        </div>
-
-                    </div>
-                    <div class="form-group">
-                        @*@Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                        @Html.Label("APCI", htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-6 ">
-
-                            @*@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })*@
-                            Oui
-                            @Html.RadioButtonFor(model => model.APCI, "Oui", new { id = "btn_clickYes" })
-                            Non
-                            @Html.RadioButtonFor(model => model.APCI, "Non", new { id = "btn_clickNo" })
-                           
-                                <script type="text/javascript">
-                                    
-                                    $('#btn_clickYes').click(function () {
-                                        if ($("#btn_clickYes").is(":checked")) {
-                                            document.getElementById("APCIcode").disabled = false;
-                                           
-                                        }
-                                      
-                                    });
-
-                                    $('#btn_clickNo').click(function () {
-                                        if ($("#btn_clickNo").is(":checked")) {
-                                            document.getElementById("APCIcode").disabled = true;
-                                        }
-                                    });
-
-
-                                </script>
-                            </div>
-
-                        </div>
-                    <div class="form-group">
-                        @*Html.LabelFor(model => model.PhonePatients, htmlAttributes: new { @class = "control-label col-md-2" })*@
-
-                        @Html.Label("Code APCI", htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-6">
-
-                            @Html.EditorFor(model => model.CodeAPCI, new { htmlAttributes = new { @class = "form-control", id = "APCIcode", disabled="disabled"} })
-                            @Html.ValidationMessageFor(model => model.CodeAPCI, "", new { @class = "text-danger" })
-
-
-
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        @*@Html.LabelFor(model => model.IdUsine, "IdUsine", htmlAttributes: new { @class = "control-label col-md-2" })*@
-                        @Html.Label("Usine", htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-6">
-                            @Html.DropDownList("IdUsine", null, htmlAttributes: new { @class = "form-control", @id = "Usine" })
-                            @Html.ValidationMessageFor(model => model.IdUsine, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @*@Html.LabelFor(model => model.FileDetails, "FileDetails", htmlAttributes: new { @class = "control-label col-md-2" })*@
-                        @Html.Label("Dossier du patient", htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-6">
-                            <input type="file" name="file" multiple="multiple" />
-                            @Html.ValidationMessageFor(model => model.IdUsine, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-6">
-                            <input type="submit" value="Créer" class="btn btn-success" /> |  <a href="@Url.Action("Index", "Patients")" class="btn btn-default">
-                                <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
-                                <span>
-                                    <strong>Retour</strong>
-                                </span>
-                            </a>
+                    <div class="form-group col-md-6">
+                        @Html.Label("Sexe", htmlAttributes: new { @class = "control-label " })
+                        <div class="editor-field">
+                            @Html.DropDownList("Gender", new List<SelectListItem>
+                               {
+                                   new SelectListItem{ Text="Masculin", Value="Masculin"},
+                                   new SelectListItem{ Text="Feminin", Value="Féminin"}
+                               }, "--- Séléctionner un element ---", new { @class = "form-control" })
                         </div>
                     </div>
                 </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label " })
+                        @Html.EditorFor(model => model.PhonePatients, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PhonePatients, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-md-6">
+                        @Html.Label("Date de naissance", htmlAttributes: new { @class = "control-label " })
+                        @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        @Html.Label("Lien de parenté", htmlAttributes: new { @class = "control-label" })
+                        <div class="editor-field">
+                            @Html.DropDownList("Parente", new List<SelectListItem>
+                               {
+                                   new SelectListItem{ Text="Ascendant", Value="Ascendant"},
+                                   new SelectListItem{ Text="Descendant", Value="Descendant"},
+
+                               }, "--- Séléctionner un element ---", new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        @Html.Label("Maladie Chronique", htmlAttributes: new { @class = "control-label " })
+                        Oui
+                        @Html.RadioButtonFor(model => model.MaladieChronique, "Oui")
+                        Non
+                        @Html.RadioButtonFor(model => model.MaladieChronique, "Non")
+                    </div>
+                </div>
+                <div class="form-row">
+
+                    <div class="form-group col-md-6">
+                        @Html.Label("APCI", htmlAttributes: new { @class = "control-label " })
+                        Oui
+                        @Html.RadioButtonFor(model => model.APCI, "Oui", new { id = "btn_clickYes" })
+                        Non
+                        @Html.RadioButtonFor(model => model.APCI, "Non", new { id = "btn_clickNo" })
+
+                        <script type="text/javascript">
+
+                            $('#btn_clickYes').click(function () {
+                                if ($("#btn_clickYes").is(":checked")) {
+                                    document.getElementById("APCIcode").disabled = false;
+
+                                }
+
+                            });
+
+                            $('#btn_clickNo').click(function () {
+                                if ($("#btn_clickNo").is(":checked")) {
+                                    document.getElementById("APCIcode").disabled = true;
+                                }
+                            });
+
+
+                        </script>
+                    </div>
+                    <div class="form-group col-md-6">
+                        @Html.Label("Code APCI", htmlAttributes: new { @class = "control-label " })
+
+                        @Html.EditorFor(model => model.CodeAPCI, new { htmlAttributes = new { @class = "form-control", id = "APCIcode", disabled = "disabled" } })
+                        @Html.ValidationMessageFor(model => model.CodeAPCI, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-row">
+
+                    <div class="form-group col-md-6">
+                        @Html.Label("Usine", htmlAttributes: new { @class = "control-label " })
+                        @Html.DropDownList("IdUsine", null, htmlAttributes: new { @class = "form-control", @id = "Usine" })
+                        @Html.ValidationMessageFor(model => model.IdUsine, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-md-6">
+                        @Html.Label("Dossier du patient", htmlAttributes: new { @class = "control-label " })
+
+                        <input type="file" name="file" multiple="multiple" />
+                        @Html.ValidationMessageFor(model => model.IdUsine, "", new { @class = "text-danger" })
+                    </div>
+                </div> 
+                
+                <div class="form-row">
+                    
+                    <div class="form-group col-md-6">
+                        <input type="submit" value="Créer" class="btn btn-success" /> |  <a href="@Url.Action("Index", "Patients")" class="btn btn-default">
+                            <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
+                            <span>
+                                <strong>Retour</strong>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+            </form>
             }
             @*<div>
             @Html.ActionLink("Retour", "Index")
