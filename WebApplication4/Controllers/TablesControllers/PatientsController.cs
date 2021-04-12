@@ -11,6 +11,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplication4.Models;
 using WebApplication4.Models.Tables;
+using FileResult = System.Web.Mvc.FileResult;
 
 namespace WebApplication4.Controllers.TablesControllers
 {
@@ -53,7 +54,7 @@ namespace WebApplication4.Controllers.TablesControllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [System.Web.Mvc.HttpPost]
         [ValidateAntiForgeryToken]
-        public System.Web.Mvc.ActionResult Create([System.Web.Mvc.Bind(Include = "IdPatients,MatriculePatients,NomPatient,PrenomPatient,Gender,PhonePatients,DOB,Parente,MaladieChronique,CodeAPCI,APCI,IdUsine")] Patients patients)
+        public System.Web.Mvc.ActionResult Create( Patients patients)
         {
             if (ModelState.IsValid)
             {
@@ -80,14 +81,7 @@ namespace WebApplication4.Controllers.TablesControllers
                             
                         }
 
-                        string subfoldername = foldername+"/"+ patients.NomPatient;
-                        string subcreatefolder = Server.MapPath(string.Format("~/{0}/", subfoldername));
-                        if (!Directory.Exists(subcreatefolder))
-                        {
-                            Directory.CreateDirectory(subcreatefolder);
-                        }
-
-                        var path = Path.Combine(subcreatefolder, fileDetail.FileName + fileDetail.Extension);
+                        var path = Path.Combine(createfolder, fileDetail.FileName);
                         file.SaveAs(path);
                     }
                 }
@@ -103,7 +97,18 @@ namespace WebApplication4.Controllers.TablesControllers
             return View(patients);
         }
 
-       
+        public FileResult DownloadFile(string Name)
+
+        {
+
+            string path = Server.MapPath("~/Uploads/") + Name;
+
+            byte[] bytes = System.IO.File.ReadAllBytes(path);
+
+            return File(bytes, "application/octet-stream", Name);
+
+        }
+
 
 
         // GET: Patients/Edit/5
@@ -118,6 +123,7 @@ namespace WebApplication4.Controllers.TablesControllers
             {
                 return HttpNotFound();
             }
+
             ViewBag.IdUsine = new SelectList(db.Usines, "IdUsine", "UsineName", patients.IdUsine);
             return View(patients);
         }
@@ -127,10 +133,11 @@ namespace WebApplication4.Controllers.TablesControllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [System.Web.Mvc.HttpPost]
         [ValidateAntiForgeryToken]
-        public System.Web.Mvc.ActionResult Edit([System.Web.Mvc.Bind(Include = "IdPatients,MatriculePatients,NomPatient,PrenomPatient,Gender,PhonePatients,DOB,Parente,MaladieChronique,APCI,IdUsine")] Patients patients)
+        public System.Web.Mvc.ActionResult Edit(Patients patients)
         {
             if (ModelState.IsValid)
             {
+
                 db.Entry(patients).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

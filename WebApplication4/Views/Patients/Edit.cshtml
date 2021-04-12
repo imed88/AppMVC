@@ -25,6 +25,7 @@
             <form>
                 <div class="form-row">
                     <div class="form-group col-md-6">
+                        @Html.HiddenFor(model => model.IdPatients)
                         @Html.Label("Matricule du patient", htmlAttributes: new { @class = "control-label " })
 
                         @Html.EditorFor(model => model.MatriculePatients, new { htmlAttributes = new { @class = "form-control" } })
@@ -125,13 +126,18 @@
                     </div>
                     <div class="form-group col-md-6">
                         @Html.Label("Dossier du patient", htmlAttributes: new { @class = "control-label " })
+                        <input type="file" name="file" multiple="multiple" />
+                        @Html.ValidationMessageFor(model => model.IdUsine, "", new { @class = "text-danger" })
 
                         <ul class="attachment">
                             @foreach (var item in Model.FileDetails)
                             {
                             <li>
                                 <a href="@(Url.Content("/Uploads/"+@item.Patients.NomPatient+"?p="+@item.FileName))">@item.FileName</a>
-                                
+                                @* <a type="button" class="btn btn-primary" asp-controller="File" asp-action="DownloadFileFromFileSystem" asp-route-id="@file.Id">Download</a>*@
+                                @*<a href="/Patients/Download">Click here to download</a>*@
+                                @Html.ActionLink("Download", "DownloadFile", new { Name = item.FileName })
+                                @Html.ActionLink("X", "DeleteFile", new { Name = item.FileName })
                             </li>
 
                             }
