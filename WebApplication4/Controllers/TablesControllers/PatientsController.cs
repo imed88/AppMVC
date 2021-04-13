@@ -109,6 +109,7 @@ namespace WebApplication4.Controllers.TablesControllers
 
         }
 
+       
 
 
         // GET: Patients/Edit/5
@@ -118,7 +119,8 @@ namespace WebApplication4.Controllers.TablesControllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Patients patients = db.Patients.Find(id);
+            Patients patients = db.Patients.Include(s => s.FileDetails).SingleOrDefault(x => x.IdPatients == id);
+
             if (patients == null)
             {
                 return HttpNotFound();
@@ -135,8 +137,29 @@ namespace WebApplication4.Controllers.TablesControllers
         [ValidateAntiForgeryToken]
         public System.Web.Mvc.ActionResult Edit(Patients patients)
         {
+
             if (ModelState.IsValid)
             {
+                for (int i = 0; i < Request.Files.Count; i++)
+                {
+                    var file = Request.Files[i];
+
+                    if (file != null && file.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(file.FileName);
+                        FileDetail fileDetail = new FileDetail()
+                        {
+                            FileName = fileName,
+                            Extension = Path.GetExtension(fileName),
+                            Id = Guid.NewGuid(),
+                            IdPatients = patients.IdPatients
+                        };
+                        var path = Path.Combine(Server.MapPath("~/Uploads/"), fileDetail.Id + fileDetail.Extension);
+                        file.SaveAs(path);
+
+                        db.Entry(fileDetail).State = EntityState.Added;
+                    }
+                }
 
                 db.Entry(patients).State = EntityState.Modified;
                 db.SaveChanges();
@@ -250,6 +273,8 @@ namespace WebApplication4.Controllers.TablesControllers
             
             return View(patients.ToPagedList(pageNumber, pageSize));
         }
+
+       
 
 
 

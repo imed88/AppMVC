@@ -133,12 +133,11 @@
                             @foreach (var item in Model.FileDetails)
                             {
                             <li>
-                                <a href="@(Url.Content("/Uploads/"+@item.Patients.NomPatient+"?p="+@item.FileName))">@item.FileName</a>
+                                @item.FileName
                                 @* <a type="button" class="btn btn-primary" asp-controller="File" asp-action="DownloadFileFromFileSystem" asp-route-id="@file.Id">Download</a>*@
                                 @*<a href="/Patients/Download">Click here to download</a>*@
                                 @Html.ActionLink("Download", "DownloadFile", new { Name = item.FileName })
-                                @Html.ActionLink("X", "DeleteFile", new { Name = item.FileName })
-                            </li>
+                                                         </li>
 
                             }
                         </ul>
