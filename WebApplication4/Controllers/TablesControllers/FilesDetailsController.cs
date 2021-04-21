@@ -20,7 +20,7 @@ namespace WebApplication4.Controllers.TablesControllers
         }
 
         [HttpPost]
-        public ActionResult Index(List<HttpPostedFileBase> postedFiles)
+        public ActionResult Index(FileDetail filesdetails,List<HttpPostedFileBase> postedFiles)
         {
             string path = Server.MapPath("~/Uploads/");
             if (!Directory.Exists(path))
@@ -40,13 +40,14 @@ namespace WebApplication4.Controllers.TablesControllers
                         FileName = Path.GetFileName(postedFile.FileName),
                         Extension = Path.GetExtension(fileName),
                         Id = Guid.NewGuid(),
-                        IdPatients=1
+                        IdPatients= filesdetails.IdPatients
                     });
 
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
             }
+            ViewBag.idPatients = new SelectList(db.Patients, "IdPatients", "PrenomPatient");
 
             return View();
         }

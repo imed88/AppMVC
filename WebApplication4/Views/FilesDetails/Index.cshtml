@@ -1,4 +1,4 @@
-﻿
+﻿@model WebApplication4.Models.Tables.FileDetail
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/adminlte/_mainLayout.cshtml";
@@ -14,4 +14,13 @@
     <input type="submit" value="Upload" />
     <br />
     <span style="color:green">@Html.Raw(ViewBag.Message)</span>
+    <div class="form-group">
+        @*@Html.LabelFor(model => model.idPatients, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        @Html.Label("Patient", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @*@Html.EditorFor(model => model.IdPatients, new { htmlAttributes = new { @class = "form-control" } })*@
+            @Html.DropDownList("idPatients", null, htmlAttributes: new { @class = "form-control", @id = "Patients" })
+            @Html.ValidationMessageFor(model => model.IdPatients, "", new { @class = "text-danger" })
+        </div>
+    </div>
 }
