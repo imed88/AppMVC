@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/adminlte/_mainLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Index", "FilesDetails", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <span>Select File:</span>
+    <input type="file" name="postedFiles" multiple="multiple" />
+    <hr />
+    <input type="submit" value="Upload" />
+    <br />
+    <span style="color:green">@Html.Raw(ViewBag.Message)</span>
+}

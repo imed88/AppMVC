@@ -374,6 +374,7 @@
     <Compile Include="Controllers\PatientFileController.cs" />
     <Compile Include="Controllers\TablesControllers\AppointementModelsController.cs" />
     <Compile Include="Controllers\TablesControllers\ConsultationsController.cs" />
+    <Compile Include="Controllers\TablesControllers\FilesDetailsController.cs" />
     <Compile Include="Controllers\TablesControllers\MedecinConventionnesController.cs" />
     <Compile Include="Controllers\TablesControllers\MedicamentsController.cs" />
     <Compile Include="Controllers\TablesControllers\OrderController.cs" />
@@ -4322,6 +4323,7 @@
     <Content Include="Views\Order\Details.cshtml" />
     <Content Include="Views\Produits\Index.cshtml" />
     <Content Include="Views\Produits\SearchIndex.cshtml" />
+    <Content Include="Views\FilesDetails\Index.cshtml" />
     <None Include="Web.CustomProfile.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
