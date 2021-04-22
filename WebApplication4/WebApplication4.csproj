@@ -384,6 +384,7 @@
     <Compile Include="Controllers\TablesControllers\RolesController.cs" />
     <Compile Include="Controllers\TablesControllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\TablesControllers\SpecialitesController.cs" />
+    <Compile Include="Controllers\TablesControllers\TestFileDetailsController.cs" />
     <Compile Include="Controllers\TablesControllers\UsinesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -4323,6 +4324,7 @@
     <Content Include="Views\Order\Details.cshtml" />
     <Content Include="Views\Produits\Index.cshtml" />
     <Content Include="Views\Produits\SearchIndex.cshtml" />
+    <Content Include="Views\FilesDetails\CreateFile.cshtml" />
     <Content Include="Views\FilesDetails\Index.cshtml" />
     <None Include="Web.CustomProfile.config">
       <DependentUpon>Web.config</DependentUpon>

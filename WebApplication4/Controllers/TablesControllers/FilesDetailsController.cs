@@ -6,21 +6,31 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplication4.Models;
 using WebApplication4.Models.Tables;
+using System.Data.Entity;
+using System.Net;
 
 namespace WebApplication4.Controllers.TablesControllers
 {
     public class FilesDetailsController : Controller
     {
-        // GET: FilesDetails
         private ApplicationDbContext db = new ApplicationDbContext();
-        [HttpGet]
+        // GET: FilesDetails
+
         public ActionResult Index()
         {
+            var fileDetails = db.FileDetails.Include(f => f.Patients);
+            return View(fileDetails.ToList());
+        }
+
+        [HttpGet]
+        public ActionResult CreateFile()
+        {
+            ViewBag.IdPatients = new SelectList(db.Patients, "IdPatients", "MatriculePatients");
             return View();
         }
 
         [HttpPost]
-        public ActionResult Index(FileDetail filesdetails,List<HttpPostedFileBase> postedFiles)
+        public ActionResult CreateFile(Patients patients, List<HttpPostedFileBase> postedFiles)
         {
             string path = Server.MapPath("~/Uploads/");
             if (!Directory.Exists(path))
@@ -32,24 +42,29 @@ namespace WebApplication4.Controllers.TablesControllers
             {
                 if (postedFile != null)
                 {
-                    //string fileName = Path.GetFileName(postedFile.FileName);
-                    //postedFile.SaveAs(path + fileName);
-                    //ViewBag.Message += string.Format("<b>{0}</b> uploaded.<br />", fileName);
-                    var fileName = Path.GetFileName(postedFile.FileName);
-                    db.FileDetails.Add(new FileDetail {
-                        FileName = Path.GetFileName(postedFile.FileName),
+                    string fileName = Path.GetFileName(postedFile.FileName);
+                    postedFile.SaveAs(path + fileName);
+                    ViewBag.Message += string.Format("<b>{0}</b> uploaded.<br />", fileName);
+                    FileDetail fileDetail = new FileDetail()
+                    {
+                        FileName = fileName,
                         Extension = Path.GetExtension(fileName),
                         Id = Guid.NewGuid(),
-                        IdPatients= filesdetails.IdPatients
-                    });
-
+                        IdPatients=patients.IdPatients
+                    };
+                    db.FileDetails.Add(fileDetail);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    ViewBag.IdPatients = new SelectList(db.Patients, "IdPatients", "MatriculePatients", fileDetail.IdPatients);
+
                 }
             }
-            ViewBag.idPatients = new SelectList(db.Patients, "IdPatients", "PrenomPatient");
 
             return View();
         }
+
+       
+        
+
+
     }
 }

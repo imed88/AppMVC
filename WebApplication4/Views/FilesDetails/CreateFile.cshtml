@@ -1,0 +1,25 @@
+﻿@model WebApplication4.Models.Tables.FileDetail
+
+@{
+    ViewBag.Title = "CreateFile";
+    Layout = "~/Views/Shared/adminlte/_mainLayout.cshtml";
+}
+
+<h2>CreateFile</h2>
+
+@using (Html.BeginForm("Index", "FilesDetails", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <span>Select File:</span>
+    <input type="file" name="postedFiles" multiple="multiple" />
+    <hr />
+    <input type="submit" value="Upload" />
+    <br />
+    <span style="color:green">@Html.Raw(ViewBag.Message)</span>
+    <div class="form-group">
+        @Html.LabelFor(model => model.IdPatients, "IdPatients", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("IdPatients", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.IdPatients, "", new { @class = "text-danger" })
+        </div>
+    </div>
+}
