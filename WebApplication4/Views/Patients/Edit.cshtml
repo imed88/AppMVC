@@ -129,15 +129,14 @@
                         <input type="file" name="file" multiple="multiple" />
                         @Html.ValidationMessageFor(model => model.IdUsine, "", new { @class = "text-danger" })
 
-                        <ul class="attachment">
+                        <ul class="list-group">
                             @foreach (var item in Model.FileDetails)
                             {
-                            <li>
+                            <li class="list-group-item list-group-item-danger">
                                 @item.FileName
                                 @* <a type="button" class="btn btn-primary" asp-controller="File" asp-action="DownloadFileFromFileSystem" asp-route-id="@file.Id">Download</a>*@
                                 @*<a href="/Patients/Download">Click here to download</a>*@
-                                @Html.ActionLink("Download", "DownloadFile", new { Name = item.FileName })
-                                                         </li>
+                                @Html.ActionLink(" Télécharger", "DownloadFile", new { Name = item.FileName}, new { @class = "btn btn-circle btn-danger glyphicon glyphicon-download navbar-right "}) </li>
 
                             }
                         </ul>

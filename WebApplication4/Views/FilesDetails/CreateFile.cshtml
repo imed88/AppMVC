@@ -7,7 +7,7 @@
 
 <h2>CreateFile</h2>
 
-@using (Html.BeginForm("Index", "FilesDetails", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("CreateFile", "FilesDetails", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <span>Select File:</span>
     <input type="file" name="postedFiles" multiple="multiple" />

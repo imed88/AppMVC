@@ -16,97 +16,6 @@
     <section class="content">
         <div class="row">
             <h2>Informations</h2>
-            <div>
-                <hr />
-                <dl class="dl-horizontal">
-                    <dt>
-                        @*@Html.DisplayNameFor(model => model.Usines.UsineName)*@
-                        @Html.Label("Usine", htmlAttributes: new { @class = "control-label col-md-30" })
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Usines.UsineName)
-                    </dd>
-                    <dt>
-                        @*@Html.DisplayNameFor(model => model.MatriculePatients)*@
-                        @Html.Label("Matricule du patient", htmlAttributes: new { @class = "control-label col-md-30" })
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.MatriculePatients)
-                    </dd>
-                    <dt>
-                        @*@Html.DisplayNameFor(model => model.NomPatient)*@
-                        @Html.Label("Nom du patient", htmlAttributes: new { @class = "control-label col-md-30" })
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.NomPatient)
-                    </dd>
-                    <dt>
-                        @*@Html.DisplayNameFor(model => model.PrenomPatient)*@
-                        @Html.Label("Prénom du Patient", htmlAttributes: new { @class = "control-label col-md-30" })
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.PrenomPatient)
-                    </dd>
-                    <dt>
-                        @*@Html.DisplayNameFor(model => model.Gender)*@
-                        @Html.Label("Sexe", htmlAttributes: new { @class = "control-label col-md-30" })
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Gender)
-                    </dd>
-                    <dt>
-                        @*Html.DisplayNameFor(model => model.PhonePatients)*@
-                        @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-md-30" })
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.PhonePatients)
-                    </dd>
-                    <dt>
-                        @*Html.DisplayNameFor(model => model.PhonePatients)*@
-                        @Html.Label("Date de Naissance", htmlAttributes: new { @class = "control-label col-md-30" })
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.DOB)
-                    </dd>
-                    <dt>
-                        @*Html.DisplayNameFor(model => model.PhonePatients)*@
-                        @Html.Label("Lien de Parenté", htmlAttributes: new { @class = "control-label col-md-30" })
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Parente)
-                    </dd>
-                    <dt>
-                        @*Html.DisplayNameFor(model => model.PhonePatients)*@
-                        @Html.Label("Maladie Chronique", htmlAttributes: new { @class = "control-label col-md-30" })
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.MaladieChronique)
-                    </dd>
-                    <dt>
-                        @*Html.DisplayNameFor(model => model.PhonePatients)*@
-                        @Html.Label("APCI", htmlAttributes: new { @class = "control-label col-md-30" })
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.APCI)
-                    </dd>
-                    <dt>
-                        @*@Html.DisplayNameFor(model => model.FileDetails)*@
-                        @Html.Label("Compléments du dossier", htmlAttributes: new { @class = "control-label col-md-30" })
-                    </dt>
-                    <dd>
-                        <ul class="attachment">
-                            @foreach (var item in Model.FileDetails)
-                            {
-                                <li>
-                                    <a class="title" href="/Patients/Download/?p=@(item.Id + item.Extension)&d=@item.FileName">@item.FileName</a>
-                                </li>
-
-                            }
-                        </ul>
-                    </dd>
-
-                </dl>
-            </div>
             <p>
                 @*@Html.ActionLink("Modifier", "Edit", new { id = Model.IdPatients })*@
                 <a href="@Url.Action("Edit", "Patients",new { id = Model.IdPatients })" class="btn btn-warning">
@@ -124,6 +33,61 @@
                 </a>
                 @*@Html.ActionLink("Rendez-vous", "Appointements", new { id = Model.IdPatients })*@
             </p>
+            <div>
+                <hr />
+                <table class="table table-striped table-dark">
+                    <tr>
+                        <td> @Html.Label("Usine", htmlAttributes: new { @class = "control-label col-md-30" })</td>
+                        <td> @Html.DisplayFor(model => model.Usines.UsineName)</td>
+                        <td> @Html.Label("Matricule du patient", htmlAttributes: new { @class = "control-label col-md-30" })</td>
+                        <td> @Html.DisplayFor(model => model.MatriculePatients)</td>
+                    </tr>
+                    <tr>
+                        <td>  @Html.Label("Nom du patient", htmlAttributes: new { @class = "control-label col-md-30" })</td>
+                        <td>  @Html.DisplayFor(model => model.NomPatient)</td>
+                        <td> @Html.Label("Prénom du Patient", htmlAttributes: new { @class = "control-label col-md-30" })</td>
+                        <td> @Html.DisplayFor(model => model.PrenomPatient)</td>
+                    </tr>
+
+                    <tr>
+                        <td>  @Html.Label("Sexe", htmlAttributes: new { @class = "control-label col-md-30" })</td>
+                        <td>   @Html.DisplayFor(model => model.Gender)</td>
+                        <td>  @Html.Label("Téléphone", htmlAttributes: new { @class = "control-label col-md-30" })</td>
+                        <td>  @Html.DisplayFor(model => model.PhonePatients)</td>
+                    </tr>
+
+                    <tr>
+                        <td>   @Html.Label("Date de Naissance", htmlAttributes: new { @class = "control-label col-md-30" })</td>
+                        <td>  @Html.DisplayFor(model => model.DOB)</td>
+                        <td>  @Html.Label("Lien de Parenté", htmlAttributes: new { @class = "control-label col-md-30" })</td>
+                        <td>  @Html.DisplayFor(model => model.Parente)</td>
+                    </tr>
+
+                    <tr>
+                        <td>   @Html.Label("Maladie Chronique", htmlAttributes: new { @class = "control-label col-md-30" })</td>
+                        <td> @Html.DisplayFor(model => model.MaladieChronique)</td>
+                        <td>   @Html.Label("APCI", htmlAttributes: new { @class = "control-label col-md-30" })</td>
+                        <td>   @Html.DisplayFor(model => model.APCI)</td>
+                    </tr>
+
+
+                </table>
+                @Html.Label("Compléments du dossier", htmlAttributes: new { @class = "control-label col-md-30" })
+                <hr />
+                <ul class="list-group">
+                    @foreach (var item in Model.FileDetails)
+                    {
+                        <li class="list-group-item list-group-item-danger">
+                            @item.FileName
+                            @* <a type="button" class="btn btn-primary" asp-controller="File" asp-action="DownloadFileFromFileSystem" asp-route-id="@file.Id">Download</a>*@
+                            @*<a href="/Patients/Download">Click here to download</a>*@
+                            @Html.ActionLink(" Télécharger", "DownloadFile", new { Name = item.FileName }, new { @class = "btn btn-circle btn-danger glyphicon glyphicon-download navbar-right " })
+                        </li>
+
+                    }
+                </ul>
+            </div>
+
         </div>
     </section>
 </div>

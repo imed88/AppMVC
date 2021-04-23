@@ -25,7 +25,7 @@ namespace WebApplication4.Controllers.TablesControllers
         [HttpGet]
         public ActionResult CreateFile()
         {
-            ViewBag.IdPatients = new SelectList(db.Patients, "IdPatients", "MatriculePatients");
+            ViewBag.IdPatients = new SelectList(db.Patients, "IdPatients", "IdPatients");
             return View();
         }
 
@@ -54,7 +54,7 @@ namespace WebApplication4.Controllers.TablesControllers
                     };
                     db.FileDetails.Add(fileDetail);
                     db.SaveChanges();
-                    ViewBag.IdPatients = new SelectList(db.Patients, "IdPatients", "MatriculePatients", fileDetail.IdPatients);
+                    ViewBag.IdPatients = new SelectList(db.Patients, "IdPatients", "IdPatients", fileDetail.IdPatients);
 
                 }
             }
@@ -62,8 +62,18 @@ namespace WebApplication4.Controllers.TablesControllers
             return View();
         }
 
-       
-        
+        public FileResult DownloadFile(string Name)
+
+        {
+
+            string path = Server.MapPath("~/Uploads/") + Name;
+
+            byte[] bytes = System.IO.File.ReadAllBytes(path);
+
+            return File(bytes, "application/octet-stream", Name);
+
+        }
+
 
 
     }
