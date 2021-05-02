@@ -1,0 +1,43 @@
+﻿@model WebApplication4.Models.Tables.FileDetail
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/adminlte/_mainLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FileDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Patients.MatriculePatients)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patients.MatriculePatients)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Extension)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Extension)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

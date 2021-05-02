@@ -70,22 +70,30 @@
                         <td>   @Html.DisplayFor(model => model.APCI)</td>
                     </tr>
 
+                    <tr>
+                        <td>   @Html.Label("Code APCI", htmlAttributes: new { @class = "control-label col-md-30" })</td>
+                        <td>   @Html.DisplayFor(model => model.CodeAPCI)</td>
+                        <td>
+                            @Html.Label("Compléments du dossier", htmlAttributes: new { @class = "control-label col-md-30" })
 
+                        </td>
+                        <td>
+                            <ul class="list-group">
+                                @foreach (var item in Model.FileDetails)
+                                {
+                                    <li class="list-group-item list-group-item-danger">
+                                        @item.FileName
+                                        @* <a type="button" class="btn btn-primary" asp-controller="File" asp-action="DownloadFileFromFileSystem" asp-route-id="@file.Id">Download</a>*@
+                                        @*<a href="/Patients/Download">Click here to download</a>*@
+                                        @Html.ActionLink(" Télécharger", "DownloadFile", new { Name = item.FileName }, new { @class = "btn btn-circle btn-danger glyphicon glyphicon-download navbar-right " })
+                                    </li>
+
+                                }
+                            </ul>
+                        </td>
+                    </tr>
                 </table>
-                @Html.Label("Compléments du dossier", htmlAttributes: new { @class = "control-label col-md-30" })
-                <hr />
-                <ul class="list-group">
-                    @foreach (var item in Model.FileDetails)
-                    {
-                        <li class="list-group-item list-group-item-danger">
-                            @item.FileName
-                            @* <a type="button" class="btn btn-primary" asp-controller="File" asp-action="DownloadFileFromFileSystem" asp-route-id="@file.Id">Download</a>*@
-                            @*<a href="/Patients/Download">Click here to download</a>*@
-                            @Html.ActionLink(" Télécharger", "DownloadFile", new { Name = item.FileName }, new { @class = "btn btn-circle btn-danger glyphicon glyphicon-download navbar-right " })
-                        </li>
-
-                    }
-                </ul>
+               
             </div>
 
         </div>

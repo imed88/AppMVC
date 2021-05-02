@@ -1,0 +1,36 @@
+﻿@model WebApplication4.Models.Tables.FileDetail
+@{
+    ViewBag.Title = "UploadMultipleFiles";
+    Layout = "~/Views/Shared/adminlte/_mainLayout.cshtml";
+}
+
+<h2>UploadMultipleFiles</h2>
+
+<h3>Upload multiple files</h3>
+@using (Html.BeginForm("UploadMultipleFiles", "Patients", FormMethod.Post,
+ new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.Hidden("FileName", "False data")
+    <div class="form-horizontal">
+        <h4>Files</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.FileName, htmlAttributes: new { @class =
+"control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="fileNames" class="form-control" multiple />
+                <input type="file" name="fileNames" class="form-control" multiple />
+            </div>
+        </div>
+        
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Upload Multiple" formnovalidate
+                       class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

@@ -126,7 +126,6 @@
                     </div>
                     <div class="form-group col-md-6">
                         @Html.Label("Dossier du patient", htmlAttributes: new { @class = "control-label " })
-                        <input type="file" name="file" multiple="multiple" />
                         @Html.ValidationMessageFor(model => model.IdUsine, "", new { @class = "text-danger" })
 
                         <ul class="list-group">
