@@ -4313,7 +4313,6 @@
     <Content Include="Views\Consultations\CreateRDV.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\MedicamentsLayout\adminLayout.cshtml" />
-    <Content Include="Views\Medicaments\ProductPartial.cshtml" />
     <Content Include="Views\Medicaments\ProductIndex.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\Medicaments\Details.cshtml" />
@@ -4326,6 +4325,7 @@
     <Content Include="Views\Produits\SearchIndex.cshtml" />
     <Content Include="Views\FilesDetails\CreateFile.cshtml" />
     <Content Include="Views\FilesDetails\Index.cshtml" />
+    <Content Include="Views\Medicaments\ProductPartial.cshtml" />
     <None Include="Web.CustomProfile.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

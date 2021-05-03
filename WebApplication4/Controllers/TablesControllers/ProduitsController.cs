@@ -174,7 +174,7 @@ namespace WebApplication4.Controllers.TablesControllers
             base.Dispose(disposing);
         }
 
-        public PartialViewResult SearchIndex(string movieGenre, string searchString)
+        public PartialViewResult SearchIndex(string movieGenre, string searchString, int? page)
         {
             var GenreLst = new List<string>();
 
@@ -197,8 +197,10 @@ namespace WebApplication4.Controllers.TablesControllers
             {
                 movies = movies.Where(x => x.DenominationCI == movieGenre);
             }
-
-            return PartialView(movies);
+            int pageSize = 15;
+            int pageNumber = (page ?? 1);
+            return PartialView(movies.OrderBy(x=>x.NameProduct).ToPagedList(pageNumber, pageSize));
+            //return PartialView(movies);
         }
     }
 }

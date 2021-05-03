@@ -46,7 +46,7 @@
       
     </div>
     <div class="table-responsive">
-        <table class="table">
+        <table  class="table">
             <tr>
                 <th>
                     @*@Html.DisplayNameFor(model => model.ProductName)*@
@@ -71,7 +71,7 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>
+                    <td >
                         @Html.DisplayFor(modelItem => item.NameProduct)
                     </td>
                     <td>
@@ -99,6 +99,7 @@
             }
 
         </table>
+
         </div>
         <div class="pagination container">
             Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
