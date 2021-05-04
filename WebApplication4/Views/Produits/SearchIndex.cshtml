@@ -7,42 +7,55 @@
 }
 
 
-@using (@Html.BeginForm("SearchIndex", "Produits", FormMethod.Get))
-{<p>
-        DCI : @Html.DropDownList("movieGenre", "Tout")
-        Produit: @Html.TextBox("SearchString")
-        <input type="submit" value="Filter" />
-        <hr />
-    </p>
-}
- <section class="content">
-     
-         <ul class="list-group">
-             @foreach (var item in Model)
-             {
-             <li class="list-group-item">
-                
-                     <div class="content-title" style="font-family:'Agency FB'; font-size:14px; font-weight:bold;">
-                         @item.NameProduct
-                     </div>
-                     <p class="content-body">
-                         @item.DenominationCI
-                     </p>
-                   
-                         <a href="@Url.Action("OrderNow", "ShoppingCart", new { id = item.ProductID})" class="btn btn-danger">
-                             <i class="fa fa-arrow-circle-right"></i>
-                             <span>
-                                 <strong> Ajouter à la liste </strong>
-                             </span>
-                         </a>
-                                </li>
-             }
-         </ul>
+<section class="content-header">
+    <h1>
+        Infirmerie
+        <small>Tableau de bord</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
+        <li>Tableau de board</li>
+        <li>Préscription</li>
+        <li>Nouvelle Ordonnance</li>
+    </ol>
+</section>
+<section class="content">
+    @using (@Html.BeginForm("SearchIndex", "Produits", FormMethod.Get))
+    {<p>
+    @Html.Label("DCI :", htmlAttributes: new { @class = "control-label " })
+    @Html.DropDownList("movieGenre", "Tout")
+    @Html.Label("Produit :", htmlAttributes: new { @class = "control-label " })
+    @Html.TextBox("SearchString")
+    <input type="submit" value="Filter" />
+    <hr />
+</p>
+    }
+    <section class="content">
+        <div class="row">
+            <ul class="list-group">
+                @foreach (var item in Model)
+                {
+                    <li class="list-group-item">
+                        <p style="font-family:'Agency FB'; font-size:14px; font-weight:bold;">
+                            @item.NameProduct
+                            <a href="@Url.Action("OrderNow", "ShoppingCart", new { id = item.ProductID})" class="btn btn-danger" style="float: right;">
 
-     <div class="clear"></div>
-     Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount
+                                <span>
+                                    <strong> Ajouter à la liste </strong>
+                                </span>
+                            </a>
+                        </p>
 
-     <div style="display:inline; padding:3px">
-         @Html.PagedListPager(Model, page => Url.Action("SearchIndex", new { page = page }))
-     </div>
-     </section>
+                    </li>
+
+                }
+            </ul>
+        </div>
+        <div class="clear"></div>
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount
+
+        <div style="display:inline; padding:3px">
+            @Html.PagedListPager(Model, page => Url.Action("SearchIndex", new { page = page }))
+        </div>
+    </section>
+</section>
