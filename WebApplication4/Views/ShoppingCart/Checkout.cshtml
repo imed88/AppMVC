@@ -4,6 +4,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/adminlte/_mainLayout.cshtml";
 }
+<link href="~/Content/SideBySideTable.css" rel="stylesheet" />
 <script src="~/Scripts/jquery-3.5.1.min.js"></script>
 <section class="content-header">
     <h1>
@@ -26,50 +27,100 @@
                             List<WebApplication4.Models.Tables.ShopCart.Cart> temp = (List<WebApplication4.Models.Tables.ShopCart.Cart>)Session["Cart"];
                             var total = String.Format("{0}", temp.Sum(x => x.Quantity));
 
-                            <div style="font-family:'Arial Rounded MT'; font-size:20px;">
-                                TOTAL : @total
-                            </div>
+                            <nav class="navbar navbar-default">
+                                <div class="container-fluid">
+                                    <div class="navbar-header">
+                                        <a class="navbar-brand" href="#">TOTAL : @total</a>
+                                    </div>
+                                    <div class="btn-group btn-group-lg">
+                                        <a href="@Url.Action("SearchIndex", "Produits")" class="btn btn-default">
+                                            <i class="glyphicon glyphicon glyphicon-chevron-left"></i>
+                                            <span>
+                                                <strong>Retour</strong>
+                                            </span>
+                                        </a>
+                                      
+                                    </div>
+                                </div>
+                            </nav>
                         }
                         if (Session["Cart"] != null)
                         {
+                            <div class="row">
+                                <div class="column">
+                                    <table>
+                                        <tr>
+                                            <th>Medicament</th>
+                                            <th>Quantité</th>
 
-                            <div class="table-responsive">
-                                <table class="table" border="1">
-                                    <tr>
-                                      
-                                        <th>Nom du produit</th>
-                                        <th>Quantité</th>
-                                        
-                                    </tr>
-                                    @foreach (var cart in (List<WebApplication4.Models.Tables.ShopCart.Cart>)Session["Cart"])
+                                        </tr>
+                                        @*<tr>
+                                <td>Jill</td>
+                                <td>Smith</td>
+                                <td>50</td>
+                            </tr>*@
+                                        @foreach (var cart in (List<WebApplication4.Models.Tables.ShopCart.Cart>)Session["Cart"])
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <strong style="font-family:'Arial Rounded MT'; font-size:14px">@cart.Product.NameProduct</strong>
+
+                                                    @*@Html.ActionLink(cart.Product.ProductName, "Details", "Medicaments", new { id = cart.Product.ProductID }, null)*@
+
+                                                </td>
+                                                <td style="padding-right:50px">
+                                                    @*@cart.Quantity*@
+                                                    <strong style="font-family:'Arial Rounded MT'; font-size:14px">@cart.Quantity</strong>
+
+                                                </td>
+
+                                                @*<td>@(String.Format("{0}", cart.Quantity))</td>*@
+
+                                            </tr>
+
+                                        }
+
+
+                                    </table>
+                                </div>
+                                <div class="column">
+                                    @using (Html.BeginForm("ProcessOrder", "ShoppingCart", FormMethod.Post, new { id = "customer-form" }))
                                     {
-                                    <tr>
-                                        <td>@*<img src="@Url.Content("~/Uploads/"+cart.Product.ImageFile)" width="50" height="50" />*@</td>
-                                        <td>
-                                            <strong style="font-family:'Arial Rounded MT'; font-size:20px">@cart.Product.NameProduct</strong>
+                                        <table>
+                                            <tr>
+                                                <th><strong>Information du Patient</strong></th>
 
-                                            @*@Html.ActionLink(cart.Product.ProductName, "Details", "Medicaments", new { id = cart.Product.ProductID }, null)*@
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Id du Patient</strong></td>
+                                                <td><input type="text" name="MatriculePatient" /></td>
 
-                                        </td>
-                                        <td style="padding-right:50px">
-                                            @*@cart.Quantity*@
-                                            <input type="text" name="quantity" id="quantity" value="@cart.Quantity" readonly />
+                                            </tr>
+                                            <tr>
+                                                <td><strong>N° Consultation</strong></td>
+                                                <td><input type="text" name="NConsultation" /></td>
 
-                                        </td>
-                                       
-                                        @*<td>@(String.Format("{0}", cart.Quantity))</td>*@
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Commentaires</strong></td>
+                                                <td><textarea cols="50" rows="10" name="Comment"></textarea></td>
 
-                                    </tr>
-
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="submit" value="Créer une ordonnance" class="btn btn-info" />
+                                                </td>
+                                            </tr>
+                                        </table>
                                     }
-                                    
-                                </table>
+                                </div>
                             </div>
-                          
+
+
                         }
                         else
                         {
-                            <h4>No items in your cart !!</h4>
+                            <h4>Pas de Médicaments sélectionnés !!</h4>
                         }
 
                     }
@@ -82,49 +133,43 @@
 
     </div>
     <br />
-    @using (Html.BeginForm("ProcessOrder", "ShoppingCart", FormMethod.Post, new { id = "customer-form" }))
-    {
-    <div class="table-responsive">
-        <table class="table">
-            <tr>
-                <td> <strong>Information du Patient</strong></td>
-                <td><strong>Id du Patient</strong></td>
-                <td>
-                    <strong><input type="text" name="MatriculePatient" /></strong>
-                </td>
-                <td><strong>N° Consultation</strong></td>
-                <td>
-                    <strong><input type="text" name="NConsultation" /></strong>
-                </td>
-                <td>
+         <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <td> </td>
+                    <td></td>
+                    <td>
+                        <strong></strong>
+                    </td>
+                    <td></td>
+                    <td>
+                        <strong></strong>
+                    </td>
+                    <td>
 
-                    <textarea cols="40" rows="5" name="Comment"></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="submit" value="Créer une ordonnance" class="btn btn-info" />
-                </td>
-            </tr>
+                        
+                    </td>
+                </tr>
+               
 
-        </table>
-    </div>
+            </table>
+        </div>
     }
 </section>
 
-    <script>
-        $("#customer-form").validate({
-            rules: {
-                Patients: {
-                    required: true
-                },
-                Consultations: {
-                    required: true
-                }
-
+<script>
+    $("#customer-form").validate({
+        rules: {
+            Patients: {
+                required: true
+            },
+            Consultations: {
+                required: true
             }
-        });
-    </script>
+
+        }
+    });
+</script>
 
 
 

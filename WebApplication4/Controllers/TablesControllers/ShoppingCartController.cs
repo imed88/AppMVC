@@ -110,74 +110,79 @@ namespace WebApplication4.Controllers.TablesControllers
             //Save to order
             if (ModelState.IsValid)
             {
-                
+
                 Order order = new Order()
-                    {
+                {
 
-                        OrderDate = DateTime.Now,
-                        ConsultationID = ConsultationID,
-                        MatriculePatients = MatriculePatients
+                    OrderDate = DateTime.Now,
+                    ConsultationID = ConsultationID,
+                    MatriculePatients = MatriculePatients
+                };
+                db.Orders.Add(order);
+                db.SaveChanges();
+                //save to order detail
+                foreach (Cart cart in lstCart)
+                {
+                    OrderDetail orderDetail = new OrderDetail()
+                    {
+                        OrderID = order.OrderID,
+                        ProductID = cart.Product.ProductID,
+                        Quantity = cart.Quantity,
+                        Comments = Indication
+
                     };
-                    db.Orders.Add(order);
+
+                    db.OrderDetails.Add(orderDetail);
                     db.SaveChanges();
-                    //save to order detail
-                    foreach (Cart cart in lstCart)
+
+
+
+                    try
                     {
-                        OrderDetail orderDetail = new OrderDetail()
-                        {
-                            OrderID = order.OrderID,
-                            ProductID = cart.Product.ProductID,
-                            Quantity = cart.Quantity,
-                           Comments = Indication
-
-                        };
-                    
-                        db.OrderDetails.Add(orderDetail);
-                        db.SaveChanges();
-                    }
-
-                    //Create PDF File
-                    //var OneBlog = (from e in db.Orders
-                    //               join p in db.Consultations
-                    //               on e.ConsultationID equals p.ConsultationID
-                    //               join s in db.OrderDetails
-                    //               on e.OrderID equals s.OrderID
-                    //               join t in db.Products
-                    //               on s.ProductID equals t.ProductID
-                    //               where e.MatriculePatients == p.Patient.MatriculePatients
-                    //               && e.MatriculePatients == MatriculePatients
-                    //               && e.ConsultationID == ConsultationID
-                    //               && s.ProductID==t.ProductID
-                    //               select new
-                    //               {
-                    //                   t.ProductID,
-                    //                   t.NameProduct,
-                    //                   p.ConsultationID,
-                    //                   p.Patient.MatriculePatients,
-                    //                   p.Patient.NomPatient,
-                    //                   p.Patient.PrenomPatient,
-                    //                   p.DateCreated,
-                    //                   e.OrderDate,
-                    //                   s.Quantity,
-                    //                   s.Comments
+                        var OneBlog = (from e in db.Orders
+                                       join p in db.Consultations
+                                       on e.ConsultationID equals p.ConsultationID
+                                       join s in db.OrderDetails
+                                       on e.OrderID equals s.OrderID
+                                       join t in db.Products
+                                       on s.ProductID equals t.ProductID
                                       
+                                       select new
+                                       {
+                                           t.ProductID,
+                                           t.NameProduct,
+                                           p.ConsultationID,
+                                           p.Patient.MatriculePatients,
+                                           p.Patient.NomPatient,
+                                           p.Patient.PrenomPatient,
+                                           p.DateCreated,
+                                           e.OrderDate,
+                                           s.Quantity,
+                                           e.OrderID,
+                                           s.Comments
 
-                    //               }).OrderBy(p => p.ConsultationID)
-                    //       .Where(p =>p.ConsultationID == id); ;
-                    //var item = OneBlog.ToList();
-                    //ReportDocument rd = new ReportDocument();
-                    //rd.Load(Path.Combine(Server.MapPath("~/Report"), "Ordonnance.rpt"));
-                    //rd.SetDataSource(item);
+                                       }).OrderBy(p => p.ConsultationID).Where(x => x.ConsultationID == ConsultationID);
 
-                    //Response.Buffer = false;
-                    //Response.ClearContent();
-                    //Response.ClearHeaders();
 
-                    //Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
-                    //stream.Seek(0, SeekOrigin.Begin);
-                    //return File(stream, "application/pdf", "Ordonnance.pdf");
-                
-               
+                        var item = OneBlog.ToList();
+                        ReportDocument rd = new ReportDocument();
+                        rd.Load(Path.Combine(Server.MapPath("~/Report"), "Ordonnance.rpt"));
+                        rd.SetDataSource(item);
+
+                        Response.Buffer = false;
+                        Response.ClearContent();
+                        Response.ClearHeaders();
+
+                        Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                        stream.Seek(0, SeekOrigin.Begin);
+                        return File(stream, "application/pdf", "Ordonnance.pdf");
+
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+                }
             }
             else
             {
