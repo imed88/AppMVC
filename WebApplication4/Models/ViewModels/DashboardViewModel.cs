@@ -14,6 +14,7 @@ namespace WebApplication4.Models.ViewModels
         public int Usine_count { get; set; }
         public int Consultations_count { get; set; }
         public int Product_count { get; set; }
+        public int Order_count { get; set; }
 
     }
 }

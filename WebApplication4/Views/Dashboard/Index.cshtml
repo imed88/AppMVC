@@ -111,8 +111,22 @@
                 <a href="@Url.Action("Index", "Produits")" class="small-box-footer">Plus d'informations <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-lime-active">
+                <div class="inner">
+                    <h3>@Model.Order_count</h3>
+                    <p>Ordonnances</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-asterisk"></i>
+                </div>
+                <a href="@Url.Action("Index", "Order")" class="small-box-footer">Plus d'informations <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
         <!-- ./col -->
     </div>
+    <div class="row"></div>
 
 </section>
 <!-- /.content -->

@@ -23,9 +23,15 @@ namespace WebApplication4.Controllers
                 Appoint_count = db.AppointementModels.Count(),
                 Usine_count = db.Usines.Count(),
                 Consultations_count = db.Consultations.Count(),
-                Product_count = db.Products.Count()
+                Product_count = db.Products.Count(),
+                Order_count=db.Orders.Count()
+
             };
+           
             return View(dashboard);
         }
+          
+
+
     }
 }
