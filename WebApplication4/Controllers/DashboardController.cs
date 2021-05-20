@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using WebApplication4.Models;
 using WebApplication4.Models.ViewModels;
@@ -33,15 +35,18 @@ namespace WebApplication4.Controllers
 
         public ActionResult Test()
         {
-            //DashboardViewModel dashboard = new DashboardViewModel();
+            DashboardChartViewModel dashboard = new DashboardChartViewModel
+            {
 
-            //dashboard.Doctors_count = db.MedecinConventionnes.Count();
-            //dashboard.Consultations_count = db.Consultations.Count();
-            //dashboard.Patients_count = db.Patients.Count();
-            return View();
+                Patients_countU1 = db.Patients.Where(x=>x.IdUsine==1).Count(),
+                Patients_countU2 = db.Patients.Where(x => x.IdUsine == 2).Count(),
+                Patients_countCentre = db.Patients.Where(x => x.IdUsine == 3).Count(),
+              
+            };
+            return View(dashboard);
         }
-          
 
+        
 
     }
 }
