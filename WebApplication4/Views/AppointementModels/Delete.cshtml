@@ -17,50 +17,6 @@
             <h2>Suppression de l'élément</h2>
             <h3>Vous êtes sûr de vouloir supprimer cet élément ?</h3>
             <div>
-                @*<h4>AppointementModel</h4>*@
-                <hr />
-                <dl class="dl-horizontal">
-                    <dt>
-                        @*@Html.DisplayNameFor(model => model.ApplicationUser.UserName)*@
-                        @Html.Label("Date de prise de rendez vous", htmlAttributes: new { @class = "control-label col-md-15" })
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.DtEdit)
-                    </dd>
-
-                    <dt>
-                        @*@Html.DisplayNameFor(model => model.ApplicationUser.UserName)*@
-                        @Html.Label("Heure de prise de rendez vous", htmlAttributes: new { @class = "control-label col-md-15" })
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.dateTime)
-                    </dd>
-
-                    <dt>
-                        @*@Html.DisplayNameFor(model => model.Doctor.idDoctors)*@
-                        @Html.Label("Médecin", htmlAttributes: new { @class = "control-label col-md-15" })
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Doctor.nameDoctors)
-                    </dd>
-                    <dt>
-                        @*@Html.DisplayNameFor(model => model.Patient.NomPatient)*@
-                        @Html.Label("Nom du patient", htmlAttributes: new { @class = "control-label col-md-15" })
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Patient.NomPatient)
-                    </dd>
-                    <dt>
-                        @*@Html.DisplayNameFor(model => model.Patient.PrenomPatient)*@
-                        @Html.Label("Prénom du patient", htmlAttributes: new { @class = "control-label col-md-15" })
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Patient.PrenomPatient)
-                    </dd>
-
-
-
-                </dl>
                 @using (Html.BeginForm())
                 {
                     @Html.AntiForgeryToken()
@@ -75,7 +31,50 @@
                         </a>
                     </div>
                 }
+                <hr />
+                <div>
+                    <hr />
+                    <div>
+                        <hr />
+                        <table class="table table-striped table-dark">
+                            <tr>
+                                <td>  @Html.Label("Date de prise de rendez vous", htmlAttributes: new { @class = "control-label col-md-25" })</td>
+                                <td>  @Html.DisplayFor(model => model.DtEdit)</td>
+                                <td>@Html.Label("Heure de prise de rendez vous", htmlAttributes: new { @class = "control-label col-md-25" })</td>
+                                <td>  @Html.DisplayFor(model => model.dateTime)</td>
+                            </tr>
+                            <tr>
+                                <td> @Html.Label("Médecin", htmlAttributes: new { @class = "control-label col-md-25" })</td>
+                                <td>   @Html.DisplayFor(model => model.Doctor.nameDoctors)</td>
+                                <td>  @Html.Label("Nom du patient", htmlAttributes: new { @class = "control-label col-md-25" })</td>
+                                <td> @Html.DisplayFor(model => model.Patient.NomPatient)</td>
+                            </tr>
+
+                            <tr>
+                                <td>  @Html.Label("Prenom du Patient", htmlAttributes: new { @class = "control-label col-md-30" })</td>
+                                <td>   @Html.DisplayFor(model => model.Patient.PrenomPatient)</td>
+
+                                <td>  @Html.Label("Matricule du Patient", htmlAttributes: new { @class = "control-label col-md-30" })</td>
+                                <td>   @Html.DisplayFor(model => model.Patient.MatriculePatients)</td>
+                            </tr>
+                            <tr>
+                                <td>  @Html.Label("Lieu du travail", htmlAttributes: new { @class = "control-label col-md-30" })</td>
+                                <td>   @Html.DisplayFor(model => model.Patient.Usines.UsineName)</td>
+
+
+                            </tr>
+
+
+
+
+
+
+                        </table>
+
+                    </div>
+
+                </div>
             </div>
-        </div>
+            </div>
     </section>
 </div>

@@ -40,13 +40,13 @@
         </div>
     </div>
     <div class="table-responsive">
-        <table class="table">
+        <table class="table table-striped table-dark">
             <tr>
                 <th>
                     @Html.ActionLink("Specialite", "Index", new { order = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
 
                 </th>
-                <th>Couleur</th>
+               
             </tr>
 
             @foreach (var item in Model)

@@ -19,63 +19,47 @@
             <div>
                 <h4>Consultation</h4>
                 <hr />
-                <dl class="dl-horizontal">
-                    <dt>
-                        @*@Html.DisplayNameFor(model => model.Patient.MatriculePatients)*@
-                        @Html.Label("Matricule du patient", htmlAttributes: new { @class = "control-label col-md-15" })
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Patient.MatriculePatients)
-                    </dd>
-                    <dt>
-                        @*@Html.DisplayNameFor(model => model.ApplicationUser.UserName)*@
-                        @Html.Label("Médecin", htmlAttributes: new { @class = "control-label col-md-15" })
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.ApplicationUser.UserName)
-                    </dd>
-                    <dt>
-                        @*@Html.DisplayNameFor(model => model.ApplicationUser.UserName)*@
-                        @Html.Label("Nature de la visite", htmlAttributes: new { @class = "control-label col-md-15" })
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.natureVisite)
-                    </dd>
-                    <dt>
-                        @*@Html.DisplayNameFor(model => model.diagnostic)*@
-                        @Html.Label("Diagnostic", htmlAttributes: new { @class = "control-label col-md-15" })
-                    </dt>
-                    <dd>
-                        @*@Html.DisplayFor(model => model.diagnostic)*@
-                        @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(model => model.diagnostic).ToString()))
-                    </dd>
-                    <dt>
-                        @*@Html.DisplayNameFor(model => model.diagnostic)*@
-                        @Html.Label("Conduite à Tenir", htmlAttributes: new { @class = "control-label col-md-15" })
-                    </dt>
-                    <dd>
-                        @*@Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(model => model.ConduiteTenir).ToString()))*@
-                        @Html.DropDownList("ConduiteTenir", null, htmlAttributes: new { @class = "form-control", @id = "Patients" })
+                <div>
+                    <hr />
+                    <table class="table table-striped table-dark">
+                        <tr>
+                            <td> @Html.Label("Matricule du patient", htmlAttributes: new { @class = "control-label col-md-15" })</td>
+                            <td> @Html.DisplayFor(model => model.Patient.MatriculePatients)</td>
+                            <td> @Html.Label("Médecin", htmlAttributes: new { @class = "control-label col-md-15" })</td>
+                            <td>@Html.DisplayFor(model => model.ApplicationUser.UserName)</td>
+                        </tr>
+                        <tr>
+                            <td>  @Html.Label("Nature de la visite", htmlAttributes: new { @class = "control-label col-md-15" })</td>
+                            <td>   @Html.DisplayFor(model => model.natureVisite)</td>
+                            <td>@Html.Label("Diagnostic", htmlAttributes: new { @class = "control-label col-md-15" })</td>
+                            <td>@Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(model => model.diagnostic).ToString()))</td>
+                        </tr>
 
-                    </dd>
+                        <tr>
+                            <td>    @Html.Label("Conduite à Tenir", htmlAttributes: new { @class = "control-label col-md-15" })</td>
+                            <td>    @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(model => model.ConduiteTenir).ToString()))</td>
+                          
+                        </tr>
 
+                      
+                    </table>
 
-                </dl>
+                </div>
             </div>
             <p>
                 @*@Html.ActionLink("Ordonnance", "CreateOrdonnance", new { id = Model.ConsultationID }, new { @class = "btn btn-success" })*@
-                <a href="@Url.Action("Index", "TestProducts",new { id = Model.ConsultationID, Model.idPatients })" class="btn btn-primary">
+                <a href="@Url.Action("Edit", "Consultations",new { id = Model.ConsultationID, Model.idPatients })" class="btn btn-warning">
                     <i class="glyphicon glyphicon glyphicon-file"></i>
                     <span>
-                        <strong>Ordonnance</strong>
+                        <strong>Modifier</strong>
                     </span>
-                </a>|
-                <a href="@Url.Action("CreateRDV", "Consultations",new { id = Model.ConsultationID })" class="btn btn-primary">
+                </a>
+                @*<a href="@Url.Action("CreateRDV", "Consultations",new { id = Model.ConsultationID })" class="btn btn-primary">
                     <i class="glyphicon glyphicon glyphicon-file"></i>
                     <span>
                         <strong>Lettre au confrère</strong>
                     </span>
-                </a>|
+                </a>|*@
                 @*@Html.ActionLink("Ordonnance pdf", "ReportEmployee", new { id = Model.ConsultationID }, new { @class = "btn btn-success" }) |*@
                 @*@Html.ActionLink("Retour", "Index", new { @class = "btn btn-default" })*@
                 |

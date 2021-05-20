@@ -4221,6 +4221,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\raphael.min.js" />
     <Content Include="Scripts\src\index.js" />
     <Content Include="Scripts\src\methods\defaults.js" />
     <Content Include="Scripts\src\methods\destroy.js" />
@@ -4401,6 +4402,7 @@
     <Content Include="Views\FilesDetails\CreateFile.cshtml" />
     <Content Include="Views\FilesDetails\Index.cshtml" />
     <Content Include="Views\Medicaments\ProductPartial.cshtml" />
+    <Content Include="Views\Dashboard\Test.cshtml" />
     <None Include="Web.CustomProfile.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

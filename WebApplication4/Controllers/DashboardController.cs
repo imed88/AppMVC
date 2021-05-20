@@ -30,6 +30,16 @@ namespace WebApplication4.Controllers
            
             return View(dashboard);
         }
+
+        public ActionResult Test()
+        {
+            //DashboardViewModel dashboard = new DashboardViewModel();
+
+            //dashboard.Doctors_count = db.MedecinConventionnes.Count();
+            //dashboard.Consultations_count = db.Consultations.Count();
+            //dashboard.Patients_count = db.Patients.Count();
+            return View();
+        }
           
 
 
