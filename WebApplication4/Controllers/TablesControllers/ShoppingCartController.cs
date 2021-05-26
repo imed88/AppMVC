@@ -161,7 +161,7 @@ namespace WebApplication4.Controllers.TablesControllers
                                            e.OrderID,
                                            s.Comments
 
-                                       }).OrderBy(p => p.ConsultationID).Where(x => x.ConsultationID == ConsultationID);
+                                       }).OrderBy(p => p.ConsultationID).Where(x => x.ConsultationID == ConsultationID).Distinct().ToList();
 
 
                         var item = OneBlog.ToList();

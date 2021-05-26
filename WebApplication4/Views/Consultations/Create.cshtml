@@ -75,13 +75,13 @@
 
                             <label class="checkbox-inline">
                                 @*   @Html.RadioButtonFor(model => model.ConduiteTenir, "Prescription Medicale", new { id = "btn_Prescription" }) Préscription Médicale*@
-                                @Html.CheckBox("PrescMed", false) Préscription Médicale
+                                @Html.CheckBox("PrescMed", false, new { @class = "checkbox" }) Préscription Médicale
                             </label>
                         </div>
                         <div class="form-group col-md-6">
                             <label class="checkbox-inline">
                                 @*   @Html.RadioButtonFor(model => model.ConduiteTenir, "Exploration Medicale", new { id = "btn_ExplorMed" }) Exploration Radiologique*@
-                                @Html.CheckBox("ExplorRadio", false) Exploration Radiologique
+                                @Html.CheckBox("ExplorRadio", false, new { @class = "checkbox" }) Exploration Radiologique
 
 
                             </label>
@@ -94,7 +94,7 @@
                         <div class="form-group col-md-6">
                             <label class="checkbox-inline">
                                 @*@Html.RadioButtonFor(model => model.ConduiteTenir, "Exploration Biologique", new { id = "btn_ExplorBio" })   Exploration Biologique*@
-                                @Html.CheckBox("ExplorBio", false) Exploration Biologique
+                                @Html.CheckBox("ExplorBio", false,  new { @class = "checkbox" }) Exploration Biologique
                             </label>
                             @Html.TextAreaFor(model => model.ExplorBioComment, 6, 82, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "diagnostic" } })
                             @Html.ValidationMessageFor(model => model.ExplorBioComment, "", new { @class = "text-danger" })
@@ -102,7 +102,7 @@
                         <div class="form-group col-md-6">
                             <label class="checkbox-inline">
                                 @*@Html.RadioButtonFor(model => model.ConduiteTenir,"Transfert", new { id = "btn_Transfert" })   Transfert (Lettre de liaison)*@
-                                @Html.CheckBox("Transfert", false) Transfert (Lettre de liaision)
+                                @Html.CheckBox("Transfert", false, new { @class = "checkbox" }) Transfert (Lettre de liaision)
                             </label>
                             @Html.TextAreaFor(model => model.TransfertComment, 6, 82, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "diagnostic" } })
                             @Html.ValidationMessageFor(model => model.TransfertComment, "", new { @class = "text-danger" })
@@ -113,7 +113,7 @@
                         <div class="form-group col-md-6">
                             <label class="checkbox-inline">
                                 @*@Html.RadioButtonFor(model => model.ConduiteTenir, "Hospitalisation", new { id = "btn_hospital" })   Hospitalisation*@
-                                @Html.CheckBoxFor(model => model.Hospitalisation, false) Hospitalisation
+                                @Html.CheckBoxFor(model => model.Hospitalisation,  new { @class = "checkbox" }) Hospitalisation
                             </label>
                             @Html.TextAreaFor(model => model.HospitalComment, 6, 70, new { htmlAttributes = new { style = " width:100%, max-width:100%", @id = "diagnostic" } })
                             @Html.ValidationMessageFor(model => model.HospitalComment, "", new { @class = "text-danger" })
@@ -126,10 +126,21 @@
                             <div class="editor-field">
                                 @Html.DropDownList("CNAM", new List<SelectListItem>
                                    {
-                                       new SelectListItem{ Text="BS", Value="BS"},
-                                       new SelectListItem{ Text="N01", Value="N01"},
-                                       new SelectListItem{ Text="N02", Value="N02"},
-                                       new SelectListItem{ Text="APCI", Value="APCI"},
+                                         new SelectListItem{ Text="BS", Value="BS"},
+                                                           new SelectListItem{ Text="AP1", Value="AP1"},
+                                                           new SelectListItem{ Text="AP2", Value="AP2"},
+                                                           new SelectListItem{ Text="AP3", Value="AP3"},
+                                                           new SelectListItem{ Text="AP4", Value="AP4"},
+                                                           new SelectListItem{ Text="AP5", Value="AP5"},
+                                                           new SelectListItem{ Text="AP6", Value="AP6"},
+                                                           new SelectListItem{ Text="AP7", Value="AP7"},
+                                                           new SelectListItem{ Text="AP8", Value="AP8"},
+                                                           new SelectListItem{ Text="AP9", Value="AP9"},
+                                                           new SelectListItem{ Text="AP10", Value="AP10"},
+                                                           new SelectListItem{ Text="AP11", Value="AP11"},
+                                                           new SelectListItem{ Text="AP12", Value="AP12"},
+                                                           new SelectListItem{ Text="AP13", Value="AP13"},
+                                                           new SelectListItem{ Text="APCI", Value="APCI"}
 
                                    }, "--- Séléctionner un élément ---", new { @class = "form-control" })
                             </div>
@@ -148,17 +159,3 @@
     </section>
 </div>
 
-@section scripts{
-    <script type="text/javascript">
-        //$(document).ready(function () {
-        //    $('input[id=RadioYes]').click(function () {
-        //        if ($('input[name=RadioYes]:checked').val() === "Non") {
-        //            $('#Code').hide();
-        //        } else {
-        //            $('#Code').show();
-        //        }
-        //    });
-        //});
-       
-    </script>
-}
