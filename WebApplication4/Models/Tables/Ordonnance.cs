@@ -11,7 +11,7 @@ namespace WebApplication4.Models.Tables
     {
         [Key]
         public int ConsultOrdID { get; set; }
- 
+        [Required]
         public string Message { get; set; }
 
         [Required]
@@ -19,7 +19,7 @@ namespace WebApplication4.Models.Tables
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime ApplyDate { get; set; }
-
+        [Required]
         public int ConsultationID { get; set; }
         public virtual Consultation Consultation { get; set; }
 

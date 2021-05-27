@@ -16,29 +16,32 @@ namespace WebApplication4.Models.Tables
         }
         [Key]
         public int idDoctors { get; set; }
+        [Required]
         [DisplayName("Nom et Prénom du docteur")]
         public string nameDoctors { get; set; }
+        [Required]
         [DisplayName("Messagerie Electronique")]
         [EmailAddress]
         public string emailDoctors { get; set; }
+        [Required]
         [DisplayName("Telephone")]
         [Phone]
         public string phoneDoctors { get; set; }
 
-
+        [Required]
         public string JourTravail1 { get; set; }
-
+        [Required]
         [DataType(DataType.Time)]
         [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
         public DateTime TimeTravail1 { get; set; }
-
+        [Required]
         public string JourTravail2 { get; set; }
-
+        [Required]
         [DataType(DataType.Time)]
         [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
         public DateTime TimeTravail2 { get; set; }
 
-
+        [Required]
         [DisplayName("Spécialiste")]
         public int idSpecialite { get; set; }
         public virtual Specialite specialite { get; set; }

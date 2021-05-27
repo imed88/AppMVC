@@ -12,6 +12,7 @@ namespace WebApplication4.Models.Tables
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdUsine { get; set; }
+        [Required]
         public string UsineName { get; set; }
 
         public virtual ICollection<Patients> Patients { get; set; }

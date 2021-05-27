@@ -10,10 +10,10 @@ namespace WebApplication4.Models.Tables
     {
         [Key]
         public int OrdonnancesId { get; set; }
-
+        [Required]
         public int IdPaitents { get; set; }
         public virtual Patients Patients { get; set; }
-
+        [Required]
         public int OrderId { get; set; }
        
 

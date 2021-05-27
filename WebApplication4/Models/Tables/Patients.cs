@@ -15,20 +15,30 @@ namespace WebApplication4.Models.Tables
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdPatients { get; set; }
+        [Required]
         public string MatriculePatients { get; set; }
+        [Required]
         public string NomPatient { get; set; }
+        [Required]
         public string PrenomPatient { get; set; }
+   
         public string Gender { get; set; }
+        
         public string PhonePatients { get; set; }
+        [Required]
         [Display(Name = "Date de naissance")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DOB { get; set; }
+        
         public string Parente { get; set; }
+       
         public string MaladieChronique { get; set; }
+       
         public string APCI { get; set; }
+       
         public string CodeAPCI { get; set; }
-
+        [Required]
         public int IdUsine { get; set; }
         public virtual ICollection<FileDetail> FileDetails { get; set; }
 

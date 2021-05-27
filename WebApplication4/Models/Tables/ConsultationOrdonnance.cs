@@ -19,7 +19,7 @@ namespace WebApplication4.Models.Tables
         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         //[MyAppointmentDateValidation(ErrorMessage = "Are you creating an appointment for the past?")]
         public DateTime ApplyDate { get; set; }
-
+        [Required]
         public int ConsultationID { get; set; }
         public virtual Consultation consultation {get; set;}
 

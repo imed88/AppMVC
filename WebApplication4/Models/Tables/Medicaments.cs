@@ -10,11 +10,15 @@ namespace WebApplication4.Models.Tables
     {
         [Key]
         public int MedID { get; set; }
+        [Required]
         public string Title { get; set; }
+        [Required]
         public string ModeEmploi { get; set; }
+        [Required]
         public int quantity { get; set; }
+        [Required]
         public string MedPic { get; set; }
-        
+        [Required]
         public int idSpecialite { get; set; }
         public virtual Specialite specialite { get; set; }
        
