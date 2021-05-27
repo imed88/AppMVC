@@ -137,37 +137,36 @@ namespace WebApplication4.Controllers.TablesControllers
 
 
 
-                    try
-                    {
-                        var OneBlog = (from e in db.Orders
-                                       join p in db.Consultations
-                                       on e.ConsultationID equals p.ConsultationID
-                                       join s in db.OrderDetails
-                                       on e.OrderID equals s.OrderID
-                                       join t in db.Products
-                                       on s.ProductID equals t.ProductID
-                                      
-                                       select new
-                                       {
-                                           t.ProductID,
-                                           t.NameProduct,
-                                           p.ConsultationID,
-                                           p.Patient.MatriculePatients,
-                                           p.Patient.NomPatient,
-                                           p.Patient.PrenomPatient,
-                                           p.DateCreated,
-                                           e.OrderDate,
-                                           s.Quantity,
-                                           e.OrderID,
-                                           s.Comments
+                    var OneBlog = (from e in db.Orders
+                                   join p in db.Consultations
+                                   on e.ConsultationID equals p.ConsultationID
+                                   join s in db.OrderDetails
+                                   on e.OrderID equals s.OrderID
+                                   join t in db.Products
+                                   on s.ProductID equals t.ProductID
 
-                                       }).OrderBy(p => p.ConsultationID).Where(x => x.ConsultationID == ConsultationID).Distinct().ToList();
+                                   select new
+                                   {
+
+                                       t.ProductID,
+                                       t.NameProduct,
+                                       p.ConsultationID,
+                                       p.Patient.MatriculePatients,
+                                       p.Patient.NomPatient,
+                                       p.Patient.PrenomPatient,
+                                       p.DateCreated,
+                                       e.OrderDate,
+                                       s.Quantity,
+                                       e.OrderID,
+                                       s.Comments
+
+                                   }).ToList();
 
 
-                        var item = OneBlog.ToList();
+                        //var item = OneBlog.ToList();
                         ReportDocument rd = new ReportDocument();
                         rd.Load(Path.Combine(Server.MapPath("~/Report"), "Ordonnance.rpt"));
-                        rd.SetDataSource(item);
+                        rd.SetDataSource(OneBlog);
 
                         Response.Buffer = false;
                         Response.ClearContent();
@@ -177,23 +176,20 @@ namespace WebApplication4.Controllers.TablesControllers
                         stream.Seek(0, SeekOrigin.Begin);
                         return File(stream, "application/pdf", "Ordonnance.pdf");
 
-                    }
-                    catch (Exception ex)
-                    {
-                        throw ex;
-                    }
+                    
+
                 }
             }
             else
             {
-                //ModelState.AddModelErrors();
+                Session.Remove(strCart);
             }
             return RedirectToAction("Index","Order");
           
           
 
             //Remove shopping session
-            //Session.Remove(strCart);
+          
             //return View("OrderSuccess");
         }
         

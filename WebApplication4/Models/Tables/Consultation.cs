@@ -16,11 +16,12 @@ namespace WebApplication4.Models.Tables
         [Key]
         public int ConsultationID { get; set; }
         [AllowHtml]
+        [Required]
         public string diagnostic { get; set; }
-       
 
 
 
+        [Required]
         [ForeignKey("ApplicationUser")]
         public string UserID { get; set; }
         public string Username { get; set; }
@@ -50,19 +51,22 @@ namespace WebApplication4.Models.Tables
         [Required] //Changes V2
         [DisplayName("CNAM")]
         public string CNAM { get; set; }
-
-       public bool PrescMed { get; set; }
-       
-       public bool ExplorRadio { get; set; }
+        [Required]
+        public bool PrescMed { get; set; }
+        [Required]
+        public bool ExplorRadio { get; set; }
+        [Required]
         public string ExplorRadioComment { get; set; }
-
+        [Required]
         public bool ExplorBio { get; set; }
+        [Required]
         public string ExplorBioComment { get; set; }
-
+        [Required]
         public bool Transfert { get; set; }
         public string TransfertComment { get; set; }
-
+        [Required]
         public bool Hospitalisation { get; set; }
+        [Required]
         public string HospitalComment { get; set; }
 
         public virtual ICollection<ConsultationDetail> ConsultationDetails { get; set; }

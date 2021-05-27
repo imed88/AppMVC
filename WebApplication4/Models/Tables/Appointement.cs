@@ -29,11 +29,11 @@ namespace WebApplication4.Models.Tables
         public virtual MedecinConventionne Doctor { get; set; }
 
 
-
+        [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DtEdit { get; set; }
-
+        [Required]
         [DataType(DataType.Time)]
         [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
         public DateTime dateTime { get; set; }

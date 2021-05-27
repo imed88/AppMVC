@@ -10,9 +10,13 @@ namespace WebApplication4.Models.Tables.ShopCart
     {
         [Key]
         public int ProductID { get; set; }
+        [Required]
         public string Code { get; set; }
+        [Required]
         public string NameProduct { get; set; }
-        public string Categorie  { get; set; } 
+        [Required]
+        public string Categorie  { get; set; }
+        [Required]
         public string DenominationCI { get; set; }
        
 

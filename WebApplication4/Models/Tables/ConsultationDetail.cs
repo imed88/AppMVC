@@ -10,9 +10,12 @@ namespace WebApplication4.Models.Tables
     {
         [Key]
         public int ConsultDetailID { get; set; }
+        [Required]
         public int ConsultationID { get; set; }
         public virtual Consultation Consultations { get; set; }
+        [Required]
         public string Comment { get; set; }
+        [Required]
         public string CNAM { get; set; }
 
 
