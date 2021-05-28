@@ -29,7 +29,8 @@ namespace WebApplication4.Controllers
                 Order_count=db.Orders.Count()
 
             };
-           
+
+          
             return View(dashboard);
         }
 

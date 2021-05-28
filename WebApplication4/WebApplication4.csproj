@@ -372,6 +372,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PatientFileController.cs" />
+    <Compile Include="Controllers\SweetController.cs" />
     <Compile Include="Controllers\TablesControllers\AppointementModelsController.cs" />
     <Compile Include="Controllers\TablesControllers\ConsultationsController.cs" />
     <Compile Include="Controllers\TablesControllers\FilesDetailsController.cs" />
@@ -405,13 +406,9 @@
     <Compile Include="Migrations\202007291233576_AddTableMedecinConventionne.Designer.cs">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202103300624433_CreateDb.cs" />
-    <Compile Include="Migrations\202103300624433_CreateDb.Designer.cs">
-      <DependentUpon>202103300624433_CreateDb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105272310523_Modifs.cs" />
-    <Compile Include="Migrations\202105272310523_Modifs.Designer.cs">
-      <DependentUpon>202105272310523_Modifs.cs</DependentUpon>
+    <Compile Include="Migrations\202105280712436_CreateDb.cs" />
+    <Compile Include="Migrations\202105280712436_CreateDb.Designer.cs">
+      <DependentUpon>202105280712436_CreateDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -3116,6 +3113,10 @@
     <Content Include="Content\SideBySideTable.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\StyleStyleSheet.css" />
+    <Content Include="Content\sweetalert\bootstrap-sweetalert.png" />
+    <Content Include="Content\sweetalert\docs.css" />
+    <Content Include="Content\sweetalert\sweet-alert.css" />
+    <Content Include="Content\sweetalert\thumbs-up.jpg" />
     <Content Include="Content\Table.css" />
     <Content Include="Content\tether\tether-theme-arrows-dark.css" />
     <Content Include="Content\tether\tether-theme-arrows-dark.min.css" />
@@ -4063,6 +4064,11 @@
     <Content Include="AdminStyle\vendor\jquery\jquery.slim.min.map" />
     <Content Include="admin-lte\css\adminlte.min.css.map" />
     <Content Include="admin-lte\css\adminlte.css.map" />
+    <Content Include="Content\sweetalert\sweet-alert.less" />
+    <Content Include="Content\sweetalert\sweet-alert-combine.less" />
+    <Content Include="Content\sweetalert\sweet-alert-animations.less" />
+    <Content Include="Content\bootstrap\variables.less" />
+    <Content Include="Content\bootstrap\mixins.less" />
     <None Include="packages.config" />
     <Content Include="Scripts\highcharts.js" />
     <Content Include="Scripts\index.js.flow" />
@@ -4409,6 +4415,7 @@
     <Content Include="Views\FilesDetails\Index.cshtml" />
     <Content Include="Views\Medicaments\ProductPartial.cshtml" />
     <Content Include="Views\Dashboard\Test.cshtml" />
+    <Content Include="Views\Sweet\Alert.cshtml" />
     <None Include="Web.CustomProfile.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -4431,11 +4438,8 @@
     <EmbeddedResource Include="Migrations\202007291233576_AddTableMedecinConventionne.resx">
       <DependentUpon>202007291233576_AddTableMedecinConventionne.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103300624433_CreateDb.resx">
-      <DependentUpon>202103300624433_CreateDb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105272310523_Modifs.resx">
-      <DependentUpon>202105272310523_Modifs.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105280712436_CreateDb.resx">
+      <DependentUpon>202105280712436_CreateDb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\FicheExplorBio.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

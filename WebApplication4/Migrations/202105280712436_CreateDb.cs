@@ -28,12 +28,12 @@ namespace WebApplication4.Migrations
                 c => new
                     {
                         idDoctors = c.Int(nullable: false, identity: true),
-                        nameDoctors = c.String(),
-                        emailDoctors = c.String(),
-                        phoneDoctors = c.String(),
-                        JourTravail1 = c.String(),
+                        nameDoctors = c.String(nullable: false),
+                        emailDoctors = c.String(nullable: false),
+                        phoneDoctors = c.String(nullable: false),
+                        JourTravail1 = c.String(nullable: false),
                         TimeTravail1 = c.DateTime(nullable: false),
-                        JourTravail2 = c.String(),
+                        JourTravail2 = c.String(nullable: false),
                         TimeTravail2 = c.DateTime(nullable: false),
                         idSpecialite = c.Int(nullable: false),
                     })
@@ -70,9 +70,9 @@ namespace WebApplication4.Migrations
                 c => new
                     {
                         IdPatients = c.Int(nullable: false, identity: true),
-                        MatriculePatients = c.String(),
-                        NomPatient = c.String(),
-                        PrenomPatient = c.String(),
+                        MatriculePatients = c.String(nullable: false),
+                        NomPatient = c.String(nullable: false),
+                        PrenomPatient = c.String(nullable: false),
                         Gender = c.String(),
                         PhonePatients = c.String(),
                         DOB = c.DateTime(nullable: false),
@@ -91,7 +91,7 @@ namespace WebApplication4.Migrations
                 c => new
                     {
                         ConsultationID = c.Int(nullable: false, identity: true),
-                        diagnostic = c.String(),
+                        diagnostic = c.String(nullable: false),
                         UserID = c.String(maxLength: 128),
                         Username = c.String(),
                         idPatients = c.Int(nullable: false),
@@ -180,8 +180,8 @@ namespace WebApplication4.Migrations
                     {
                         ConsultDetailID = c.Int(nullable: false, identity: true),
                         ConsultationID = c.Int(nullable: false),
-                        Comment = c.String(),
-                        CNAM = c.String(),
+                        Comment = c.String(nullable: false),
+                        CNAM = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.ConsultDetailID)
                 .ForeignKey("dbo.Consultations", t => t.ConsultationID, cascadeDelete: true)
@@ -192,7 +192,7 @@ namespace WebApplication4.Migrations
                 c => new
                     {
                         Id = c.Guid(nullable: false),
-                        FileName = c.String(),
+                        FileName = c.String(nullable: false),
                         Extension = c.String(),
                         IdPatients = c.Int(nullable: false),
                     })
@@ -205,7 +205,7 @@ namespace WebApplication4.Migrations
                 c => new
                     {
                         IdUsine = c.Int(nullable: false, identity: true),
-                        UsineName = c.String(),
+                        UsineName = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.IdUsine);
             
@@ -231,7 +231,7 @@ namespace WebApplication4.Migrations
                     {
                         OrderID = c.Int(nullable: false, identity: true),
                         OrderDate = c.DateTime(nullable: false),
-                        MatriculePatients = c.String(),
+                        MatriculePatients = c.String(nullable: false),
                         ConsultationID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.OrderID)
@@ -243,10 +243,10 @@ namespace WebApplication4.Migrations
                 c => new
                     {
                         ProductID = c.Int(nullable: false, identity: true),
-                        Code = c.String(),
-                        NameProduct = c.String(),
-                        Categorie = c.String(),
-                        DenominationCI = c.String(),
+                        Code = c.String(nullable: false),
+                        NameProduct = c.String(nullable: false),
+                        Categorie = c.String(nullable: false),
+                        DenominationCI = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.ProductID);
             
@@ -255,7 +255,7 @@ namespace WebApplication4.Migrations
                 c => new
                     {
                         ConsultRDVID = c.Int(nullable: false, identity: true),
-                        Message = c.String(),
+                        Message = c.String(nullable: false),
                         ApplyDate = c.DateTime(nullable: false),
                         ConsultationID = c.Int(nullable: false),
                     })
