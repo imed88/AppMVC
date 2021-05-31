@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace WebApplication4.Controllers
         // GET: Dashboard
         public ActionResult Index()
         {
+           
             DashboardViewModel dashboard = new DashboardViewModel
             {
                 Doctors_count = db.MedecinConventionnes.Count(),
@@ -30,23 +32,17 @@ namespace WebApplication4.Controllers
 
             };
 
-          
+            
+            var UserID = User.Identity.GetUserId();
+            var CurrentUser = db.Users.Where(a => a.Id == UserID).SingleOrDefault();
+
+            ViewBag.Message = string.Format("Hello {0}.\\nCurrent Date and Time: {1}",CurrentUser.UserName, DateTime.Now.ToString());
+
+
             return View(dashboard);
         }
 
-        public ActionResult Test()
-        {
-            DashboardChartViewModel dashboard = new DashboardChartViewModel
-            {
-
-                Patients_countU1 = db.Patients.Where(x=>x.IdUsine==1).Count(),
-                Patients_countU2 = db.Patients.Where(x => x.IdUsine == 2).Count(),
-                Patients_countCentre = db.Patients.Where(x => x.IdUsine == 3).Count(),
-              
-            };
-            return View(dashboard);
-        }
-
+      
         
 
     }

@@ -1,6 +1,7 @@
 ﻿@model PagedList.IPagedList<WebApplication4.Models.Tables.Consultation>
 @using PagedList.Mvc;
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <section class="content-header">
     <h1>
         Infirmerie
@@ -37,6 +38,21 @@
                     @*<input id="submit" type="submit" value="Rechercher" />*@
                     <button type="submit" value="" class="btn btn-warning glyphicon glyphicon-search " />
                 </div>
+
+                if (ViewBag.Message != null)
+                {
+                    <script type="text/javascript">
+            window.onload = function () {
+                //alert("@*@ViewBag.Message*@");
+                swal({
+                    title: "Good job!",
+                    text: "@ViewBag.Message",
+                    icon: "success",
+                });
+               
+            };
+                    </script>
+                }
             }
         </div>
     </div>
@@ -71,60 +87,60 @@
 
             @foreach (var item in Model)
             {
-            <tr>
-                <td> @Html.DisplayFor(modelItem => item.ConsultationID)</td>
-                <td> @Html.DisplayFor(modelItem => item.DateCreated, new { @value = DateTime.Today, @readonly = "readonly" })</td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Username)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Patient.PrenomPatient)
-                </td>
-                <td>
-                    @*@Html.DisplayFor(modelItem => item.diagnostic)*@
-                    @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => item.diagnostic).ToString()))
-                </td>
+                <tr>
+                    <td> @Html.DisplayFor(modelItem => item.ConsultationID)</td>
+                    <td> @Html.DisplayFor(modelItem => item.DateCreated, new { @value = DateTime.Today, @readonly = "readonly" })</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Username)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Patient.PrenomPatient)
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.diagnostic)*@
+                        @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => item.diagnostic).ToString()))
+                    </td>
 
-                <td>
-                    @*@Html.DisplayFor(modelItem => item.diagnostic)*@
-                    @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => item.natureVisite).ToString()))
-                </td>
-                <td>
-                    @*@Html.DisplayFor(modelItem => item.diagnostic)*@
-                    @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => item.ConduiteTenir).ToString()))
-                </td>
-                <td>
-                    @*@Html.DisplayFor(modelItem => item.diagnostic)*@
-                    @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => item.CNAM).ToString()))
-                </td>
-                <td>
-                    @*@Html.ActionLink("Edit", "Edit", new { id = item.ConsultationID }) |
-        @Html.ActionLink("Details", "Details", new { id = item.ConsultationID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.ConsultationID })
-        @Html.ActionLink("Medicaments", "Medication", new { id = item.ConsultationID })*@
-                    <a href="@Url.Action("Edit", "Consultations",new { id = item.ConsultationID })" class="btn btn-warning">
-                        <i class="glyphicon glyphicon-wrench"></i>
-                        <span>
-                            <strong></strong>
-                        </span>
-                    </a>
-                    <a href="@Url.Action("Details", "Consultations",new { id = item.ConsultationID })" class="btn btn-info">
-                        <i class="glyphicon glyphicon-info-sign"></i>
-                        <span>
-                            <strong></strong>
-                        </span>
-                    </a>
-                    <a href="@Url.Action("Delete", "Consultations",new { id = item.ConsultationID })" class="btn btn-danger">
-                        <i class="glyphicon glyphicon-trash"></i>
-                        <span>
-                            <strong></strong>
-                        </span>
-                    </a>
-                    <a href="@Url.Action("PassFicheConsultaion", "Consultations", new {id = item.ConsultationID})" class="btn btn-linkedin">
-                        <i class="glyphicon glyphicon-print"></i>
-                    </a>
-                </td>
-            </tr>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.diagnostic)*@
+                        @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => item.natureVisite).ToString()))
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.diagnostic)*@
+                        @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => item.ConduiteTenir).ToString()))
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.diagnostic)*@
+                        @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => item.CNAM).ToString()))
+                    </td>
+                    <td>
+                        @*@Html.ActionLink("Edit", "Edit", new { id = item.ConsultationID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.ConsultationID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ConsultationID })
+                            @Html.ActionLink("Medicaments", "Medication", new { id = item.ConsultationID })*@
+                        <a href="@Url.Action("Edit", "Consultations",new { id = item.ConsultationID })" class="btn btn-warning">
+                            <i class="glyphicon glyphicon-wrench"></i>
+                            <span>
+                                <strong></strong>
+                            </span>
+                        </a>
+                        <a href="@Url.Action("Details", "Consultations",new { id = item.ConsultationID })" class="btn btn-info">
+                            <i class="glyphicon glyphicon-info-sign"></i>
+                            <span>
+                                <strong></strong>
+                            </span>
+                        </a>
+                        <a href="@Url.Action("Delete", "Consultations",new { id = item.ConsultationID })" class="btn btn-danger">
+                            <i class="glyphicon glyphicon-trash"></i>
+                            <span>
+                                <strong></strong>
+                            </span>
+                        </a>
+                        <a href="@Url.Action("PassFicheConsultaion", "Consultations", new {id = item.ConsultationID})" class="btn btn-linkedin">
+                            <i class="glyphicon glyphicon-print"></i>
+                        </a>
+                    </td>
+                </tr>
             }
 
         </table>
@@ -133,4 +149,4 @@
         Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
         sur @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
     </div>
-    </section>
+</section>

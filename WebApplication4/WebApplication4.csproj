@@ -4414,8 +4414,6 @@
     <Content Include="Views\FilesDetails\CreateFile.cshtml" />
     <Content Include="Views\FilesDetails\Index.cshtml" />
     <Content Include="Views\Medicaments\ProductPartial.cshtml" />
-    <Content Include="Views\Dashboard\Test.cshtml" />
-    <Content Include="Views\Sweet\Alert.cshtml" />
     <None Include="Web.CustomProfile.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

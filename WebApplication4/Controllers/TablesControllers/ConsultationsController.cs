@@ -71,7 +71,7 @@ namespace WebApplication4.Controllers.TablesControllers
             }
 
             // return View(usines.ToList());
-
+        
             int pageSize = 7;
             int pageNumber = (page ?? 1);
             return View(consultations.ToPagedList(pageNumber, pageSize));

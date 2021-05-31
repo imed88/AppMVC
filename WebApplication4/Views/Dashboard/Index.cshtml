@@ -1,5 +1,5 @@
 ﻿@model WebApplication4.Models.ViewModels.DashboardViewModel
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- Content Header (Page header) -->
 <link href="~/Content/StyleStyleSheet.css" rel="stylesheet" />
 <section class="content-header">
@@ -126,7 +126,23 @@
         </div>
         <!-- ./col -->
     </div>
-    <div class="row"></div>
+    <div class="row">
+        @if (ViewBag.Message != null)
+        {
+        <script type="text/javascript">
+            window.onload = function () {
+                //alert("@*@ViewBag.Message*@");
+                swal({
+                    title: "Connecté!",
+                    text: "@ViewBag.Message",
+                    icon: "success",
+                  
+                });
+
+            };
+        </script>
+        }
+    </div>
 
 </section>
 <!-- /.content -->

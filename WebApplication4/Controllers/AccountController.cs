@@ -60,6 +60,7 @@ namespace WebApplication4.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+       
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -83,7 +84,6 @@ namespace WebApplication4.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                  
                     return RedirectToAction("Index","Dashboard");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -91,6 +91,7 @@ namespace WebApplication4.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
+                 
                     ModelState.AddModelError("", "Tentative de connexion non valide.");
                     return View(model);
             }
@@ -175,7 +176,7 @@ namespace WebApplication4.Controllers
                     // await UserManager.SendEmailAsync(user.Id, "Confirmez votre compte", "Confirmez votre compte en cliquant <a href=\"" + callbackUrl + "\">ici</a>");
                     await UserManager.AddToRoleAsync(user.Id, model.UserType);
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
+                    
 
                     return RedirectToAction("Index", "Dashboard");
                 }

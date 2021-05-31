@@ -55,6 +55,8 @@ namespace WebApplication4.Controllers.TablesControllers
             {
                 db.Usines.Add(usine);
                 db.SaveChanges();
+
+                TempData["mssg"] = "Thank you";
                 return RedirectToAction("Index");
             }
 
@@ -131,6 +133,7 @@ namespace WebApplication4.Controllers.TablesControllers
         {
             if (searching != null)
             {
+               
                 page = 1;
             }
             else
@@ -163,7 +166,7 @@ namespace WebApplication4.Controllers.TablesControllers
             }
 
             // return View(usines.ToList());
-
+            ViewBag.mssg = TempData["mssg"] as string;
             int pageSize = 5;
             int pageNumber = (page ?? 1);
             return View(usines.ToPagedList(pageNumber, pageSize));
