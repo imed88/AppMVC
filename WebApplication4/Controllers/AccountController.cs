@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -248,48 +249,27 @@ namespace WebApplication4.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult PasswordForgot(EditProfileViewModel model)
+        public ActionResult PasswordForgot(ResetPasswordViewModel model)
         {
-            var UserID = User.Identity.GetUserId();
-            var CurrentUser = db.Users.Where(a => a.Id == UserID).SingleOrDefault();
-            if (!UserManager.CheckPassword(CurrentUser, model.CurrentPassword))
+            var message = "";
+            if (ModelState.IsValid)
             {
-                ViewBag.Message = "Mot de passe incorrect";
+                   var user = db.Users.Where(a => a.Email == model.Email).SingleOrDefault();
+                    if (user != null)
+                    {
+                        user.PasswordHash = Crypto.Hash(model.ConfirmPassword);
+                        db.Configuration.ValidateOnSaveEnabled = false;
+                        db.SaveChanges();
+                        message = "New password updated successfully";
+                    }
+                
             }
             else
             {
-                var newPasswordHash = UserManager.PasswordHasher.HashPassword(model.NewPassword);
-                CurrentUser.UserName = model.Username;
-                CurrentUser.Email = model.Email;
-                CurrentUser.PasswordHash = newPasswordHash;
-                db.Entry(CurrentUser).State = System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
-                ViewBag.Message = "Compte modifié";
-
+                message = "Something invalid";
             }
-            return RedirectToAction("Login", "Account");
-
-
-
-            //if (ModelState.IsValid)
-            //{
-            //    var user = await UserManager.FindByEmailAsync(model.Email);
-            //    if (user != null || await UserManager.IsEmailConfirmedAsync(user.Id))
-            //    {
-            //        // Ne révélez pas que l'utilisateur n'existe pas ou qu'il n'est pas confirmé
-            //        return View("ForgotPasswordConfirmation");
-            //    }
-
-            //    // Pour plus d'informations sur l'activation de la confirmation de compte et de la réinitialisation de mot de passe, visitez https://go.microsoft.com/fwlink/?LinkID=320771
-            //    // Envoyer un message électronique avec ce lien
-            //    string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-            //    var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-            //    await UserManager.SendEmailAsync(user.Id, "Réinitialiser le mot de passe", "Réinitialisez votre mot de passe en cliquant <a href=\"" + callbackUrl + "\">ici</a>");
-            //    return RedirectToAction("ForgotPasswordConfirmation", "Account");
-            //}
-
-            // Si nous sommes arrivés là, un échec s’est produit. Réafficher le formulaire
-           // return View(model);
+            ViewBag.Message = message;
+            return View(model);
         }
 
         //
