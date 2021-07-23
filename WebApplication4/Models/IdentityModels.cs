@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace WebApplication4.Models
     public class ApplicationUser : IdentityUser
     {
         public string UserType { get; set; }
+        public Guid ActivationCode { get; set; }
+        public string ResetPassword { get; set; }
         //public virtual ICollection<AppointementModel> Appointments { get; set; }
         //public virtual ICollection<Medicament> Medicaments { get; set; }
         public virtual ICollection<Consultation> Consultations { get; set; }
